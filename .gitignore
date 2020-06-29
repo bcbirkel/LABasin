@@ -1,3 +1,5 @@
 # ignore files with following patterns:
 
 **/*.SAC
+**/*.mseed
+**/*.seed
