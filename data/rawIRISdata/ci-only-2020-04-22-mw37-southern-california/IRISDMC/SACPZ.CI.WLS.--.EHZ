@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): CI
+* STATION    (KSTNM): WLS
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T00:10:45
+* START             : 2014-06-26T18:57:00
+* END               : 
+* DESCRIPTION       : Wilsona, Lancaster, CA, USA
+* LATITUDE          : 34.578949
+* LONGITUDE         : -117.719337
+* ELEVATION         : 890.0
+* DEPTH             : 2.5
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : L4
+* INSTGAIN          : 1.225510e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 7.026830e+07 (M/S)
+* A0                : 1.367890e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	9.611930e+07
+
+
+
+
