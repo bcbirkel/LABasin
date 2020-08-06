@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13721
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:58:33
+* START             : 2004,083,00:00:00
+* END               : 2018,128,00:00:00
+* DESCRIPTION       : Irvine - UCI Grounds
+* LATITUDE          : 33.643
+* LONGITUDE         : -117.842
+* ELEVATION         : 39
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 1.273000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.042842E+02 (M/S**2)
+* A0                : 1.113076E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -2.16864E+02    +2.53542E+02
+        -2.16864E+02    -2.53542E+02
+CONSTANT        +1.160762E+07

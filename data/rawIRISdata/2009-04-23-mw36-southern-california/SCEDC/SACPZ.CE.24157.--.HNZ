@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24157
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-06T20:21:03.016354Z
+* START       : 2008-05-05T00:00:00.000000Z
+* END         : 2015-05-07T00:00:00.000000Z
+* DESCRIPTION : Los Angeles - Baldwin Hills
+* LATITUDE    : 34.0083
+* LONGITUDE   : -118.3621
+* ELEVATION   : 146.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 362314.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.972730e+02 +4.522090e+02
+ -3.972730e+02 -4.522090e+02
+CONSTANT 7.756418e+10
+
+
+

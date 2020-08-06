@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13726
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:58:33
+* START             : 1996,038,00:00:00
+* END               : 2014,028,00:00:00
+* DESCRIPTION       : Corona - Calif. Ave.
+* LATITUDE          : 33.8556
+* LONGITUDE         : -117.5404
+* ELEVATION         : 240
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 1.274000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.669845E+03 (M/S**2)
+* A0                : 1.083911E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -2.10713E+02    +2.52979E+02
+        -2.10713E+02    -2.52979E+02
+CONSTANT        +1.809963E+08

@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14831
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,12:59:00
+* START             : 2005,244,00:00:00
+* END               : 2016,209,00:00:00
+* DESCRIPTION       : Lomita - Narbonne & Pacific Coast Hwy
+* LATITUDE          : 33.7918
+* LONGITUDE         : -118.3203
+* ELEVATION         : 32
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144151E+05 (M/S**2)
+* A0                : 3.377821E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.83588E+02    +4.36632E+02
+        -3.83588E+02    -4.36632E+02
+CONSTANT        +7.242560E+10

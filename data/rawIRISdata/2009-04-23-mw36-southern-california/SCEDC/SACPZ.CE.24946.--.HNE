@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24946
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2020-08-06T20:24:04.949938Z
+* START       : 2002-10-03T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Glendale - Canada & Verdugo
+* LATITUDE    : 34.1733
+* LONGITUDE   : -118.2285
+* ELEVATION   : 248.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.064 (M/S**2)
+* SENSITIVITY : 214751.0 (M/S**2)
+* A0          : 367628.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.001760e+02 +4.555130e+02
+ -4.001760e+02 -4.555130e+02
+CONSTANT 7.894848e+10
+
+
+

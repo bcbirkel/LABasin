@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24103
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-06T20:20:12.988680Z
+* START       : 2004-07-13T00:00:00.000000Z
+* END         : 2016-07-26T00:00:00.000000Z
+* DESCRIPTION : Tarzana - Clubhouse
+* LATITUDE    : 34.1599
+* LONGITUDE   : -118.532
+* ELEVATION   : 256.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1279 (M/S**2)
+* SENSITIVITY : 419.103 (M/S**2)
+* A0          : 114690.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.302910e+02 +2.483120e+02
+ -2.302910e+02 -2.483120e+02
+CONSTANT 4.806692e+07
+
+
+

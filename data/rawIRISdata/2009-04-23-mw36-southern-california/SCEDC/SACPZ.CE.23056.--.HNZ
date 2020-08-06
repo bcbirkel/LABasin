@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23056
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-06T20:16:04.528579Z
+* START       : 2002-01-31T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : West Covina - Cortez & Citrus
+* LATITUDE    : 34.0649
+* LONGITUDE   : -117.893
+* ELEVATION   : 144.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 351060.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.088280e+02 +4.288600e+02
+ -4.088280e+02 -4.288600e+02
+CONSTANT 7.515492e+10
+
+
+

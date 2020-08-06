@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24592
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,12:59:45
+* START             : 1990,253,00:00:00
+* END               : 2011,076,00:00:00
+* DESCRIPTION       : Los Angeles - City Terrace
+* LATITUDE          : 34.053
+* LONGITUDE         : -118.171
+* ELEVATION         : 184
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 180
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 1.276000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.045299E+02 (M/S**2)
+* A0                : 9.987483E+04
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -1.95947E+02    +2.47969E+02
+        -1.95947E+02    -2.47969E+02
+CONSTANT        +1.043991E+07

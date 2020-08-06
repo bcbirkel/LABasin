@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B093
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VCO
+* CREATED           : 2020-08-06T19:56:39
+* START             : 2007-09-21T00:00:00
+* END               : 
+* DESCRIPTION       : trippf093bcs2007, Anza, CA, USA
+* LATITUDE          : 33.593689
+* LONGITUDE         : -116.764099
+* ELEVATION         : 1229.6
+* DEPTH             : 125.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : V
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 6.666670e+00 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

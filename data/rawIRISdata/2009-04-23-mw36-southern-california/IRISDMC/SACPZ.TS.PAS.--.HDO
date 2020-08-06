@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): TS
+* STATION    (KSTNM): PAS
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HDO
+* CREATED           : 2020-08-06T19:56:52
+* START             : 2004-06-15T23:45:00
+* END               : 
+* DESCRIPTION       : Pasadena, California, USA
+* LATITUDE          : 34.148440
+* LONGITUDE         : -118.171170
+* ELEVATION         : 314.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 80.0
+* INPUT UNIT        : PA
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : CI/PAS pressure sensor
+* INSTGAIN          : 1.660000e-04 (PA)
+* COMMENT           : N/A
+* SENSITIVITY       : 6.823200e+01 (PA)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

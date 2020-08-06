@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : BBR
+* LOCATION    : 
+* CHANNEL     : HHE
+* CREATED     : 2020-08-06T20:27:16.817421Z
+* START       : 2007-02-15T18:40:00.000000Z
+* END         : 2009-12-02T19:40:00.000000Z
+* DESCRIPTION : Big Bear Solar Observatory
+* LATITUDE    : 34.2623
+* LONGITUDE   : -116.92075
+* ELEVATION   : 2069.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1499.91 (M/S)
+* SENSITIVITY : 817427000.0 (M/S)
+* A0          : 48627500.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -3.702370e-02 +3.702440e-02
+ -3.702370e-02 -3.702440e-02
+ -1.187520e+02 +4.234880e+02
+ -1.187520e+02 -4.234880e+02
+ -2.513270e+02 +0.000000e+00
+CONSTANT 3.974943e+16
+
+
+

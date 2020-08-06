@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B081
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): LCC
+* CREATED           : 2020-08-06T19:56:32
+* START             : 2006-06-15T10:00:00
+* END               : 
+* DESCRIPTION       : keenwi081bcs2006, Anza, CA, USA
+* LATITUDE          : 33.711166
+* LONGITUDE         : -116.714165
+* ELEVATION         : 1467.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : PERCENT
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+00 (PERCENT)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

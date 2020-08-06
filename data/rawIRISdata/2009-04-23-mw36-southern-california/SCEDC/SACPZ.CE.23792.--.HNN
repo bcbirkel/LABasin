@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23792
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-06T20:18:05.542261Z
+* START       : 2008-05-16T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : San Bernardino - I10/215 W Geotech Array
+* LATITUDE    : 34.0637
+* LONGITUDE   : -117.2979
+* ELEVATION   : 298.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 180.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214077.0 (M/S**2)
+* A0          : 350312.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.906380e+02 +4.446560e+02
+ -3.906380e+02 -4.446560e+02
+CONSTANT 7.499374e+10
+
+
+

@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24040
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020,219,12:59:34
+* START             : 2003,077,00:00:00
+* END               : 2015,225,00:00:00
+* DESCRIPTION       : Los Angeles - Whittier & Euclid
+* LATITUDE          : 34.0312
+* LONGITUDE         : -118.2078
+* ELEVATION         : 98
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 90
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.400000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.147507E+05 (M/S**2)
+* A0                : 3.752887E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.16575E+02    +4.49173E+02
+        -4.16575E+02    -4.49173E+02
+CONSTANT        +8.059351E+10

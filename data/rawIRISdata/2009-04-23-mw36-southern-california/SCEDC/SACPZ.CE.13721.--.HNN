@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13721
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-06T20:09:30.141218Z
+* START       : 2004-03-23T00:00:00.000000Z
+* END         : 2018-05-08T00:00:00.000000Z
+* DESCRIPTION : Irvine - UCI Grounds
+* LATITUDE    : 33.643
+* LONGITUDE   : -117.842
+* ELEVATION   : 39.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1274 (M/S**2)
+* SENSITIVITY : 104.366 (M/S**2)
+* A0          : 100274.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.026700e+02 +2.433230e+02
+ -2.026700e+02 -2.433230e+02
+CONSTANT 1.046520e+07
+
+
+

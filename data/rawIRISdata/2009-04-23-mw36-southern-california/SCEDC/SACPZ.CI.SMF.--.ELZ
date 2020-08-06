@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SMF
+* LOCATION    : 
+* CHANNEL     : ELZ
+* CREATED     : 2020-08-06T21:12:22.180061Z
+* START       : 1994-01-12T00:00:00.000000Z
+* END         : 2011-09-12T15:00:00.000000Z
+* DESCRIPTION : Santa Monica Field
+* LATITUDE    : 34.02159
+* LONGITUDE   : -118.44675
+* ELEVATION   : 19.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 7139640.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 7.142853e+06
+
+
+

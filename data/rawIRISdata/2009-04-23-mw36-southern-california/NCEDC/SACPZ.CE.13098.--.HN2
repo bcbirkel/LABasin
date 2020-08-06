@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13098
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HN2
+* CREATED           : 2020,219,12:58:28
+* START             : 2002,318,00:00:00
+* END               : 2012,012,00:00:00
+* DESCRIPTION       : Corona - Hwy 91 & McKinley
+* LATITUDE          : 33.8842
+* LONGITUDE         : -117.5141
+* ELEVATION         : 204
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 338
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144151E+05 (M/S**2)
+* A0                : 3.608024E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.96444E+02    +4.51265E+02
+        -3.96444E+02    -4.51265E+02
+CONSTANT        +7.736149E+10

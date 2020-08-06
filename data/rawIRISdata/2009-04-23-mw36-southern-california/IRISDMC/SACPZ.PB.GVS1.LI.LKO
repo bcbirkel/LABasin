@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): GVS1
+* LOCATION   (KHOLE): LI
+* CHANNEL   (KCMPNM): LKO
+* CREATED           : 2020-08-06T19:56:43
+* START             : 2005-06-01T00:00:00
+* END               : 2015-05-20T00:00:00
+* DESCRIPTION       : glendallsmcs2005, CA, USA
+* LATITUDE          : 34.178368
+* LONGITUDE         : -118.220108
+* ELEVATION         : 313.9
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : DEGREES
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : THERMISTOR
+* INSTGAIN          : 1.998690e+00 (C)
+* COMMENT           : N/A
+* SENSITIVITY       : 6.100000e-04 (DEGREES)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+
