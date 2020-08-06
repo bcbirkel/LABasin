@@ -1,0 +1,36 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : PHL
+* LOCATION    : 
+* CHANNEL     : BHN
+* CREATED     : 2020-02-21T21:42:42.118176Z
+* START       : 2010-02-10T19:00:00.000000Z
+* END         : 2020-01-21T17:30:00.000000Z
+* DESCRIPTION : Park Hill
+* LATITUDE    : 35.40773
+* LONGITUDE   : -120.54556
+* ELEVATION   : 355.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 2264.98 (M/S)
+* SENSITIVITY : 3800010000.0 (M/S)
+* A0          : 3947.98
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -1.234120e-02 +1.234150e-02
+ -1.234120e-02 -1.234150e-02
+ -3.917570e+01 +4.912340e+01
+ -3.917570e+01 -4.912340e+01
+CONSTANT 1.500236e+13
+
+
+

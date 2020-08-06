@@ -1,0 +1,45 @@
+* **********************************
+* NETWORK   (KNETWK): BK
+* STATION    (KSTNM): HELL
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020,049,08:32:48
+* START             : 2008,094,01:47:00
+* END               : 2010,110,18:10:00
+* DESCRIPTION       : Rademacher Property, Miramonte, CA, USA
+* LATITUDE          : 36.68011
+* LONGITUDE         : -119.02282
+* ELEVATION         : 1137.5
+* DEPTH             : 2.5
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 40
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 VBB Tri-Axial Seismometer
+* INSTGAIN          : 1.555600E+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 6.524659E+08 (M/S)
+* A0                : 1.052416E+19
+* **********************************
+ZEROS   7
+        +0.00000E+00    +0.00000E+00
+        -4.61814E+02    +4.29079E+02
+        -4.61814E+02    -4.29079E+02
+        -1.74568E+02    +0.00000E+00
+        -1.51488E+01    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   11
+        -1.02397E+04    +2.72502E+03
+        -1.02397E+04    -2.72502E+03
+        -9.51274E+03    +1.14700E+04
+        -9.51274E+03    -1.14700E+04
+        -4.54526E+02    +0.00000E+00
+        -3.88060E+02    +0.00000E+00
+        -1.09652E+02    -3.90311E+02
+        -1.09652E+02    +3.90311E+02
+        -1.53383E+01    +0.00000E+00
+        -3.69050E-02    +3.72210E-02
+        -3.69050E-02    -3.72210E-02
+CONSTANT        +6.866658E+27

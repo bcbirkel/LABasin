@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): BK
+* STATION    (KSTNM): TCHL
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020,052,13:28:36
+* START             : 2013,240,19:45:00
+* END               : 2014,260,19:50:00
+* DESCRIPTION       : Clark Property, Shandon, CA, USA
+* LATITUDE          : 35.688123
+* LONGITUDE         : -120.400916
+* ELEVATION         : 431
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 40
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG-3T Broad Band Seismometer
+* INSTGAIN          : 1.484000E+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 5.170732E+08 (M/S)
+* A0                : 5.715723E+08
+* **********************************
+ZEROS   3
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   5
+        -3.70080E-02    +3.70080E-02
+        -3.70080E-02    -3.70080E-02
+        -5.02655E+02    +0.00000E+00
+        -1.00531E+03    +0.00000E+00
+        -1.13097E+03    +0.00000E+00
+CONSTANT        +2.955447E+17

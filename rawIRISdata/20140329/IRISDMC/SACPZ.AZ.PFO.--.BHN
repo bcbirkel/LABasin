@@ -1,0 +1,828 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2014-11-15T00:15:00
+* END               : 
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Quanterra 330 Linear Phase Be
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.293130e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	3.614503e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2013-09-30T23:40:00
+* END               : 2014-11-15T00:15:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Quanterra 330 Linear Phase Be
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.293130e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	3.614503e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2011-11-16T23:24:25
+* END               : 2013-09-30T23:40:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Quanterra 330 Linear Phase Be
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.293130e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	3.614503e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2010-10-13T17:18:00
+* END               : 2011-11-16T23:24:25
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Quanterra 330 Linear Phase Be
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.293130e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	3.614503e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2004-02-25T18:43:30
+* END               : 2010-10-13T17:17:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2003-09-17T00:00:00
+* END               : 2004-02-25T18:42:30
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2002-06-25T18:56:00
+* END               : 2003-09-16T23:59:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2002-06-18T17:33:00
+* END               : 2002-06-25T18:55:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2001-09-07T20:50:00
+* END               : 2002-06-18T17:32:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 2000-09-20T18:12:00
+* END               : 2001-09-07T20:49:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 1999-12-20T21:04:00
+* END               : 2000-09-20T18:11:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 1999-02-09T22:06:00
+* END               : 1999-12-20T21:03:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 1995-12-08T18:19:00
+* END               : 1999-02-09T22:05:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 1995-10-20T19:42:00
+* END               : 1995-12-08T18:18:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 1995-07-08T20:00:00
+* END               : 1995-10-20T19:41:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 1994-12-09T00:00:00
+* END               : 1995-07-08T19:59:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896830e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.535600e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 1993-06-18T18:00:00
+* END               : 1993-06-23T23:59:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-02 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 8.390910e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.819378e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 1993-06-09T20:30:00
+* END               : 1993-06-18T17:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 G1/Reftek 72A-02 Datalogger
+* INSTGAIN          : 1.500400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 8.390910e+08 (M)
+* A0                : 5.743570e+12
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515000e+01	+0.000000e+00	
+	-3.186000e+02	+4.012000e+02	
+	-3.186000e+02	-4.012000e+02	
+POLES	9
+	-3.700000e-02	+3.700000e-02	
+	-3.700000e-02	-3.700000e-02	
+	-1.599000e+01	+0.000000e+00	
+	-4.171000e+02	+0.000000e+00	
+	-1.872000e+02	+0.000000e+00	
+	-1.009000e+02	+4.019000e+02	
+	-1.009000e+02	-4.019000e+02	
+	-7.454000e+03	+7.142000e+03	
+	-7.454000e+03	-7.142000e+03	
+CONSTANT	4.819378e+21
+
+
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:10
+* START             : 1993-05-23T00:00:00
+* END               : 1993-06-09T20:29:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.611698
+* LONGITUDE         : -116.459396
+* ELEVATION         : 1259.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Mark Products L28/Reftek 72A-02 Datalogger
+* INSTGAIN          : 1.903520e+01 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.258140e+07 (M)
+* A0                : 1.597040e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-1.979000e+01	+2.019000e+01	
+	-1.979000e+01	-2.019000e+01	
+CONSTANT	6.800420e+07
+
+
+
+

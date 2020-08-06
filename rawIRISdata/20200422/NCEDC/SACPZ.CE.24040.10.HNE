@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24040
+* LOCATION    : 10
+* CHANNEL     : HNE
+* CREATED     : 2020-08-01T04:11:37.224479Z
+* START       : 2015-08-13T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Los Angeles - Whittier & Euclid
+* LATITUDE    : 34.0312
+* LONGITUDE   : -118.2078
+* ELEVATION   : 98.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1278 (M/S**2)
+* SENSITIVITY : 214413.0 (M/S**2)
+* A0          : 1675310.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -9.060350e+02 +9.243410e+02
+ -9.060350e+02 -9.243410e+02
+CONSTANT 3.592082e+11
+
+
+

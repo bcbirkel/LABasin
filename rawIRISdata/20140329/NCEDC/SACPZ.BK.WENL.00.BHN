@@ -1,0 +1,45 @@
+* **********************************
+* NETWORK   (KNETWK): BK
+* STATION    (KSTNM): WENL
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020,052,13:28:38
+* START             : 2012,271,20:40:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Wente Vineyards, Livermore, CA, USA
+* LATITUDE          : 37.62211
+* LONGITUDE         : -121.75697
+* ELEVATION         : 138.9
+* DEPTH             : 30.3
+* DIP               : 90
+* AZIMUTH           : 0
+* SAMPLE RATE       : 40
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 VBB Tri-Axial Seismometer
+* INSTGAIN          : 1.543700E+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.589899E+09 (M/S)
+* A0                : 1.116605E+19
+* **********************************
+ZEROS   7
+        +0.00000E+00    +0.00000E+00
+        -4.61814E+02    +4.29079E+02
+        -4.61814E+02    -4.29079E+02
+        -1.82024E+02    +0.00000E+00
+        -1.51488E+01    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   11
+        -1.02397E+04    +2.72502E+03
+        -1.02397E+04    -2.72502E+03
+        -9.51274E+03    +1.14700E+04
+        -9.51274E+03    -1.14700E+04
+        -4.54526E+02    +0.00000E+00
+        -4.16481E+02    +0.00000E+00
+        -9.85518E+01    +3.99579E+02
+        -9.85518E+01    -3.99579E+02
+        -1.53435E+01    +0.00000E+00
+        -3.69240E-02    +3.69820E-02
+        -3.69240E-02    -3.69820E-02
+CONSTANT        +2.891893E+28

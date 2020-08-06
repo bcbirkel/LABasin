@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SBPX
+* LOCATION    : 
+* CHANNEL     : BHE
+* CREATED     : 2020-02-18T16:48:45.087431Z
+* START       : 2007-11-07T17:58:00.000000Z
+* END         : 2008-11-05T15:57:00.000000Z
+* DESCRIPTION : Strawberry Peak
+* LATITUDE    : 34.2324
+* LONGITUDE   : -117.23484
+* ELEVATION   : 1860.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1503.93 (M/S)
+* SENSITIVITY : 613588000.0 (M/S)
+* A0          : 571433000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -1.131000e+03 +0.000000e+00
+ -1.005000e+03 +0.000000e+00
+ -5.026500e+02 +0.000000e+00
+ -3.700800e-02 -3.700800e-02
+ -3.700800e-02 +3.700800e-02
+CONSTANT 3.506244e+17
+
+
+

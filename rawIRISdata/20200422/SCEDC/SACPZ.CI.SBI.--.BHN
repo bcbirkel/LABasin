@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SBI
+* LOCATION    : 
+* CHANNEL     : BHN
+* CREATED     : 2020-05-26T23:31:51.625317Z
+* START       : 2015-05-07T20:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Santa Barbara Island
+* LATITUDE    : 33.48046
+* LONGITUDE   : -119.02986
+* ELEVATION   : 41.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1982.0 (M/S)
+* SENSITIVITY : 831310000.0 (M/S)
+* A0          : 571572000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -7.401590e-02 +7.401590e-02
+ -7.401590e-02 -7.401590e-02
+ -1.005310e+03 +0.000000e+00
+ -5.026550e+02 +0.000000e+00
+ -1.130970e+03 +0.000000e+00
+CONSTANT 4.751535e+17
+
+
+

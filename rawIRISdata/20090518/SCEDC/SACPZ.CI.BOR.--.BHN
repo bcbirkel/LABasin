@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : BOR
+* LOCATION    : 
+* CHANNEL     : BHN
+* CREATED     : 2020-02-18T16:37:36.369916Z
+* START       : 2006-11-20T19:08:00.000000Z
+* END         : 2009-12-09T18:05:00.000000Z
+* DESCRIPTION : Borrego Springs
+* LATITUDE    : 33.2682
+* LONGITUDE   : -116.41716
+* ELEVATION   : 252.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1499.91 (M/S)
+* SENSITIVITY : 591627000.0 (M/S)
+* A0          : 48627500.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -3.702370e-02 +3.702440e-02
+ -3.702370e-02 -3.702440e-02
+ -1.187520e+02 +4.234880e+02
+ -1.187520e+02 -4.234880e+02
+ -2.513270e+02 +0.000000e+00
+CONSTANT 2.876934e+16
+
+
+

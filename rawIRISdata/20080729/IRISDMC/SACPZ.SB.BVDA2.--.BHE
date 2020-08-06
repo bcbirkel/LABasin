@@ -1,0 +1,74 @@
+* **********************************
+* NETWORK   (KNETWK): SB
+* STATION    (KSTNM): BVDA2
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:20
+* START             : 2004-02-25T18:43:30
+* END               : 
+* DESCRIPTION       : 
+* LATITUDE          : 33.326500
+* LONGITUDE         : -116.365501
+* ELEVATION         : 0.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : -
+* INSTGAIN          : -1.995070e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : -8.367910e+08 (M)
+* A0                : 3.147760e-02
+* **********************************
+ZEROS	4
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+9.990030e+03	+0.000000e+00	
+POLES	3
+	-1.480310e-01	+1.480300e-01	
+	-1.480310e-01	-1.480300e-01	
+	-3.141590e+02	+0.000000e+00	
+CONSTANT	-2.634017e+07
+
+
+* **********************************
+* NETWORK   (KNETWK): SB
+* STATION    (KSTNM): BVDA2
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:20
+* START             : 2003-05-13T23:53:40
+* END               : 2004-02-25T18:43:29
+* DESCRIPTION       : 
+* LATITUDE          : 33.326500
+* LONGITUDE         : -116.365501
+* ELEVATION         : 0.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : -
+* INSTGAIN          : -1.995070e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : -8.367910e+08 (M)
+* A0                : 3.147760e-02
+* **********************************
+ZEROS	4
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+9.990030e+03	+0.000000e+00	
+POLES	3
+	-1.480310e-01	+1.480300e-01	
+	-1.480310e-01	-1.480300e-01	
+	-3.141590e+02	+0.000000e+00	
+CONSTANT	-2.634017e+07
+
+
+
+

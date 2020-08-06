@@ -1,0 +1,34 @@
+* **********************************
+* NETWORK   (KNETWK): BK
+* STATION    (KSTNM): KCC
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020,049,08:32:50
+* START             : 2008,304,20:00:00
+* END               : 2009,338,18:51:00
+* DESCRIPTION       : Kaiser Creek, CA, USA
+* LATITUDE          : 37.32363
+* LONGITUDE         : -119.3187
+* ELEVATION         : 888.1
+* DEPTH             : 87.3
+* DIP               : 90
+* AZIMUTH           : 0
+* SAMPLE RATE       : 40
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-1 VBB Feedback Horizontal Seismome
+* INSTGAIN          : 2.081200E+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 8.384632E+08 (M/S)
+* A0                : 1.061648E+04
+* **********************************
+ZEROS   3
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   4
+        -1.27545E-02    +1.06497E-02
+        -1.27545E-02    -1.06497E-02
+        -3.53916E+01    +9.69229E+01
+        -3.53916E+01    -9.69229E+01
+CONSTANT        +8.901525E+12

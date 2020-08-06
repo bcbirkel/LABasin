@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24523
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-01T04:14:15.122751Z
+* START       : 2020-04-14T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Lake Hughes #4B - Camp Mendenhall Grnds
+* LATITUDE    : 34.6506
+* LONGITUDE   : -118.4774
+* ELEVATION   : 933.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0186 (M/S**2)
+* SENSITIVITY : 435.342 (M/S**2)
+* A0          : 127910000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -1.130970e+03 +1.125300e+04
+ -1.130970e+03 -1.125300e+04
+CONSTANT 5.568460e+10
+
+
+

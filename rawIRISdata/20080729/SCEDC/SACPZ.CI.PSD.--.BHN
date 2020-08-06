@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : PSD
+* LOCATION    : 
+* CHANNEL     : BHN
+* CREATED     : 2020-02-18T16:47:15.332596Z
+* START       : 2008-05-02T17:00:00.000000Z
+* END         : 2008-08-22T17:00:00.000000Z
+* DESCRIPTION : Palm Springs Desert Museum
+* LATITUDE    : 33.82393
+* LONGITUDE   : -116.55026
+* ELEVATION   : 144.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1967.9 (M/S)
+* SENSITIVITY : 1003960000.0 (M/S)
+* A0          : 571601000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -7.401590e-02 +7.401590e-02
+ -7.401590e-02 -7.401590e-02
+ -1.005310e+03 +0.000000e+00
+ -5.026550e+02 +0.000000e+00
+ -1.130970e+03 +0.000000e+00
+CONSTANT 5.738645e+17
+
+
+

@@ -1,0 +1,36 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : BAR
+* LOCATION    : 
+* CHANNEL     : BHE
+* CREATED     : 2020-02-18T16:35:32.286268Z
+* START       : 2006-04-08T03:10:38.000000Z
+* END         : 2010-01-27T17:55:00.000000Z
+* DESCRIPTION : Barrett
+* LATITUDE    : 32.68005
+* LONGITUDE   : -116.67215
+* ELEVATION   : 529.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 83.5
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 2308.15 (M/S)
+* SENSITIVITY : 962043000.0 (M/S)
+* A0          : 3935.58
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -1.234120e-02 +1.234150e-02
+ -1.234120e-02 -1.234150e-02
+ -3.917570e+01 +4.912340e+01
+ -3.917570e+01 -4.912340e+01
+CONSTANT 3.786197e+12
+
+
+

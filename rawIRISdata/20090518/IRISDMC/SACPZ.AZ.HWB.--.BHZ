@@ -1,0 +1,39 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): HWB
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:28
+* START             : 2003-04-09T16:00:00
+* END               : 2015-05-12T23:45:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.026199
+* LONGITUDE         : -116.959602
+* ELEVATION         : 478.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG40T/Quanterra 4120 Datalogger
+* INSTGAIN          : 8.092110e+02 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.354320e+08 (M)
+* A0                : 5.714210e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.486000e-01	+1.486000e-01	
+	-1.486000e-01	-1.486000e-01	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	1.916729e+17
+
+
+
+

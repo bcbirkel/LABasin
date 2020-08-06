@@ -1,0 +1,36 @@
+* **************************************************
+* NETWORK     : G
+* STATION     : SCZ
+* LOCATION    : 
+* CHANNEL     : BHE
+* CREATED     : 2020-02-18T16:52:53.736258Z
+* START       : 1991-09-27T00:00:00.000000Z
+* END         : 2013-01-01T16:00:00.000000Z
+* DESCRIPTION : Chualar Canyon - Santa Cruz - California, USA
+* LATITUDE    : 36.598
+* LONGITUDE   : -121.403
+* ELEVATION   : 261.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 20.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : STS1
+* INSTGAIN    : 2238.0 (M/S)
+* SENSITIVITY : 229171000.0 (M/S)
+* A0          : 25.0737
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -1.963890e-03 +1.964480e-03
+ -1.963890e-03 -1.964480e-03
+ -3.117500e+00 +3.909120e+00
+ -3.117500e+00 -3.909120e+00
+CONSTANT 5.746165e+09
+
+
+

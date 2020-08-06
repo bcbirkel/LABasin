@@ -1,0 +1,84 @@
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-18T16:32:18
+* START             : 2008-09-23T16:00:00
+* END               : 2008-12-04T16:39:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1H/VBB Seismometer
+* INSTGAIN          : 2.892220e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.893130e+09 (M)
+* A0                : 5.492180e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.235337e-02	+1.185882e-02	
+	-1.235337e-02	-1.185882e-02	
+	-1.509793e-01	+2.644882e-02	
+	-1.509793e-01	-2.644882e-02	
+	-1.439515e+01	+5.022891e+01	
+	-1.439515e+01	-5.022891e+01	
+CONSTANT	2.687395e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-18T16:32:18
+* START             : 2007-06-26T18:00:00
+* END               : 2008-09-23T15:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1H/VBB Seismometer
+* INSTGAIN          : 2.931120e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.958950e+09 (M)
+* A0                : 4.398650e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.249047e-02	+1.158443e-02	
+	-1.249047e-02	-1.158443e-02	
+	-1.383526e-01	+0.000000e+00	
+	-1.696403e-01	+0.000000e+00	
+	-1.245409e+01	+4.477052e+01	
+	-1.245409e+01	-4.477052e+01	
+CONSTANT	2.181269e+10
+
+
+
+

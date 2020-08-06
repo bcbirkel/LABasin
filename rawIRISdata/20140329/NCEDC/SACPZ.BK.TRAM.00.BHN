@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): BK
+* STATION    (KSTNM): TRAM
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020,052,13:28:37
+* START             : 2013,100,16:30:00
+* END               : 2014,260,19:00:00
+* DESCRIPTION       : Rambo Property, Shandon, CA, USA
+* LATITUDE          : 35.67691
+* LONGITUDE         : -120.27093
+* ELEVATION         : 642
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 0
+* SAMPLE RATE       : 40
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG-3T Broad Band Seismometer
+* INSTGAIN          : 1.490000E+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 5.200697E+08 (M/S)
+* A0                : 5.715723E+08
+* **********************************
+ZEROS   3
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   5
+        -3.70080E-02    +3.70080E-02
+        -3.70080E-02    -3.70080E-02
+        -5.02655E+02    +0.00000E+00
+        -1.00531E+03    +0.00000E+00
+        -1.13097E+03    +0.00000E+00
+CONSTANT        +2.972575E+17

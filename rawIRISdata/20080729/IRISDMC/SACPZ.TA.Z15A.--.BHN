@@ -1,0 +1,76 @@
+* **********************************
+* NETWORK   (KNETWK): TA
+* STATION    (KSTNM): Z15A
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-18T16:32:27
+* START             : 2007-07-16T20:00:00
+* END               : 2008-12-05T21:45:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.289299
+* LONGITUDE         : -112.158096
+* ELEVATION         : 318.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 359.1000061035156
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3T/Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 1.504200e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.309070e+08 (M)
+* A0                : 5.714000e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.701000e-02	+3.701000e-02	
+	-3.701000e-02	-3.701000e-02	
+	-1.131000e+03	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-5.027000e+02	+0.000000e+00	
+CONSTANT	3.605003e+17
+
+
+* **********************************
+* NETWORK   (KNETWK): TA
+* STATION    (KSTNM): Z15A
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-18T16:32:27
+* START             : 2007-04-14T00:00:00
+* END               : 2007-07-16T19:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.289299
+* LONGITUDE         : -112.158096
+* ELEVATION         : 318.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.30000001192092896
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3T/Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 1.504200e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.309070e+08 (M)
+* A0                : 5.714000e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.701000e-02	+3.701000e-02	
+	-3.701000e-02	-3.701000e-02	
+	-1.131000e+03	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-5.027000e+02	+0.000000e+00	
+CONSTANT	3.605003e+17
+
+
+
+

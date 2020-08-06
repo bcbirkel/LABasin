@@ -1,0 +1,42 @@
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): MNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:52
+* START             : 1994-12-22T00:00:00
+* END               : 2006-09-14T00:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 38.432800
+* LONGITUDE         : -118.153099
+* ELEVATION         : 1524.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : CMG3T=*MNV=RT-72A=*MNV
+* INSTGAIN          : 2.220400e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 1.161310e+09 (M)
+* A0                : 9.617080e+14
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	8
+	-4.442210e-02	+4.442210e-02	
+	-4.442210e-02	-4.442210e-02	
+	-3.034550e+02	+8.131040e+01	
+	-3.034550e+02	-8.131040e+01	
+	-2.221440e+02	+2.221440e+02	
+	-2.221440e+02	-2.221440e+02	
+	-8.131040e+01	+3.034550e+02	
+	-8.131040e+01	-3.034550e+02	
+CONSTANT	1.116841e+24
+
+
+
+

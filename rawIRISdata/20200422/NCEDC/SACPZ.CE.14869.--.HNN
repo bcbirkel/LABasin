@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14869
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-01T04:05:06.094567Z
+* START       : 2003-03-05T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Long Beach - Los Coyotes & Palo Verde
+* LATITUDE    : 33.8182
+* LONGITUDE   : -118.1082
+* ELEVATION   : 4.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 341445.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.915050e+02 +4.337880e+02
+ -3.915050e+02 -4.337880e+02
+CONSTANT 7.309655e+10
+
+
+

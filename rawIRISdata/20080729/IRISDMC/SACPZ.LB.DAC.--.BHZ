@@ -1,0 +1,38 @@
+* **********************************
+* NETWORK   (KNETWK): LB
+* STATION    (KSTNM): DAC
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:18
+* START             : 1996-12-23T00:00:00
+* END               : 
+* DESCRIPTION       : 
+* LATITUDE          : 36.277000
+* LONGITUDE         : -117.593697
+* ELEVATION         : 1813.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG-3 (vel)
+* INSTGAIN          : 8.000000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.355440e+09 (M)
+* A0                : 1.025710e+05
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	4
+	-1.481000e-01	+1.481000e-01	
+	-1.481000e-01	-1.481000e-01	
+	-2.221000e+02	+2.221000e+02	
+	-2.221000e+02	-2.221000e+02	
+CONSTANT	3.441708e+14
+
+
+
+

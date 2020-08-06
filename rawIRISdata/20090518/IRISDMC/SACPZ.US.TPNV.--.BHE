@@ -1,0 +1,333 @@
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): TPNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:34
+* START             : 2009-10-29T00:00:00
+* END               : 2011-05-02T23:04:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.948799
+* LONGITUDE         : -116.249496
+* ELEVATION         : 1600.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : STS2-I=10437=Gen=Q330SR=3722
+* INSTGAIN          : 1.500000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.291450e+08 (M)
+* A0                : 4.853940e+07
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.702370e-02	+3.702440e-02	
+	-3.702370e-02	-3.702440e-02	
+	-2.513270e+02	+0.000000e+00	
+	-1.186340e+02	+4.230650e+02	
+	-1.186340e+02	-4.230650e+02	
+CONSTANT	3.053832e+16
+
+
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): TPNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:34
+* START             : 2006-10-24T15:20:00
+* END               : 2009-10-29T00:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.948799
+* LONGITUDE         : -116.249496
+* ELEVATION         : 1600.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : STS2-I=10435=Gen=Q680N=910504
+* INSTGAIN          : 1.500000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.131850e+08 (M)
+* A0                : 4.853940e+07
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.702370e-02	+3.702440e-02	
+	-3.702370e-02	-3.702440e-02	
+	-2.513270e+02	+0.000000e+00	
+	-1.186340e+02	+4.230650e+02	
+	-1.186340e+02	-4.230650e+02	
+CONSTANT	2.976363e+16
+
+
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): TPNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:34
+* START             : 2005-10-19T17:00:00
+* END               : 2006-10-24T15:20:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.948799
+* LONGITUDE         : -116.249496
+* ELEVATION         : 1600.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : STS2-I=10435=Gen=Q680N=901214
+* INSTGAIN          : 1.500000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.131850e+08 (M)
+* A0                : 4.853940e+07
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.702370e-02	+3.702440e-02	
+	-3.702370e-02	-3.702440e-02	
+	-2.513270e+02	+0.000000e+00	
+	-1.186340e+02	+4.230650e+02	
+	-1.186340e+02	-4.230650e+02	
+CONSTANT	2.976363e+16
+
+
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): TPNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:34
+* START             : 2005-06-05T16:17:00
+* END               : 2005-10-19T17:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.948799
+* LONGITUDE         : -116.249496
+* ELEVATION         : 1600.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : CMG3H-N=H3164=Q680N=901214
+* INSTGAIN          : 1.495800e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.114680e+08 (M)
+* A0                : 1.117900e+11
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	6
+	-3.142000e-02	+0.000000e+00	
+	-1.979000e-01	+0.000000e+00	
+	-2.011000e+02	+0.000000e+00	
+	-6.974000e+02	+0.000000e+00	
+	-7.540000e+02	+0.000000e+00	
+	-1.056000e+03	+0.000000e+00	
+CONSTANT	6.835601e+19
+
+
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): TPNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:34
+* START             : 2001-08-09T00:00:00
+* END               : 2005-06-05T16:17:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.948799
+* LONGITUDE         : -116.249496
+* ELEVATION         : 1600.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : CMG3H-N=H3164=Q680N=901214
+* INSTGAIN          : 1.495800e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.114680e+08 (M)
+* A0                : 1.117900e+11
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	6
+	-3.142000e-02	+0.000000e+00	
+	-1.979000e-01	+0.000000e+00	
+	-2.011000e+02	+0.000000e+00	
+	-6.974000e+02	+0.000000e+00	
+	-7.540000e+02	+0.000000e+00	
+	-1.056000e+03	+0.000000e+00	
+CONSTANT	6.835601e+19
+
+
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): TPNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:34
+* START             : 1994-10-27T00:00:00
+* END               : 2001-08-09T00:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.948799
+* LONGITUDE         : -116.249496
+* ELEVATION         : 1600.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : CMG3H-N=H3164=Q680N=901214
+* INSTGAIN          : 1.495800e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.114680e+08 (M)
+* A0                : 1.117900e+11
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	6
+	-3.142000e-02	+0.000000e+00	
+	-1.979000e-01	+0.000000e+00	
+	-2.011000e+02	+0.000000e+00	
+	-6.974000e+02	+0.000000e+00	
+	-7.540000e+02	+0.000000e+00	
+	-1.056000e+03	+0.000000e+00	
+CONSTANT	6.835601e+19
+
+
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): TPNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:34
+* START             : 1994-05-20T00:00:00
+* END               : 1994-10-27T00:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.948799
+* LONGITUDE         : -116.249496
+* ELEVATION         : 1600.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : CMG3H-N=H3164=Q680N=901214
+* INSTGAIN          : 1.495800e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 5.986460e+08 (M)
+* A0                : 1.117900e+11
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	6
+	-3.142000e-02	+0.000000e+00	
+	-1.979000e-01	+0.000000e+00	
+	-2.011000e+02	+0.000000e+00	
+	-6.974000e+02	+0.000000e+00	
+	-7.540000e+02	+0.000000e+00	
+	-1.056000e+03	+0.000000e+00	
+CONSTANT	6.692264e+19
+
+
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): TPNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:34
+* START             : 1993-08-20T00:00:00
+* END               : 1994-05-20T00:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.948799
+* LONGITUDE         : -116.249496
+* ELEVATION         : 1600.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : CMG4=T4060=Q680N=901208
+* INSTGAIN          : 1.064000e+01 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.305020e+06 (M)
+* A0                : 7.601790e+07
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	3
+	-2.199110e+02	+3.267260e+02	
+	-2.199110e+02	-3.267260e+02	
+	-4.900880e+02	+0.000000e+00	
+CONSTANT	3.272586e+14
+
+
+* **********************************
+* NETWORK   (KNETWK): US
+* STATION    (KSTNM): TPNV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:34
+* START             : 1992-06-15T00:00:00
+* END               : 1993-08-20T00:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.948799
+* LONGITUDE         : -116.249496
+* ELEVATION         : 1600.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : CMG4=T4060=Q680N=901206
+* INSTGAIN          : 1.064000e+01 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.312390e+06 (M)
+* A0                : 7.601790e+07
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	3
+	-2.199110e+02	+3.267260e+02	
+	-2.199110e+02	-3.267260e+02	
+	-4.900880e+02	+0.000000e+00	
+CONSTANT	3.278188e+14
+
+
+
+
