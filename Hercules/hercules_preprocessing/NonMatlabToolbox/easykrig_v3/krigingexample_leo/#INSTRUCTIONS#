@@ -1,0 +1,19 @@
+load the toolbox: startkrig
+
+
+3D EXAMPLE
+
+load the data of the example 
+
+inputdata3D/velocityStLouisUL.txt
+
+compute variogram
+
+compute kriging
+
+validate (withing visualization window)
+
+export to geodataq using the script 
+
+outputvelprofilesfromkrig.m and
+smoothkrigulstlouisandoutputelevation.m
