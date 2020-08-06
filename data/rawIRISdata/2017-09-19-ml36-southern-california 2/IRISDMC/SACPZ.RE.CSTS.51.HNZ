@@ -1,0 +1,34 @@
+* **********************************
+* NETWORK   (KNETWK): RE
+* STATION    (KSTNM): CSTS
+* LOCATION   (KHOLE): 51
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020-08-06T19:33:26
+* START             : 2017-01-01T00:00:00
+* END               : 2099-01-01T00:00:00
+* DESCRIPTION       : Casitas Dam
+* LATITUDE          : 34.371017
+* LONGITUDE         : -119.335197
+* ELEVATION         : 91.4
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : FBA-23, DC to 50 Hz, 2.5V single-ended full scale
+* INSTGAIN          : 2.550000e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 8.567830e+05 (M/S**2)
+* A0                : 9.865690e+07
+* **********************************
+ZEROS	0
+POLES	3
+	-2.221000e+02	+2.221000e+02	
+	-2.221000e+02	-2.221000e+02	
+	-1.000000e+03	+0.000000e+00	
+CONSTANT	8.452755e+13
+
+
+
+

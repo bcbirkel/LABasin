@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : BCC
+* LOCATION    : 
+* CHANNEL     : HHZ
+* CREATED     : 2020-08-06T21:36:13.335686Z
+* START       : 2000-07-11T22:45:00.000000Z
+* END         : 2004-06-24T17:14:00.000000Z
+* DESCRIPTION : Bear Creek Country Club
+* LATITUDE    : 33.57508
+* LONGITUDE   : -117.26119
+* ELEVATION   : 391.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1501.93 (M/S)
+* SENSITIVITY : 771824000.0 (M/S)
+* A0          : 571433000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -1.131000e+03 +0.000000e+00
+ -1.005000e+03 +0.000000e+00
+ -5.026500e+02 +0.000000e+00
+ -3.700800e-02 -3.700800e-02
+ -3.700800e-02 +3.700800e-02
+CONSTANT 4.410457e+17
+
+
+

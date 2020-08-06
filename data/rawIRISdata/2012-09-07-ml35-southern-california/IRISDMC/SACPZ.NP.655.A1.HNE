@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 655
+* LOCATION   (KHOLE): A1
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020-08-06T22:32:41
+* START             : 2012-02-10T18:13:00
+* END               : 2012-11-14T00:00:00
+* DESCRIPTION       : Jensen Filtration Plant
+* LATITUDE          : 34.310920
+* LONGITUDE         : -118.496700
+* ELEVATION         : 363.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 1.274600e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.276847e+05 (M/S**2)
+* A0                : 2.459569e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810000e+02	+1.009000e+03	
+	-9.810000e+02	-1.009000e+03	
+	-3.290000e+03	+1.263000e+03	
+	-3.290000e+03	-1.263000e+03	
+CONSTANT	1.051920e+19
+
+
+
+

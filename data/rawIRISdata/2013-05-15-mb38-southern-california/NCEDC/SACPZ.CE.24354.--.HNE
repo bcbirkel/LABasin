@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24354
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020,219,15:27:46
+* START             : 2007,312,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Valencia - McBean & Orchard Village Rd
+* LATITUDE          : 34.3982
+* LONGITUDE         : -118.5526
+* ELEVATION         : 371
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 90
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Reftek_131-8019
+* INSTGAIN          : 2.481000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.565300E+05 (M/S**2)
+* A0                : 3.197748E+07
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -5.65487E+02    +5.62652E+03
+        -5.65487E+02    -5.62652E+03
+CONSTANT        +5.005434E+12

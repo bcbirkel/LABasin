@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): OKV
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T21:24:22
+* START             : 2000-03-30T00:00:00
+* END               : 2004-07-15T00:00:00
+* DESCRIPTION       : OKV, Ojai, CA, USA
+* LATITUDE          : 34.396969
+* LONGITUDE         : -119.298737
+* ELEVATION         : 124.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : L4
+* INSTGAIN          : 7.331350e+01 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.459990e+08 (M/S)
+* A0                : 1.367890e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	3.364996e+08
+
+
+
+

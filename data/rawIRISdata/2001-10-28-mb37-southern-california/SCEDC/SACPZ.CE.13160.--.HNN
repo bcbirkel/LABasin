@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13160
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-06T21:30:57.624304Z
+* START       : 1997-09-17T00:00:00.000000Z
+* END         : 2007-05-21T00:00:00.000000Z
+* DESCRIPTION : Newport Beach - Irvine Ave Fire Sta
+* LATITUDE    : 33.634
+* LONGITUDE   : -117.902
+* ELEVATION   : 22.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0633 (M/S**2)
+* SENSITIVITY : 212402.0 (M/S**2)
+* A0          : 341445.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.915050e+02 +4.337880e+02
+ -3.915050e+02 -4.337880e+02
+CONSTANT 7.252360e+10
+
+
+

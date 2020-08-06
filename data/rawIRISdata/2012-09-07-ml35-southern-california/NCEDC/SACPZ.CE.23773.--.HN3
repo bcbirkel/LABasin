@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23773
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HN3
+* CREATED           : 2020,219,15:34:53
+* START             : 2004,065,00:00:00
+* END               : 2017,108,00:00:00
+* DESCRIPTION       : Baldwin Park - I10 & Baldwin Park Blvd
+* LATITUDE          : 34.0667
+* LONGITUDE         : -117.9846
+* ELEVATION         : 93
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 133
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 3.877050E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.10958E+02    +4.67786E+02
+        -4.10958E+02    -4.67786E+02
+CONSTANT        +8.286962E+10

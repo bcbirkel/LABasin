@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23940
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,14:25:00
+* START             : 2001,067,00:00:00
+* END               : 2016,126,00:00:00
+* DESCRIPTION       : Pomona - Garey & Bonita
+* LATITUDE          : 34.0957
+* LONGITUDE         : -117.7452
+* ELEVATION         : 332
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144151E+05 (M/S**2)
+* A0                : 3.676278E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.00176E+02    +4.55513E+02
+        -4.00176E+02    -4.55513E+02
+CONSTANT        +7.882497E+10

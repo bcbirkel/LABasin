@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : HLN
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2020-08-06T21:48:15.611108Z
+* START       : 2001-03-21T00:00:00.000000Z
+* END         : 2008-06-17T16:23:23.000000Z
+* DESCRIPTION : Highland
+* LATITUDE    : 34.12128
+* LONGITUDE   : -117.21897
+* ELEVATION   : 358.9
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.285 (M/S)
+* SENSITIVITY : 6729980000.0 (M/S)
+* A0          : 1.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 6.729980e+09
+
+
+

@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23939
+* LOCATION   (KHOLE): 10
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:35:46
+* START             : 2015,260,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Claremont - Hwy 30 & Towne
+* LATITUDE          : 34.1211
+* LONGITUDE         : -117.7382
+* ELEVATION         : 392
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 100
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_Episensor
+* INSTGAIN          : 1.274000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137419E+05 (M/S**2)
+* A0                : 1.579136E+06
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -8.79646E+02    +8.97418E+02
+        -8.79646E+02    -8.97418E+02
+CONSTANT        +3.375275E+11

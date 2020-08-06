@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14830
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,15:34:37
+* START             : 2000,273,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Lakewood - Del Amo & Palo Verde
+* LATITUDE          : 33.8465
+* LONGITUDE         : -118.1069
+* ELEVATION         : 14
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.360000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.134085E+05 (M/S**2)
+* A0                : 3.653488E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.17065E+02    +4.37501E+02
+        -4.17065E+02    -4.37501E+02
+CONSTANT        +7.796853E+10

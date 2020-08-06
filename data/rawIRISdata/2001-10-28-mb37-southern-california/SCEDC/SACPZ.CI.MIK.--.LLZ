@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : MIK
+* LOCATION    : 
+* CHANNEL     : LLZ
+* CREATED     : 2020-08-06T21:55:45.674547Z
+* START       : 2001-05-02T00:00:00.000000Z
+* END         : 2008-06-13T16:30:25.000000Z
+* DESCRIPTION : Caltech Millikan Library
+* LATITUDE    : 34.13688
+* LONGITUDE   : -118.12601
+* ELEVATION   : 275.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0197 (M/S**2)
+* SENSITIVITY : 416453.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.024295e+19
+
+
+

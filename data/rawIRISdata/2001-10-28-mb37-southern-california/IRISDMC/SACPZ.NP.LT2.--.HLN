@@ -1,0 +1,34 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): LT2
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HLN
+* CREATED           : 2020-08-06T21:24:22
+* START             : 2001-03-13T00:00:00
+* END               : 2004-07-15T00:00:00
+* DESCRIPTION       : LT2, Palmdale, CA, USA
+* LATITUDE          : 34.521488
+* LONGITUDE         : -117.990990
+* ELEVATION         : 856.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : FBA-K2
+* INSTGAIN          : 1.250000e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.194300e+05 (M/S**2)
+* A0                : 1.625870e+08
+* **********************************
+ZEROS	0
+POLES	3
+	-2.107100e+02	+2.529800e+02	
+	-2.107100e+02	-2.529800e+02	
+	-1.500000e+03	+0.000000e+00	
+CONSTANT	6.819387e+13
+
+
+
+

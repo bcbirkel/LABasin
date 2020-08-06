@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23780
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,15:27:26
+* START             : 2002,094,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : San Bernardino - Mtn. View & Cluster
+* LATITUDE          : 34.0964
+* LONGITUDE         : -117.2872
+* ELEVATION         : 306
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 4.204485E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.21476E+02    +4.92760E+02
+        -4.21476E+02    -4.92760E+02
+CONSTANT        +8.986836E+10

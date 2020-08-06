@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5425
+* LOCATION   (KHOLE): 10
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T19:32:57
+* START             : 2016-04-28T18:00:00
+* END               : 
+* DESCRIPTION       : CA:Granada Hls;Porter Rnch FS8
+* LATITUDE          : 34.277180
+* LONGITUDE         : -118.559650
+* ELEVATION         : 362.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : L4
+* INSTGAIN          : 2.852100e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.196060e+08 (M/S)
+* A0                : 1.002850e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	1.199469e+08
+
+
+
+

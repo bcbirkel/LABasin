@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24400
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,14:25:03
+* START             : 2000,263,00:00:00
+* END               : 2019,295,00:00:00
+* DESCRIPTION       : Los Angeles - Obregon Park
+* LATITUDE          : 34.037
+* LONGITUDE         : -118.1783
+* ELEVATION         : 78
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_Episensor
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140774E+05 (M/S**2)
+* A0                : 1.610877E+06
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -8.88442E+02    +9.06393E+02
+        -8.88442E+02    -9.06393E+02
+CONSTANT        +3.448523E+11

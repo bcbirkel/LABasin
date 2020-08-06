@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14870
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-06T21:32:26.460131Z
+* START       : 1999-11-02T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Long Beach - Los Coyotes & Stearns
+* LATITUDE    : 33.7983
+* LONGITUDE   : -118.1367
+* ELEVATION   : 6.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.064 (M/S**2)
+* SENSITIVITY : 214751.0 (M/S**2)
+* A0          : 359294.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.956140e+02 +4.503210e+02
+ -3.956140e+02 -4.503210e+02
+CONSTANT 7.715875e+10
+
+
+

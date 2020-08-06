@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13922
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,15:34:21
+* START             : 2012,178,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Lake Elsinore - Graham & Poe
+* LATITUDE          : 33.6691
+* LONGITUDE         : -117.3323
+* ELEVATION         : 389
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_Episensor
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140774E+05 (M/S**2)
+* A0                : 1.876172E+06
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -9.58814E+02    +9.78186E+02
+        -9.58814E+02    -9.78186E+02
+CONSTANT        +4.016460E+11

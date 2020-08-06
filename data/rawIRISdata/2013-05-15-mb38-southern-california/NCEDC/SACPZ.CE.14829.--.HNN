@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14829
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,15:27:10
+* START             : 2009,070,00:00:00
+* END               : 2014,014,00:00:00
+* DESCRIPTION       : Bellflower - Flora Vista & Woodruff
+* LATITUDE          : 33.8829
+* LONGITUDE         : -118.1179
+* ELEVATION         : 21
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.350000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.130729E+05 (M/S**2)
+* A0                : 3.729828E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.15293E+02    +4.47791E+02
+        -4.15293E+02    -4.47791E+02
+CONSTANT        +7.947254E+10

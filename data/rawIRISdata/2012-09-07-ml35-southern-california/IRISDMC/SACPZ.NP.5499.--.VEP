@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5499
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VEP
+* CREATED           : 2020-08-06T22:32:39
+* START             : 2012-02-07T20:12:00
+* END               : 
+* DESCRIPTION       : LAX Fire Station
+* LATITUDE          : 33.940460
+* LONGITUDE         : -118.420660
+* ELEVATION         : 30.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : V
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 6.666700e+00 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : RIN
+* LOCATION    : 
+* CHANNEL     : HLZ
+* CREATED     : 2020-08-06T22:04:51.080118Z
+* START       : 1999-08-19T00:00:00.000000Z
+* END         : 2008-05-30T20:21:25.000000Z
+* DESCRIPTION : Rinaldi
+* LATITUDE    : 34.28196
+* LONGITUDE   : -118.47925
+* ELEVATION   : 304.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0202 (M/S**2)
+* SENSITIVITY : 442690.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.088827e+19
+
+
+

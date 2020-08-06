@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : CPP
+* LOCATION    : 
+* CHANNEL     : HLN
+* CREATED     : 2020-08-06T21:42:33.335073Z
+* START       : 1997-02-07T00:00:00.000000Z
+* END         : 2003-11-10T00:00:00.000000Z
+* DESCRIPTION : Cal Poly Pomona
+* LATITUDE    : 34.0602
+* LONGITUDE   : -117.809
+* ELEVATION   : 205.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.51025 (M/S**2)
+* SENSITIVITY : 219464.0 (M/S**2)
+* A0          : 168217000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 3
+ -2.143300e+02 +2.573200e+02
+ -2.143300e+02 -2.573200e+02
+ -1.500000e+03 +0.000000e+00
+CONSTANT 3.691758e+13
+
+
+

@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13921
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,15:34:20
+* START             : 2002,336,00:00:00
+* END               : 2016,216,00:00:00
+* DESCRIPTION       : Riverside - Limonite & Downey
+* LATITUDE          : 33.9753
+* LONGITUDE         : -117.4865
+* ELEVATION         : 213
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 4.003244E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.11266E+02    +4.80823E+02
+        -4.11266E+02    -4.80823E+02
+CONSTANT        +8.556695E+10

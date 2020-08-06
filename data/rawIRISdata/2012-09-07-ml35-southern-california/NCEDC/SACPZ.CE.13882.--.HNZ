@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13882
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,15:34:15
+* START             : 2003,007,00:00:00
+* END               : 2014,309,00:00:00
+* DESCRIPTION       : Olinda - Carbon Canyon Rd
+* LATITUDE          : 33.9274
+* LONGITUDE         : -117.8034
+* ELEVATION         : 226
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.240480E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.75709E+02    +4.27663E+02
+        -3.75709E+02    -4.27663E+02
+CONSTANT        +6.937206E+10
