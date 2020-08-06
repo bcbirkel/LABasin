@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5473
+* LOCATION   (KHOLE): RA
+* CHANNEL   (KCMPNM): HN2
+* CREATED           : 2020-08-06T19:25:00
+* START             : 1999-11-08T18:00:00
+* END               : 
+* DESCRIPTION       : CA:Diamond Vly Lk;Saddle Dam
+* LATITUDE          : 33.691390
+* LONGITUDE         : -117.051640
+* ELEVATION         : 545.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 325.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : Episensor
+* INSTGAIN          : 1.280000e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.294970e+05 (M/S**2)
+* A0                : 2.459570e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810020e+02	+1.009000e+03	
+	-9.810020e+02	-1.009000e+03	
+	-3.289990e+03	+1.263020e+03	
+	-3.289990e+03	-1.263020e+03	
+CONSTANT	1.056378e+19
+
+
+
+

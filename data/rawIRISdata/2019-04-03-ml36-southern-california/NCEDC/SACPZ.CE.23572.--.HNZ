@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23572
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:19:25
+* START             : 1991,141,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Mt. Baldy - Elementary School
+* LATITUDE          : 34.2329
+* LONGITUDE         : -117.661
+* ELEVATION         : 1254
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 1.283000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.051034E+02 (M/S**2)
+* A0                : 1.134148E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -2.22274E+02    +2.53010E+02
+        -2.22274E+02    -2.53010E+02
+CONSTANT        +1.192028E+07

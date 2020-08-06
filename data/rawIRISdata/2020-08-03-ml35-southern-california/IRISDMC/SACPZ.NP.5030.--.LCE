@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5030
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): LCE
+* CREATED           : 2020-08-06T18:26:21
+* START             : 2015-11-16T21:30:00
+* END               : 
+* DESCRIPTION       : 5030, Palmdale, CA (LT2)
+* LATITUDE          : 34.521490
+* LONGITUDE         : -117.990990
+* ELEVATION         : 856.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : S
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+06 (S)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

@@ -1,0 +1,44 @@
+* **********************************
+* NETWORK   (KNETWK): YN
+* STATION    (KSTNM): GVAR1
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HHZ
+* CREATED           : 2020-08-06T19:16:18
+* START             : 2016-01-17T18:00:00
+* END               : 2022-12-31T23:59:59
+* DESCRIPTION       : GVAR1, Anza, CA, USA
+* LATITUDE          : 33.666300
+* LONGITUDE         : -116.706600
+* ELEVATION         : 1328.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Nanometrics Trillium 120 Sec Response/Quanterra 33
+* INSTGAIN          : 1.197340e+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 5.022010e+08 (M/S)
+* A0                : 3.089410e+05
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-9.000000e+01	+0.000000e+00	
+	-1.607000e+02	+0.000000e+00	
+	-3.108000e+03	+0.000000e+00	
+POLES	7
+	-3.852000e-02	+3.658000e-02	
+	-3.852000e-02	-3.658000e-02	
+	-1.780000e+02	+0.000000e+00	
+	-1.350000e+02	+1.600000e+02	
+	-1.350000e+02	-1.600000e+02	
+	-6.710000e+02	+1.154000e+03	
+	-6.710000e+02	-1.154000e+03	
+CONSTANT	1.551505e+14
+
+
+
+

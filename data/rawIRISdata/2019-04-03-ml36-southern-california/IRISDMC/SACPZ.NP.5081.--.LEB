@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5081
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): LEB
+* CREATED           : 2020-08-06T19:14:32
+* START             : 2016-11-02T17:00:00
+* END               : 
+* DESCRIPTION       : 5081, Woodland Hills, CA (TCF)
+* LATITUDE          : 34.083770
+* LONGITUDE         : -118.599000
+* ELEVATION         : 203.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : NONE SPECIFIED
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+00 (NONE SPECIFIED)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

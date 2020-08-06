@@ -1,0 +1,168 @@
+# ----------------------------------------------------------
+# Content: Solver schedule information
+# pe_id d/a s_count c_count
+sch_info: 0 a 3 0
+sch_info: 0 d 0 0
+sch_info: 6 a 5 3
+sch_info: 6 d 1 0
+sch_info: 14 a 1 4
+sch_info: 14 d 1 1
+sch_info: 12 a 2 4
+sch_info: 12 d 0 1
+sch_info: 10 a 4 5
+sch_info: 10 d 3 3
+sch_info: 4 a 2 3
+sch_info: 4 d 0 0
+sch_info: 2 a 6 2
+sch_info: 2 d 0 1
+sch_info: 11 a 1 4
+sch_info: 11 d 1 2
+sch_info: 13 a 1 4
+sch_info: 13 d 0 0
+sch_info: 8 a 3 2
+sch_info: 8 d 2 0
+sch_info: 5 a 5 3
+sch_info: 5 d 2 0
+sch_info: 7 a 4 3
+sch_info: 7 d 0 1
+sch_info: 9 a 3 6
+sch_info: 9 d 2 2
+sch_info: 15 a 0 3
+sch_info: 15 d 0 2
+sch_info: 3 a 6 3
+sch_info: 3 d 0 0
+sch_info: 1 a 4 1
+sch_info: 1 d 1 0
+
+
+# ----------------------------------------------------------
+# Content: Solver schedule detail
+# pe_id d/a c/s rpe nodecount outsize insize msgsize
+msg_info: 5 a c 14 49 24 24 1176
+msg_info: 5 a c 14 49 24 24 1176
+msg_info: 5 a c 14 49 24 24 1176
+msg_info: 5 a c 14 49 24 24 1176
+msg_info: 5 a c 14 49 24 24 1176
+msg_info: 5 a s 3 41 24 24 984
+msg_info: 5 a s 3 41 24 24 984
+msg_info: 5 a s 3 41 24 24 984
+msg_info: 5 d c 10 5 24 24 120
+msg_info: 5 d c 10 5 24 24 120
+msg_info: 0 a c 3 45 24 24 1080
+msg_info: 0 a c 3 45 24 24 1080
+msg_info: 0 a c 3 45 24 24 1080
+msg_info: 13 a c 14 158 24 24 3792
+msg_info: 13 a s 5 72 24 24 1728
+msg_info: 13 a s 5 72 24 24 1728
+msg_info: 13 a s 5 72 24 24 1728
+msg_info: 13 a s 5 72 24 24 1728
+msg_info: 11 a c 12 219 24 24 5256
+msg_info: 11 a s 7 5 24 24 120
+msg_info: 11 a s 7 5 24 24 120
+msg_info: 11 a s 7 5 24 24 120
+msg_info: 11 a s 7 5 24 24 120
+msg_info: 11 d c 12 15 24 24 360
+msg_info: 11 d s 9 1 24 24 24
+msg_info: 11 d s 9 1 24 24 24
+msg_info: 1 a c 6 18 24 24 432
+msg_info: 1 a c 6 18 24 24 432
+msg_info: 1 a c 6 18 24 24 432
+msg_info: 1 a c 6 18 24 24 432
+msg_info: 1 a s 0 280 24 24 6720
+msg_info: 1 d c 2 6 24 24 144
+msg_info: 8 a c 11 57 24 24 1368
+msg_info: 8 a c 11 57 24 24 1368
+msg_info: 8 a c 11 57 24 24 1368
+msg_info: 8 a s 6 29 24 24 696
+msg_info: 8 a s 6 29 24 24 696
+msg_info: 8 d c 10 3 24 24 72
+msg_info: 8 d c 10 3 24 24 72
+msg_info: 12 a c 15 153 24 24 3672
+msg_info: 12 a c 15 153 24 24 3672
+msg_info: 12 a s 3 17 24 24 408
+msg_info: 12 a s 3 17 24 24 408
+msg_info: 12 a s 3 17 24 24 408
+msg_info: 12 a s 3 17 24 24 408
+msg_info: 12 d s 11 15 24 24 360
+msg_info: 6 a c 14 45 24 24 1080
+msg_info: 6 a c 14 45 24 24 1080
+msg_info: 6 a c 14 45 24 24 1080
+msg_info: 6 a c 14 45 24 24 1080
+msg_info: 6 a c 14 45 24 24 1080
+msg_info: 6 a s 2 86 24 24 2064
+msg_info: 6 a s 2 86 24 24 2064
+msg_info: 6 a s 2 86 24 24 2064
+msg_info: 6 d c 7 19 24 24 456
+msg_info: 7 a c 11 5 24 24 120
+msg_info: 7 a c 11 5 24 24 120
+msg_info: 7 a c 11 5 24 24 120
+msg_info: 7 a c 11 5 24 24 120
+msg_info: 7 a s 3 20 24 24 480
+msg_info: 7 a s 3 20 24 24 480
+msg_info: 7 a s 3 20 24 24 480
+msg_info: 7 d s 6 19 24 24 456
+msg_info: 3 a c 13 20 24 24 480
+msg_info: 3 a c 13 20 24 24 480
+msg_info: 3 a c 13 20 24 24 480
+msg_info: 3 a c 13 20 24 24 480
+msg_info: 3 a c 13 20 24 24 480
+msg_info: 3 a c 13 20 24 24 480
+msg_info: 3 a s 1 112 24 24 2688
+msg_info: 3 a s 1 112 24 24 2688
+msg_info: 3 a s 1 112 24 24 2688
+msg_info: 15 a s 12 153 24 24 3672
+msg_info: 15 a s 12 153 24 24 3672
+msg_info: 15 a s 12 153 24 24 3672
+msg_info: 15 d s 10 1 24 24 24
+msg_info: 15 d s 10 1 24 24 24
+msg_info: 10 a c 15 48 24 24 1152
+msg_info: 10 a c 15 48 24 24 1152
+msg_info: 10 a c 15 48 24 24 1152
+msg_info: 10 a c 15 48 24 24 1152
+msg_info: 10 a s 8 26 24 24 624
+msg_info: 10 a s 8 26 24 24 624
+msg_info: 10 a s 8 26 24 24 624
+msg_info: 10 a s 8 26 24 24 624
+msg_info: 10 a s 8 26 24 24 624
+msg_info: 10 d c 15 1 24 24 24
+msg_info: 10 d c 15 1 24 24 24
+msg_info: 10 d c 15 1 24 24 24
+msg_info: 10 d s 8 3 24 24 72
+msg_info: 10 d s 8 3 24 24 72
+msg_info: 10 d s 8 3 24 24 72
+msg_info: 4 a c 13 129 24 24 3096
+msg_info: 4 a c 13 129 24 24 3096
+msg_info: 4 a s 2 80 24 24 1920
+msg_info: 4 a s 2 80 24 24 1920
+msg_info: 4 a s 2 80 24 24 1920
+msg_info: 9 a c 12 5 24 24 120
+msg_info: 9 a c 12 5 24 24 120
+msg_info: 9 a c 12 5 24 24 120
+msg_info: 9 a s 3 5 24 24 120
+msg_info: 9 a s 3 5 24 24 120
+msg_info: 9 a s 3 5 24 24 120
+msg_info: 9 a s 3 5 24 24 120
+msg_info: 9 a s 3 5 24 24 120
+msg_info: 9 a s 3 5 24 24 120
+msg_info: 9 d c 11 1 24 24 24
+msg_info: 9 d c 11 1 24 24 24
+msg_info: 9 d s 5 4 24 24 96
+msg_info: 9 d s 5 4 24 24 96
+msg_info: 2 a c 9 5 24 24 120
+msg_info: 2 a c 9 5 24 24 120
+msg_info: 2 a c 9 5 24 24 120
+msg_info: 2 a c 9 5 24 24 120
+msg_info: 2 a c 9 5 24 24 120
+msg_info: 2 a c 9 5 24 24 120
+msg_info: 2 a s 0 9 24 24 216
+msg_info: 2 a s 0 9 24 24 216
+msg_info: 2 d s 1 6 24 24 144
+msg_info: 14 a c 15 147 24 24 3528
+msg_info: 14 a s 10 95 24 24 2280
+msg_info: 14 a s 10 95 24 24 2280
+msg_info: 14 a s 10 95 24 24 2280
+msg_info: 14 a s 10 95 24 24 2280
+msg_info: 14 d c 15 8 24 24 192
+msg_info: 14 d s 10 9 24 24 216
+# ----------------------------------------------------------
+

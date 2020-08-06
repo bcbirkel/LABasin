@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): RE
+* STATION    (KSTNM): LARO
+* LOCATION   (KHOLE): 30
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020-08-06T19:06:33
+* START             : 2017-01-01T00:00:00
+* END               : 2099-01-01T00:00:00
+* DESCRIPTION       : Lauro Dam
+* LATITUDE          : 34.454082
+* LONGITUDE         : -119.727493
+* ELEVATION         : 172.8
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Episensor, DC to >200 Hz,  2.5V single-ended full
+* INSTGAIN          : 2.549000e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 8.564640e+05 (M/S**2)
+* A0                : 2.459570e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810000e+02	+1.009000e+03	
+	-9.810000e+02	-1.009000e+03	
+	-3.290000e+03	+1.263000e+03	
+	-3.290000e+03	-1.263000e+03	
+CONSTANT	2.106533e+19
+
+
+
+

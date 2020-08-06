@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): RDM
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): OCF
+* CREATED           : 2020-08-06T18:26:07
+* START             : 2017-06-09T20:54:00
+* END               : 
+* DESCRIPTION       : Red Mountain, Riverside Co, CA, USA
+* LATITUDE          : 33.630001
+* LONGITUDE         : -116.847801
+* ELEVATION         : 1365.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.0
+* INPUT UNIT        : 
+* OUTPUT UNIT       : 
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 0.000000e+00 ()
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

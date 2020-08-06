@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): KNW
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VM4
+* CREATED           : 2020-08-06T19:14:08
+* START             : 2018-01-23T21:00:00
+* END               : 
+* DESCRIPTION       : Keenwild Fire Station, Mountain Center, CA, USA
+* LATITUDE          : 33.714100
+* LONGITUDE         : -116.711899
+* ELEVATION         : 1507.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : V
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+01 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

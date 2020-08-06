@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24907
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,11:42:41
+* START             : 1999,229,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Sylmar - Pacoima Dam Downstream
+* LATITUDE          : 34.3347
+* LONGITUDE         : -118.3985
+* ELEVATION         : 544
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 3.421784E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.86077E+02    +4.39464E+02
+        -3.86077E+02    -4.39464E+02
+CONSTANT        +7.313860E+10

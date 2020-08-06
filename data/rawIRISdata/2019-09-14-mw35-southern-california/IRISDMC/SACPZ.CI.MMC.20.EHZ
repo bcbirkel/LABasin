@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): CI
+* STATION    (KSTNM): MMC
+* LOCATION   (KHOLE): 20
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T19:24:09
+* START             : 2015-10-29T20:00:00
+* END               : 
+* DESCRIPTION       : Pacific Marine Mammal Center
+* LATITUDE          : 33.573040
+* LONGITUDE         : -117.762581
+* ELEVATION         : 46.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : L-4C VERTICAL,SERCEL:L-4C VERTICAL:2139
+* INSTGAIN          : 1.664000e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 6.978160e+07 (M/S)
+* A0                : 1.002850e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	6.998048e+07
+
+
+
+

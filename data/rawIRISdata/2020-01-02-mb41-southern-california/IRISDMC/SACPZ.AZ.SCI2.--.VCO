@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): SCI2
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VCO
+* CREATED           : 2020-08-06T19:05:23
+* START             : 2019-11-29T22:00:00
+* END               : 
+* DESCRIPTION       : San Clemente Island, CA, USA
+* LATITUDE          : 32.915000
+* LONGITUDE         : -118.487900
+* ELEVATION         : 486.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : V
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 6.666670e+00 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

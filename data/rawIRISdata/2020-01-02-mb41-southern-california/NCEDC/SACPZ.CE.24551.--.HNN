@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24551
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,12:09:28
+* START             : 2013,165,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Sylmar - I5/14 Interchange North Grnds
+* LATITUDE          : 34.3382
+* LONGITUDE         : -118.5078
+* ELEVATION         : 484
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137419E+05 (M/S**2)
+* A0                : 3.737465E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.91267E+02    +4.69749E+02
+        -3.91267E+02    -4.69749E+02
+CONSTANT        +7.988528E+10

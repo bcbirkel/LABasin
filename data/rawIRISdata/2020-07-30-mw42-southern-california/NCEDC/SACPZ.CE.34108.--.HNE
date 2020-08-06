@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 34108
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020,219,11:42:59
+* START             : 2019,252,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Wheeler Ridge - Tejon Hills
+* LATITUDE          : 35.0277
+* LONGITUDE         : -118.7924
+* ELEVATION         : 290
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 90
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_Episensor
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140774E+05 (M/S**2)
+* A0                : 1.675305E+06
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -9.06035E+02    +9.24341E+02
+        -9.06035E+02    -9.24341E+02
+CONSTANT        +3.586451E+11

@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): YN
+* STATION    (KSTNM): RA07
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): LCQ
+* CREATED           : 2020-08-06T18:28:07
+* START             : 2020-06-07T17:50:00
+* END               : 2022-12-31T23:59:59
+* DESCRIPTION       : RA07, Anza, CA, USA
+* LATITUDE          : 33.607500
+* LONGITUDE         : -116.699300
+* ELEVATION         : 1479.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : PERCENT
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+00 (PERCENT)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

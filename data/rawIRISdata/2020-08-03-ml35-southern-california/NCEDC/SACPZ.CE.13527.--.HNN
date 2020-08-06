@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13527
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,11:31:17
+* START             : 2011,341,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : San Onofre - I5 Truck Weigh Station
+* LATITUDE          : 33.3539
+* LONGITUDE         : -117.5267
+* ELEVATION         : 55
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Reftek_131-8019
+* INSTGAIN          : 2.536000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.601010E+05 (M/S**2)
+* A0                : 3.197748E+07
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -5.65487E+02    +5.62652E+03
+        -5.65487E+02    -5.62652E+03
+CONSTANT        +5.119627E+12

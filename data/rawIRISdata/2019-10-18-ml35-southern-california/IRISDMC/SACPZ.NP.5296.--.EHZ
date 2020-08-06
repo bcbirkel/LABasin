@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5296
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T18:56:51
+* START             : 2017-08-17T18:00:00
+* END               : 
+* DESCRIPTION       : CA:Pasadena;USGS/NSMP Office
+* LATITUDE          : 34.136650
+* LONGITUDE         : -118.128470
+* ELEVATION         : 232.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : L4
+* INSTGAIN          : 1.000000e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.193970e+07 (M/S)
+* A0                : 1.002850e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	4.205923e+07
+
+
+
+

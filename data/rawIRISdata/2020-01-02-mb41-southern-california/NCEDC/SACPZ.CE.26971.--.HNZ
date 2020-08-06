@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 26971
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:10:06
+* START             : 2009,173,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Lompoc - Hwy 1 & El Jaro Creek
+* LATITUDE          : 34.5189
+* LONGITUDE         : -120.3289
+* ELEVATION         : 183
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.254813E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.82244E+02    +4.23527E+02
+        -3.82244E+02    -4.23527E+02
+CONSTANT        +6.967890E+10

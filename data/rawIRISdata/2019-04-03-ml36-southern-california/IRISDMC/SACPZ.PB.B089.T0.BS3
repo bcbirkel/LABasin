@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B089
+* LOCATION   (KHOLE): T0
+* CHANNEL   (KCMPNM): BS3
+* CREATED           : 2020-08-06T19:15:52
+* START             : 2006-08-28T00:00:00
+* END               : 
+* DESCRIPTION       : pathfi089bcs2006, Anza, CA, USA
+* LATITUDE          : 33.599892
+* LONGITUDE         : -116.596123
+* ELEVATION         : 1362.0
+* DEPTH             : 132.8
+* DIP               : 90.0
+* AZIMUTH           : 171.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M/M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : GLADWIN TENSOR STRAINMETER PBO 05-019
+* INSTGAIN          : 5.000000e-11 (M/M)
+* COMMENT           : N/A
+* SENSITIVITY       : 5.000000e-11 (M/M)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

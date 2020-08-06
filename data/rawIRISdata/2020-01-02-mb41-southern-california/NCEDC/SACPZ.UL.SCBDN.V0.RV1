@@ -1,0 +1,19 @@
+* **********************************
+* NETWORK   (KNETWK): UL
+* STATION    (KSTNM): SCBDN
+* LOCATION   (KHOLE): V0
+* CHANNEL   (KCMPNM): RV1
+* CREATED           : 2020,219,12:10:23
+* START             : 1996,344,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : BIG DALTON
+* LATITUDE          : 34.17
+* LONGITUDE         : -117.81
+* ELEVATION         : 0
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 0
+* SAMPLE RATE       : .00166666666666667
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Volumetric Response

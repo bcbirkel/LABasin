@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5426
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020-08-06T18:26:57
+* START             : 2002-05-12T18:00:00
+* END               : 
+* DESCRIPTION       : CA:Granada Hls;Knollwood FS 18
+* LATITUDE          : 34.289720
+* LONGITUDE         : -118.501080
+* ELEVATION         : 352.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : Episensor
+* INSTGAIN          : 1.270000e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.261410e+05 (M/S**2)
+* A0                : 2.459570e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810020e+02	+1.009000e+03	
+	-9.810020e+02	-1.009000e+03	
+	-3.289990e+03	+1.263020e+03	
+	-3.289990e+03	-1.263020e+03	
+CONSTANT	1.048124e+19
+
+
+
+

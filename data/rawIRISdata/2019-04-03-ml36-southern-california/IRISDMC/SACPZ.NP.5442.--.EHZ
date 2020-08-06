@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5442
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T19:15:09
+* START             : 2013-05-14T16:00:00
+* END               : 
+* DESCRIPTION       : Oak Glen, Christian Center (OKGL)
+* LATITUDE          : 34.049049
+* LONGITUDE         : -116.940323
+* ELEVATION         : 1533.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 1.002396e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.203654e+07 (M/S)
+* A0                : 1.000449e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026498e+00	+3.769873e+00	
+	-5.026498e+00	-3.769873e+00	
+CONSTANT	4.205543e+07
+
+
+
+

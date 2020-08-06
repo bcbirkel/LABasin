@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): YN
+* STATION    (KSTNM): RA04
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VEC
+* CREATED           : 2020-08-06T19:16:26
+* START             : 2017-06-07T17:11:15
+* END               : 2022-12-31T23:59:59
+* DESCRIPTION       : RA04, Anza, CA, USA
+* LATITUDE          : 33.607100
+* LONGITUDE         : -116.699800
+* ELEVATION         : 1473.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : A
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+03 (A)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

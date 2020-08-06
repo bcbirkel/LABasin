@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B082
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): LKD
+* CREATED           : 2020-08-06T19:15:47
+* START             : 2008-07-27T00:00:00
+* END               : 
+* DESCRIPTION       : pathfi082bcs2006, Anza, CA, USA
+* LATITUDE          : 33.598183
+* LONGITUDE         : -116.596008
+* ELEVATION         : 1374.8
+* DEPTH             : 22.6
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : DEGREES
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : PAROSCIENTIFIC DIGIQUARTZ DEPTH SENSOR 8WD0260-I
+* INSTGAIN          : 1.000000e+00 (DEGREES)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+00 (DEGREES)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

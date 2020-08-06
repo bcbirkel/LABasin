@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13314
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,11:40:59
+* START             : 2017,025,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Newport Beach - Coast Hwy & Hoag Dr
+* LATITUDE          : 33.622
+* LONGITUDE         : -117.9335
+* ELEVATION         : 2
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140774E+05 (M/S**2)
+* A0                : 3.555390E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.99504E+02    +4.42651E+02
+        -3.99504E+02    -4.42651E+02
+CONSTANT        +7.611288E+10
