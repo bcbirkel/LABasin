@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SCY
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2020-08-24T22:57:11.517897Z
+* START       : 1970-12-29T00:00:00.000000Z
+* END         : 1998-01-01T00:00:00.000000Z
+* DESCRIPTION : Stone Canyon Reservoir
+* LATITUDE    : 34.10647
+* LONGITUDE   : -118.45533
+* ELEVATION   : 250.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 67514500.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 6.754488e+07
+
+
+

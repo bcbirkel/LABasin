@@ -1,0 +1,19 @@
+* **********************************
+* NETWORK   (KNETWK): UL
+* STATION    (KSTNM): SCBBT
+* LOCATION   (KHOLE): V0
+* CHANNEL   (KCMPNM): RV3
+* CREATED           : 2020,237,15:53:18
+* START             : 1984,059,00:00:00
+* END               : 1992,157,17:10:00
+* DESCRIPTION       : BLACK BUTTE
+* LATITUDE          : 34.56
+* LONGITUDE         : -117.72
+* ELEVATION         : 0
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 0
+* SAMPLE RATE       : .00166666666666667
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Volumetric Response Amplified x50
