@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" schemaVersion="1.1">
+  <Source>unknown</Source>
+  <Module>ObsPy 1.2.2</Module>
+  <ModuleURI>https://www.obspy.org</ModuleURI>
+  <Created>2020-08-29T00:15:28.982351Z</Created>
+  <Network code="ZZ">
+    <Description>source</Description>
+    <Station code="24703">
+      <Description>{"standard": {"instrument_period": 0.02, "instrument_damping": 0.7, "process_time": "2001-09-14T00:00:00Z", "process_level": "corrected physical units", "structure_type": "827-foot Depth", "corner_frequency": NaN, "source_file": "CHAN010.V2", "source_format": "dmg"}, "format_specific": {"fractional_unit": 0.0, "sensor_sensitivity": 1250.0, "time_sd": 0.0, "scaling_factor": 980.665, "low_filter_corner": 0.3, "high_filter_corner": 40.0}}</Description>
+      <Latitude unit="DEGREES">34.036</Latitude>
+      <Longitude unit="DEGREES">-118.378</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Los Angeles - La Cienega Geotech Array</Name>
+      </Site>
+      <CreationDate>1970-01-01T00:00:00.000000Z</CreationDate>
+      <TotalNumberChannels>3</TotalNumberChannels>
+      <Channel code="HN2" locationCode="--">
+        <Comment>
+          <Value></Value>
+        </Comment>
+        <Latitude unit="DEGREES">34.036</Latitude>
+        <Longitude unit="DEGREES">-118.378</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <Azimuth unit="DEGREES">90.0</Azimuth>
+        <SampleRate>100.0</SampleRate>
+        <CalibrationUnits>
+          <Name>acc</Name>
+        </CalibrationUnits>
+        <Sensor>
+          <Type>SSA-16</Type>
+          <SerialNumber>127</SerialNumber>
+        </Sensor>
+        <Response>
+          <InstrumentSensitivity>
+            <Value>1.0</Value>
+            <Frequency>50.0</Frequency>
+            <InputUnits>
+              <Name>acc</Name>
+              <Description>None</Description>
+            </InputUnits>
+            <OutputUnits>
+              <Name>COUNTS</Name>
+              <Description>None</Description>
+            </OutputUnits>
+          </InstrumentSensitivity>
+        </Response>
+      </Channel>
+      <Channel code="HNZ" locationCode="--">
+        <Comment>
+          <Value></Value>
+        </Comment>
+        <Latitude unit="DEGREES">34.036</Latitude>
+        <Longitude unit="DEGREES">-118.378</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <Azimuth unit="DEGREES">0.0</Azimuth>
+        <SampleRate>100.0</SampleRate>
+        <CalibrationUnits>
+          <Name>acc</Name>
+        </CalibrationUnits>
+        <Sensor>
+          <Type>SSA-16</Type>
+          <SerialNumber>127</SerialNumber>
+        </Sensor>
+        <Response>
+          <InstrumentSensitivity>
+            <Value>1.0</Value>
+            <Frequency>50.0</Frequency>
+            <InputUnits>
+              <Name>acc</Name>
+              <Description>None</Description>
+            </InputUnits>
+            <OutputUnits>
+              <Name>COUNTS</Name>
+              <Description>None</Description>
+            </OutputUnits>
+          </InstrumentSensitivity>
+        </Response>
+      </Channel>
+      <Channel code="HN1" locationCode="--">
+        <Comment>
+          <Value></Value>
+        </Comment>
+        <Latitude unit="DEGREES">34.036</Latitude>
+        <Longitude unit="DEGREES">-118.378</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <Azimuth unit="DEGREES">180.0</Azimuth>
+        <SampleRate>100.0</SampleRate>
+        <CalibrationUnits>
+          <Name>acc</Name>
+        </CalibrationUnits>
+        <Sensor>
+          <Type>SSA-16</Type>
+          <SerialNumber>127</SerialNumber>
+        </Sensor>
+        <Response>
+          <InstrumentSensitivity>
+            <Value>1.0</Value>
+            <Frequency>50.0</Frequency>
+            <InputUnits>
+              <Name>acc</Name>
+              <Description>None</Description>
+            </InputUnits>
+            <OutputUnits>
+              <Name>COUNTS</Name>
+              <Description>None</Description>
+            </OutputUnits>
+          </InstrumentSensitivity>
+        </Response>
+      </Channel>
+    </Station>
+  </Network>
+</FDSNStationXML>
