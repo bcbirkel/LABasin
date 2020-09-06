@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23292
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2020-08-26T01:31:30.901074Z
+* START       : 2005-07-21T00:00:00.000000Z
+* END         : 2016-01-08T00:00:00.000000Z
+* DESCRIPTION : Phelan - Centola & Phelan Rds
+* LATITUDE    : 34.4257
+* LONGITUDE   : -117.5444
+* ELEVATION   : 1220.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 376059.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.170020e+02 +4.496340e+02
+ -4.170020e+02 -4.496340e+02
+CONSTANT 8.050671e+10
+
+
+

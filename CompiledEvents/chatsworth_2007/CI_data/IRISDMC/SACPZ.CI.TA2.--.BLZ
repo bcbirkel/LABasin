@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): CI
+* STATION    (KSTNM): TA2
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BLZ
+* CREATED           : 2020-08-26T01:13:13
+* START             : 2006-09-18T17:20:00
+* END               : 2008-06-03T18:53:00
+* DESCRIPTION       : Table Mountain
+* LATITUDE          : 34.382030
+* LONGITUDE         : -117.678223
+* ELEVATION         : 2249.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : FBA ES-T
+* INSTGAIN          : 1.021500e+00 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.166770e+05 (M/S**2)
+* A0                : 2.459570e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810000e+02	+1.009000e+03	
+	-9.810000e+02	-1.009000e+03	
+	-3.290000e+03	+1.263000e+03	
+	-3.290000e+03	-1.263000e+03	
+CONSTANT	1.024846e+19
+
+
+
+

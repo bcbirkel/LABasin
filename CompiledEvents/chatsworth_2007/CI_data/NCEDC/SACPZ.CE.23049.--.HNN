@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23049
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,238,18:15:35
+* START             : 2001,067,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : La Verne - Wheeler & Ruggles
+* LATITUDE          : 34.1252
+* LONGITUDE         : -117.7773
+* ELEVATION         : 362
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.334164E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.92649E+02    +4.23375E+02
+        -3.92649E+02    -4.23375E+02
+CONSTANT        +7.137763E+10

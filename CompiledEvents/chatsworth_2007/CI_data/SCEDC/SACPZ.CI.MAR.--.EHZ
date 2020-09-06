@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : MAR
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2020-08-26T02:02:57.273586Z
+* START       : 2000-10-03T12:09:28.000000Z
+* END         : 2011-09-01T18:07:00.000000Z
+* DESCRIPTION : Maricopa
+* LATITUDE    : 35.0026
+* LONGITUDE   : -119.34022
+* ELEVATION   : 411.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 450481000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 4.506837e+08
+
+
+

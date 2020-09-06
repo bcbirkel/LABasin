@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 25029
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-26T01:38:00.582594Z
+* START       : 2004-05-24T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Frazier Park - Lockwood Valley
+* LATITUDE    : 34.7485
+* LONGITUDE   : -119.134
+* ELEVATION   : 1660.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0636 (M/S**2)
+* SENSITIVITY : 213408.0 (M/S**2)
+* A0          : 345125.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.877350e+02 +4.413520e+02
+ -3.877350e+02 -4.413520e+02
+CONSTANT 7.365244e+10
+
+
+

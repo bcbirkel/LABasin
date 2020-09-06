@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14872
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-26T01:30:54.006705Z
+* START       : 2003-03-06T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Long Beach - Artesia & Orange
+* LATITUDE    : 33.873
+* LONGITUDE   : -118.1755
+* ELEVATION   : 16.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0639 (M/S**2)
+* SENSITIVITY : 214415.0 (M/S**2)
+* A0          : 352547.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.918820e+02 +4.460720e+02
+ -3.918820e+02 -4.460720e+02
+CONSTANT 7.559137e+10
+
+
+
