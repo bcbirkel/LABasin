@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : RPV
+* LOCATION    : 
+* CHANNEL     : LLN
+* CREATED     : 2020-08-26T02:16:09.589662Z
+* START       : 2007-02-21T22:10:00.000000Z
+* END         : 2008-05-30T20:21:26.000000Z
+* DESCRIPTION : Rancho Palos Verdes
+* LATITUDE    : 33.74346
+* LONGITUDE   : -118.40412
+* ELEVATION   : 107.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.51157 (M/S**2)
+* SENSITIVITY : 207953.0 (M/S**2)
+* A0          : 154022000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 3
+ -2.082900e+02 +2.435200e+02
+ -2.082900e+02 -2.435200e+02
+ -1.500000e+03 +0.000000e+00
+CONSTANT 3.202934e+13
+
+
+

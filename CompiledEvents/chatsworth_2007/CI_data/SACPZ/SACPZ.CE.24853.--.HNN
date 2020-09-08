@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24853
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,238,18:18:24
+* START             : 1999,335,00:00:00
+* END               : 2015,173,00:00:00
+* DESCRIPTION       : Los Angeles - Beverly Blvd & Virgil
+* LATITUDE          : 34.0774
+* LONGITUDE         : -118.2865
+* ELEVATION         : 83
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 100
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144151E+05 (M/S**2)
+* A0                : 3.570371E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.88395E+02    +4.54084E+02
+        -3.88395E+02    -4.54084E+02
+CONSTANT        +7.655415E+10

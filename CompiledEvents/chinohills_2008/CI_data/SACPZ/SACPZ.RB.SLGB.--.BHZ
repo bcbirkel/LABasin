@@ -1,0 +1,39 @@
+* **********************************
+* NETWORK   (KNETWK): RB
+* STATION    (KSTNM): SLGB
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:20
+* START             : 2006-08-28T00:00:00
+* END               : 2014-08-20T00:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 29.830000
+* LONGITUDE         : -114.403999
+* ELEVATION         : 15.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : CMG-3ESP,GURALP:CMG-3ESP:T3234
+* INSTGAIN          : 9.510000e+02 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.458830e+08 (M)
+* A0                : 5.714040e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-4.442200e-02	-4.442200e-02	
+	-4.442200e-02	+4.442200e-02	
+	-5.026500e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	4.262005e+17
+
+
+
+

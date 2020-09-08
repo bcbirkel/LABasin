@@ -1,0 +1,45 @@
+* **********************************
+* NETWORK   (KNETWK): BK
+* STATION    (KSTNM): PACP
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020,049,08:32:39
+* START             : 2004,167,00:00:00
+* END               : 2009,355,23:00:00
+* DESCRIPTION       : Pacheco Peak, CA, USA
+* LATITUDE          : 37.008
+* LONGITUDE         : -121.287
+* ELEVATION         : 844
+* DEPTH             : 6.5
+* DIP               : 90
+* AZIMUTH           : 0
+* SAMPLE RATE       : 40
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-2 VBB Tri-Axial Seismometer
+* INSTGAIN          : 1.513200E+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 6.484893E+08 (M/S)
+* A0                : 1.016469E+19
+* **********************************
+ZEROS   7
+        +0.00000E+00    +0.00000E+00
+        -4.61814E+02    +4.29079E+02
+        -4.61814E+02    -4.29079E+02
+        -1.93899E+02    +0.00000E+00
+        -1.51488E+01    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   11
+        -1.02397E+04    +2.72502E+03
+        -1.02397E+04    -2.72502E+03
+        -9.51274E+03    +1.14700E+04
+        -9.51274E+03    -1.14700E+04
+        -4.54526E+02    +0.00000E+00
+        -4.13434E+02    +0.00000E+00
+        -9.42792E+01    +3.95307E+02
+        -9.42792E+01    -3.95307E+02
+        -1.53750E+01    +0.00000E+00
+        -3.68180E-02    +3.71060E-02
+        -3.68180E-02    -3.71060E-02
+CONSTANT        +6.591692E+27

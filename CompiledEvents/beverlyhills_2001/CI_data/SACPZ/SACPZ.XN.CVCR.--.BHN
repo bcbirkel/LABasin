@@ -1,0 +1,38 @@
+* **********************************
+* NETWORK   (KNETWK): XN
+* STATION    (KSTNM): CVCR
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-18T16:32:54
+* START             : 2001-06-24T00:00:00
+* END               : 2002-06-04T18:15:54
+* DESCRIPTION       : 
+* LATITUDE          : 35.994801
+* LONGITUDE         : -120.528000
+* ELEVATION         : 830.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : cmg40t_vel:RT72A-08:b
+* INSTGAIN          : -4.442430e+02 (M)
+* COMMENT           : 
+* SENSITIVITY       : -2.338120e+08 (M)
+* A0                : 1.413640e-01
+* **********************************
+ZEROS	4
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+9.990030e+03	+0.000000e+00	
+POLES	3
+	-1.480310e+00	+1.480300e+00	
+	-1.480310e+00	-1.480300e+00	
+	-3.141590e+02	+0.000000e+00	
+CONSTANT	-3.305260e+07
+
+
+
+

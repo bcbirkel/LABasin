@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24048
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-26T01:33:31.508855Z
+* START       : 2003-04-18T00:00:00.000000Z
+* END         : 2013-08-20T00:00:00.000000Z
+* DESCRIPTION : Santa Monica - 19th & Wilshire
+* LATITUDE    : 34.0289
+* LONGITUDE   : -118.4824
+* ELEVATION   : 48.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0637 (M/S**2)
+* SENSITIVITY : 213744.0 (M/S**2)
+* A0          : 349571.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.020480e+02 +4.335100e+02
+ -4.020480e+02 -4.335100e+02
+CONSTANT 7.471870e+10
+
+
+

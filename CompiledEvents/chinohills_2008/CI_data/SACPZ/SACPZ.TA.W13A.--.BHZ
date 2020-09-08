@@ -1,0 +1,113 @@
+* **********************************
+* NETWORK   (KNETWK): TA
+* STATION    (KSTNM): W13A
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:24
+* START             : 2007-06-29T21:45:00
+* END               : 2010-05-28T14:58:00
+* DESCRIPTION       : 
+* LATITUDE          : 35.098999
+* LONGITUDE         : -113.885399
+* ELEVATION         : 1988.199951171875
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3T/Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 1.504200e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.309070e+08 (M)
+* A0                : 5.714000e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.701000e-02	+3.701000e-02	
+	-3.701000e-02	-3.701000e-02	
+	-1.131000e+03	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-5.027000e+02	+0.000000e+00	
+CONSTANT	3.605003e+17
+
+
+* **********************************
+* NETWORK   (KNETWK): TA
+* STATION    (KSTNM): W13A
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:24
+* START             : 2006-06-29T17:11:00
+* END               : 2007-06-29T21:45:00
+* DESCRIPTION       : 
+* LATITUDE          : 35.098999
+* LONGITUDE         : -113.885399
+* ELEVATION         : 1988.199951171875
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3T/Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 1.504200e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.309070e+08 (M)
+* A0                : 5.714000e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.701000e-02	+3.701000e-02	
+	-3.701000e-02	-3.701000e-02	
+	-1.131000e+03	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-5.027000e+02	+0.000000e+00	
+CONSTANT	3.605003e+17
+
+
+* **********************************
+* NETWORK   (KNETWK): TA
+* STATION    (KSTNM): W13A
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:24
+* START             : 2006-03-09T00:00:00
+* END               : 2006-06-29T17:11:00
+* DESCRIPTION       : 
+* LATITUDE          : 35.098999
+* LONGITUDE         : -113.885399
+* ELEVATION         : 1988.199951171875
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3T/Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 1.504200e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.309070e+08 (M)
+* A0                : 5.714000e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.701000e-02	+3.701000e-02	
+	-3.701000e-02	-3.701000e-02	
+	-1.131000e+03	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-5.027000e+02	+0.000000e+00	
+CONSTANT	3.605003e+17
+
+
+
+

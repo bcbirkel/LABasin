@@ -1,0 +1,411 @@
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 2007-05-30T18:00:00
+* END               : 2007-06-26T17:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1V/VBB Seismometer
+* INSTGAIN          : 4.728000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.787530e+09 (M)
+* A0                : 4.290770e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.246728e-02	+1.214515e-02	
+	-1.246728e-02	-1.214515e-02	
+	-1.384556e-01	+0.000000e+00	
+	-1.687563e-01	+0.000000e+00	
+	-2.928561e+01	+3.537440e+01	
+	-2.928561e+01	-3.537440e+01	
+CONSTANT	2.054219e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 2007-05-08T00:00:00
+* END               : 2007-05-30T17:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1V/VBB Seismometer
+* INSTGAIN          : 2.430000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 2.460600e+09 (M)
+* A0                : 4.290770e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.246728e-02	+1.214515e-02	
+	-1.246728e-02	-1.214515e-02	
+	-1.384556e-01	+0.000000e+00	
+	-1.687563e-01	+0.000000e+00	
+	-2.928561e+01	+3.537440e+01	
+	-2.928561e+01	-3.537440e+01	
+CONSTANT	1.055787e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 2006-05-18T00:00:00
+* END               : 2006-07-12T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1V/VBB Seismometer
+* INSTGAIN          : 2.430000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 2.502390e+09 (M)
+* A0                : 4.290770e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.246728e-02	+1.214515e-02	
+	-1.246728e-02	-1.214515e-02	
+	-1.384556e-01	+0.000000e+00	
+	-1.687563e-01	+0.000000e+00	
+	-2.928561e+01	+3.537440e+01	
+	-2.928561e+01	-3.537440e+01	
+CONSTANT	1.073718e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 2006-01-01T00:00:00
+* END               : 2006-05-17T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1V/VBB Seismometer
+* INSTGAIN          : 2.430000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 2.502390e+09 (M)
+* A0                : 4.197740e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.244071e-02	+1.215055e-02	
+	-1.244071e-02	-1.215055e-02	
+	-1.411247e-01	+0.000000e+00	
+	-1.656047e-01	+0.000000e+00	
+	-2.841300e+01	+3.546921e+01	
+	-2.841300e+01	-3.546921e+01	
+CONSTANT	1.050438e+10
+
+
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 2000-12-17T00:00:00
+* END               : 2005-12-31T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.609200
+* LONGITUDE         : -116.453300
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 180.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1V/VBB Seismometer
+* INSTGAIN          : 2.430000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 5.002800e+09 (M)
+* A0                : 8.112290e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.241130e-02	+1.239402e-02	
+	-1.241130e-02	-1.239402e-02	
+	-1.227458e-01	+0.000000e+00	
+	-1.890372e-01	+0.000000e+00	
+	-4.005688e+01	+4.840754e+01	
+	-4.005688e+01	-4.840754e+01	
+CONSTANT	4.058416e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 1997-09-20T00:00:00
+* END               : 2000-12-16T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.609200
+* LONGITUDE         : -116.453300
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1V/VBB Seismometer
+* INSTGAIN          : 2.430000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 5.383010e+08 (M)
+* A0                : 7.786361e+15
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	12
+	-1.246653e-02	+1.251969e-02	
+	-1.246653e-02	-1.251969e-02	
+	-1.266652e-01	+0.000000e+00	
+	-1.848243e-01	+0.000000e+00	
+	-4.005688e+01	+4.840754e+01	
+	-4.005688e+01	-4.840754e+01	
+	-3.034779e+02	+8.122336e+01	
+	-3.034779e+02	-8.122336e+01	
+	-2.221445e+02	+2.221439e+02	
+	-2.221445e+02	-2.221439e+02	
+	-8.130442e+01	+3.034559e+02	
+	-8.130442e+01	-3.034559e+02	
+CONSTANT	6.812091e+19
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 1995-07-19T00:00:00
+* END               : 1997-09-19T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.609200
+* LONGITUDE         : -116.453300
+* ELEVATION         : 1280.0
+* DEPTH             : 87.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Guralp CMG1 Seismometer
+* INSTGAIN          : 3.000000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 2.231970e+09 (M)
+* A0                : 2.266709e+07
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.234018e-02	-1.234018e-02	
+	-1.234018e-02	+1.234018e-02	
+	-2.092301e+02	-2.340487e+02	
+	-2.092301e+02	+2.340487e+02	
+	-1.445133e+03	+0.000000e+00	
+CONSTANT	1.281517e+15
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 1995-06-11T00:00:00
+* END               : 1995-07-18T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.609200
+* LONGITUDE         : -116.453300
+* ELEVATION         : 1280.0
+* DEPTH             : 87.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Geotech KS-54000 Borehole Seismometer
+* INSTGAIN          : 2.400000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 1.785570e+09 (M)
+* A0                : 1.138186e+02
+* **********************************
+ZEROS	4
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-7.309355e-02	+0.000000e+00	
+	-4.799989e-03	+0.000000e+00	
+	-4.185104e-03	+0.000000e+00	
+	-1.847256e+01	+1.884579e+01	
+	-1.847256e+01	-1.884579e+01	
+CONSTANT	3.234524e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 1994-06-16T00:00:00
+* END               : 1995-06-10T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.609200
+* LONGITUDE         : -116.453300
+* ELEVATION         : 1280.0
+* DEPTH             : 87.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Geotech KS-54000 Borehole Seismometer
+* INSTGAIN          : 2.400000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 1.779870e+09 (M)
+* A0                : 4.589375e+05
+* **********************************
+ZEROS	4
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	7
+	-7.309355e-02	+0.000000e+00	
+	-4.799989e-03	+0.000000e+00	
+	-4.185104e-03	+0.000000e+00	
+	-1.847256e+01	+1.884579e+01	
+	-1.847256e+01	-1.884579e+01	
+	-3.392455e+01	+0.000000e+00	
+	-1.188515e+02	+0.000000e+00	
+CONSTANT	3.293080e+12
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPF
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:50
+* START             : 1993-12-15T00:00:00
+* END               : 1994-06-13T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.609200
+* LONGITUDE         : -116.453300
+* ELEVATION         : 1280.0
+* DEPTH             : 100.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Geotech KS-54000 Borehole Seismometer
+* INSTGAIN          : 2.400000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 1.776000e+09 (M)
+* A0                : 4.590641e+05
+* **********************************
+ZEROS	4
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	7
+	-1.847256e+01	+1.884956e+01	
+	-1.847256e+01	-1.884956e+01	
+	-4.800354e-03	+0.000000e+00	
+	-7.319911e-02	+0.000000e+00	
+	-4.219159e-03	+0.000000e+00	
+	-3.392455e+01	+0.000000e+00	
+	-1.188515e+02	+0.000000e+00	
+CONSTANT	3.286825e+12
+
+
+
+

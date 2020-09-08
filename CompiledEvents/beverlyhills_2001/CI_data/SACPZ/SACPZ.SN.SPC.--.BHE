@@ -1,0 +1,113 @@
+* **********************************
+* NETWORK   (KNETWK): SN
+* STATION    (KSTNM): SPC
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:51
+* START             : 1998-10-21T16:01:00
+* END               : 2002-02-27T22:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.674600
+* LONGITUDE         : -116.203900
+* ELEVATION         : 1064.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Guralp CMG40T_30sec/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.618350e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 8.517620e+08 (M)
+* A0                : 5.714460e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.486000e-01	+1.486000e-01	
+	-1.486000e-01	-1.486000e-01	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	4.867360e+17
+
+
+* **********************************
+* NETWORK   (KNETWK): SN
+* STATION    (KSTNM): SPC
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:51
+* START             : 1997-02-11T17:55:00
+* END               : 1998-10-21T16:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.674600
+* LONGITUDE         : -116.203900
+* ELEVATION         : 1064.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Guralp CMG40T_30sec/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.618350e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 8.517620e+08 (M)
+* A0                : 5.714460e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.486000e-01	+1.486000e-01	
+	-1.486000e-01	-1.486000e-01	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	4.867360e+17
+
+
+* **********************************
+* NETWORK   (KNETWK): SN
+* STATION    (KSTNM): SPC
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:51
+* START             : 1996-03-15T00:00:00
+* END               : 1997-02-11T17:50:00
+* DESCRIPTION       : 
+* LATITUDE          : 36.674600
+* LONGITUDE         : -116.203900
+* ELEVATION         : 1064.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Guralp CMG4/Reftek 72A-08 Datalogger
+* INSTGAIN          : 1.464610e+02 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.708440e+07 (M)
+* A0                : 5.714460e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.486000e-01	+1.486000e-01	
+	-1.486000e-01	-1.486000e-01	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	4.404957e+16
+
+
+
+
