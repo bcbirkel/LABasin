@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Sep 11 15:47:58 2020
+
+@author: bcbirkel
+"""
+
+from obspy import read, read_inventory
+from obspy.signal.filter import bandpass
+import pandas as pd
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.signal.invsim import simulate_seismometer, corn_freq_2_paz
+from obspy.geodetics import gps2dist_azimuth
+from obspy.io.sac import sacpz
+from obspy.io.sac import attach_paz
+from obspy.io.gse2.paz import read_paz
+import os
+from obspy.core import Trace, Stream, AttribDict
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+
+# %% Set parameters
+#set event
+events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+event = events[0]
+
+# %% Set paths
+
+path_dir_CESMD = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/vel/'
+
+#read in files
+
+stream_cesmd = read(path_dir_CESMD + "*vel.SAC")
+
+for tr in stream_cesmd:
+    print(tr.stats.sac.stla)
+    if tr.stats.channel 
+    
+    
+    
+    
+for ii in range(len(st_name)):
+    st = st_name[ii]
+    for tn in stream_N:
+        for te in stream_E:
+            if tn.stats.station == st and te.stats.station == st:
+                baz = st_baz[ii]
+                rotate_ne_rt(tn.data,te.data,baz)
+                tn.write(tr.id + "R.SAC", format="SAC")
+                te.write(tr.id + "T.SAC", format="SAC")

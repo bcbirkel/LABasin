@@ -27,8 +27,8 @@ for i in range(5):
     os.chdir("/Users/bcbirkel/Documents/Research/LABasin/PyCode LAB/ricardo/Mseed_data/vel/")
     
     ric_dir = "/Users/bcbirkel/Documents/Research/LABasin/PyCode LAB/ricardo/Mseed_data/vel/"
-    stream_N = read(ric_dir + "vn*" + evid + "*.mseed")
-    stream_E = read(ric_dir + "ve*" + evid + "*.mseed")
+    stream_N = read(ric_dir + "ve*" + evid + "*.mseed")
+    stream_E = read(ric_dir + "vn*" + evid + "*.mseed")
     stream_Z = read(ric_dir + "vz*" + evid + "*.mseed")
     
     chans = ''
