@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Sep 10 19:05:31 2020
+
+@author: bcbirkel
+"""
+
+
+from obspy import read
+import os
+from obspy.geodetics import gps2dist_azimuth
+from obspy.core import UTCDateTime
+from obspy.signal.rotate import rotate_ne_rt
+import matplotlib.pyplot as plot
+
+
+events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+evids = ['15481673','9703873','14312160','14383980','10410337']
+
+for i in range(5):
+    ev_pick = i
+        
+    event = events[ev_pick]
+    evid = evids[ev_pick]
+    
+    os.chdir("/Users/bcbirkel/Documents/Research/LABasin/PyCode LAB/ricardo/Mseed_data/vel/")
+    
+    ric_dir = "/Users/bcbirkel/Documents/Research/LABasin/PyCode LAB/ricardo/Mseed_data/vel/"
+    stream_N = read(ric_dir + "vn*" + evid + "*.mseed")
+    stream_E = read(ric_dir + "ve*" + evid + "*.mseed")
+    stream_Z = read(ric_dir + "vz*" + evid + "*.mseed")
+    
+    chans = ''
+    
+    if not os.path.exists('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CI_data/ric_SAC'):
+        os.makedirs('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CI_data/ric_SAC')
+    os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CI_data/ric_SAC')
+    
+    sta_done = []
+    
+    for tr in stream_N:
+        cmp = "N"
+        if tr.stats.channel == "HN":
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+        if tr.stats.channel == "BH" and tr.stats.station not in sta_done:
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+        if tr.stats.channel == "V1" and tr.stats.station not in sta_done:
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+        if tr.stats.channel == "V2" and tr.stats.station not in sta_done:
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+    
+    sta_done = []                 
+    for tr in stream_E:
+        cmp = "E"
+        if tr.stats.channel == "HN":
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+        if tr.stats.channel == "BH" and tr.stats.station not in sta_done:
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+        if tr.stats.channel == "V1" and tr.stats.station not in sta_done:
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+        if tr.stats.channel == "V2" and tr.stats.station not in sta_done:
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+    
+    sta_done = []        
+    for tr in stream_Z:
+        cmp = "Z"
+        if tr.stats.channel == "HN":
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+        if tr.stats.channel == "BH" and tr.stats.station not in sta_done:
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+        if tr.stats.channel == "V1" and tr.stats.station not in sta_done:
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+        if tr.stats.channel == "V2" and tr.stats.station not in sta_done:
+            sta_done += tr.stats.station
+            tr.write(tr.id + cmp + ".SAC", format="SAC")
+            
+        
+        #%% find event details for origin time, lat, lon
+    ev_file = '/Users/bcbirkel/Documents/Research/LABasin/PyCode LAB/ricardo/event_list.txt'
+    file_ev = open(ev_file, 'r')
+    for line in file_ev:           # pull numbers off the rest of the lines
+        split_line = line.split()
+        event = split_line[0]
+        if event == evid:
+            ev_lat       = float(split_line[3])
+            ev_lon       = float(split_line[2])
+            t1           = UTCDateTime(split_line[5])
+            date_label  = split_line[5][0:10]
+            year1        = split_line[5][0:4]    
+            
+    #%% Open station location file
+    sta_file = '/Users/bcbirkel/Documents/Research/LABasin/PyCode LAB/ricardo/ricardo_stations.txt'
+    file_st = open(sta_file, 'r')
+    line = file_st.readline()      # read first line to skip header information
+    lines = file_st.readlines()
+    print(str(len(lines)) + ' stations read from ' + sta_file)
+    
+    # Load station coords into arrays, many more stations than used
+    station_index = range(len(lines))
+    st_num   = []
+    st_netw  = []
+    st_name  = []
+    st_dist  = []
+    st_az    = []
+    st_baz   = []
+    st_lat   = []
+    st_lon   = []
+    for line in lines:
+        split_line = line.split()
+        st_num.append( split_line[0])
+        st_netw.append(split_line[2])
+        st_name.append(split_line[3])
+        st_lat.append( split_line[4])
+        st_lon.append( split_line[5])
+        distance = gps2dist_azimuth(ev_lat, ev_lon, float(split_line[4]), float(split_line[5])) # Get traveltime and azimuth
+        #print('Event ' + str(ev_lat) + ' ' + str(ev_lon) + ' station ' + split_line[4] + ' ' + split_line[5] + ' distance ' + str(distance[0]))
+        st_dist.append(distance[0]/1000.) # azimuth
+        st_az.append(distance[1]) # azimuth
+        st_baz.append(distance[2]) # back-azimuth
+    #print('number of stations in list is ' + str(len(st_num)) + ' or ' + str(station_index))
+    
+    for ii in range(len(st_name)):
+        st = st_name[ii]
+        for tn in stream_N:
+            for te in stream_E:
+                if tn.stats.station == st and te.stats.station == st:
+                    baz = st_baz[ii]
+                    rotate_ne_rt(tn.data,te.data,baz)
+                    tn.write(tr.id + "R.SAC", format="SAC")
+                    te.write(tr.id + "T.SAC", format="SAC")
+                    
+                
+                
+                
+                
+                
+                
+                
