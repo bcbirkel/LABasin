@@ -133,18 +133,15 @@ for i in range(5):
     
     for ii in range(len(st_name)):
         st = st_name[ii]
-        for tn in stream_N:
+        baz = st_baz[ii]
+        for tn in stream_N: 
             for te in stream_E:
-                if tn.stats.station == st and te.stats.station == st:
-                    baz = st_baz[ii]
+                if tn.stats.station == st and te.stats.station == st: 
                     rotate_ne_rt(tn.data,te.data,baz)
-                    tn.write(tr.id + "R.SAC", format="SAC")
-                    te.write(tr.id + "T.SAC", format="SAC")
+                    tn.write(tn.id + "R.SAC", format="SAC")
+                    te.write(te.id + "T.SAC", format="SAC")
+                    print("rotation completed")
+                    print(tn.stats.channel)
+                    print(te)
                     
-                
-                
-                
-                
-                
-                
                 

@@ -33,24 +33,72 @@ event = events[0]
 # %% Set paths
 
 path_dir_CESMD = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/vel/'
+path_dir_syn = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/'
 
 #read in files
 
 stream_cesmd = read(path_dir_CESMD + "*vel.SAC")
+stream_synS = read(path_dir_syn + "CVM-S4/*.SAC")
+stream_synH = read(path_dir_syn + "CVM-H/*.SAC")
+
+# station lists
+
+# initialize stn list
+cesmd_stns = []
+synS_stns = []
+synH_stns = []
+
+# populate lists
+for tr in stream_cesmd:
+    cesmd_stns.append(tr.stats.sac.kstnm)
+    
+for tr in stream_synS:
+    synS_stns.append(tr.stats.station)
+    
+for tr in stream_synH:
+    synH_stns.append(tr.stats.station)
+    
+# find intersection of stations
+iris_st = set(data_stns)
+cesmd_st = set(cesmd_stns )
+data_st = iris_st.union(cesmd_st)
+
+syn_st = set(syn_stns)
+stn_list = data_st.intersection(syn_st) 
 
 for tr in stream_cesmd:
+    dist_az = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo)
+    dist = dist_az[0]
+    az = dist_az[1]
+    baz = dist_az[2]
+    rotate_ne_rt(tn.data,te.data,baz)
+
+# for stn in cesmd_st:
+#     st = Stream()
+#     for tr in stream_cesmd:
+#         [dist, az, baz] = gps2dist_azimuth(tr.stats.sac.evla,tr.stats.sac.evlo,tr.stats.sac.stla,tr.stats.sac.stlo)
+#         tr.stats.dist = dist
+#         tr.stats.az = az
+#         tr.stats.baz = baz
+#         if stn == tr.stats.station:
+#             st += tr
+#             if len(st) == 3:        
+#                 st.rotate('NE->RT', back_azimuth=baz)
+                #tr.write("processed_" + tr.stats.network + '.' + tr.stats.station + '.' + tr.stats.channel + ".SAC", format="SAC") 
+
+
+for tr in stream_synS:
     print(tr.stats.sac.stla)
-    if tr.stats.channel 
+for tr in stream_synH:
+    print(tr.stats.sac.stla)
     
     
-    
-    
-for ii in range(len(st_name)):
-    st = st_name[ii]
-    for tn in stream_N:
-        for te in stream_E:
-            if tn.stats.station == st and te.stats.station == st:
-                baz = st_baz[ii]
-                rotate_ne_rt(tn.data,te.data,baz)
-                tn.write(tr.id + "R.SAC", format="SAC")
-                te.write(tr.id + "T.SAC", format="SAC")
+# for ii in range(len(st_name)):
+#     st = st_name[ii]
+#     for tn in stream_N:
+#         for te in stream_E:
+#             if tn.stats.station == st and te.stats.station == st:
+#                 baz = st_baz[ii]
+#                 rotate_ne_rt(tn.data,te.data,baz)
+#                 tn.write(tr.id + "R.SAC", format="SAC")
+#                 te.write(tr.id + "T.SAC", format="SAC")
