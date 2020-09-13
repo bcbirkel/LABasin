@@ -13,6 +13,8 @@ from obspy.geodetics import gps2dist_azimuth
 from obspy.core import UTCDateTime
 from obspy.signal.rotate import rotate_ne_rt
 import matplotlib.pyplot as plot
+from obspy.io.sac import SACTrace
+from obspy.core.util.attribdict import AttribDict
 
 
 events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
@@ -40,7 +42,9 @@ for i in range(5):
     sta_done = []
     
     for tr in stream_N:
+        tr.stats.sac = AttribDict()
         cmp = "N"
+        tr.stats.sac.kcmpnm = cmp
         if tr.stats.channel == "HN":
             sta_done += tr.stats.station
             tr.write(tr.id + cmp + ".SAC", format="SAC")
@@ -56,7 +60,9 @@ for i in range(5):
     
     sta_done = []                 
     for tr in stream_E:
+        tr.stats.sac = AttribDict()
         cmp = "E"
+        tr.stats.sac.kcmpnm = cmp
         if tr.stats.channel == "HN":
             sta_done += tr.stats.station
             tr.write(tr.id + cmp + ".SAC", format="SAC")
@@ -72,7 +78,9 @@ for i in range(5):
     
     sta_done = []        
     for tr in stream_Z:
+        tr.stats.sac = AttribDict()
         cmp = "Z"
+        tr.stats.sac.kcmpnm = cmp
         if tr.stats.channel == "HN":
             sta_done += tr.stats.station
             tr.write(tr.id + cmp + ".SAC", format="SAC")
@@ -137,11 +145,17 @@ for i in range(5):
         for tn in stream_N: 
             for te in stream_E:
                 if tn.stats.station == st and te.stats.station == st: 
-                    rotate_ne_rt(tn.data,te.data,baz)
-                    tn.write(tn.id + "R.SAC", format="SAC")
-                    te.write(te.id + "T.SAC", format="SAC")
-                    print("rotation completed")
                     print(tn.stats.channel)
-                    print(te)
+                    print(tn.data)
+                    trad = tn
+                    trad.stats.sac.kcmpnm = "R"
+                    ttrans = te
+                    ttrans.stats.sac.kcmpnm = "T"
+                    trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+                    trad.write(trad.id + "R.SAC", format="SAC")
+                    ttrans.write(ttrans.id + "T.SAC", format="SAC")
+                    print("rotation completed")
+                    print(trad.stats.channel)
+                    print(trad.data)
                     
                 

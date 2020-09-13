@@ -66,12 +66,12 @@ for i in range(0,5):
         print('unknown event file')
     
     #read in files
-    if event_no == 0:
-        stream_cesmdN = read(path_dir_CESMD + "vel/*N_vel.SAC")
-        stream_cesmdE = read(path_dir_CESMD + "vel/*E_vel.SAC")
-    else: 
-        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC")
-        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")
+    # if event_no == 0 or :
+    stream_cesmdN = read(path_dir_CESMD + "vel/*N_vel.SAC")
+    stream_cesmdE = read(path_dir_CESMD + "vel/*E_vel.SAC")
+    # else: 
+    #     stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC")
+    #     stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")
     #stream_synS = read(path_dir_syn + "CVM-S4/*.SAC")
     stream_synSN = read(path_dir_syn + "CVM-S4/*N.SAC")
     stream_synSE = read(path_dir_syn + "CVM-S4/*E.SAC")    
@@ -143,7 +143,8 @@ for i in range(0,5):
     stream_synS = stream_synSN + stream_synSE
     stream_synH = stream_synHN + stream_synHE
  
-    os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/')
+    
+    os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/vel/')
     for st in cesmd_st:
         count = 0
         for tr in stream_cesmd:
@@ -155,14 +156,22 @@ for i in range(0,5):
                 print("check")
                 if tr.stats.channel == "BHN":
                     tn = tr
+                    trad = tn
+                    trad.stats.channel = "BHR"
+                    trad.stats.sac.kcmpnm = "BHR"
                     count += 1
                 if tr.stats.channel == "BHE":
                     te = tr
+                    ttrans = te
+                    ttrans.stats.channel = "BHT"
+                    ttrans.stats.sac.kcmpnm = "BHT"
                     count += 1
                 if count == 2:
-                    rotate_ne_rt(tn.data,te.data,baz)
-                    tn.write(tr.stats.network + "_" + tr.stats.station + "_BHR_vel.SAC", format="SAC")
-                    te.write(tr.stats.network + "_" + tr.stats.station + "_BHT_vel.SAC", format="SAC")
+                    print(trad.data)
+                    trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+                    print(trad.data)
+                    trad.write(tr.stats.network + "_" + tr.stats.station + "_BHR_vel.SAC", format="SAC")
+                    ttrans.write(tr.stats.network + "_" + tr.stats.station + "_BHT_vel.SAC", format="SAC")
                     print("rotated cesmd!")
 
     os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/')
@@ -177,14 +186,20 @@ for i in range(0,5):
                 print("check")
                 if tr.stats.channel == "BHN":
                     tn = tr
+                    trad = tn
+                    trad.stats.channel = "BHR"
+                    trad.stats.sac.kcmpnm = "BHR"
                     count += 1
                 if tr.stats.channel == "BHE":
                     te = tr
+                    ttrans = te
+                    ttrans.stats.channel = "BHT"
+                    ttrans.stats.sac.kcmpnm = "BHT"
                     count += 1
                 if count == 2:
-                    rotate_ne_rt(tn.data,te.data,baz)
-                    tn.write("Syn_" + event_title + "_" + tr.stats.station + "_R.SAC", format="SAC")
-                    te.write("Syn_" + event_title + "_" + tr.stats.station + "_T.SAC", format="SAC")
+                    trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+                    trad.write("Syn_" + event_title + "_" + tr.stats.station + "_R.SAC", format="SAC")
+                    ttrans.write("Syn_" + event_title + "_" + tr.stats.station + "_T.SAC", format="SAC")
                     print("rotated synS!")  
 
     os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-H/')
@@ -199,28 +214,23 @@ for i in range(0,5):
                 print("check")
                 if tr.stats.channel == "BHN":
                     tn = tr
+                    trad = tn
+                    trad.stats.channel = "BHR"
+                    trad.stats.sac.kcmpnm = "BHR"
                     count += 1
                 if tr.stats.channel == "BHE":
                     te = tr
+                    ttrans = te
+                    ttrans.stats.channel = "BHT"
+                    ttrans.stats.sac.kcmpnm = "BHT"
                     count += 1
                 if count == 2:
-                    rotate_ne_rt(tn.data,te.data,baz)
-                    tn.write("Syn_" + event_title + "_" + tr.stats.station + "_R.SAC", format="SAC")
-                    te.write("Syn_" + event_title + "_" + tr.stats.station + "_T.SAC", format="SAC")
+                    trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+                    trad.write("Syn_" + event_title + "_" + tr.stats.station + "_R.SAC", format="SAC")
+                    ttrans.write("Syn_" + event_title + "_" + tr.stats.station + "_T.SAC", format="SAC")
                     print("rotated synH!") 
     
-    #for tr in stream_synS:
-        #print(tr.stats.sac.stla)
-    #for tr in stream_synH:
-        #print(tr.stats.sac.stla)
-        
-        
-    # for ii in range(len(st_name)):
-    #     st = st_name[ii]
-    #     for tn in stream_N:
-    #         for te in stream_E:
-    #             if tn.stats.station == st and te.stats.station == st:
-    #                 baz = st_baz[ii]
-    #                 rotate_ne_rt(tn.data,te.data,baz)
-    #                 tn.write(tr.id + "R.SAC", format="SAC")
-    #                 te.write(tr.id + "T.SAC", format="SAC")
+    # #for tr in stream_synS:
+    #     #print(tr.stats.sac.stla)
+    # #for tr in stream_synH:
+    #     #print(tr.stats.sac.stla)
