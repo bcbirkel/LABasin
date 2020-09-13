@@ -1,0 +1,172 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Sep 12 23:47:51 2020
+
+@author: bcbirkel
+"""
+
+
+from obspy import read, read_inventory
+from obspy.signal.filter import bandpass
+import pandas as pd
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.signal.invsim import simulate_seismometer, corn_freq_2_paz
+from obspy.geodetics import gps2dist_azimuth
+from obspy.io.sac import sacpz
+from obspy.io.sac import attach_paz
+from obspy.io.gse2.paz import read_paz
+import os
+from obspy.core import Trace, Stream, AttribDict
+from obspy.signal.rotate import rotate_ne_rt
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+
+# %% Set parameters
+#set event
+for i in range(0,5):
+    event_no = i
+    events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+    event = events[event_no]
+    
+    
+    os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/')
+    # %% Set paths
+    
+    path_dir_CESMD = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/'
+   
+    
+    if event_no == 0:
+        event_title = 'lahabra'
+        event_lat = 33.9325
+        event_lon = -117.9158
+    elif event_no == 3:
+        event_title = 'chinohills'
+        event_lat = 33.9465
+        event_lon = -117.7667
+    elif event_no == 4:
+        event_title = 'inglewood'
+        event_lat = 33.9377
+        event_lon = -118.3357
+    elif event_no == 2:
+        event_title = 'chatsworth'
+        event_lat = 34.2983
+        event_lon = -118.6255
+    elif event_no == 1:
+        event_title = 'beverlyhills'
+        event_lat = 34.0541
+        event_lon = -118.3929
+    else: 
+        print('unknown event file')
+    
+    #read in files
+    if event_no == 0:
+        stream_cesmdN = read(path_dir_CESMD + "vel/*N_vel.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "vel/*E_vel.SAC")
+        stream_cesmdZ = read(path_dir_CESMD + "vel/*Z_vel.SAC")
+        stream_cesmdR = read(path_dir_CESMD + "vel/*R_vel.SAC")
+        stream_cesmdT = read(path_dir_CESMD + "vel/*T_vel.SAC")
+        # stream_cesmd = read(path_dir_CESMD + "vel/*_vel.SAC")
+    else: 
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")
+        stream_cesmdZ = read(path_dir_CESMD + "*Z_vel.SAC")
+        stream_cesmdR = read(path_dir_CESMD + "*R_vel.SAC")
+        stream_cesmdT = read(path_dir_CESMD + "*T_vel.SAC")
+        # stream_cesmd = read(path_dir_CESMD + "*_vel.SAC")
+
+    # %%station lists
+    
+    # initialize stn list
+    cesmd_stnsN = []
+    cesmd_stnsE = []
+    cesmd_stnsZ = []
+    cesmd_stnsR = []
+    cesmd_stnsT = []
+    cesmd_stns = []
+    
+    # populate lists
+    for tr in stream_cesmdN:
+        cesmd_stnsN.append(tr.stats.sac.kstnm)
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        tr.stats.channel = "BHN"
+        
+    for tr in stream_cesmdE:
+        cesmd_stnsE.append(tr.stats.sac.kstnm)
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        tr.stats.channel = "BHE"
+
+    for tr in stream_cesmdZ:
+        cesmd_stnsN.append(tr.stats.sac.kstnm)
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        tr.stats.channel = "BHZ"
+        
+    for tr in stream_cesmdR:
+        cesmd_stnsN.append(tr.stats.sac.kstnm)
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        tr.stats.channel = "BHR"
+
+    for tr in stream_cesmdT:
+        cesmd_stnsN.append(tr.stats.sac.kstnm)
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        tr.stats.channel = "BHT"
+
+    stream_cesmd = stream_cesmdE + stream_cesmdR + stream_cesmdN + stream_cesmdT + stream_cesmdZ
+
+    for tr in stream_cesmd:
+        cesmd_stns.append(tr.stats.sac.kstnm)
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+
+
+        
+    # find intersection of stations
+    
+    #cesmd_stns = cesmd_stnsE.intersection(cesmd_stnsN)
+    cesmd_st = set(cesmd_stns)
+    good_st_list = []
+
+ 
+    os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/')
+    for st in cesmd_st:
+        count = 0
+        for tr in stream_cesmd:
+            if st == tr.stats.sac.kstnm:
+                dist_az = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo)
+                dist = dist_az[0]
+                az = dist_az[1]
+                baz = dist_az[2]
+                #print("check")
+                if tr.stats.channel == "BHN":
+                    tn = tr
+                    count += 1
+                if tr.stats.channel == "BHE":
+                    te = tr
+                    count += 1
+                if tr.stats.channel == "BHZ":
+                    tz = tr
+                    count += 1
+                if tr.stats.channel == "BHR":
+                    trt = tr
+                    count += 1
+                if tr.stats.channel == "BHT":
+                    tt = tr
+                    count += 1
+                if count == 5:
+                    good_st_list.append(tr.stats.sac.kstnm)
+                    print("all components for: " + tr.stats.sac.kstnm)
+                    
+    for tr in stream_cesmd:
+        for st in good_st_list:
+            if st == tr.stats.sac.kstnm:
+                tr.write(tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + "_vel.SAC", format="SAC")

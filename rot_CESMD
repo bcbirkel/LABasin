@@ -29,7 +29,7 @@ warnings.filterwarnings("ignore")
 # %% Set parameters
 #set event
 for i in range(0,5):
-    event_no = 1
+    event_no = i
     events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
     event = events[event_no]
     
@@ -142,27 +142,28 @@ for i in range(0,5):
     stream_cesmd = stream_cesmdN + stream_cesmdE
     stream_synS = stream_synSN + stream_synSE
     stream_synH = stream_synHN + stream_synHE
-    
-    # for st in cesmd_st:
-    #     count = 0
-    #     for tr in stream_cesmd:
-    #         if st == tr.stats.sac.kstnm:
-    #             dist_az = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo)
-    #             dist = dist_az[0]
-    #             az = dist_az[1]
-    #             baz = dist_az[2]
-    #             print("check")
-    #             if tr.stats.channel == "BHN":
-    #                 tn = tr
-    #                 count += 1
-    #             if tr.stats.channel == "BHE":
-    #                 te = tr
-    #                 count += 1
-    #             if count == 2:
-    #                 rotate_ne_rt(tn.data,te.data,baz)
-    #                 tn.write(tr.stats.network + "_" + tr.stats.station + "_BHR_vel.SAC", format="SAC")
-    #                 te.write(tr.stats.network + "_" + tr.stats.station + "_BHT_vel.SAC", format="SAC")
-    #                 print("rotated!")
+ 
+    os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/')
+    for st in cesmd_st:
+        count = 0
+        for tr in stream_cesmd:
+            if st == tr.stats.sac.kstnm:
+                dist_az = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo)
+                dist = dist_az[0]
+                az = dist_az[1]
+                baz = dist_az[2]
+                print("check")
+                if tr.stats.channel == "BHN":
+                    tn = tr
+                    count += 1
+                if tr.stats.channel == "BHE":
+                    te = tr
+                    count += 1
+                if count == 2:
+                    rotate_ne_rt(tn.data,te.data,baz)
+                    tn.write(tr.stats.network + "_" + tr.stats.station + "_BHR_vel.SAC", format="SAC")
+                    te.write(tr.stats.network + "_" + tr.stats.station + "_BHT_vel.SAC", format="SAC")
+                    print("rotated cesmd!")
 
     os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/')
     for st in synS_st:
@@ -184,7 +185,7 @@ for i in range(0,5):
                     rotate_ne_rt(tn.data,te.data,baz)
                     tn.write("Syn_" + event_title + "_" + tr.stats.station + "_R.SAC", format="SAC")
                     te.write("Syn_" + event_title + "_" + tr.stats.station + "_T.SAC", format="SAC")
-                    print("rotated!")  
+                    print("rotated synS!")  
 
     os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-H/')
     for st in synH_st:
@@ -206,7 +207,7 @@ for i in range(0,5):
                     rotate_ne_rt(tn.data,te.data,baz)
                     tn.write("Syn_" + event_title + "_" + tr.stats.station + "_R.SAC", format="SAC")
                     te.write("Syn_" + event_title + "_" + tr.stats.station + "_T.SAC", format="SAC")
-                    print("rotated!") 
+                    print("rotated synH!") 
     
     #for tr in stream_synS:
         #print(tr.stats.sac.stla)
