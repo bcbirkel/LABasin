@@ -2,9 +2,10 @@
 # program to compare two sets of seismograms for LA basin motions
 # John Vidale 9/2020
 
-def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, taper, taper_frac,
+def p_compare2(event_no, traces1, traces2, start_buff, end_buff, taper, taper_frac,
             plot_scale_fac, filt, freq_min, freq_max, min_dist, max_dist,
-            norm_each, dist_norm, basin_width, basin, CI_only, component1, component2):
+            norm_each, dist_norm, basin_width, basin, CI_only, component1, component2,
+            fig_inc):
     # component 1 is E, 2 is N, 3 is Z
     # H is cvmhy, H_simp is cvmhn
     # S is cvms426-223, S_simp is cvms400-100
@@ -34,11 +35,27 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
     Lon_max=-117.5
     Lat_max=34.6
 
+    if event_no == '15481673':  # no 29
+        event_name = 'LaHabra'
+    elif event_no == '10410337':  # no 14
+        event_name = 'Inglewood'
+    elif event_no == '14383980':  # no 29
+        event_name = 'ChinoHills'
+    elif event_no == '14312160':  # no 29
+        event_name = 'Chatsworth'
+    elif event_no == '9703873':  # no 29
+        event_name = 'BeverlyHills'
+    else:
+        print('Number does not correspond to a valid event')
+        sys.exit()
+
+    verbose = False # print every distance of a station
+
     if component2 == 'same':
         component2 = component1
 
     #%% find event details for origin time, lat, lon
-    ev_file = '/Users/bcbirkel/Documents/GitHub/LABasin/VidaleCodes/event_list.txt'
+    ev_file = '/Users/vidale/Documents/PyCode/LAB/Compare/event_list.txt'
     file_ev = open(ev_file, 'r')
     for line in file_ev:           # pull numbers off all the lines
         split_line = line.split()
@@ -49,10 +66,10 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
             t1           = UTCDateTime(split_line[5])
             date_label  = split_line[5][0:10]
             year1        = split_line[5][0:4]
-    print('ev_no ' + event_no + ' ' + str(t1) + ' Lat-Lon ' + str(ev_lat) + ' ' + str(ev_lon))
+    print(event_name + ': ev_no ' + event_no + ' ' + str(t1) + ' Lat-Lon ' + str(ev_lat) + ' ' + str(ev_lon))
 
     #%% find event details for origin time, lat, lon
-    badt_file = '/Users/bcbirkel/Documents/GitHub/LABasin/VidaleCodes/bad_trace.txt'
+    badt_file = '/Users/vidale/Documents/PyCode/LAB/Compare/bad_trace.txt'
     file_badt = open(badt_file, 'r')
     badt_lines = file_badt.readlines()
     badt_event   = []
@@ -67,7 +84,7 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
     print(str(len(badt_event)) + ' bad traces in list')
 
     #%% Open station location file
-    sta_file = '/Users/bcbirkel/Documents/GitHub/LABasin/VidaleCodes/stations.txt'
+    sta_file = '/Users/vidale/Documents/PyCode/LAB/Compare/stations.txt'
     file_st = open(sta_file, 'r')
     line = file_st.readline()      # read first line to skip header information
     lines = file_st.readlines()
@@ -99,11 +116,11 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
     #%% Load data and synthetic waveforms
     sgrams1 = Stream()
     if traces1 == 'Data':
-        fname_datZ = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + eventname + '/allData/' + component1 + '.mseed'
+        fname_datZ = '/Users/vidale/Documents/PyCode/LAB/Compare/' + event_name + '/Data/' + component1 + '.mseed'
     elif traces1 == 'CVM_S4':
-        fname_datZ = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + eventname + '/GravesSyn/CVM-S4/' + component1 + '.mseed'
+        fname_datZ = '/Users/vidale/Documents/PyCode/LAB/Compare/' + event_name + '/CVM_S4/' + component1 + '.mseed'
     elif traces1 == 'CVM_H':
-        fname_datZ = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + eventname + '/GravesSyn/CVM-H/' + component1 + '.mseed'
+        fname_datZ = '/Users/vidale/Documents/PyCode/LAB/Compare/' + event_name + '/CVM_H/' + component1 + '.mseed'
     sgrams1 = read(fname_datZ)
 
     # if traces1 == 'Ricardo_syn':
@@ -111,7 +128,8 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
     #     for ii in range(lenH):  # assume trace count of all synthetic files is same
     #         sgrams1[ii].data      = 100 * sgrams1[ii].data
 
-    print(traces1 + ' has ' + str(len(sgrams1)) + ' traces')
+    len1_in = len(sgrams1)
+    print(traces1 + ' has ' + str(len1_in) + ' traces')
     if len(sgrams1) == 0:
         print('No stations found in traces1, quit now!')
         sys.exit()
@@ -121,11 +139,11 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
     if traces2 != 'no':
         sgrams2 = Stream()
         if traces2 == 'Data':
-            fname_datZ = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + eventname + '/allData/' + component2 + '.mseed'
+            fname_datZ = '/Users/vidale/Documents/PyCode/LAB/Compare/' + event_name + '/Data/' + component2 + '.mseed'
         elif traces2 == 'CVM_S4':
-            fname_datZ = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + eventname + '/GravesSyn/CVM-S4/' + component2 + '.mseed'
+            fname_datZ = '/Users/vidale/Documents/PyCode/LAB/Compare/' + event_name + '/CVM_S4/' + component2 + '.mseed'
         elif traces2 == 'CVM_H':
-            fname_datZ = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + eventname + '/GravesSyn/CVM-H/' + component2 + '.mseed'
+            fname_datZ = '/Users/vidale/Documents/PyCode/LAB/Compare/' + event_name + '/CVM_H/' + component2 + '.mseed'
         sgrams2 = read(fname_datZ)
 
     # if traces2 == 'Ricardo_syn':
@@ -134,7 +152,8 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
     #         sgrams2[ii].data      = 100 * sgrams2[ii].data
 
     if traces2 != 'no':
-        print(traces2 + ' has ' + str(len(sgrams2)) + ' traces')
+        len2_in = len(sgrams2)
+        print(traces2 + ' has ' + str(len2_in) + ' traces')
         if len(sgrams2) == 0:
             print('No stations found in traces1, quit now!')
             sys.exit()
@@ -152,7 +171,7 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
                     do_write = 0
         if do_write == 1:
             sgrams1_good += tr
-    print('After rejecting labeled bad traces, '       + str(len(sgrams1_good))       + ' traces remain in 1st gather.')
+    print('After rejecting listed bad traces, ' + str(len(sgrams1_good)) + ' out of ' + str(len1_in) + ' traces remain in 1st gather.')
 
     if traces2 != 'no' or '':
         sgrams2_good = Stream()
@@ -164,7 +183,7 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
                         do_write = 0
             if do_write == 1:
                 sgrams2_good += tr
-        print('After rejecting labeled bad traces, '       + str(len(sgrams2_good))       + ' traces remain in 2nd gather.')
+        print('After rejecting listed bad traces, ' + str(len(sgrams2_good)) + ' out of ' + str(len2_in) + ' traces remain in 2nd gather.')
 
     if len(sgrams1_good) == 0:
         print('No common stations found, quit now!')
@@ -275,15 +294,15 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
 
     #%% plot traces, different windows in case multiple components are to be compared
     if component1 == 'Z':
-        fig_index = 13
+        fig_index = 13 + fig_inc
     elif component1 == 'N':
-        fig_index = 14
+        fig_index = 14 + fig_inc
     elif component1 == 'E':
-        fig_index = 15
+        fig_index = 15 + fig_inc
     elif component1 == 'R':
-        fig_index = 16
+        fig_index = 16 + fig_inc
     elif component1 == 'T':
-        fig_index = 17
+        fig_index = 17 + fig_inc
 
     plt.close(fig_index)
     plt.figure(fig_index,figsize=(10,8))
@@ -309,7 +328,8 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
     # find max normalized to 10 km distance (i.e., amp divided by distance, assumes 1/R amp fall-off)
     maxD_N = 0
     for tr in sgrams1_select:
-        print(f'Distance is {tr.stats.distance:6.4f}' + '  ' + tr.stats.station)
+        if verbose == True:
+            print(f'Distance is {tr.stats.distance:6.4f}' + '  ' + tr.stats.station)
         tr_max = max(abs(tr.data))*tr.stats.distance
         if tr_max > maxD_N:
             maxD_N = tr_max
@@ -325,7 +345,7 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
         dist_offset = tr.stats.distance # km
         if dist_offset > min_dist and dist_offset < max_dist:
             pnum = max(abs(tr.data))
-            printee2 = f'amp {pnum:8.6f}  {tr.stats.network}  {tr.stats.station}'
+            printee2 = f'amp {pnum:8.3f}  {tr.stats.network}  {tr.stats.station}'
             plt.text(s = printee2,x = end_buff*0.8,y = dist_offset
                     + (max_dist - min_dist)*0.02, color = 'black')  #label traces and note amplitude (cm, cm/s, cm/s^^2)
             if traces1 == 'CVM_H' or traces1 == 'CVM_S4':
@@ -368,4 +388,4 @@ def p_compare2(eventname, event_no, traces1, traces2, start_buff, end_buff, tape
 
     elapsed_time_wc = time.time() - start_time_wc
     print('This job took ' + str(elapsed_time_wc) + ' seconds')
-    #os.system('say "Done"')
+    os.system('say "Done"')

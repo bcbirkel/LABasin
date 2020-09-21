@@ -29,17 +29,20 @@ warnings.filterwarnings("ignore")
 
 # %% Set parameters
 #set event
-for i in range(0,5):
-    event_no = i
-    events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+for i in range(1):
+    event_no = 5
+    events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009', 'elmonte_2020']
     event = events[event_no]
     
     
-    os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/')
-    # %% Set paths
-    
-    path_dir_CESMD = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/'
-   
+    if event_no == 5:
+            
+        os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/')
+        path_dir_CESMD = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/'
+    else:
+        os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/')
+        path_dir_CESMD = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/'
+
     
     if event_no == 0:
         event_title = 'lahabra'
@@ -61,6 +64,13 @@ for i in range(0,5):
         event_title = 'beverlyhills'
         event_lat = 34.0541
         event_lon = -118.3929
+    elif event_no == 5:
+        event_title = 'elmonte'
+        event_disp = 'El Monte 2020'
+        event_lat = 34.0385
+        event_lon = -118.0803
+        gain_data = 20
+        sy_gain = 20
     else: 
         print('unknown event file')
     
@@ -136,8 +146,10 @@ for i in range(0,5):
     cesmd_st = set(cesmd_stns)
     good_st_list = []
 
- 
-    os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/')
+    if event_no == 5:
+        os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/')
+    else:
+        os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/CESMD/SAC/')
     for st in cesmd_st:
         count = 0
         for tr in stream_cesmd:
