@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5286
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020-08-06T19:32:37
+* START             : 2013-02-01T18:00:00
+* END               : 
+* DESCRIPTION       : CA:Costa Mesa;FS 4
+* LATITUDE          : 33.658310
+* LONGITUDE         : -117.931960
+* ELEVATION         : 30.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : Episensor
+* INSTGAIN          : 1.270000e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.262120e+05 (M/S**2)
+* A0                : 2.459570e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810020e+02	+1.009000e+03	
+	-9.810020e+02	-1.009000e+03	
+	-3.289990e+03	+1.263020e+03	
+	-3.289990e+03	-1.263020e+03	
+CONSTANT	1.048298e+19
+
+
+
+

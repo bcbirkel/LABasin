@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : LKL
+* LOCATION    : 
+* CHANNEL     : LLZ
+* CREATED     : 2020-08-06T21:52:55.009122Z
+* START       : 1998-09-23T00:00:00.000000Z
+* END         : 2002-10-08T16:17:00.000000Z
+* DESCRIPTION : Lake Los Angeles
+* LATITUDE    : 34.61594
+* LONGITUDE   : -117.82493
+* ELEVATION   : 810.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.51101 (M/S**2)
+* SENSITIVITY : 203142.0 (M/S**2)
+* A0          : 150417000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 3
+ -2.090000e+02 +2.379100e+02
+ -2.090000e+02 -2.379100e+02
+ -1.500000e+03 +0.000000e+00
+CONSTANT 3.055601e+13
+
+
+

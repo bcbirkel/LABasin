@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): YN
+* STATION    (KSTNM): RA08
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VM2
+* CREATED           : 2020-08-06T18:28:09
+* START             : 2020-06-07T20:50:00
+* END               : 2022-12-31T23:59:59
+* DESCRIPTION       : RA08, Anza, CA, USA
+* LATITUDE          : 33.607800
+* LONGITUDE         : -116.699000
+* ELEVATION         : 1482.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : V
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+01 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

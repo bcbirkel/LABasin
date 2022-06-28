@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13079
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:26:49
+* START             : 2002,298,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Riverside - Hwy 91 & Van Buren
+* LATITUDE          : 33.9174
+* LONGITUDE         : -117.443
+* ELEVATION         : 244
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144151E+05 (M/S**2)
+* A0                : 3.414438E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.85662E+02    +4.38992E+02
+        -3.85662E+02    -4.38992E+02
+CONSTANT        +7.321071E+10

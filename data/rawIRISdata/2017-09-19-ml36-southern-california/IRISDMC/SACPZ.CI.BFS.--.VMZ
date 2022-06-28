@@ -1,0 +1,40 @@
+* **********************************
+* NETWORK   (KNETWK): CI
+* STATION    (KSTNM): BFS
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VMZ
+* CREATED           : 2020-08-06T19:32:15
+* START             : 2016-07-06T16:30:00
+* END               : 
+* DESCRIPTION       : Mt. Baldy Ranger Station
+* LATITUDE          : 34.238831
+* LONGITUDE         : -117.658531
+* ELEVATION         : 1312.0
+* DEPTH             : 0.0
+* DIP               : 55.0
+* AZIMUTH           : 270.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : STS-2,VELOCITY-TRANSDUCER,STRECKEISEN
+* INSTGAIN          : 5.964140e+01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.400330e+03 (M/S**2)
+* A0                : 4.891690e+07
+* **********************************
+ZEROS	4
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.702370e-02	+3.702440e-02	
+	-3.702370e-02	-3.702440e-02	
+	-1.187520e+02	+4.234880e+02	
+	-1.187520e+02	-4.234880e+02	
+	-2.513270e+02	+0.000000e+00	
+CONSTANT	1.174167e+11
+
+
+
+

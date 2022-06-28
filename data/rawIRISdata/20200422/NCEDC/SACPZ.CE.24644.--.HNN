@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24644
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-01T04:15:06.778838Z
+* START       : 2016-09-14T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Sandberg - Bald Mountain
+* LATITUDE    : 34.7433
+* LONGITUDE   : -118.7249
+* ELEVATION   : 1364.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1277 (M/S**2)
+* SENSITIVITY : 214245.0 (M/S**2)
+* A0          : 1675310.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -9.060350e+02 +9.243410e+02
+ -9.060350e+02 -9.243410e+02
+CONSTANT 3.589268e+11
+
+
+

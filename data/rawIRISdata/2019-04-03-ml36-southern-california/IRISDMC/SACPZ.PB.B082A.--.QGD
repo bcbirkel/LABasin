@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B082A
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): QGD
+* CREATED           : 2020-08-06T19:15:46
+* START             : 2013-03-02T00:00:00
+* END               : 
+* DESCRIPTION       : pathfi082bcs2006, Anza, CA, USA
+* LATITUDE          : 33.598183
+* LONGITUDE         : -116.596008
+* ELEVATION         : 1374.8
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.05
+* INPUT UNIT        : GAPS
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+00 (GAPS)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

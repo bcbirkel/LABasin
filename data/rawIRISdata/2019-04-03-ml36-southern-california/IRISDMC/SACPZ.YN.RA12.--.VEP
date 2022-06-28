@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): YN
+* STATION    (KSTNM): RA12
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VEP
+* CREATED           : 2020-08-06T19:16:35
+* START             : 2016-10-25T23:05:00
+* END               : 2020-06-07T10:30:00
+* DESCRIPTION       : RA12, Anza, CA, USA
+* LATITUDE          : 33.609400
+* LONGITUDE         : -116.697200
+* ELEVATION         : 1502.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : V
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 6.666670e+00 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

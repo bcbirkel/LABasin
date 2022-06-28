@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): YN
+* STATION    (KSTNM): BALD
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VM0
+* CREATED           : 2020-08-06T19:16:16
+* START             : 2012-09-24T18:40:00
+* END               : 2022-12-31T23:59:59
+* DESCRIPTION       : Baldy Mountain, CA, USA
+* LATITUDE          : 33.681100
+* LONGITUDE         : -116.741600
+* ELEVATION         : 1570.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : V
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+01 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

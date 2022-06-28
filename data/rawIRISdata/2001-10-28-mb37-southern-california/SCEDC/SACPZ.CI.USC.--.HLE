@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : USC
+* LOCATION    : 
+* CHANNEL     : HLE
+* CREATED     : 2020-08-06T22:19:45.250578Z
+* START       : 2001-07-13T23:55:00.000000Z
+* END         : 2004-06-15T20:41:00.000000Z
+* DESCRIPTION : Univ Southern Ca
+* LATITUDE    : 34.01919
+* LONGITUDE   : -118.28631
+* ELEVATION   : 58.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 80.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.12763 (M/S**2)
+* SENSITIVITY : 50992.4 (M/S**2)
+* A0          : 148621000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 3
+ -2.014600e+02 +2.418700e+02
+ -2.014600e+02 -2.418700e+02
+ -1.500000e+03 +0.000000e+00
+CONSTANT 7.578541e+12
+
+
+

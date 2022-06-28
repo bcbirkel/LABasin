@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14785
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,15:34:34
+* START             : 1998,253,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Los Angeles - Vincent Thm Geo Array East
+* LATITUDE          : 33.7489
+* LONGITUDE         : -118.2678
+* ELEVATION         : 2
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144130E+05 (M/S**2)
+* A0                : 3.884899E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.23839E+02    +4.57005E+02
+        -4.23839E+02    -4.57005E+02
+CONSTANT        +8.329728E+10

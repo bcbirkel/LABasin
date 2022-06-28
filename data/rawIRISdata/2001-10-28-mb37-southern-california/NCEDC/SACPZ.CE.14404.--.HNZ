@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14404
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,14:24:52
+* START             : 1997,259,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Rancho Palos Verdes - Hawthorne Blvd
+* LATITUDE          : 33.7455
+* LONGITUDE         : -118.3969
+* ELEVATION         : 122
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.400000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.147507E+05 (M/S**2)
+* A0                : 3.518034E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.03330E+02    +4.34892E+02
+        -4.03330E+02    -4.34892E+02
+CONSTANT        +7.555003E+10

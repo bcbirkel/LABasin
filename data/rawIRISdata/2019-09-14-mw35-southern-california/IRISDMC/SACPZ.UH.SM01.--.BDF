@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): UH
+* STATION    (KSTNM): SM01
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BDF
+* CREATED           : 2020-08-06T19:25:24
+* START             : 2008-01-01T00:00:00
+* END               : 
+* DESCRIPTION       : Santa Margarita Infrasound Array, Site SM01, USA
+* LATITUDE          : 33.451500
+* LONGITUDE         : -117.170403
+* ELEVATION         : 341.5
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : PA
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : MB2000
+* INSTGAIN          : 2.000000e-02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.258260e+04 (PA)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

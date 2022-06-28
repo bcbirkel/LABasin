@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : BAL
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2020-08-06T21:36:13.314831Z
+* START       : 1994-02-03T00:00:00.000000Z
+* END         : 2014-05-12T19:02:00.000000Z
+* DESCRIPTION : Balcom Canyon Rd
+* LATITUDE    : 34.30764
+* LONGITUDE   : -118.96713
+* ELEVATION   : 258.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 113156000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 1.132069e+08
+
+
+

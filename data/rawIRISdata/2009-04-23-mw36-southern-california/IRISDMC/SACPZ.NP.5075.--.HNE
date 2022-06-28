@@ -1,0 +1,34 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5075
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020-08-06T19:55:38
+* START             : 1999-09-21T18:00:00
+* END               : 2013-09-10T18:00:00
+* DESCRIPTION       : CA:Forest Falls;PO
+* LATITUDE          : 34.088500
+* LONGITUDE         : -116.920560
+* ELEVATION         : 1624.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 270.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : Kinemetrics FBA-23 Accel.
+* INSTGAIN          : 1.270000e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.261410e+05 (M/S**2)
+* A0                : 1.479870e+08
+* **********************************
+ZEROS	0
+POLES	3
+	-2.221000e+02	+2.221000e+02	
+	-2.221000e+02	-2.221000e+02	
+	-1.500000e+03	+0.000000e+00	
+CONSTANT	6.306333e+13
+
+
+
+

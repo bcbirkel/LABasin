@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : JRC2
+* LOCATION    : 
+* CHANNEL     : BHE
+* CREATED     : 2020-02-21T21:38:27.463573Z
+* START       : 2010-08-19T00:00:00.000000Z
+* END         : 2019-09-25T19:00:00.000000Z
+* DESCRIPTION : Joshua Ridge: China Lake
+* LATITUDE    : 35.98249
+* LONGITUDE   : -117.80885
+* ELEVATION   : 1469.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1871.27 (M/S)
+* SENSITIVITY : 784866000.0 (M/S)
+* A0          : 598064000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -7.401590e-02 +7.401590e-02
+ -7.401590e-02 -7.401590e-02
+ -1.005310e+03 +0.000000e+00
+ -5.026550e+02 +0.000000e+00
+ -1.130970e+03 +0.000000e+00
+CONSTANT 4.694001e+17
+
+
+

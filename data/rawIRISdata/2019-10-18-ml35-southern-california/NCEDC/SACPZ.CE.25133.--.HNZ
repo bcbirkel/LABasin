@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 25133
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:01:34
+* START             : 2018,157,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Ventura - Telephone & Montgomery
+* LATITUDE          : 34.2703
+* LONGITUDE         : -119.1805
+* ELEVATION         : 62
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144130E+05 (M/S**2)
+* A0                : 3.706798E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.89658E+02    +4.67818E+02
+        -3.89658E+02    -4.67818E+02
+CONSTANT        +7.947856E+10

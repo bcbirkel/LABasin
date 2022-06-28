@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 12618
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-06T20:08:07.523331Z
+* START       : 1995-03-14T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : San Jacinto - Soboba A
+* LATITUDE    : 33.801
+* LONGITUDE   : -116.877
+* ELEVATION   : 650.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.128 (M/S**2)
+* SENSITIVITY : 104.858 (M/S**2)
+* A0          : 100675.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.094190e+02 +2.383770e+02
+ -2.094190e+02 -2.383770e+02
+CONSTANT 1.055658e+07
+
+
+

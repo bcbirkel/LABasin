@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): UH
+* STATION    (KSTNM): SM02
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BWS
+* CREATED           : 2020-08-06T19:16:15
+* START             : 2008-01-01T00:00:00
+* END               : 
+* DESCRIPTION       : Santa Margarita Infrasound Array, Site SM02, USA
+* LATITUDE          : 33.450100
+* LONGITUDE         : -117.168297
+* ELEVATION         : 397.2
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Generic Sensor, Unity Gain-RT130, gain 1, 40 sps
+* INSTGAIN          : 1.800000e-02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.132430e+04 (M/S)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

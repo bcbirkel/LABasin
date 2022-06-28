@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13067
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,11:50:35
+* START             : 2002,296,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Orange - Chapman & Esplanade
+* LATITUDE          : 33.7861
+* LONGITUDE         : -117.8094
+* ELEVATION         : 89
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 3.577904E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.00767E+02    +4.44050E+02
+        -4.00767E+02    -4.44050E+02
+CONSTANT        +7.647557E+10

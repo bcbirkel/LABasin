@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5036
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T18:56:38
+* START             : 2016-01-14T18:00:00
+* END               : 
+* DESCRIPTION       : CA:SBD;Sycamore Forest FS
+* LATITUDE          : 34.192600
+* LONGITUDE         : -117.427440
+* ELEVATION         : 618.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : L4
+* INSTGAIN          : 2.781500e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.166550e+08 (M/S)
+* A0                : 1.002850e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	1.169875e+08
+
+
+
+

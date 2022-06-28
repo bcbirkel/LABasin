@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23063
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-06T20:16:04.541221Z
+* START       : 2002-02-26T00:00:00.000000Z
+* END         : 2020-04-15T00:00:00.000000Z
+* DESCRIPTION : Pearblossom - Hwy 138 & Longview
+* LATITUDE    : 34.5025
+* LONGITUDE   : -117.897
+* ELEVATION   : 942.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 375287.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.043230e+02 +4.602330e+02
+ -4.043230e+02 -4.602330e+02
+CONSTANT 8.034144e+10
+
+
+

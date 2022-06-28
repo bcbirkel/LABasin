@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): KNW
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020-08-06T19:14:07
+* START             : 2018-01-23T21:00:00
+* END               : 
+* DESCRIPTION       : Keenwild Fire Station, Mountain Center, CA, USA
+* LATITUDE          : 33.714100
+* LONGITUDE         : -116.711899
+* ELEVATION         : 1507.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Episensor 200 Hz 10 Volt per g/Quanterra 330 Linea
+* INSTGAIN          : 1.020180e+00 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.278940e+05 (M/S**2)
+* A0                : 2.459560e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810000e+02	+1.009000e+03	
+	-9.810000e+02	-1.009000e+03	
+	-3.290000e+03	+1.263000e+03	
+	-3.290000e+03	-1.263000e+03	
+CONSTANT	1.052431e+19
+
+
+
+

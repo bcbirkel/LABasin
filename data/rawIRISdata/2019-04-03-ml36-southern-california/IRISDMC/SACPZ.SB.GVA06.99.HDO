@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): SB
+* STATION    (KSTNM): GVA06
+* LOCATION   (KHOLE): 99
+* CHANNEL   (KCMPNM): HDO
+* CREATED           : 2020-08-06T19:16:11
+* START             : 2009-11-11T00:00:00
+* END               : 2038-01-01T23:59:59
+* DESCRIPTION       : Garner Valley Downhole Array
+* LATITUDE          : 33.668900
+* LONGITUDE         : -116.673798
+* ELEVATION         : 1341.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : MILLIBAR
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : SETRA204
+* INSTGAIN          : 1.660000e-02 (MILLIBAR)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.785230e+04 (MILLIBAR)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

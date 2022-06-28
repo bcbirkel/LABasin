@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Nov 26 15:30:49 2019
+
+@author: bcbirkel
+"""
+
+# Plot ASCII files to see Jon Stewart's synthetics
+# units are m/s
+# Brianna Birkel - 11/2019
+
+def plot_stewart(event_no, start_buff, end_buff, vmodel):
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import os
+    
+    if vmodel == 'S':
+        model == 'cvmsi'
+        model_folder == 'CVM-S4 Simulations'
+    if vmodel == 'H':
+        model == 'cvmh'
+        model_folder == 'CVM-H Simulations'
+    else:
+        print("please enter either S or H for velocity model")
+    
+    events = ['e1002-cvmsi-s112.bbp']
+    
+    # Broadband text file (Rob Graves format)
+    os.chdir('/Users/bcbirkel/Documents/Research/LABasin/stewart/' + model_folder)
+    data_file = events[event_no]
+    
+    # initialize arrays
+    time = []
+    comp_N = []
+    comp_E = []
+    comp_Z = []
+    
+    # Create lists with time/components from text files
+    data = open(data_file, 'rt')
+    for row in data:
+        line = row.split('\n')
+        line = ' '.join(line)
+        if not line.startswith("#"):
+            line = line.split('\t')
+            for num in range(0,4):
+                line[num] = float(line[num])
+            time.append(line[0])
+            comp_N.append(line[1])
+            comp_E.append(line[2])
+            comp_Z.append(line[3])
+    
+    length = len(comp_Z)
+    # print check
+    #print(time[0])
+    #print(comp_N[0])
+    
+    # create figure for plotting synthetics
+    fig = plt.figure()
+    
+    ax1 = fig.add_subplot()
+    ax2 = fig.add_subplot()
+    ax3 = fig.add_subplot()
+    
+    ax1.set_title("Stewart-Graves Velocity Synthetics - model " + vmodel + ", event " + event_no)    
+    ax1.set_xlabel('Time (s)')
+    ax1.set_ylabel('Velocity (m/s)')
+    
+    # first 500 seconds
+    ax1.plot(time[start_buff:length-end_buff],comp_N[start_buff:length-end_buff])
+    ax2.plot(time[start_buff:length-end_buff],comp_E[start_buff:length-end_buff])
+    ax3.plot(time[start_buff:length-end_buff],comp_Z[start_buff:length-end_buff])
+    
+    leg = ax1.legend()
+    
+    plt.show()

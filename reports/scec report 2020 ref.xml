@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography">
+  <b:Source>
+    <b:SourceType>Report</b:SourceType>
+    <b:Title>Quantitative Measure of the Goodness-of-Fit of Synthetic Seismograms</b:Title>
+    <b:Year>2004</b:Year>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>John G</b:First>
+            <b:Last>Anderson</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+      <b:Editor>
+        <b:NameList>
+        </b:NameList>
+      </b:Editor>
+    </b:Author>
+    <b:City>Vancouver, B.C., Canada</b:City>
+    <b:Tag>quantitative-measure-of-the-goodness-of-fit-of-synthetic-seismograms</b:Tag>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>Journal Article</b:SourceType>
+    <b:Title>Ground-motion simulation and validation of the 2008 chino Hills, California, earthquake</b:Title>
+    <b:Year>2013</b:Year>
+    <b:Pages>131-156</b:Pages>
+    <b:JournalName>Bulletin of the Seismological Society of America</b:JournalName>
+    <b:Volume>103</b:Volume>
+    <b:Issue>1</b:Issue>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>R.</b:First>
+            <b:Last>Taborda</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>J.</b:First>
+            <b:Last>Bielak</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+      <b:Editor>
+        <b:NameList>
+        </b:NameList>
+      </b:Editor>
+    </b:Author>
+    <b:Tag>ground-motion-simulation-and-validation-of-the-2008-chino-hills,-california,-earthquake</b:Tag>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>Journal Article</b:SourceType>
+    <b:Title>Site Response of Southern California Sedimentary Basins and Other Geomorphic Provinces</b:Title>
+    <b:Year>2020</b:Year>
+    <b:JournalName>Natural Hazards Risk &amp; Resiliency Research Center</b:JournalName>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Chukwuebuka C</b:First>
+            <b:Last>Nweke</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Jonathan P</b:First>
+            <b:Last>Stewart</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Scott J</b:First>
+            <b:Last>Brandenberg</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+      <b:Editor>
+        <b:NameList>
+        </b:NameList>
+      </b:Editor>
+    </b:Author>
+    <b:Tag>site-response-of-southern-california-sedimentary-basins-and-other-geomorphic-provinces</b:Tag>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>Journal Article</b:SourceType>
+    <b:Title>Evaluation of the southern California seismic velocity models through simulation of recorded events</b:Title>
+    <b:Year>2016</b:Year>
+    <b:Month>6</b:Month>
+    <b:StandardNumber>1365246X</b:StandardNumber>
+    <b:Publisher>Oxford University Press</b:Publisher>
+    <b:Pages>1342-1364</b:Pages>
+    <b:JournalName>Geophysical Journal International</b:JournalName>
+    <b:Volume>205</b:Volume>
+    <b:Issue>3</b:Issue>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Ricardo</b:First>
+            <b:Last>Taborda</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Shima</b:First>
+            <b:Last>Azizzadeh-Roodpish</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Naeem</b:First>
+            <b:Last>Khoshnevis</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Keli</b:First>
+            <b:Last>Cheng</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+      <b:Editor>
+        <b:NameList>
+        </b:NameList>
+      </b:Editor>
+    </b:Author>
+    <b:Tag>evaluation-of-the-southern-california-seismic-velocity-models-through-simulation-of-recorded-events</b:Tag>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>Journal Article</b:SourceType>
+    <b:Title>Broadband ground-motion simulation using a hybrid approach</b:Title>
+    <b:Year>2010</b:Year>
+    <b:Pages>2095-2123</b:Pages>
+    <b:JournalName>Bulletin of the Seismological Society of America</b:JournalName>
+    <b:Volume>100</b:Volume>
+    <b:Issue>5 A</b:Issue>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>R.W.</b:First>
+            <b:Last>Graves</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>A.</b:First>
+            <b:Last>Pitarka</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+      <b:Editor>
+        <b:NameList>
+        </b:NameList>
+      </b:Editor>
+    </b:Author>
+    <b:Tag>broadband-ground-motion-simulation-using-a-hybrid-approach</b:Tag>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>Journal Article</b:SourceType>
+    <b:Title>Shallow Basin Structure and Attenuation Are Key to Predicting Long Shaking Duration in Los Angeles Basin</b:Title>
+    <b:Year>2020</b:Year>
+    <b:Month>10</b:Month>
+    <b:StandardNumber>21699356</b:StandardNumber>
+    <b:Publisher>Blackwell Publishing Ltd</b:Publisher>
+    <b:JournalName>Journal of Geophysical Research: Solid Earth</b:JournalName>
+    <b:Volume>125</b:Volume>
+    <b:Issue>10</b:Issue>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Voon Hui</b:First>
+            <b:Last>Lai</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Robert W.</b:First>
+            <b:Last>Graves</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Chunquan</b:First>
+            <b:Last>Yu</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Zhongwen</b:First>
+            <b:Last>Zhan</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Don V.</b:First>
+            <b:Last>Helmberger</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+      <b:Editor>
+        <b:NameList>
+        </b:NameList>
+      </b:Editor>
+    </b:Author>
+    <b:Tag>shallow-basin-structure-and-attenuation-are-key-to-predicting-long-shaking-duration-in-los-angeles-basin</b:Tag>
+  </b:Source>
+</b:Sources>

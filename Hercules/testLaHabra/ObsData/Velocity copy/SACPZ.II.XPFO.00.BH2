@@ -1,0 +1,377 @@
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH2
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2014-06-27T19:28:00
+* END               : 2015-05-19T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 88.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Metrozet M2166-VBH Seismometer
+* INSTGAIN          : 2.515200e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.982660e+09 (M)
+* A0                : 7.401950e+01
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.197663e-02	+1.225284e-02	
+	-1.197663e-02	-1.225284e-02	
+	-1.527185e-01	+9.673278e-03	
+	-1.527185e-01	-9.673278e-03	
+	-1.288160e+02	+1.411876e+02	
+	-1.288160e+02	-1.411876e+02	
+CONSTANT	2.947945e+11
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH2
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2014-04-17T16:52:00
+* END               : 2014-06-27T19:27:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Metrozet M2166-VBH Seismometer
+* INSTGAIN          : 2.493600e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.948460e+09 (M)
+* A0                : 3.255360e+01
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.221577e-02	+1.232334e-02	
+	-1.221577e-02	-1.232334e-02	
+	-1.525092e-01	+1.368189e-02	
+	-1.525092e-01	-1.368189e-02	
+	-8.787726e+01	+9.142035e+01	
+	-8.787726e+01	-9.142035e+01	
+CONSTANT	1.285366e+11
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH2
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2013-12-17T19:00:00
+* END               : 2014-04-17T16:51:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Metrozet M2166-VBH Seismometer
+* INSTGAIN          : 2.515200e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.982660e+09 (M)
+* A0                : 7.384770e+01
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.220031e-02	+1.230775e-02	
+	-1.220031e-02	-1.230775e-02	
+	-1.522497e-01	+1.810965e-02	
+	-1.522497e-01	-1.810965e-02	
+	-1.288160e+02	+1.411876e+02	
+	-1.288160e+02	-1.411876e+02	
+CONSTANT	2.941103e+11
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH2
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2013-10-31T00:00:00
+* END               : 2013-12-17T18:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Metrozet M2166-VBH Seismometer
+* INSTGAIN          : 2.515200e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.982660e+09 (M)
+* A0                : 7.384770e+01
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.220031e-02	+1.230775e-02	
+	-1.220031e-02	-1.230775e-02	
+	-1.522497e-01	+1.810965e-02	
+	-1.522497e-01	-1.810965e-02	
+	-1.288160e+02	+1.411876e+02	
+	-1.288160e+02	-1.411876e+02	
+CONSTANT	2.941103e+11
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH2
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2013-01-03T18:50:00
+* END               : 2013-10-30T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Metrozet M2166-VBH Seismometer
+* INSTGAIN          : 2.400000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.800250e+09 (M)
+* A0                : 7.384770e+01
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.220031e-02	+1.230775e-02	
+	-1.220031e-02	-1.230775e-02	
+	-1.522497e-01	+1.810965e-02	
+	-1.522497e-01	-1.810965e-02	
+	-1.288160e+02	+1.411876e+02	
+	-1.288160e+02	-1.411876e+02	
+CONSTANT	2.806397e+11
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH2
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2012-12-20T20:00:00
+* END               : 2013-01-03T18:49:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Metrozet M2166-VBH Seismometer
+* INSTGAIN          : 2.400000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.800070e+09 (M)
+* A0                : 7.384770e+01
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.220031e-02	+1.230775e-02	
+	-1.220031e-02	-1.230775e-02	
+	-1.522497e-01	+1.810965e-02	
+	-1.522497e-01	-1.810965e-02	
+	-1.288160e+02	+1.411876e+02	
+	-1.288160e+02	-1.411876e+02	
+CONSTANT	2.806264e+11
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH2
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2012-06-15T00:00:00
+* END               : 2012-12-20T19:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Nanometrics Trillium 120 Posthole BB Seismometer
+* INSTGAIN          : 1.201000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 2.007920e+09 (M)
+* A0                : 4.930058e+04
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-8.999092e+01	+0.000000e+00	
+	-1.606843e+02	+0.000000e+00	
+	-3.107695e+03	+0.000000e+00	
+POLES	7
+	-3.851593e-02	+3.657442e-02	
+	-3.851593e-02	-3.657442e-02	
+	-1.779825e+02	+0.000000e+00	
+	-1.349867e+02	+1.599843e+02	
+	-1.349867e+02	-1.599843e+02	
+	-6.709374e+02	+1.153888e+03	
+	-6.709374e+02	-1.153888e+03	
+CONSTANT	1.575500e+13
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH2
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2011-01-07T00:00:00
+* END               : 2012-06-14T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-2.5 Seismometer
+* INSTGAIN          : 1.488000e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 2.495660e+09 (M)
+* A0                : 5.549154e+16
+* **********************************
+ZEROS	7
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.515002e+01	+0.000000e+00	
+	-1.766002e+02	+0.000000e+00	
+	-4.631003e+02	-4.305000e+02	
+	-4.631003e+02	+4.305000e+02	
+POLES	11
+	-3.700168e-02	-3.700168e-02	
+	-3.700168e-02	+3.700168e-02	
+	-1.563998e+01	+0.000000e+00	
+	-9.733974e+01	-4.007001e+02	
+	-9.733974e+01	+4.007001e+02	
+	-3.748002e+02	+0.000000e+00	
+	-5.202999e+02	+0.000000e+00	
+	-1.052999e+04	-1.005002e+04	
+	-1.052999e+04	+1.005002e+04	
+	-1.330000e+04	+0.000000e+00	
+	-2.550973e+02	+0.000000e+00	
+CONSTANT	8.885723e+22
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): XPFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH2
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2010-07-22T18:20:00
+* END               : 2011-01-06T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Geotech KS-54000 Borehole Seismometer
+* INSTGAIN          : 2.380800e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.010160e+09 (M)
+* A0                : 4.588458e+05
+* **********************************
+ZEROS	4
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	7
+	-7.281332e-02	+0.000000e+00	
+	-4.799989e-03	+0.000000e+00	
+	-4.192342e-03	+0.000000e+00	
+	-1.847256e+01	+1.884579e+01	
+	-1.847256e+01	-1.884579e+01	
+	-3.392455e+01	+0.000000e+00	
+	-1.188515e+02	+0.000000e+00	
+CONSTANT	7.418034e+12
+
+
+
+

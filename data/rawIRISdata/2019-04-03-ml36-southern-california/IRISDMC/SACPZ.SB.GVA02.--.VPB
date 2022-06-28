@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): SB
+* STATION    (KSTNM): GVA02
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VPB
+* CREATED           : 2020-08-06T19:16:07
+* START             : 2003-11-08T00:00:00
+* END               : 2038-01-01T23:59:59
+* DESCRIPTION       : Garner Valley Downhole Array
+* LATITUDE          : 33.668900
+* LONGITUDE         : -116.673798
+* ELEVATION         : 1341.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : PERCENT
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+01 (PERCENT)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

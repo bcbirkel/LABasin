@@ -1,0 +1,32 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5403
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020,219,14:25:18
+* START             : 1997,083,18:00:00
+* END               : 2006,068,18:00:00
+* DESCRIPTION       : CA:Ventura;Oakview PacBell Fac
+* LATITUDE          : 34.39697
+* LONGITUDE         : -119.29874
+* ELEVATION         : 158
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 90
+* SAMPLE RATE       : 100
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics FBA-23 Accel.
+* INSTGAIN          : 1.270000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.262120E+05 (M/S**2)
+* A0                : 1.479865E+08
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   3
+        -2.22100E+02    +2.22100E+02
+        -2.22100E+02    -2.22100E+02
+        -1.50000E+03    +0.00000E+00
+CONSTANT        +6.307364E+13

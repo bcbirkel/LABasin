@@ -1,0 +1,34 @@
+* **********************************
+* NETWORK   (KNETWK): BK
+* STATION    (KSTNM): KCC
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020,052,13:28:29
+* START             : 2013,329,23:34:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Kaiser Creek, CA, USA
+* LATITUDE          : 37.32363
+* LONGITUDE         : -119.3187
+* ELEVATION         : 888.1
+* DEPTH             : 87.3
+* DIP               : 90
+* AZIMUTH           : 90
+* SAMPLE RATE       : 40
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Streckeisen STS-1/E300 VBB Feedback Horizontal Sei
+* INSTGAIN          : 2.114400E+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 3.547375E+09 (M/S)
+* A0                : 8.903773E+03
+* **********************************
+ZEROS   3
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   4
+        -1.24234E-02    +1.18675E-02
+        -1.24234E-02    -1.18675E-02
+        -3.48748E+01    +8.78419E+01
+        -3.48748E+01    -8.78419E+01
+CONSTANT        +3.158502E+13

@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): SB
+* STATION    (KSTNM): GVDA
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020-08-06T19:16:13
+* START             : 2008-10-17T09:30:00
+* END               : 
+* DESCRIPTION       : Garner Valley
+* LATITUDE          : 33.668900
+* LONGITUDE         : -116.673800
+* ELEVATION         : 1341.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 1.019682e+00 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.276843e+05 (M/S**2)
+* A0                : 2.459564e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810000e+02	+1.009000e+03	
+	-9.810000e+02	-1.009000e+03	
+	-3.290000e+03	+1.263000e+03	
+	-3.290000e+03	-1.263000e+03	
+CONSTANT	1.051917e+19
+
+
+
+

@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): YN
+* STATION    (KSTNM): SGBS2
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): ACE
+* CREATED           : 2020-08-06T19:16:42
+* START             : 2017-07-08T17:58:00
+* END               : 2022-12-31T23:59:59
+* DESCRIPTION       : SGBS2, Anza, CA, USA
+* LATITUDE          : 33.539400
+* LONGITUDE         : -116.592200
+* ELEVATION         : 1431.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.0
+* INPUT UNIT        : 
+* OUTPUT UNIT       : 
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 0.000000e+00 ()
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

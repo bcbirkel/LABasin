@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14937
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2021,024,15:50:00
+* START             : 2003,028,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : La Mirada - Civic Center
+* LATITUDE          : 33.9051
+* LONGITUDE         : -118.0113
+* ELEVATION         : 49
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.360000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.134085E+05 (M/S**2)
+* A0                : 3.458627E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.82269E+02    +4.46922E+02
+        -3.82269E+02    -4.46922E+02
+CONSTANT        +7.381004E+10

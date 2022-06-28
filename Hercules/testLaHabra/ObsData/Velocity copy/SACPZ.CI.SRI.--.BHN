@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SRI
+* LOCATION    : 
+* CHANNEL     : BHN
+* CREATED     : 2020-02-21T21:47:26.132130Z
+* START       : 2012-10-08T20:00:00.000000Z
+* END         : 2014-04-02T00:00:00.000000Z
+* DESCRIPTION : Santa Rosa Island
+* LATITUDE    : 33.97875
+* LONGITUDE   : -120.07886
+* ELEVATION   : 392.0
+* DEPTH       : 1.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1493.74 (M/S)
+* SENSITIVITY : 626518000.0 (M/S)
+* A0          : 573035000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -1.131000e+03 +0.000000e+00
+ -1.005000e+03 +0.000000e+00
+ -5.026500e+02 +0.000000e+00
+ -3.700800e-02 -3.700800e-02
+ -3.700800e-02 +3.700800e-02
+CONSTANT 3.590167e+17
+
+
+

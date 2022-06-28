@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5481
+* LOCATION   (KHOLE): 10
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T19:33:09
+* START             : 2013-09-05T18:00:00
+* END               : 
+* DESCRIPTION       : CA:Elizabeth Lake Tunnel  S
+* LATITUDE          : 34.599300
+* LONGITUDE         : -118.453750
+* ELEVATION         : 918.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : L4
+* INSTGAIN          : 1.000000e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.193610e+07 (M/S)
+* A0                : 1.002850e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	4.205562e+07
+
+
+
+

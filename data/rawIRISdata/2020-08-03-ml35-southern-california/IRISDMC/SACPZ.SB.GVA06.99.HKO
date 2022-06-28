@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): SB
+* STATION    (KSTNM): GVA06
+* LOCATION   (KHOLE): 99
+* CHANNEL   (KCMPNM): HKO
+* CREATED           : 2020-08-06T18:27:50
+* START             : 2015-06-26T00:00:00
+* END               : 2038-01-01T23:59:59
+* DESCRIPTION       : Garner Valley Downhole Array
+* LATITUDE          : 33.668900
+* LONGITUDE         : -116.673798
+* ELEVATION         : 1341.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 125.0
+* INPUT UNIT        : C
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Parosci APG Temperature/LDEO_APG logger
+* INSTGAIN          : 1.000000e+03 (C)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+03 (C)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

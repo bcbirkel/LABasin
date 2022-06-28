@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5288
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T19:32:37
+* START             : 2016-01-16T18:00:00
+* END               : 
+* DESCRIPTION       : CA:Huntington Beach;Springdale
+* LATITUDE          : 33.697290
+* LONGITUDE         : -118.024850
+* ELEVATION         : 1.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : L4
+* INSTGAIN          : 2.831800e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.187650e+08 (M/S)
+* A0                : 1.002850e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	1.191035e+08
+
+
+
+

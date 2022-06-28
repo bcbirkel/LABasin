@@ -1,0 +1,32 @@
+* **********************************
+* NETWORK   (KNETWK): WR
+* STATION    (KSTNM): PYR
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): EHN
+* CREATED           : 2020,219,15:28:27
+* START             : 2011,293,19:00:00
+* END               : 2013,137,19:00:00
+* DESCRIPTION       : Pyramid Dam Whit. Peak
+* LATITUDE          : 34.567841
+* LONGITUDE         : -118.741898
+* ELEVATION         : 1209
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 112
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : SS-1
+* INSTGAIN          : 3.400000E+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.852348E+08 (M/S)
+* A0                : 9.998500E-01
+* **********************************
+ZEROS   3
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.39823E+00    +4.48709E+00
+        -4.39823E+00    -4.48709E+00
+CONSTANT        +2.851921E+08

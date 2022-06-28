@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24984
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,12:01:32
+* START             : 2003,099,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Los Angeles - Exposition & 7th Ave
+* LATITUDE          : 34.0212
+* LONGITUDE         : -118.3251
+* ELEVATION         : 37
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.458638E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.88150E+02    +4.41824E+02
+        -3.88150E+02    -4.41824E+02
+CONSTANT        +7.404237E+10

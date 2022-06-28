@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24061
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,12:09:11
+* START             : 2002,051,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Vernon - 38th & Santa Fe
+* LATITUDE          : 34.0055
+* LONGITUDE         : -118.2308
+* ELEVATION         : 61
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.400000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.147507E+05 (M/S**2)
+* A0                : 3.900569E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.18448E+02    +4.63641E+02
+        -4.18448E+02    -4.63641E+02
+CONSTANT        +8.376499E+10

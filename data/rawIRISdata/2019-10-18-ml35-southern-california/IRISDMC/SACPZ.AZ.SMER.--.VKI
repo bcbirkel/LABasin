@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): SMER
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VKI
+* CREATED           : 2020-08-06T18:56:27
+* START             : 2019-01-30T20:00:00
+* END               : 
+* DESCRIPTION       : Santa Margarita Ecological Reserve, CA, USA
+* LATITUDE          : 33.457699
+* LONGITUDE         : -117.170799
+* ELEVATION         : 355.7
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : CELSIUS
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+00 (CELSIUS)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

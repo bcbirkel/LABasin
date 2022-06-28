@@ -1,0 +1,135 @@
+
+##########################################################################
+#
+#  Control.in for database: Central Mexico Velocity Model (BSSA 2014)
+#  Developed by Leonardo Ramirez-Guzman and modified by Alan Juarez
+#  Contact: lramirezg@iingen.unam.mx or leoramirezg@gmail.com
+#
+##########################################################################
+
+##########################################################################
+#   NOTES:
+#      type_X   0 geologic unit
+#               1 2D mesh (2.5 MODELS OR NODES POSiTION VARYING IN THE 
+#                         PERPENDICULAR DIRECTION)
+#
+#      vel_x_profile_type  0 - 3D velocity distribution an exponential 
+#                              law in every point defined in terms of 
+#                              max and min vels
+#                          1 - characteristic profile
+#
+#   Surfaces give you the bottom of the unit
+#   DEFINITION OF THE PROFILE DISTRIBUTION OPTIONS:
+# 
+#       object_X_znormalizationtype:
+#
+#	0 - depth-geologicunittop;
+#	1 - (depth-geologicunittop)/geologicunitbottom;
+#	2 - depth;
+#	3 - depth/ geologicunitbottom;
+#	4 - (depth-geologicunittop)/(geologicunitbottom-geologicunittop);
+#	5 - depth-topo;
+#	case 6: /* Z IS REFERED TO THE TOPOGRAPHY*
+#
+##########################################################################
+
+##########################################################################
+# CONTROL PARAMETER FOR THE SPATIAL DATABASE
+# Surfaces are stored using as Z reference the top of air unit.
+# datum = air's unit top (HAS TO BE GREATER THAN TOPOGRAPHY ELEV). 
+# Coordinates here are x-lat, y-lon, z-depth.
+# Depths are of the database i.e. you need at least datum+"modelthickness"
+##########################################################################
+
+datum     =  1e3
+depth0    =  0.1
+x_min     =  -1e3
+x_max     =  761e3
+y_min     =  -1e3
+y_max     =  476e3
+depth_min =  -10e3
+depth_max =  6000e3
+
+##########################################################################
+# VELOCITY UNITS DATABASE INFORMATION
+# Surfaces are stored using as Z reference the top of air unit.
+# datum = air's unit top (HAS TO BE GREATER THAN TOPOGRAPHY ELEV). 
+# Coordinates in the files surf_UNIT_X are x-lat, y-lon, z-elevation.
+##########################################################################
+number_of_objects = 3
+
+##########################################################################
+# Bottom is dem
+##########################################################################
+object_0 =  air
+object_0_type              = 0
+object_0_priority          = 0
+object_0_velprofile_type   = 1
+object_0_velprofile_function =1
+object_0_znormalizationtype = 4
+object_0_min_vp     = 20000
+object_0_max_vp     = 3000
+object_0_min_vs     = 20000
+object_0_max_vs     = 3000
+object_0_min_rho    = 2600
+object_0_max_rho    = 2600
+object_0_exponent   = 10
+object_0_isexcluded = 0
+object_0_isbottombedrock     =  0
+object_0_weatheringfactor    =  1
+object_0_weatheringexp       =  0
+object_0_layer_type          = -1
+object_0_isbottomfreesurface = 1
+object_0_interpolationscheme = 0
+object_0_factorsurface       = 1
+
+##############################################################################
+# 
+##########################################################################
+object_1 =  unidad1 
+object_1_type              = 0
+object_1_priority          = 0
+object_1_velprofile_type   = 0
+object_1_velprofile_function =1
+object_1_znormalizationtype = 5
+object_1_min_vp     = 1
+object_1_max_vp     = 1
+object_1_min_vs     = 1
+object_1_max_vs     = 1
+object_1_min_rho    = 1
+object_1_max_rho    = 1
+object_1_exponent   = 1
+object_1_isexcluded = 0
+object_1_isbottombedrock     = 0
+object_1_weatheringfactor    = 1
+object_1_weatheringexp       = 0
+object_1_layer_type          = 1 
+object_1_isbottomfreesurface = 0
+object_1_interpolationscheme = 1
+object_1_factorsurface       = 1
+
+##########################################################################
+# 
+##########################################################################
+object_2 = oceanicmantle 
+object_2_type              = 0
+object_2_priority          = 0
+object_2_velprofile_type   = 1
+object_2_velprofile_function =1
+object_2_znormalizationtype= 5
+object_2_min_vp     = 7916
+object_2_max_vp     = 7916.1
+object_2_min_vs     = 4570
+object_2_max_vs     = 4570.1
+object_2_min_rho    = 3115
+object_2_max_rho    = 3115.1
+object_2_exponent   = 0
+object_2_isexcluded = 0
+object_2_isbottombedrock     = 0
+object_2_weatheringfactor    = 1
+object_2_weatheringexp       = 0
+object_2_layer_type          = 1
+object_2_isbottomfreesurface = 0
+object_2_interpolationscheme = 0
+object_2_factorsurface       = 1
+

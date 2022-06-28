@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5371
+* LOCATION   (KHOLE): 10
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T18:26:41
+* START             : 2016-04-28T18:00:00
+* END               : 
+* DESCRIPTION       : CA:SBD;N Verdemont Sch
+* LATITUDE          : 34.205880
+* LONGITUDE         : -117.367100
+* ELEVATION         : 567.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : L4
+* INSTGAIN          : 2.807600e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.177400e+08 (M/S)
+* A0                : 1.002850e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	1.180756e+08
+
+
+
+

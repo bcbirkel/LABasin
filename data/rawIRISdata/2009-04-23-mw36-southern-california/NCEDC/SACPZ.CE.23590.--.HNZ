@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23590
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:59:20
+* START             : 1995,270,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Wrightwood - Jackson Flat
+* LATITUDE          : 34.3814
+* LONGITUDE         : -117.7371
+* ELEVATION         : 2286
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 1.275000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.044480E+02 (M/S**2)
+* A0                : 9.868993E+04
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -2.04204E+02    +2.38740E+02
+        -2.04204E+02    -2.38740E+02
+CONSTANT        +1.030797E+07

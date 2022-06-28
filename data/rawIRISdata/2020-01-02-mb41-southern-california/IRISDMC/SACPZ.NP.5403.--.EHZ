@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5403
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T19:05:47
+* START             : 2017-04-19T22:30:00
+* END               : 
+* DESCRIPTION       : 5403, Ojai, CA (OKV)
+* LATITUDE          : 34.396970
+* LONGITUDE         : -119.298740
+* ELEVATION         : 124.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 1.672400e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 7.013390e+07 (M/S)
+* A0                : 1.002846e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026498e+00	+3.769873e+00	
+	-5.026498e+00	-3.769873e+00	
+CONSTANT	7.033349e+07
+
+
+
+

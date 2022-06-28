@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : LCG
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2020-08-06T20:45:12.379229Z
+* START       : 2008-06-13T09:06:42.000000Z
+* END         : 2010-12-15T21:30:00.000000Z
+* DESCRIPTION : La Cienega
+* LATITUDE    : 34.00033
+* LONGITUDE   : -118.37794
+* ELEVATION   : 108.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0198 (M/S**2)
+* SENSITIVITY : 410483.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.009612e+19
+
+
+

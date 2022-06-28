@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14847
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:08:42
+* START             : 2019,262,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Long Beach - Santa Fe Ave & I405
+* LATITUDE          : 33.8268
+* LONGITUDE         : -118.2167
+* ELEVATION         : 8
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137419E+05 (M/S**2)
+* A0                : 3.480844E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.89394E+02    +4.43240E+02
+        -3.89394E+02    -4.43240E+02
+CONSTANT        +7.440022E+10

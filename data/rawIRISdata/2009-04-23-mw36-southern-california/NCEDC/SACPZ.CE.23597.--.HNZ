@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23597
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:59:20
+* START             : 1990,269,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Phelan - Wilson Ranch Road
+* LATITUDE          : 34.4675
+* LONGITUDE         : -117.5203
+* ELEVATION         : 1098
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 1.276000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.045299E+02 (M/S**2)
+* A0                : 1.163946E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -2.18353E+02    +2.62152E+02
+        -2.18353E+02    -2.62152E+02
+CONSTANT        +1.216672E+07

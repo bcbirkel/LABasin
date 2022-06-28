@@ -1,0 +1,16 @@
+#!/bin/bash -l
+#PBS -l nodes=${NO}:ppn=${PN}
+#PBS -l walltime=${WT} 
+#PBS -N H_${AD}
+#PBS -j oe
+#PBS -M birkel@usc.edu
+#PBS -m ae
+
+source /usr/usc/openmpi/default/setup.sh
+
+MY_INPUT=/home/scec-00/birkel/Homogeneous/${AD}/Source/input
+mpiexec -np $((NO*PN)) /home/scec-00/birkel/Hercules0/quake/forward/psolve XXXX \
+$MY_INPUT/input.in \
+$MY_INPUT/input.in \
+$MY_INPUT/mesh.e \
+$MY_INPUT/disp.out

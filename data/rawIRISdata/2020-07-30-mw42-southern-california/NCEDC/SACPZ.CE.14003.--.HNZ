@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14003
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,11:41:11
+* START             : 2003,078,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : San Pedro - 16th & Grand
+* LATITUDE          : 33.7295
+* LONGITUDE         : -118.2905
+* ELEVATION         : 25
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 3.392455E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.90242E+02    +4.32389E+02
+        -3.90242E+02    -4.32389E+02
+CONSTANT        +7.251169E+10

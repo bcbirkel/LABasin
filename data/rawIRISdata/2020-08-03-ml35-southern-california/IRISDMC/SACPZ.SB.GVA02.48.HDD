@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): SB
+* STATION    (KSTNM): GVA02
+* LOCATION   (KHOLE): 48
+* CHANNEL   (KCMPNM): HDD
+* CREATED           : 2020-08-06T18:27:46
+* START             : 2013-10-25T00:00:00
+* END               : 2038-01-01T23:59:59
+* DESCRIPTION       : Garner Valley Downhole Array
+* LATITUDE          : 33.668900
+* LONGITUDE         : -116.673798
+* ELEVATION         : 1341.0
+* DEPTH             : 494.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : PA
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Pressure Systems 30 5V 100psi/Quanterra 330 Linear
+* INSTGAIN          : 7.064000e-06 (PA)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.962850e+00 (PA)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SDG
+* LOCATION    : 
+* CHANNEL     : BHZ
+* CREATED     : 2020-02-21T21:45:24.498444Z
+* START       : 2010-11-10T19:20:00.000000Z
+* END         : 2018-01-31T16:30:00.000000Z
+* DESCRIPTION : San Diego Mission Control
+* LATITUDE    : 32.784
+* LONGITUDE   : -117.13805
+* ELEVATION   : 101.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1894.2 (M/S)
+* SENSITIVITY : 794486000.0 (M/S)
+* A0          : 598064000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -7.401590e-02 +7.401590e-02
+ -7.401590e-02 -7.401590e-02
+ -1.005310e+03 +0.000000e+00
+ -5.026550e+02 +0.000000e+00
+ -1.130970e+03 +0.000000e+00
+CONSTANT 4.751535e+17
+
+
+

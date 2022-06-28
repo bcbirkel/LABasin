@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14413
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,11:41:22
+* START             : 2009,303,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Long Beach - Port of LB Pier T Grnds
+* LATITUDE          : 33.756
+* LONGITUDE         : -118.23
+* ELEVATION         : 0
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.630715E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.03714E+02    +4.47315E+02
+        -4.03714E+02    -4.47315E+02
+CONSTANT        +7.772619E+10

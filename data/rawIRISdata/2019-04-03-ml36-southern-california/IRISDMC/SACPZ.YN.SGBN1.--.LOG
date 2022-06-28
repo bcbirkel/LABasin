@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): YN
+* STATION    (KSTNM): SGBN1
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): LOG
+* CREATED           : 2020-08-06T19:16:40
+* START             : 2016-10-07T18:00:00
+* END               : 2022-12-31T23:59:59
+* DESCRIPTION       : SGBN1, Anza, CA, USA
+* LATITUDE          : 33.539800
+* LONGITUDE         : -116.591500
+* ELEVATION         : 1435.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.0
+* INPUT UNIT        : 
+* OUTPUT UNIT       : 
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 0.000000e+00 ()
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

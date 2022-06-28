@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5402
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): LKI
+* CREATED           : 2020-08-06T19:05:46
+* START             : 2019-10-17T19:00:00
+* END               : 
+* DESCRIPTION       : NP.5402, Beverly Hills, previously CI.BVH
+* LATITUDE          : 34.076180
+* LONGITUDE         : -118.395900
+* ELEVATION         : 39.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : DEGC
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+01 (DEGC)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

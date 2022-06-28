@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 25135
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,15:35:46
+* START             : 2004,064,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Oxnard - Saviers & Hill
+* LATITUDE          : 34.1864
+* LONGITUDE         : -119.1787
+* ELEVATION         : 11
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.683901E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.00591E+02    +4.55985E+02
+        -4.00591E+02    -4.55985E+02
+CONSTANT        +7.886481E+10

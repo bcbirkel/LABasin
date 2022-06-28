@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): GVS1
+* LOCATION   (KHOLE): LM
+* CHANNEL   (KCMPNM): RS1
+* CREATED           : 2020-08-06T22:25:24
+* START             : 2005-06-01T00:00:00
+* END               : 2015-05-20T00:00:00
+* DESCRIPTION       : glendallsmcs2005, CA, USA
+* LATITUDE          : 34.175934
+* LONGITUDE         : -118.220879
+* ELEVATION         : 302.5
+* DEPTH             : 0.0
+* DIP               : 87.7
+* AZIMUTH           : 14.7
+* SAMPLE RATE       : 0.00333
+* INPUT UNIT        : M/M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : LASER STRAINMETER
+* INSTGAIN          : 4.640370e-07 (M/M)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.416240e-10 (M/M)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

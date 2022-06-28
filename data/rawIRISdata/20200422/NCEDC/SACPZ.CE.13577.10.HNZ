@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13577
+* LOCATION    : 10
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-01T03:59:38.515759Z
+* START       : 2016-08-02T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Olinda - Carbon Canyon Rd A
+* LATITUDE    : 33.928
+* LONGITUDE   : -117.8032
+* ELEVATION   : 227.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1275 (M/S**2)
+* SENSITIVITY : 213910.0 (M/S**2)
+* A0          : 1547710.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -8.708490e+02 +8.884440e+02
+ -8.708490e+02 -8.884440e+02
+CONSTANT 3.310706e+11
+
+
+

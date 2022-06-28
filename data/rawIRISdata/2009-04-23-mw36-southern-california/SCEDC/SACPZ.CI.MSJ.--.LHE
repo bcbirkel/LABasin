@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : MSJ
+* LOCATION    : 
+* CHANNEL     : LHE
+* CREATED     : 2020-08-06T20:53:12.584028Z
+* START       : 2007-03-22T22:56:54.000000Z
+* END         : 2011-02-01T18:00:00.000000Z
+* DESCRIPTION : Mt. San Jacinto Campus
+* LATITUDE    : 33.80801
+* LONGITUDE   : -116.96789
+* ELEVATION   : 466.0
+* DEPTH       : 2.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 104.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1981.3 (M/S)
+* SENSITIVITY : 1027410000.0 (M/S)
+* A0          : 571433000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -3.700800e-02 +3.700800e-02
+ -3.700800e-02 -3.700800e-02
+ -1.005000e+03 +0.000000e+00
+ -5.026500e+02 +0.000000e+00
+ -1.131000e+03 +0.000000e+00
+CONSTANT 5.870960e+17
+
+
+

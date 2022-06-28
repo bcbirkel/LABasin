@@ -1,0 +1,25 @@
+
+bsub <run_H046_f100.sh
+bsub <run_H046_f010.sh
+bsub <run_H046_f001.sh
+bsub <run_H034_f100.sh
+bsub <run_H034_f010.sh
+bsub <run_H034_f001.sh
+bsub <run_H022_f100.sh
+bsub <run_H022_f010.sh
+bsub <run_H022_f001.sh
+bsub <run_H022_f100.sh
+bsub <run_H022_f010.sh
+bsub <run_H022_f001.sh
+bsub <run_H011_f100.sh
+bsub <run_H011_f010.sh
+bsub <run_H011_f001.sh
+bsub <run_F262_f100.sh
+bsub <run_F262_f010.sh
+bsub <run_F262_f001.sh
+bsub <run_2037_f100.sh
+bsub <run_2037_f010.sh
+bsub <run_2037_f001.sh
+bsub <run_JB24_f100.sh
+bsub <run_JB24_f010.sh
+bsub <run_JB24_f001.sh

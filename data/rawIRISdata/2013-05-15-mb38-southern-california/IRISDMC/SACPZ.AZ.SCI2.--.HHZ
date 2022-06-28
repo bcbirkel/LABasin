@@ -1,0 +1,39 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): SCI2
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HHZ
+* CREATED           : 2020-08-06T22:24:21
+* START             : 2006-06-08T16:30:00
+* END               : 2015-11-11T23:59:59
+* DESCRIPTION       : San Clemente Island, CA, USA
+* LATITUDE          : 32.915000
+* LONGITUDE         : -118.487900
+* ELEVATION         : 486.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG40T/Quanterra 4120 Datalogger
+* INSTGAIN          : 8.091990e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 3.354270e+08 (M/S)
+* A0                : 5.714300e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.486000e-01	+1.486000e-01	
+	-1.486000e-01	-1.486000e-01	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	1.916731e+17
+
+
+
+

@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13080
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,213,20:53:09
+* START             : 2005,080,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Moreno Valley - Sunnymead & Village
+* LATITUDE          : 33.9677
+* LONGITUDE         : -117.2519
+* ELEVATION         : 535
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 3.355978E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.99724E+02    +4.19310E+02
+        -3.99724E+02    -4.19310E+02
+CONSTANT        +7.173203E+10

@@ -1,0 +1,39 @@
+* **********************************
+* NETWORK   (KNETWK): AE
+* STATION    (KSTNM): Y14A
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-21T21:28:08
+* START             : 2011-12-01T00:00:00
+* END               : 2014-12-18T00:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 33.938301
+* LONGITUDE         : -113.004799
+* ELEVATION         : 730.7000122070312
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 86.9000015258789
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3T/Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 1.504200e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 6.309070e+08 (M)
+* A0                : 5.714000e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.701000e-02	+3.701000e-02	
+	-3.701000e-02	-3.701000e-02	
+	-1.131000e+03	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-5.027000e+02	+0.000000e+00	
+CONSTANT	3.605003e+17
+
+
+
+

@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5492
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): LII
+* CREATED           : 2020-08-06T18:47:46
+* START             : 2019-11-01T14:30:00
+* END               : 
+* DESCRIPTION       : Burbank Airport  (aka BBA2)
+* LATITUDE          : 34.200110
+* LONGITUDE         : -118.360440
+* ELEVATION         : 223.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : %
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+01 (%)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

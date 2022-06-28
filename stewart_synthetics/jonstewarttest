@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Nov 26 15:30:49 2019
+
+@author: bcbirkel
+"""
+
+# Plot ASCII files to see Jon Stewart's synthetics
+# units are m/s
+# Brianna Birkel - 11/2019
+
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+from obspy import Stream
+from obspy import read_events, read
+from obspy.geodetics import gps2dist_azimuth
+
+os.chdir('/Users/bcbirkel/Downloads/')
+data_file = 'e1036-cvmsi-s100174.bbp'
+
+sta_file = '/Users/bcbirkel/Downloads/e1036-cvmsi-s100174.txt'
+with open(sta_file, 'r') as file:
+    lines = file.readlines()
+print(str(len(lines)) + ' stations read from ' + sta_file)
+
+time = []
+comp_N = []
+comp_E = []
+comp_Z = []
+
+
+num_lines = range(len(lines))
+#st_names = []
+#st_lats  = []
+#st_lons  = []
+#for ii in station_index:
+#    line = lines[ii]
+#    split_line = line.split()
+#    st_names.append(split_line[0])
+#    st_lats.append(split_line[1])
+#    st_lons.append(split_line[2])
+
+all_text = '' + sta_file
+
+for row in sta_file:
+    line = row.split('\n')
+    line = ' '.join(line)
+    if not line.startswith("#"):
+        line = line.split('\t')
+        for num in range(0,4):
+            line[num] = float(line[num])
+        time.append(line[0])
+        comp_N.append(line[1])
+        comp_E.append(line[2])
+        comp_Z.append(line[3])
+
+#for row in num_lines:
+#    line = row.split('\n')
+#    line = ' '.join(line)
+#    if not line.startswith("#"):
+#        line = line.split('\t')
+#        all_text == all_text + line
+        
+mseed_data = np.fromstring(all_text, dtype='|S1')
+data = np.fromstring(all_text, dtype='|S1')
+
+# Fill header attributes
+stats = {'network': 'IRIS', 'station': 'SAF', 'location': '',
+         'channel': 'BBP', 'npts': len(data), 'sampling_rate': 0.1,
+         'mseed': {'dataquality': 'D'}}
+# set current time
+#stats['starttime'] = UTCDateTime()
+#st = Stream([Trace(data=data, header=stats)])
+# write as ASCII file (encoding=0)
+#st.write("data.mseed", format='MSEED', encoding=0, reclen=256) 
+
+# Show that it worked, convert NumPy character array back to string
+st1 = read("data.mseed")
+print(st1[0].data.tostring())
+
+
+# Load seismograms into array
+st = Stream()
+#fname = '/Users/bcbirkel/Downloads/e1036-cvmsi-s100174.txt'
+st = read(fname)
+
+
+
+
+
+print(time[0])
+print(comp_N[0])
+comp_N.filter('bandpass', freqmin=freqmin, freqmax=freqmax, corners=4, zerophase=False)
+
+fig = plt.figure()
+
+ax1 = fig.add_subplot()
+ax2 = fig.add_subplot()
+ax3 = fig.add_subplot()
+
+ax1.set_title("Velocity - North-South")    
+ax1.set_xlabel('Time (s)')
+ax1.set_ylabel('Velocity (m/s)')
+
+ax1.plot(time[0:1000],comp_N[0:1000])
+ax2.plot(time[0:1000],comp_E[0:1000])
+ax3.plot(time[0:1000],comp_Z[0:1000])
+
+leg = ax1.legend()
+
+plt.show()

@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5241
+* LOCATION   (KHOLE): 10
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T18:26:34
+* START             : 2017-01-10T18:00:00
+* END               : 
+* DESCRIPTION       : CA:Cahuilla Valley;(old FS)
+* LATITUDE          : 33.512370
+* LONGITUDE         : -116.800350
+* ELEVATION         : 1043.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : L4
+* INSTGAIN          : 1.691600e+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 7.093910e+07 (M/S)
+* A0                : 1.002850e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	7.114128e+07
+
+
+
+

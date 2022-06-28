@@ -1,0 +1,123 @@
+ ###############################################################################
+ #                                                                             #
+ # physics.in: Physical quantities input file to CMU FEM toolchain.            #
+ #             Lines start with # are comments. Empty lines are ignored.       #
+ #                                                                             #
+ ###############################################################################
+
+ ###############################################################################
+ # domain.in: Region dimension specification. Domain surface corners are in 
+ # coordinates (lon,lat) following this order: left-bottom,left-top,right-top,
+ # and right-bottom.
+ ###############################################################################
+ region_origin_latitude_deg  = 0.0
+ region_origin_longitude_deg = 0.0
+ region_depth_shallow_m      = 0.0
+ region_length_east_m        = 125e3
+ region_length_north_m       = 200e3
+ region_depth_deep_m         = 62.5e3
+ domain_surface_corners =
+  0.0		0.0
+  0.0		200e3
+  125e3    	200e3
+  125e3 	0.0
+  
+ ###############################################################################
+ # effective region of the model the rest will be meshed using moho properties
+ # then the correct properties will be assigned
+ ###############################################################################
+ lat_u   = 200e3
+ lat_l   = 0.0
+ lon_u   = 125e3
+ lon_l   = 0.0
+ depth_u = 62.5e3
+ depth_l = 0.0
+ region_azimuth_leftface_deg = 0
+ type_of_damping   =  mass
+ source_directory        =/home/scec-00/birkel/hercules_preprocessing/Simulations/Source999/input/
+ source_directory_output =/home/scec-00/birkel/hercules_preprocessing/Simulations/Source999/output/forces/
+
+ ###############################################################################
+ # numerical.in: Numerical parameters that control FEM simulation.
+ #               Lines start with a # are comments. Empty lines are ignored.
+ ###############################################################################
+ monitor_file =/home/scec-00/birkel/hercules_preprocessing/Simulations/Source999/output/monitor.mon
+ simulation_wave_max_freq_hz   = 0.25
+ simulation_start_time_sec     = 0
+ simulation_end_time_sec       = 200.1
+ simulation_delta_time_sec     = 0.025
+ simulation_node_per_wavelength = 12
+ simulation_shear_velocity_min  = 0.01
+ simulation_output_rate         = 10000000
+ the_threshold_damping    = 0.05
+ the_threshold_Vp_over_Vs = 3
+ do_damping_statistics    = 0
+ 
+ ###############################################################################
+ # Database parameters
+ ###############################################################################
+ database_path=/home/scec-00/birkel/hercules_preprocessing/Simulations/Database2/
+
+ ###############################################################################
+ # Checkpointing parameters: use_checkpoint   0 - no or 1 -yes
+ ###############################################################################
+ checkpointing_rate = 100000
+ use_checkpoint     = 0
+ checkpoint_path    =/home/scec-00/birkel/hercules_preprocessing/Simulations/Source999/output/
+ 
+ ###############################################################################
+ # Output Information. Set to 1 if the results are needed. 0, otherwise.
+ ###############################################################################
+ simulation_displacement_out   = 1
+ simulation_velocity_out       = 1
+ 
+ ###############################################################################
+ # Output Plane Information. Coordinates in the planeinputcoords file should be
+ # in coordinates x-lat, y-lon,z-depth. print_rate refers to the simulation dT.
+ ###############################################################################
+ number_output_planes        = 4
+ output_planes_print_rate    = 10
+ forces_buffer_size = 100000000
+ plane_coords_type_input = 1
+ input_planes_coords_directory=/home/scec-00/birkel/hercules_preprocessing/Simulations/Source999/input/
+ output_planes_directory      =/home/scec-00/birkel/hercules_preprocessing/Simulations/Source999/output/planes/
+ 
+ ###############################################################################
+ # Lat  Long  Dpth dStrk stpsAlStr   dDp stpsDp  strk   dp
+ ###############################################################################
+ output_planes = 
+
+ ##############################################################################
+ # Output Stations ( observation points). inputtype=0 will read from this file,
+ # Specify Station coords in the next section.
+ # =1-will read from a file called  stationscoords.in from the specified
+ # input_stations_directory. Station coordinates are x-lat, y-lon, z-depth.
+ ###############################################################################
+ stations_inputtype            = 0
+ number_output_stations        = 0
+ output_stations_print_rate    = 0
+ input_stations_directory      = 
+ output_stations_directory     = 
+
+ ###############################################################################
+ # Lat     Long     Dpth
+ ###############################################################################
+ output_stations =
+ 
+###############################################################################
+ # FILTER RELATED (ONLY BUTTERWORTH )
+ ###############################################################################
+ source_is_filtered     = 0
+ threshold_frequency    = 2.5
+ number_of_poles        = 4
+
+ ###############################################################################
+ # SOURCE DESCRIPTION. Source coordinates in the coords.in file are
+ # x-lat, y-lon,z-depth in the last version of Hercules. In previous versions
+ # this possibly is different.
+ ###############################################################################
+ source_function_type = discrete
+ number_of_time_windows = 1
+ time_windows =  0 
+ type_of_source = srfh
+ number_of_point_sources = 1

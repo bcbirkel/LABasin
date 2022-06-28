@@ -1,0 +1,33 @@
+* **********************************
+* NETWORK   (KNETWK): TS
+* STATION    (KSTNM): PAS
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): LLN
+* CREATED           : 2020-08-06T21:24:23
+* START             : 2001-05-01T00:00:00
+* END               : 2004-06-15T23:45:00
+* DESCRIPTION       : Pasadena, California, USA
+* LATITUDE          : 34.148440
+* LONGITUDE         : -118.171170
+* ELEVATION         : 314.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics FBA-23 Low-Gain Sensor
+* INSTGAIN          : 4.915500e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.061700e+05 (M/S**2)
+* A0                : 8.346980e+04
+* **********************************
+ZEROS	0
+POLES	2
+	-2.231200e+02	+1.835200e+02	
+	-2.231200e+02	-1.835200e+02	
+CONSTANT	1.720897e+10
+
+
+
+

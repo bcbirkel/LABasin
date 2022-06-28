@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24458
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,11:42:18
+* START             : 2012,024,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Palmdale - W Palmdale & Med. Centr Dr
+* LATITUDE          : 34.5842
+* LONGITUDE         : -118.1464
+* ELEVATION         : 831
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_Episensor
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140774E+05 (M/S**2)
+* A0                : 1.707993E+06
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -9.14832E+02    +9.33315E+02
+        -9.14832E+02    -9.33315E+02
+CONSTANT        +3.656429E+11

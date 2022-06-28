@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24819
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:59:55
+* START             : 2001,031,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Los Angeles - Veteran & Wilshire
+* LATITUDE          : 34.0598
+* LONGITUDE         : -118.4491
+* ELEVATION         : 98
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144151E+05 (M/S**2)
+* A0                : 3.562898E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.05894E+02    +4.37656E+02
+        -4.05894E+02    -4.37656E+02
+CONSTANT        +7.639391E+10

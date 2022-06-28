@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : OAT
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2020-08-06T21:57:57.046404Z
+* START       : 2001-01-01T00:00:00.000000Z
+* END         : 2014-05-12T19:01:44.000000Z
+* DESCRIPTION : Oat Mountain
+* LATITUDE    : 34.34361
+* LONGITUDE   : -118.61442
+* ELEVATION   : 1089.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 225775000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 2.258766e+08
+
+
+

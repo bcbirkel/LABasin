@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): BK
+* STATION    (KSTNM): TSCN
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020,052,13:28:38
+* START             : 2013,100,18:30:00
+* END               : 2014,260,23:05:00
+* DESCRIPTION       : Shell Creek North, Shandon, CA, USA
+* LATITUDE          : 35.543978
+* LONGITUDE         : -120.348062
+* ELEVATION         : 476.4672
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 40
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG-3T Broad Band Seismometer
+* INSTGAIN          : 1.484000E+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 5.177949E+08 (M/S)
+* A0                : 5.715723E+08
+* **********************************
+ZEROS   3
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   5
+        -3.70080E-02    +3.70080E-02
+        -3.70080E-02    -3.70080E-02
+        -5.02655E+02    +0.00000E+00
+        -1.00531E+03    +0.00000E+00
+        -1.13097E+03    +0.00000E+00
+CONSTANT        +2.959572E+17

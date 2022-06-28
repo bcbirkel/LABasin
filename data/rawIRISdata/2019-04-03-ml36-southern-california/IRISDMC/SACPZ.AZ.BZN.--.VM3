@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): BZN
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VM3
+* CREATED           : 2020-08-06T19:14:03
+* START             : 2013-10-22T19:30:00
+* END               : 
+* DESCRIPTION       : Buzz Northerns Place, Anza, CA, USA
+* LATITUDE          : 33.491501
+* LONGITUDE         : -116.667000
+* ELEVATION         : 1301.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : V
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 1.000000e+01 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

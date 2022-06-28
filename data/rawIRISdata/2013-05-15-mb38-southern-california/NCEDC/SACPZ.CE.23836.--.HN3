@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23836
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HN3
+* CREATED           : 2020,219,15:27:27
+* START             : 2000,097,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Glendora - Gladstone & Sunflower
+* LATITUDE          : 34.1136
+* LONGITUDE         : -117.8512
+* ELEVATION         : 235
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 89
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.370543E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.94785E+02    +4.25678E+02
+        -3.94785E+02    -4.25678E+02
+CONSTANT        +7.215644E+10

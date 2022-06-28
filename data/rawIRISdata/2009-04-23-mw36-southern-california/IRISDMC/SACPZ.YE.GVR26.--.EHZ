@@ -1,0 +1,40 @@
+* **********************************
+* NETWORK   (KNETWK): YE
+* STATION    (KSTNM): GVR26
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2020-08-06T19:57:00
+* START             : 2008-11-14T00:00:00
+* END               : 2009-12-31T23:59:59
+* DESCRIPTION       : Lake Hemet, CA, USA
+* LATITUDE          : 33.669498
+* LONGITUDE         : -116.660202
+* ELEVATION         : 1336.8
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG40T-1/Reftek 130 Datalogger
+* INSTGAIN          : 2.006600e+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.265990e+09 (M/S)
+* A0                : 9.112610e+11
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	6
+	-4.443000e+00	+4.443000e+00	
+	-4.443000e+00	-4.443000e+00	
+	-3.920000e+02	+8.507000e+02	
+	-3.920000e+02	-8.507000e+02	
+	-2.199000e+03	+0.000000e+00	
+	-4.712000e+02	+0.000000e+00	
+CONSTANT	1.153647e+21
+
+
+
+

@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24944
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2020-08-06T20:24:04.940218Z
+* START       : 2003-04-07T00:00:00.000000Z
+* END         : 2016-08-04T00:00:00.000000Z
+* DESCRIPTION : Glendale - Foothill Blvd & New York Ave
+* LATITUDE    : 34.2302
+* LONGITUDE   : -118.2528
+* ELEVATION   : 479.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0637 (M/S**2)
+* SENSITIVITY : 213744.0 (M/S**2)
+* A0          : 366106.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.993470e+02 +4.545690e+02
+ -3.993470e+02 -4.545690e+02
+CONSTANT 7.825296e+10
+
+
+

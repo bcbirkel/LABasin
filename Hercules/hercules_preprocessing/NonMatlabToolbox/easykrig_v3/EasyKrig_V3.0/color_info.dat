@@ -1,0 +1,96 @@
+name of display:    gb1:12.0
+version number:    11.0
+vendor string:    The XFree86 Project, Inc
+vendor release number:    40100000
+maximum request size:  4194300 bytes
+motion buffer size:  256
+bitmap unit, bit order, padding:    32, LSBFirst, 32
+image byte order:    LSBFirst
+number of supported pixmap formats:    7
+supported pixmap formats:
+    depth 1, bits_per_pixel 1, scanline_pad 32
+    depth 4, bits_per_pixel 8, scanline_pad 32
+    depth 8, bits_per_pixel 8, scanline_pad 32
+    depth 15, bits_per_pixel 16, scanline_pad 32
+    depth 16, bits_per_pixel 16, scanline_pad 32
+    depth 24, bits_per_pixel 32, scanline_pad 32
+    depth 32, bits_per_pixel 32, scanline_pad 32
+keycode range:    minimum 8, maximum 255
+focus:  window 0x40000d, revert to PointerRoot
+number of extensions:    26
+    BIG-REQUESTS
+    DOUBLE-BUFFER
+    DPMS
+    Extended-Visual-Information
+    FontCache
+    GLX
+    LBX
+    MIT-SCREEN-SAVER
+    MIT-SHM
+    MIT-SUNDRY-NONSTANDARD
+    RENDER
+    SECURITY
+    SGI-GLX
+    SHAPE
+    SYNC
+    TOG-CUP
+    XC-APPGROUP
+    XC-MISC
+    XFree86-Bigfont
+    XFree86-DGA
+    XFree86-Misc
+    XFree86-VidModeExtension
+    XInputExtension
+    XKEYBOARD
+    XTEST
+    XVideo
+default screen number:    0
+number of screens:    1
+
+screen #0:
+  dimensions:    1024x768 pixels (400x300 millimeters)
+  resolution:    65x65 dots per inch
+  depths (7):    24, 1, 4, 8, 15, 16, 32
+  root window id:    0x31
+  depth of root window:    24 planes
+  number of colormaps:    minimum 1, maximum 1
+  default colormap:    0x20
+  default number of colormap cells:    256
+  preallocated pixels:    black 0, white 16777215
+  options:    backing-store NO, save-unders NO
+  largest cursor:    32x32
+  current input event mask:    0xf84033
+    KeyPressMask             KeyReleaseMask           EnterWindowMask          
+    LeaveWindowMask          KeymapStateMask          SubstructureNotifyMask   
+    SubstructureRedirectMask FocusChangeMask          PropertyChangeMask       
+    ColormapChangeMask       
+  number of visuals:    4
+  default visual id:  0x23
+  visual:
+    visual id:    0x23
+    class:    TrueColor
+    depth:    24 planes
+    available colormap entries:    256 per subfield
+    red, green, blue masks:    0xff0000, 0xff00, 0xff
+    significant bits in color specification:    8 bits
+  visual:
+    visual id:    0x24
+    class:    TrueColor
+    depth:    24 planes
+    available colormap entries:    256 per subfield
+    red, green, blue masks:    0xff0000, 0xff00, 0xff
+    significant bits in color specification:    8 bits
+  visual:
+    visual id:    0x25
+    class:    DirectColor
+    depth:    24 planes
+    available colormap entries:    256 per subfield
+    red, green, blue masks:    0xff0000, 0xff00, 0xff
+    significant bits in color specification:    8 bits
+  visual:
+    visual id:    0x26
+    class:    DirectColor
+    depth:    24 planes
+    available colormap entries:    256 per subfield
+    red, green, blue masks:    0xff0000, 0xff00, 0xff
+    significant bits in color specification:    8 bits

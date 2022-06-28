@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5296
+* LOCATION   (KHOLE): E1
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020-08-06T22:24:41
+* START             : 2010-01-13T18:00:00
+* END               : 2017-08-17T18:00:00
+* DESCRIPTION       : CA:Pasadena;USGS/NSMP Office
+* LATITUDE          : 34.136650
+* LONGITUDE         : -118.128470
+* ELEVATION         : 232.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 360.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : Episensor
+* INSTGAIN          : 1.280000e-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 4.294970e+05 (M/S**2)
+* A0                : 2.459570e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810020e+02	+1.009000e+03	
+	-9.810020e+02	-1.009000e+03	
+	-3.289990e+03	+1.263020e+03	
+	-3.289990e+03	-1.263020e+03	
+CONSTANT	1.056378e+19
+
+
+
+

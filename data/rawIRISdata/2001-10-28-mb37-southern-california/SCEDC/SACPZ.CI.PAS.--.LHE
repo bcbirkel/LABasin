@@ -1,0 +1,36 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : PAS
+* LOCATION    : 
+* CHANNEL     : LHE
+* CREATED     : 2020-08-06T22:00:50.723904Z
+* START       : 2001-07-13T23:57:00.000000Z
+* END         : 2003-12-09T00:00:00.000000Z
+* DESCRIPTION : Pasadena
+* LATITUDE    : 34.14844
+* LONGITUDE   : -118.17117
+* ELEVATION   : 314.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 2141.99 (M/S)
+* SENSITIVITY : 872115000.0 (M/S)
+* A0          : 3935.58
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -1.234120e-02 +1.234150e-02
+ -1.234120e-02 -1.234150e-02
+ -3.917570e+01 +4.912340e+01
+ -3.917570e+01 -4.912340e+01
+CONSTANT 3.432278e+12
+
+
+

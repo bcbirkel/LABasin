@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : MIKB
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2020-08-06T20:50:16.595380Z
+* START       : 2008-08-26T21:25:00.000000Z
+* END         : 2010-01-01T00:00:00.000000Z
+* DESCRIPTION : Millikan Library Basement
+* LATITUDE    : 34.13688
+* LONGITUDE   : -118.12601
+* ELEVATION   : 231.0
+* DEPTH       : 5.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.01968 (M/S**2)
+* SENSITIVITY : 427685.0 (M/S**2)
+* A0          : 2.45956e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.051917e+19
+
+
+

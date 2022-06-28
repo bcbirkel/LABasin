@@ -1,0 +1,15 @@
+file #  1
+    input filename = data/pressure/layer10.dat
+    output filename = /usr0/lramirezguzman/Kriging/EasyKrig_V3.0/output/layer10.mat
+file #  2
+    input filename = data/pressure/layer11.dat
+    output filename = /usr0/lramirezguzman/Kriging/EasyKrig_V3.0/output/layer11.mat
+file #  3
+    input filename = data/pressure/layer12.dat
+    output filename = /usr0/lramirezguzman/Kriging/EasyKrig_V3.0/output/layer12.mat
+file #  4
+    input filename = data/pressure/layer13.dat
+    output filename = /usr0/lramirezguzman/Kriging/EasyKrig_V3.0/output/layer13.mat
+file #  5
+    input filename = data/pressure/layer14.dat
+    output filename = /usr0/lramirezguzman/Kriging/EasyKrig_V3.0/output/layer14.mat

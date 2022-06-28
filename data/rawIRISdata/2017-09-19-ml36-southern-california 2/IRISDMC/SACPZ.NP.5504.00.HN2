@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5504
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): HN2
+* CREATED           : 2020-08-06T19:33:16
+* START             : 2014-01-14T18:00:00
+* END               : 
+* DESCRIPTION       : CA:LA;Hansen Dam  Crest
+* LATITUDE          : 34.260640
+* LONGITUDE         : -118.386100
+* ELEVATION         : 332.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 20.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : Episensor
+* INSTGAIN          : 6.400000e-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.147480e+05 (M/S**2)
+* A0                : 2.459570e+13
+* **********************************
+ZEROS	0
+POLES	4
+	-9.810020e+02	+1.009000e+03	
+	-9.810020e+02	-1.009000e+03	
+	-3.289990e+03	+1.263020e+03	
+	-3.289990e+03	-1.263020e+03	
+CONSTANT	5.281878e+18
+
+
+
+

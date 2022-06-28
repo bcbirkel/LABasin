@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : BAC
+* LOCATION    : 
+* CHANNEL     : ELE
+* CREATED     : 2020-08-06T20:27:16.802988Z
+* START       : 1993-12-14T00:00:00.000000Z
+* END         : 2012-05-03T00:00:00.000000Z
+* DESCRIPTION : Bachelor Mountain
+* LATITUDE    : 33.6122
+* LONGITUDE   : -117.0406
+* ELEVATION   : 551.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 7139640.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 7.142853e+06
+
+
+

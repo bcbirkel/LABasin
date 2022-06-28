@@ -1,0 +1,412 @@
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2017-05-18T00:00:00
+* END               : 
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 359.8999938964844
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 2.701500e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.277930e+09 (M)
+* A0                : 5.526820e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-1.178097e+02	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.148843e-02	+1.225234e-02	
+	-1.148843e-02	-1.225234e-02	
+	-1.529648e-01	+0.000000e+00	
+	-1.529648e-01	+0.000000e+00	
+	-3.575000e+01	+5.300068e+01	
+	-3.575000e+01	-5.300068e+01	
+CONSTANT	2.364335e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2015-10-08T16:00:00
+* END               : 2017-05-17T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 359.8999938964844
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 2.723280e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.312420e+09 (M)
+* A0                : 7.835610e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.148843e-02	+1.225234e-02	
+	-1.148843e-02	-1.225234e-02	
+	-1.529648e-01	+0.000000e+00	
+	-1.529648e-01	+0.000000e+00	
+	-3.356277e+01	+5.231223e+01	
+	-3.356277e+01	-5.231223e+01	
+CONSTANT	3.379044e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2014-05-19T00:10:00
+* END               : 2015-10-08T15:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 358.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 2.093110e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.314510e+09 (M)
+* A0                : 7.753450e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.205410e-02	+1.178650e-02	
+	-1.205410e-02	-1.178650e-02	
+	-1.502693e-01	+2.806743e-02	
+	-1.502693e-01	-2.806743e-02	
+	-3.356277e+01	+5.231223e+01	
+	-3.356277e+01	-5.231223e+01	
+CONSTANT	2.569889e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2013-10-31T00:00:00
+* END               : 2014-05-19T00:09:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 358.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 2.101970e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.328550e+09 (M)
+* A0                : 7.757720e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.333744e-02	+1.007257e-02	
+	-1.333744e-02	-1.007257e-02	
+	-1.515303e-01	+3.797702e-02	
+	-1.515303e-01	-3.797702e-02	
+	-3.356277e+01	+5.231223e+01	
+	-3.356277e+01	-5.231223e+01	
+CONSTANT	2.582196e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2012-08-23T15:28:00
+* END               : 2013-10-30T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 358.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 2.102740e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.329760e+09 (M)
+* A0                : 7.757720e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.333744e-02	+1.007257e-02	
+	-1.333744e-02	-1.007257e-02	
+	-1.515303e-01	+3.797702e-02	
+	-1.515303e-01	-3.797702e-02	
+	-3.356277e+01	+5.231223e+01	
+	-3.356277e+01	-5.231223e+01	
+CONSTANT	2.583135e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2012-07-26T15:05:00
+* END               : 2012-08-23T15:27:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 2.795420e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.426660e+09 (M)
+* A0                : 9.550200e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.378531e-02	+0.000000e+00	
+	-1.378531e-02	+0.000000e+00	
+	-1.771519e-01	+7.705950e-02	
+	-1.771519e-01	-7.705950e-02	
+	-3.587404e+01	+5.679949e+01	
+	-3.587404e+01	-5.679949e+01	
+CONSTANT	4.227549e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2012-07-02T04:00:00
+* END               : 2012-07-26T15:04:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 1.974080e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.126030e+09 (M)
+* A0                : 9.550200e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.378531e-02	+0.000000e+00	
+	-1.378531e-02	+0.000000e+00	
+	-1.771519e-01	+7.705950e-02	
+	-1.771519e-01	-7.705950e-02	
+	-3.587404e+01	+5.679949e+01	
+	-3.587404e+01	-5.679949e+01	
+CONSTANT	2.985421e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2010-07-30T18:50:00
+* END               : 2012-07-02T03:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 2.088110e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.306600e+09 (M)
+* A0                : 8.931470e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.237103e-02	+1.199272e-02	
+	-1.237103e-02	-1.199272e-02	
+	-1.520122e-01	+1.808144e-02	
+	-1.520122e-01	-1.808144e-02	
+	-3.915813e+01	+5.372664e+01	
+	-3.915813e+01	-5.372664e+01	
+CONSTANT	2.953280e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2010-07-19T00:00:00
+* END               : 2010-07-30T18:49:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 2.877600e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.556790e+09 (M)
+* A0                : 7.935270e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.245434e-02	+1.088342e-02	
+	-1.245434e-02	-1.088342e-02	
+	-1.500167e-01	+2.104836e-02	
+	-1.500167e-01	-2.104836e-02	
+	-3.958407e+01	+4.879490e+01	
+	-3.958407e+01	-4.879490e+01	
+CONSTANT	3.615936e+10
+
+
+* **********************************
+* NETWORK   (KNETWK): II
+* STATION    (KSTNM): PFO
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BH1
+* CREATED           : 2020-02-21T21:28:13
+* START             : 2010-04-19T19:10:00
+* END               : 2010-07-18T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 33.610700
+* LONGITUDE         : -116.455500
+* ELEVATION         : 1280.0
+* DEPTH             : 5.300000190734863
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : counts
+* INSTTYPE          : Streckeisen STS-1 Seismometer with Metrozet E300
+* INSTGAIN          : 2.804240e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.440620e+09 (M)
+* A0                : 7.935270e+00
+* **********************************
+ZEROS	6
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-7.853982e+01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+	-1.525042e-01	+0.000000e+00	
+POLES	6
+	-1.245434e-02	+1.088342e-02	
+	-1.245434e-02	-1.088342e-02	
+	-1.500167e-01	+2.104836e-02	
+	-1.500167e-01	-2.104836e-02	
+	-3.958407e+01	+4.879490e+01	
+	-3.958407e+01	-4.879490e+01	
+CONSTANT	3.523752e+10
+
+
+
+

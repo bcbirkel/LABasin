@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24109
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2021,024,15:50:31
+* START             : 2005,222,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : South Pasadena - Fremont & Oak
+* LATITUDE          : 34.1081
+* LONGITUDE         : -118.1541
+* ELEVATION         : 186
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144151E+05 (M/S**2)
+* A0                : 3.752877E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.10449E+02    +4.54778E+02
+        -4.10449E+02    -4.54778E+02
+CONSTANT        +8.046736E+10

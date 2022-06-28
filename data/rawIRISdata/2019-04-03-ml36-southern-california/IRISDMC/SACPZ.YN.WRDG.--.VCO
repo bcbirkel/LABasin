@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): YN
+* STATION    (KSTNM): WRDG
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VCO
+* CREATED           : 2020-08-06T19:16:45
+* START             : 2012-07-06T00:00:00
+* END               : 2022-12-31T23:59:59
+* DESCRIPTION       : WRDG
+* LATITUDE          : 33.731200
+* LONGITUDE         : -116.727000
+* ELEVATION         : 1599.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : V
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 0.000000e+00 ()
+* COMMENT           : N/A
+* SENSITIVITY       : 6.666670e+00 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

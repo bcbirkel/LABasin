@@ -1,0 +1,42 @@
+* **********************************
+* NETWORK   (KNETWK): GS
+* STATION    (KSTNM): MPK03
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-21T21:28:12
+* START             : 2013-06-01T00:00:00
+* END               : 2014-08-08T00:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 37.511768
+* LONGITUDE         : -121.881607
+* ELEVATION         : 711.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : TRILLIUM-COMPACT=001111=Gen=RT-130=B2D6
+* INSTGAIN          : 7.490000e+02 (M)
+* COMMENT           : 
+* SENSITIVITY       : 4.713660e+08 (M)
+* A0                : 8.198430e+11
+* **********************************
+ZEROS	4
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	-4.341000e+02	+0.000000e+00	
+POLES	7
+	-3.691000e-02	+3.712000e-02	
+	-3.691000e-02	-3.712000e-02	
+	-3.712000e+02	+0.000000e+00	
+	-3.739000e+02	+4.755000e+02	
+	-3.739000e+02	-4.755000e+02	
+	-5.884000e+02	+1.508000e+03	
+	-5.884000e+02	-1.508000e+03	
+CONSTANT	3.864461e+20
+
+
+
+

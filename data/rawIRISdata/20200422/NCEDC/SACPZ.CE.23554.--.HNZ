@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23554
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-01T04:07:29.676598Z
+* START       : 2014-03-14T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : San Bernardino - 2nd & Arrowhead B
+* LATITUDE    : 34.1029
+* LONGITUDE   : -117.2886
+* ELEVATION   : 317.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.2462 (M/S**2)
+* SENSITIVITY : 153014.0 (M/S**2)
+* A0          : 31977500.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.654870e+02 +5.626520e+03
+ -5.654870e+02 -5.626520e+03
+CONSTANT 4.893005e+12
+
+
+

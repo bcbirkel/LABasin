@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#SBATCH --ntasks=32
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=1
+#SBATCH --time=9:00:00
+#SBATCH --mem-per-cpu=4GB
+
+module load intel/19.0.4 intel-mpi
+
+MY_INPUT=/scratch/luisalbe/S20200604/Simulation/Forward/Source1/input
+srun --mpi=pmi2 -n $SLURM_NTASKS  /home1/luisalbe/Hercules0/quake/forward/psolve XXXX \
+$MY_INPUT/input.in \
+$MY_INPUT/input.in \
+$MY_INPUT/mesh.e \
+$MY_INPUT/disp.out
+

@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24802
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2020,219,12:09:35
+* START             : 2001,017,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Encino - Balboa & Ventura
+* LATITUDE          : 34.1619
+* LONGITUDE         : -118.5014
+* ELEVATION         : 230
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.360000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.134085E+05 (M/S**2)
+* A0                : 3.532926E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.86353E+02    +4.51697E+02
+        -3.86353E+02    -4.51697E+02
+CONSTANT        +7.539563E+10

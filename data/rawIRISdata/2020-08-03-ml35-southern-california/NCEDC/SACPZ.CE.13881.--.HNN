@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13881
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2020,219,11:31:22
+* START             : 1999,257,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : La Habra - La Habra & Monte Vista
+* LATITUDE          : 33.9315
+* LONGITUDE         : -117.9557
+* ELEVATION         : 86
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.400000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.147507E+05 (M/S**2)
+* A0                : 3.661055E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.99347E+02    +4.54569E+02
+        -3.99347E+02    -4.54569E+02
+CONSTANT        +7.862141E+10

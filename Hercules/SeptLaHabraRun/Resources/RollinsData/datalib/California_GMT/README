@@ -1,0 +1,6 @@
+This directory contains :
+ca_hiwys.all.asc	: GMT-plottable file of California Highways
+county.dat		: GMT-plottable file of California county lines
+
+These files were obtained from Egil Hauksson.
+
