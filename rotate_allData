@@ -1,0 +1,208 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jun  3 14:55:05 2022
+
+@author: bcbirkel
+"""
+
+from obspy import read
+from obspy.geodetics import gps2dist_azimuth
+import os
+from obspy.signal.rotate import rotate_ne_rt
+from obspy.core.utcdatetime import UTCDateTime
+from obspy import Trace
+import shutil
+
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+
+events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+    
+#set corners for map
+llcrnrlon=-119
+llcrnrlat=33.25 #- 0.25
+urcrnrlon=-117
+urcrnrlat=34.75 #+ 0.25
+
+#la habra finished
+
+iis = [0,1,2,3,4]
+iis = [0]
+
+# %% Set parameters
+#set event
+for ii in iis:
+    event_no = ii
+    event = events[event_no]
+    
+    dataPath = '/Users/bcbirkel/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/' 
+     
+    if event_no == 0:
+        event_title = 'lahabra'
+        event_name = 'La Habra'
+        event_lat = 33.9325
+        event_lon = -117.9158
+        start = UTCDateTime("2014-03-29T04:09:42.994500Z")
+        
+        stream_dataN = read(dataPath + "*BHN_vel.SAC") + read(dataPath + "*BHN.sac") + read(dataPath + "*BHN.*.SAC")
+        stream_dataE = read(dataPath + "*BHE_vel.SAC") + read(dataPath + "*BHE.sac") + read(dataPath + "*BHE.*.SAC")
+        stream_dataZ = read(dataPath + "*BHZ_vel.SAC") + read(dataPath + "*BHZ.sac") + read(dataPath + "*BHZ.*.SAC")
+
+    elif event_no == 1:
+        event_title = 'beverlyhills'
+        event_name = 'Beverly Hills'
+        event_lat = 34.0541
+        event_lon = -118.3929
+        start = UTCDateTime("2001-09-09T23:59:17.695Z")
+        
+        stream_dataN = read(dataPath + "*BHN_vel.SAC") #+ read(dataPath + "*N.D.*.SAC") + read(dataPath + "*N.M.*.SAC")
+        stream_dataE = read(dataPath + "*BHE_vel.SAC") #+ read(dataPath + "*E.D.*.SAC") + read(dataPath + "*E.M.*.SAC")
+        stream_dataZ = read(dataPath + "*BHZ_vel.SAC") #+ read(dataPath + "*Z.D.*.SAC") + read(dataPath + "*Z.M.*.SAC")
+
+        
+    elif event_no == 2:
+        event_title = 'chatsworth'
+        event_name = 'Chatsworth'
+        event_lat = 34.2995
+        event_lon = -118.6195
+        start=UTCDateTime("2007-08-09T07:58:48.888")
+        
+        stream_dataN = read(dataPath + "*BHN_vel.SAC") + read(dataPath + "*N.D.*.SAC")
+        stream_dataE = read(dataPath + "*BHE_vel.SAC") + read(dataPath + "*E.D.*.SAC") 
+        stream_dataZ = read(dataPath + "*BHZ_vel.SAC") + read(dataPath + "*Z.D.*.SAC") 
+        
+    elif event_no == 3:
+        event_title = 'chinohills'
+        event_name = 'Chino Hills'
+        event_lat = 33.9465
+        event_lon = -117.7667
+        start=UTCDateTime("2008-07-29T18:42:15.960")
+        
+        stream_dataN = read(dataPath + "*BHN_vel.SAC") + read(dataPath + "*N.D.*.SAC") + read(dataPath + "*N.M.*.SAC")
+        stream_dataE = read(dataPath + "*BHE_vel.SAC") + read(dataPath + "*E.D.*.SAC") + read(dataPath + "*E.M.*.SAC")
+        stream_dataZ = read(dataPath + "*BHZ_vel.SAC") + read(dataPath + "*Z.D.*.SAC") + read(dataPath + "*Z.M.*.SAC")
+
+    elif event_no == 4:
+        event_title = 'inglewood'
+        event_name = 'Inglewood'
+        event_lat = 33.9377
+        event_lon = -118.3357
+        start=UTCDateTime("2009-05-18T03:39:36.126")
+        
+        stream_dataN = read(dataPath + "*BHN_vel.SAC") + read(dataPath + "*N.D.*.SAC") 
+        stream_dataE = read(dataPath + "*BHE_vel.SAC") + read(dataPath + "*E.D.*.SAC") 
+        stream_dataZ = read(dataPath + "*BHZ_vel.SAC") + read(dataPath + "*Z.D.*.SAC") 
+        
+    else: 
+        print('unknown event file')
+        
+    # stream_dataN = read(dataPath + "*BHN_vel.SAC") + read(dataPath + "*N.D.*.SAC") + read(dataPath + "*N.M.*.SAC")
+    # stream_dataE = read(dataPath + "*BHE_vel.SAC") + read(dataPath + "*E.D.*.SAC") + read(dataPath + "*E.M.*.SAC")
+    # stream_dataZ = read(dataPath + "*BHZ_vel.SAC") + read(dataPath + "*Z.D.*.SAC") + read(dataPath + "*Z.M.*.SAC")
+
+    # stream_data = stream_dataN + stream_dataE + stream_dataZ
+
+      
+# %% CORRECT METADATA
+    streams = [stream_dataN,stream_dataE,stream_dataZ]
+    
+    for st in streams:
+        for tr in st:
+            if tr.stats.sac.stlo > 0:
+                tr.stats.sac.stlo = -tr.stats.sac.stlo
+            tr.stats.sac.evla = event_lat
+            tr.stats.sac.evlo = event_lon
+
+# %% COMBINE STREAMS         
+
+    dataPath = '/Users/bcbirkel/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/rotated/'   
+    if os.path.exists(dataPath):
+        shutil.rmtree(dataPath)
+    os.mkdir(dataPath)
+    os.chdir(dataPath)
+    
+    tn = Trace()
+    te = Trace()
+    trad = Trace()
+    ttrans = Trace()
+    
+    for trN in stream_dataN:
+
+        [distance,az,baz]= gps2dist_azimuth(event_lat, event_lon, trN.stats.sac.stla, trN.stats.sac.stlo)
+        dist = distance/1000
+        trN.stats.dist = dist
+        trN.stats.sac.dist = dist
+        trN.stats.sac.az = az
+        trN.stats.sac.baz = baz
+
+        for trE in stream_dataE:
+            if trN.stats.station == trE.stats.station and str(trE)[0:2] == str(trN)[0:2]: ## check file name to make sure network is the same
+                if trN.stats.channel[0:2] == trE.stats.channel[0:2]:     
+                    
+                    trE.stats.dist = dist
+                    trE.stats.sac.dist = dist
+                    trE.stats.sac.az = az
+                    trE.stats.sac.baz = baz
+                    
+                    tn = trN.copy()
+                    te = trE.copy()
+                    
+                    trad = tn.copy()
+                    ttrans = te.copy()
+
+                    if not len(tn) == len(te):
+                        start_ii = max(tn.stats.starttime,te.stats.starttime)
+                        end = min(tn.stats.endtime,te.stats.endtime)
+                        sr = min(tn.stats.sampling_rate, te.stats.sampling_rate)
+                        tn.resample(sr)
+                        te.resample(sr)
+                        
+                        try:
+                            tn = tn.slice(start_ii,end,nearest_sample = False)
+                            te = te.slice(start_ii,end,nearest_sample = False)
+                        except ValueError:
+                            print("traces don't overlap! skipping")
+                            continue #restarts loop with next item
+                            
+                        if not len(tn) == len(te):
+                            m = min(len(te), len(tn))
+                            te.data = te.data[0:m]
+                            tn.data = tn.data[0:m]
+                            
+                    try:
+                        trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+                    except ValueError: 
+                        print("Error thrown with " + str(trE) + " and " + str(trN))
+                        pass
+                    
+                    # trE.stats.sac.user
+
+                    trN.write(tn.stats.network + "_" + tn.stats.station + "_" + tn.stats.channel + "_vel.SAC", format="SAC")
+                    trE.write(te.stats.network + "_" + te.stats.station + "_" + te.stats.channel + "_vel.SAC", format="SAC")
+                    
+                    trad.stats.channel = tn.stats.channel[0:2] + "R"
+                    trad.stats.sac.kcmpnm = tn.stats.channel[0:2] + "R"
+                    trad.write(trad.stats.network + "_" + trad.stats.station + "_" + trad.stats.channel + "_vel.SAC", format="SAC")
+                    
+                    ttrans.stats.channel = te.stats.channel[0:2] + "T"
+                    ttrans.stats.sac.kcmpnm = te.stats.channel[0:2] + "T"
+                    ttrans.write(ttrans.stats.network + "_" + ttrans.stats.station + "_" + ttrans.stats.channel + "_vel.SAC", format="SAC")  # print("rotated synS!")  
+             
+    for trZ in stream_dataZ:
+
+         [distance,az,baz] = gps2dist_azimuth(event_lat, event_lon, trZ.stats.sac.stla, trZ.stats.sac.stlo)
+         dist = distance/1000
+         trZ.stats.dist = dist
+         trZ.stats.sac.dist = dist
+         trZ.stats.sac.az = az
+         trZ.stats.sac.baz = baz
+            
+         trZ.write(trZ.stats.network + "_" + trZ.stats.station + "_" + trZ.stats.channel + "_vel.SAC", format="SAC")
+    
+    print("rotated data!")              
+
+ 

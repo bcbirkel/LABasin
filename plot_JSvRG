@@ -1,0 +1,175 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr  2 19:27:49 2021
+
+@author: bcbirkel
+"""
+
+from obspy import read, read_inventory
+from obspy.signal.filter import bandpass
+import pandas as pd
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.signal.invsim import simulate_seismometer, corn_freq_2_paz
+from obspy.geodetics import gps2dist_azimuth
+from obspy.io.sac import sacpz
+from obspy.io.sac import attach_paz
+from obspy.io.gse2.paz import read_paz
+import os
+from obspy.core import Trace, Stream, AttribDict
+from obspy.signal.rotate import rotate_ne_rt
+import math
+import obspy.realtime.signal as signal
+from obspy.core.utcdatetime import UTCDateTime
+import shutil
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+
+# %% Set parameters
+#set event
+
+event_no = 0
+events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+event = events[event_no]
+
+synPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/JSsyn/'
+# rgPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/extracted/'
+rgPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/'
+
+if event_no == 0:
+    event_title = 'lahabra'
+    event_lat = 33.9325
+    event_lon = -117.9158
+elif event_no == 3:
+    event_title = 'chinohills'
+    event_lat = 33.9465
+    event_lon = -117.7667
+elif event_no == 4:
+    event_title = 'inglewood'
+    event_lat = 33.9377
+    event_lon = -118.3357
+elif event_no == 2:
+    event_title = 'chatsworth'
+    event_lat = 34.2983
+    event_lon = -118.6255
+elif event_no == 1:
+    event_title = 'beverlyhills'
+    event_lat = 34.0541
+    event_lon = -118.3929
+else: 
+    print('unknown event file')
+
+stream_jsN = read(synPath + "*N.SAC")
+for tr in stream_jsN:
+    tr.stats.channel = 'N'
+stream_jsE = read(synPath + "*E.SAC") 
+for tr in stream_jsE:
+    tr.stats.channel = 'E'
+stream_jsZ = read(synPath + "*Z.SAC") 
+for tr in stream_jsZ:
+    tr.stats.channel = 'Z'
+
+stream_rgN = read(rgPath + "*N.SAC")
+for tr in stream_rgN:
+    tr.stats.channel = 'N'
+stream_rgE = read(rgPath + "*E.SAC") 
+for tr in stream_rgE:
+    tr.stats.channel = 'E'
+stream_rgZ = read(rgPath + "*Z.SAC") 
+for tr in stream_rgZ:
+    tr.stats.channel = 'Z'
+
+
+# %% STATIONS
+# stationFile = "/Users/bcbirkel/Documents/GitHub/LABasin/all_stationmaster.txt"
+stationFile = "/Users/bcbirkel/Documents/GitHub/LABasin/lahabra_stations.txt"
+
+# Load station coords into arrays, many more stations than used
+st_netw  = []
+st_name  = []
+st_dist  = []
+st_az    = []
+st_baz   = []
+st_lat   = []
+st_lon   = []
+
+# strip station file
+staCoord = open(stationFile, 'r')
+lines = staCoord.readlines()
+for line in lines:
+    split_line = line.split()
+    st_netw.append(split_line[0])
+    st_name.append(split_line[1])
+    st_lat.append(float(split_line[2]))
+    st_lon.append(float(split_line[3]))
+    [distance,az,baz] = gps2dist_azimuth(event_lat, event_lon, float(split_line[2]), float(split_line[3])) # Get traveltime and azimuth
+    print(distance/1000.,az,baz)
+    st_dist.append(distance/1000.) # distance
+    st_az.append(az) # azimuth
+    st_baz.append(baz) # back-azimuth
+            
+    
+# %% PLOTTING
+
+stream_rg = stream_rgN + stream_rgE + stream_rgZ
+stream_js = stream_jsN + stream_jsE + stream_jsZ
+
+# figures for distance plots
+figN = plt.figure(0, figsize=[8,5])
+aN = figN.add_subplot(1, 1, 1)
+figE = plt.figure(1, figsize=[8,5])
+aE = figE.add_subplot(1, 1, 1)
+figZ = plt.figure(2, figsize=[8,5])
+aZ = figZ.add_subplot(1, 1, 1)
+
+
+# set up vars to loop through
+figs = [figN,figE,figZ]
+axes = [aN,aE,aZ]
+channels = ["N","E","Z"]
+
+# loop through each component
+for i in range(len(axes)):
+    fig = figs[i]
+    a = axes[i]
+    cha = channels[i]
+    
+    a.set_ylabel("Distance from source (km)")    
+    a.set_xlabel("Time (s)")
+    a.set_title("RG grid (black) v. JS Syn (blue) for " + event +  " - " + cha) # + " - flipped Z")
+    
+    for i in range(len(st_name)):
+        for tr in stream_rg:
+            if tr.stats.station == st_name[i] and tr.stats.channel == cha:
+                for sytr in stream_js:
+                    if sytr.stats.channel == cha and sytr.stats.station == st_name[i]:
+                        print(st_netw[i] + " " + st_name[i] + " " + cha + " " + str(st_dist[i]))
+                        tr.stats.dist = st_dist[i]
+
+                        gain = 10
+                        if cha == "Z":
+                            a.plot(tr.times()-0.6, -(tr.data*gain)+tr.stats.dist,c="k",linewidth=0.5)
+                        else:
+                            a.plot(tr.times()-0.6, (tr.data*gain)+tr.stats.dist,c="k",linewidth=0.5)
+                        # if tr.stats.dist < 10: 
+                        #     a.text(50,tr.stats.dist,tr.stats.station)
+
+                        dist = st_dist[i]
+                        sytr.stats.starttime = tr.stats.starttime
+                        
+                        a.set_ylim(0,50)
+                        a.set_xlim(0,60)
+                    
+                        # plot synthetics on top of data
+                        a.plot(sytr.times(), sytr.data*gain+dist,c="b",linewidth=0.5)
+                        if dist < 50: 
+                            a.text(58,dist,sytr.stats.station)
+                
+                
+plt.show()
+    

@@ -1,0 +1,141 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar 23 12:37:40 2021
+
+@author: bcbirkel
+
+CESMD - plot realtime vs triggered stations
+"""
+
+# %% IMPORT STATEMENTS
+from obspy import read, UTCDateTime
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.geodetics import gps2dist_azimuth
+import os
+from obspy.core import Trace, Stream, AttribDict
+import obspy.signal.filter as flt
+import math
+import struct
+from timeit import default_timer as timer 
+from obspy.geodetics.base import gps2dist_azimuth
+import scipy.io
+from mpl_toolkits.basemap import Basemap
+
+#Ignore warnings due to pythondw2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+#set corners for map
+llcrnrlon=-119
+llcrnrlat=33.25 #- 0.25
+urcrnrlon=-117
+urcrnrlat=34.75 #+ 0.25
+
+
+    # %% STATIONS
+stationFile = "/Users/bcbirkel/Documents/GitHub/LABasin/CEstations.txt"
+
+# NET STA CHA LOC STANAME LAT LON ELEV ONDATE OFFDATE EDEPTH REALTIME
+
+# Load station coords into arrays, many more stations than used
+net = []
+sta = []
+cha = []
+loc =[]
+staname = []
+lat=[]
+lon=[]
+elev=[]
+ondate=[]
+offdate=[]
+edepth=[]
+realtime=[]
+
+
+# strip station file
+staCoord = open(stationFile, 'r')
+lines = staCoord.readlines()
+for line in lines:
+    if not line.startswith("NET"):
+        split_line = line.split("\t")
+        net.append(split_line[0])
+        sta.append(split_line[1])
+        cha.append(split_line[2])
+        loc.append(split_line[3])
+        staname.append(split_line[4])
+        lat.append(float(split_line[5]))
+        lon.append(float(split_line[6]))
+        elev.append(float(split_line[7]))
+        ondate.append(split_line[8])
+        offdate.append(split_line[9])
+        edepth.append(split_line[10])
+        realtime.append(split_line[11])
+        
+
+      
+# %% PLOTTING
+
+fig = plt.figure(figsize=(12,12))
+ax = fig.add_subplot(111)
+# setup mercator map projection.
+m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 4000, verbose= True)
+# fig = plt.figure()
+# m = fig.add_subplot(111)
+s = 60
+
+# plot stations
+for i in range(len(lat)):
+    if offdate[i]=="1/1/00" and cha[i]=='HNZ' and llcrnrlat<lat[i]<urcrnrlat and llcrnrlon<lon[i]<urcrnrlon:
+        #print(sta[i])
+        if net[i]=='CE':
+            if realtime[i]== '*realtime\n':
+                #print((lat[i],lon[i]))
+                xx,yy = m(lon[i],lat[i])
+                m.scatter(xx, yy, marker = "^" ,s=s, c="r" , edgecolors = "k", alpha = 1)
+            # if realtime[i]== '\n':
+            #     xx,yy = m(lon[i],lat[i])
+            #     m.scatter(xx, yy, marker = "^" ,s=s, c="r" , edgecolors = "r", alpha = 1)
+        elif net[i]=='CI':
+            if realtime[i]== '*realtime\n':
+                #print((lat[i],lon[i]))
+                xx,yy = m(lon[i],lat[i])
+                m.scatter(xx, yy, marker = "^" ,s=s, c="b" , edgecolors = "k", alpha = 1)
+            # if realtime[i]== '\n':
+            #     xx,yy = m(lon[i],lat[i])
+            #     m.scatter(xx, yy, marker = "^" ,s=s, c="b" , edgecolors = "b", alpha = 1)
+                #print(net[i] + ", " + sta[i])
+        # elif net[i]=='NP':
+        #     if realtime[i]== '*realtime\n':
+        #         #print((lat[i],lon[i]))
+        #         xx,yy = m(lon[i],lat[i])
+        #         m.scatter(xx, yy, marker = "^" ,s=s, c="y" , edgecolors = "k", alpha = 1)
+        #     if realtime[i]== '\n':
+        #         xx,yy = m(lon[i],lat[i])
+        #         m.scatter(xx, yy, marker = "^" ,s=s, c="y" , edgecolors = "y", alpha = 1)
+        # elif net[i]=='AZ':
+        #     if realtime[i]== '*realtime\n':
+        #         #print((lat[i],lon[i]))
+        #         xx,yy = m(lon[i],lat[i])
+        #         m.scatter(xx, yy, marker = "^" ,s=s, c="g" , edgecolors = "k", alpha = 1)
+        #     if realtime[i]== '\n':
+        #         xx,yy = m(lon[i],lat[i])
+        #         m.scatter(xx, yy, marker = "^" ,s=s, c="g" , edgecolors = "g", alpha = 1)
+        # else:
+        #     print(net[i])
+        #     if realtime[i]== '*realtime\n':
+        #         print((lat[i],lon[i]))
+        #         xx,yy = m(lon[i],lat[i])
+        #         m.scatter(xx, yy, marker = "^" ,s=s, c="m" , edgecolors = "k", alpha = 1)
+        #     if realtime[i]== '\n':
+        #         xx,yy = m(lon[i],lat[i])
+        #         m.scatter(xx, yy, marker = "^" ,s=s, c="m" , edgecolors = "m", alpha = 1)
+                
+# #Plot the event
+# xx,yy = m(event_lon,event_lat)
+# m.scatter(xx, yy, marker = "*" ,s=300, c="r" , edgecolors = "k", alpha = 1)  
+plt.title("2021 SCEDC stations",fontsize=20)
+plt.xlabel("red=CE, blue=CI, yellow=NP, green=AZ, magenta=WR;\n black border=continuous, no border = triggered",fontsize=20)  
+plt.show()

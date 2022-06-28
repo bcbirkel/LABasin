@@ -1,0 +1,872 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Dec 27 16:15:34 2020
+
+@author: bcbirkel
+"""
+
+## Cleaner plotting script
+
+# %% IMPORT STATEMENTS
+from obspy import read, read_inventory
+from obspy.signal.filter import bandpass
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.signal.invsim import simulate_seismometer, corn_freq_2_paz
+from obspy.geodetics import gps2dist_azimuth
+from obspy.io.sac import sacpz
+from obspy.io.sac import attach_paz
+from obspy.io.gse2.paz import read_paz
+import os
+from obspy.core import Trace, Stream, AttribDict
+import math
+from matplotlib import animation
+import obspy.realtime.signal as signal
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+# %% SET TOGGLE PARAMETERS
+syn_exist = True
+plotsyn = True
+plot_azimuth = False
+bpass = False
+plot_spec_st = False
+select_stns = False
+skip_stns = True; skip = 1
+CI_only = False
+CE_only = False
+
+event_no = 1
+
+snr = 0
+
+# plotting params
+ymin = 0
+ymax = 100
+xmin = 0
+xmax = 80
+
+#set corners for map
+llcrnrlon=-119
+llcrnrlat=33.25
+urcrnrlon=-117
+urcrnrlat=34.75
+
+#smaller map:
+llcrnrlon=-118.5
+llcrnrlat=33.5
+urcrnrlon=-117.5
+urcrnrlat=34.25
+
+#set bandpass frequencies
+high_freq = 1/2
+low_freq = 1/10 
+
+# %% STATIONS PARAMETERS
+stn_ignore =['24109', '24260','WTT2', 'LTP', '24944', '24587']
+stn_include = ['USC']
+stn_select = ['13160','BHP', '13878', '14028','FUL','STS','13877','14007','23138']
+stn_select = ['LAF','STS','DLA','BRE','FUL','LBW1','LGB','LLS','SMS','USC']
+
+# %% EVENT PARAMETERS AND METADATA
+#set event
+
+events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009', 'elmonte_2020']
+event = events[event_no]
+    
+if event_no == 0:
+    event_title = 'lahabra'
+    event_disp = 'La Habra 2014'
+    event_lat = 33.9325
+    event_lon = -117.9158
+    gain = 20
+    sy_gain = 10
+elif event_no == 3:
+    event_title = 'chinohills'
+    event_disp = 'Chino Hills 2008'
+    event_lat = 33.9465
+    event_lon = -117.7667
+    gain = 10
+elif event_no == 4:
+    event_title = 'inglewood'
+    event_disp = 'Inglewood 2009'
+    event_lat = 33.9377
+    event_lon = -118.3357
+    gain = 50
+    sy_gain = 200
+    vert_gain = 300
+elif event_no == 2:
+    event_title = 'chatsworth'
+    event_disp = 'Chatsworth 2007'
+    event_lat = 34.2983
+    event_lon = -118.6255
+    gain = 50
+    sy_gain = 20
+elif event_no == 1:
+    event_title = 'beverlyhills'
+    event_disp = 'Beverly Hills 2001'
+    event_lat = 34.0541
+    event_lon = -118.3929
+    gain = 20
+    sy_gain = 50
+elif event_no == 5:
+    event_title = 'elmonte'
+    event_disp = 'El Monte 2020'
+    event_lat = 34.0385
+    event_lon = -118.0803
+    gain_data = 5
+    sy_gain = 20
+    gain = 20
+else: 
+    print('unknown event file')
+
+#gain = 10
+sy_gain = gain
+gain_data = gain
+# quick fix to avoid renaming params later    
+evla = event_lat; evlo = event_lon
+evlat = evla; evlon = evlo
+
+# %% READ IN DATA AND SYNTHETICS 
+#set directories
+path_dir_data = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/'
+if syn_exist == True:
+    path_dir_syn = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/'
+
+# read in data files
+if event_no == 5:
+    stream_dataN = read(path_dir_data + "*N_vel.SAC") 
+    stream_dataE = read(path_dir_data + "*E_vel.SAC")
+    stream_dataZ = read(path_dir_data + "*Z_vel.SAC") 
+    stream_dataR = read(path_dir_data + "*R_vel.SAC")  
+    stream_dataT = read(path_dir_data + "*T_vel.SAC")
+else:
+    stream_dataN = read(path_dir_data + "*N_vel.SAC") + read(path_dir_data + "*N.*.SAC")
+    stream_dataE = read(path_dir_data + "*E_vel.SAC") + read(path_dir_data + "*E.*.SAC") 
+    stream_dataZ = read(path_dir_data + "*Z_vel.SAC") + read(path_dir_data + "*Z.*.SAC") 
+    stream_dataR = read(path_dir_data + "*R_vel.SAC")  
+    stream_dataT = read(path_dir_data + "*T_vel.SAC")
+
+for tr in stream_dataN:
+    cmp = "N"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+for tr in stream_dataE:
+    cmp = "E"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+for tr in stream_dataZ:
+    cmp = "Z"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+for tr in stream_dataR:
+    cmp = "R"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+for tr in stream_dataT:
+    cmp = "T"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+
+# read in synthetics files
+if syn_exist == True:
+    # set syn files path
+    stream_synN = read(path_dir_syn + "*N.SAC")
+    stream_synE = read(path_dir_syn + "*E.SAC")
+    stream_synZ = read(path_dir_syn + "*Z.SAC")
+    stream_synR = read(path_dir_syn + "*R.SAC")
+    stream_synT = read(path_dir_syn + "*T.SAC")
+    
+    for tr in stream_synN:
+        cmp = "N"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    for tr in stream_synE:
+        cmp = "E"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    for tr in stream_synZ:
+        cmp = "Z"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    for tr in stream_synR:
+        cmp = "R"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    for tr in stream_synT:
+        cmp = "T"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    
+
+    
+    # %% BUILD STREAMS FOR DATA AND SYNTHETICS 
+stream_data = stream_dataN + stream_dataE + stream_dataZ + stream_dataR + stream_dataT
+if syn_exist == True:
+    stream_syn = stream_synN + stream_synE + stream_synZ + stream_synR + stream_synT
+
+#%% Open station location file
+
+stationFile = "/Users/bcbirkel/Documents/GitHub/LABasin/station_master.txt"
+# Load station coords into arrays, many more stations than used
+st_netw  = []
+st_name  = []
+st_dist  = []
+st_az    = []
+st_baz   = []
+st_lat   = []
+st_lon   = []
+
+# strip station file
+staCoord = open(stationFile, 'r')
+lines = staCoord.readlines()
+for line in lines:
+    if not line.startswith("#"): # ignore first line
+        split_line = line.split()
+        st_netw.append(split_line[0])
+        st_name.append(split_line[1])
+        st_lat.append(float(split_line[2]))
+        st_lon.append(float(split_line[3]))
+        distance = gps2dist_azimuth(evla, evlo, float(split_line[2]), float(split_line[3])) # Get traveltime and azimuth
+    #        print('Event ' + str(ev_lat) + ' ' + str(ev_lon) + ' station ' + split_line[4] + ' ' + split_line[5] + ' distance ' + str(distance[0]))
+        st_dist.append(distance[0]/1000.) # distance
+        st_az.append(distance[1]) # azimuth
+        st_baz.append(distance[2]) # back-azimuth
+        
+for ii in range(len(st_name)):
+    st = st_name[ii]
+    for tr in stream_data:
+        if tr.stats.station == st:
+            tr.stats.sac.stla = float(st_lat[ii])
+            tr.stats.sac.stlo = float(st_lon[ii])
+            tr.stats.sac.evla = evla
+            tr.stats.sac.evlo = evlo
+            tr.stats.dist = st_dist[ii]
+            print(tr.stats.channel, tr.stats.dist)
+            
+# %% FIND STATIONS FOR COMPARISON
+
+# initialize stn list
+data_stns = []
+syn_stns = []
+
+# data stations
+for tr in stream_data:
+    if CI_only == True and tr.stats.network == "CI":
+        data_stns.append(tr.stats.sac.kstnm)
+        print("CI only - " + tr.stats.network + ', ' + tr.stats.sac.kstnm + ', ' + str(tr.stats.sac.stlo) + ', ' + str(tr.stats.sac.stla))
+    elif CE_only == True and tr.stats.network == 'CE':
+        data_stns.append(tr.stats.sac.kstnm)
+        print("CE only - " + tr.stats.network + ', ' + tr.stats.sac.kstnm + ', ' + str(tr.stats.sac.stlo) + ', ' + str(tr.stats.sac.stla))
+    elif CI_only == False and CE_only == False:
+        data_stns.append(tr.stats.sac.kstnm)
+        print("All stations - " + tr.stats.network + ', ' + tr.stats.sac.kstnm + ', ' + str(tr.stats.sac.stlo) + ', ' + str(tr.stats.sac.stla))
+    
+# synthetic stations
+if syn_exist == True:
+    for tr in stream_syn:
+        syn_stns.append(tr.stats.station)
+    
+# find unique stations
+data_st = set(data_stns)
+if syn_exist == True:
+    syn_st = set(syn_stns)
+
+# build list with intersectioning stations:
+if syn_exist == True:
+    stn_list = data_st.intersection(syn_st) 
+if syn_exist == False:
+    stn_list = data_st
+print(stn_list)
+
+# %% GET DISTANCES FROM SOURCE TO STATIONS
+
+for tr in stream_data:
+    if tr.stats.sac.stlo > 0:
+        tr.stats.sac.stlo = -tr.stats.sac.stlo # fix longitude sign problem because map can't handle negatives
+    distance = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo) # Get traveltime and azimuth
+    tr.stats.dist = distance[0]/1000. #m to km
+    tr.stats.az = distance[1]
+    tr.stats.baz = distance[2]
+    print(tr.stats.network + ", " + tr.stats.station + ": (" + str(tr.stats.sac.stla) + ", " + str(tr.stats.sac.stlo) + "), dist: " + str(tr.stats.dist)) 
+
+if syn_exist == True:
+    for tr in stream_syn:
+        distance = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo) # Get traveltime and azimuth
+        tr.stats.dist = distance[0]/1000. #m to km
+        tr.stats.az = distance[1]
+        tr.stats.baz = distance[2]
+    
+
+# %% PLOT STATIONS AND EVENT ON MAP
+
+f = plt.figure(figsize=(10,5))
+# setup mercator map projection.
+m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+basin_st = []
+
+# plot stations
+for tr in stream_data:
+    if select_stns == True and tr.stats.station in stn_select:
+        stlat = tr.stats.sac.stla; stlon = tr.stats.sac.stlo 
+        xx,yy = m(stlon,stlat)
+        m.scatter(xx, yy, marker = "^" ,s=100, c="g" , edgecolors = "k", alpha = 1, label = "Data")
+        plt.text(xx+.025,yy-0.01, tr.stats.station, fontsize=8)
+        if llcrnrlat < stlat < urcrnrlat and llcrnrlon < stlon < urcrnrlon:
+            basin_st.append(tr.stats.sac.kstnm)
+    # else:
+    #     stlat = tr.stats.sac.stla; stlon = tr.stats.sac.stlo 
+    #     xx,yy = m(stlon,stlat)
+    #     m.scatter(xx, yy, marker = "^" ,s=100, c="b" , edgecolors = "k", alpha = 1, label = "Data")
+    #     if llcrnrlat < stlat < urcrnrlat and llcrnrlon < stlon < urcrnrlon:
+    #         basin_st.append(tr.stats.sac.kstnm)
+
+
+## for plotting syn stations - ignore because now using full grid
+# if syn_exist == True:    
+#     for tr in stream_syn:
+#         for st in basin_st:
+#             if tr.stats.sac.kstnm == st:
+#                 stlat = tr.stats.sac.stla; stlon = tr.stats.sac.stlo 
+#                 xx,yy = m(stlon,stlat)
+#                 m.scatter(xx, yy, marker = "^" ,s=75, c="g" , edgecolors = "k", alpha = 1, label = "Graves Syn")
+                
+#Plot the event
+xx,yy = m(evlon,evlat)
+m.scatter(xx, yy, marker = "*" ,s=300, c="r" , edgecolors = "k", alpha = 1)    
+
+if syn_exist == True:
+    plt.title("Stations used for Data v. Synthetic Comparison - " + event_disp)
+if syn_exist == False:
+    plt.title("All available data stations - " + event_disp)
+plt.show()
+
+fig_path = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/Figures/'
+f.savefig(fig_path + "Station map - " + event)
+
+# %% SET UP SEISMOGRAM PLOTTING
+
+# initialize
+data_plot = Stream()
+syn_plot = Stream()
+data_plot_temp = Stream()
+syn_plot_temp = Stream()
+X = []
+Y = []
+stnpairs = []
+stn_list = list(stn_list) # turn intersecting station array to list
+basin_st = set(basin_st) # unique basin stations
+done = []
+
+
+
+# cut out stations past ymax and with low signal-to-noise
+for tr in stream_data:
+    print(tr.max())
+    if abs(tr.max()) > 100:
+        print(tr.stats.station)
+        signal.scale(tr, 100/tr.stats.sac.scale)
+        print(tr.max())
+    for st in stn_list:
+        amp = tr.max()
+        if tr.stats.station == st and tr.stats.dist < ymax and abs(amp) > snr and st not in done:
+            # if select_stns == True and st in stn_select:
+            #     stnpairs.append([st,tr.stats.dist])
+            #     done.append(st) 
+            #     print(st + ", " + str(tr.stats.dist))
+            #     print(amp_adjust)
+            # elif select_stns == False and st not in stn_ignore and st not in done:
+            #     stnpairs.append([st,tr.stats.dist])
+            #     done.append(st)
+            #     print(st + ", " + str(tr.stats.dist))
+            #     print(amp_adjust)
+            stnpairs.append([st,tr.stats.dist])
+            done.append(st) 
+            print(st + ", " + str(tr.stats.dist))
+        
+    tr.write(path_dir_data + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + "_vel.SAC", format="SAC")
+
+    
+# get distance for sorting
+def getDist(elem):
+    return elem[1]
+stnpairs.sort(key=getDist)
+print(stnpairs)
+
+stn_list_sorted = []
+for pair in stnpairs:
+    stn_list_sorted.append(pair[0])
+print(stn_list_sorted)
+
+# skip some stations IF using all stations, not selection
+if select_stns == False and skip_stns == True:
+    stn_plot = stn_list_sorted[::skip]
+elif select_stns == True:
+    stn_plot = stn_list_sorted
+
+# CHECK that sort occured correctly:
+done_stn = []
+print("check that stations are sorted by distance:")
+for stn in stn_plot:
+    for tr in stream_data:
+        if stn == tr.stats.station and stn not in done_stn:
+            print("station name: " + stn + ", distance: " + str(tr.stats.dist))
+            done_stn.append(stn) 
+
+# set up flags for data v syn streams, normalize all
+# stream_norm = Stream()
+# for sta in stn_plot: # for data and syn
+#     for tr in stream_data:
+#         if tr.stats.station == sta:
+#             tr.stats.label = "data"
+#             stream_norm += tr
+#     if syn_exist == True:        
+#         for tr in stream_syn:
+#             if tr.stats.station == sta:
+#                 tr.stats.label = "syn"
+#                 stream_norm += tr
+# stream_norm.normalize(global_max=True)
+
+# # seperate normalized streams out again
+# for tr in stream_norm:
+#     if tr.stats.label == "data":
+#         data_plot += tr
+#     if tr.stats.label == "syn":
+#         syn_plot += tr
+        
+
+data_plot = stream_data
+syn_plot = stream_syn
+
+# CHECK that sort occured correctly:
+done_stn = []
+print("check that stations are sorted by distance AFTER NORMALIZATION:")
+for stn in stn_plot:
+    for tr in stream_data:
+        if stn == tr.stats.station and stn not in done_stn:        
+            print("network: " + tr.stats.network + ", station name: " + stn + ", distance: " + str(tr.stats.dist))
+            done_stn.append(stn) 
+            
+# %% SET UP FIGURES FOR PLOTTING
+
+# figures for distance plots
+figN = plt.figure(0, figsize=[8,5])
+aN = figN.add_subplot(1, 1, 1)
+figE = plt.figure(1, figsize=[8,5])
+aE = figE.add_subplot(1, 1, 1)
+figR = plt.figure(2, figsize=[8,5])
+aR = figR.add_subplot(1, 1, 1)
+figT = plt.figure(3, figsize=[8,5])
+aT = figT.add_subplot(1, 1, 1)
+figZ = plt.figure(4, figsize=[8,5])
+aZ = figZ.add_subplot(1, 1, 1)
+
+# # fig for combined plot
+# figCmb = plt.figure(5, figsize=[24,5])
+# aCmbA = figCmb.add_subplot(1, 1, 1)
+# aCmbB = figCmb.add_subplot(1, 2, 2)
+# aCmbC = figCmb.add_subplot(1, 3, 3)
+
+# figures from azimuth plots
+if plot_azimuth == True:
+    figNaz = plt.figure(5, figsize=[8,5])
+    azN = figNaz.add_subplot(1, 1, 1)
+    figEaz = plt.figure(6, figsize=[8,5])
+    azE = figEaz.add_subplot(1, 1, 1)
+    figRaz = plt.figure(7, figsize=[8,5])
+    azR = figRaz.add_subplot(1, 1, 1)
+    figTaz = plt.figure(8, figsize=[8,5])
+    azT = figTaz.add_subplot(1, 1, 1)
+    figZaz = plt.figure(9, figsize=[8,5])
+    azZ = figZaz.add_subplot(1, 1, 1)
+    figsAz = [figNaz,figEaz,figRaz,figTaz,figZaz]
+    axesAz = [azN,azE,azR,azT,azZ]
+
+if syn_exist == True: 
+    syn_times = np.arange(0,len(stream_syn.traces[0])*stream_syn.traces[0].stats.delta,stream_syn.traces[0].stats.delta)
+    
+for sytr in syn_plot:
+    for tr in data_plot:
+        if tr.stats.station == sytr.stats.station:
+            sytr.stats.dist = tr.stats.dist
+
+# %% PLOTTING SEISMOGRAMS
+
+# set up directory to save figs
+fig_path = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/Figures/'
+if not os.path.exists(fig_path):
+    os.makedirs(fig_path)
+os.chdir(fig_path)
+
+# set up vars to loop through
+figs = [figN,figE,figR,figT,figZ]
+axes = [aN,aE,aR,aT,aZ]
+channels = ["BHN","BHE","BHR","BHT","BHZ"]
+
+# loop through each component
+for i in range(len(axes)):
+    fig = figs[i]
+    a = axes[i]
+    if plot_azimuth == True:
+        figAz = figsAz[i]
+        azA = axesAz[i]
+    cha = channels[i]
+    
+    a.set_ylabel("Distance from source (km)")    
+    a.set_xlabel("Time (s)")
+    a.set_ylim(ymin,ymax)
+    a.set_xlim(xmin,xmax)
+    a.set_title("Data (black) v. Syn (red) for " + event_disp +  " - " + cha)
+    
+    for tr in data_plot:
+        if tr.stats.station in stn_plot and tr.stats.channel == cha:
+      
+            # set up vars
+            times = np.linspace(0, tr.stats.npts*tr.stats.delta, tr.stats.npts)
+            dist = tr.stats.dist; azimuth = tr.stats.az; df = tr.stats.sampling_rate
+            gain = gain_data*math.sqrt(dist); sy_gain = gain
+            
+            # bandpass
+            if bpass == True:
+                tr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+            if bpass == False:
+                gain = gain/10
+            
+            # plot data
+            a.plot(times, tr.data*gain+dist,c="k",linewidth=0.5)
+            
+            # add station names
+            if dist < ymax: 
+                a.text(xmax-10,dist,tr.stats.sac.kstnm)
+
+    if syn_exist == True and plotsyn == True: 
+        for sytr in syn_plot:
+            if sytr.stats.station in stn_plot and sytr.stats.sac.kcmpnm == cha:
+                # set up times for x-axis
+                syn_times = np.linspace(0,sytr.stats.npts*sytr.stats.delta,sytr.stats.npts)
+                # bandpass synthetics
+                #sytr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+                # plot synthetics on top of data
+                a.plot(syn_times, sytr.data*sy_gain+sytr.stats.dist,c="r",linewidth=0.5)
+                        
+    fig.savefig(event_disp + " Data by Distance - " + cha + ".png")       
+    
+    #plot by azimuth
+    if plot_azimuth == True:
+        for tr in data_plot:
+             if tr.stats.station in stn_select and tr.stats.channel == cha:
+                
+                #vars
+                gain = gain_data*math.sqrt(dist)
+                azfix = 360/ymax
+                
+                # plot
+                aztimes = np.linspace(0, tr.stats.npts*tr.stats.delta, tr.stats.npts)
+                azA.plot(aztimes, tr.data*gain*azfix+azimuth,c="k",linewidth=0.5)
+                azA.set_ylabel("Azimuth from source (degrees)")    
+                azA.set_xlabel("Time (s)")
+                azA.set_xlim(xmin,xmax)
+                azA.set_title("Data (black) v. Syn (red) for " + event_disp + " - North")
+                azA.text(xmax-10,azimuth,tr.stats.sac.kstnm)
+        for tr in syn_plot:
+             if tr.stats.station in stn_select and tr.stats.channel == cha:
+                azA.plot(times, tr.data*gain*azfix+azimuth,c="r",linewidth=0.5)
+                
+        figAz.savefig(fig_path + event_disp + " Data by Aziumth - " + cha + ".png")
+        
+plt.show()
+
+#%% CREATE SUBPLOT WITH MULTIPLE COMPONENTS
+
+# loop through each component
+a = plt.figure(10, figsize=[24,5])
+asR = fig.add_subplot(1, 1, 1)
+asT = fig.add_subplot(1, 2, 2)
+asZ = fig.add_subplot(1, 3, 3)
+
+aR.set_ylabel("Distance from source (km)")    
+aT.set_title("Data (black) v. Syn (red) for " + event_disp +  " - Radial, Transverse and Vertical")
+
+
+subaxes = [asR,asT,asZ]
+channels = ["BHR","BHT","BHZ"]
+
+for i in range(len(subaxes)):    
+    for tr in data_plot:
+        if tr.stats.station in stn_plot and tr.stats.channel == cha:
+            
+            # set up vars
+            aS = subaxes[i]
+            times = np.linspace(0, tr.stats.npts*tr.stats.delta, tr.stats.npts)
+            dist = tr.stats.dist; azimuth = tr.stats.az; df = tr.stats.sampling_rate
+            gain = gain_data*math.sqrt(dist); sy_gain = gain
+            
+            # bandpass
+            if bpass == True:
+                tr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+            if bpass == False:
+                gain = gain/10
+            
+            # plot data
+            aS.plot(times, tr.data*gain+dist,c="k",linewidth=0.5)
+            
+            #add labels
+            aS.set_xlabel("Time (s)")
+            aS.set_ylim(ymin,ymax)
+            aS.set_xlim(xmin,xmax)
+            
+            # add station names
+            if dist < ymax: 
+                a.text(xmax-10,dist,tr.stats.sac.kstnm)
+    
+    if syn_exist == True and plotsyn == True: 
+        for sytr in syn_plot:
+            if sytr.stats.station in stn_plot and sytr.stats.sac.kcmpnm == cha:
+                # set up times for x-axis
+                syn_times = np.linspace(0,sytr.stats.npts*sytr.stats.delta,sytr.stats.npts)
+                # bandpass synthetics
+                sytr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+                # plot synthetics on top of data
+                aS.plot(syn_times, sytr.data*sy_gain+sytr.stats.dist,c="r",linewidth=0.5)
+                        
+    fig.savefig(event_disp + " Data by Distance - " + cha + ".png")  
+plt.show()
+
+# figE.savefig(event_disp + " Data by Distance - East.png")
+# figR.savefig(event_disp + " Data by Distance - Radial.png")
+# figT.savefig(event_disp + " Data by Distance - Transverse.png")
+# figZ.savefig(event_disp + " Data by Distance - Vertical.png")
+
+# figNaz.savefig(event_disp + " Data by Aziumth - North.png")
+# figEaz.savefig(event_disp + " Data by Aziumth - East.png")
+# figRaz.savefig(event_disp + " Data by Aziumth - Radial.png")
+# figTaz.savefig(event_disp + " Data by Aziumth - Transverse.png")
+# figZaz.savefig(event_disp + " Data by Aziumth - Vertical.png")
+
+
+           
+       
+#         if tr.stats.channel == "BHE":
+#             # countE += 1
+#             # if countE%skip == 0:
+#             aE.plot(times, tr.data*gain+dist,c="k",linewidth=0.5)
+#             if plot_azimuth == True:
+#                 azE.plot(times, tr.data*gain*azfix+azimuth,c="k",linewidth=0.5)
+#             if syn_exist == True: 
+#                 for sytr in syn_plot:
+#                     if sytr.stats.station == tr.stats.sac.kstnm and sytr.stats.sac.kcmpnm == tr.stats.channel and plotsyn == True:
+#                         sytr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+#                         aE.plot(syn_times, sytr.data*sy_gain+dist,c="r",linewidth=0.5)
+#             aE.set_ylabel("Distance from source (km)")    
+#             aE.set_xlabel("Time (s)")
+#             aE.set_ylim(ymin,ymax)
+#             aE.set_xlim(xmin,xmax)
+#             aE.set_title("Data (black) v. Syn (red) for " + event_disp + " - East")
+#             azE.set_ylabel("Azimuth from source (degrees)")    
+#             azE.set_xlabel("Time (s)")
+#             azE.set_xlim(xmin,xmax)
+#             azE.set_title("Data (black) v. Syn (red) for " + event_disp + " - East")
+#             if dist < ymax: 
+#                 aE.text(xmax-10,dist,tr.stats.sac.kstnm)
+#             azE.text(xmax-10,azimuth,tr.stats.sac.kstnm)
+    
+#         if tr.stats.channel == "BHR":
+#             # countR += 1
+#             # if countR%skip == 0:
+#             aR.plot(times, tr.data*gain+dist,c="k",linewidth=0.5)
+#             if plot_azimuth == True:
+#                 azR.plot(times, tr.data*gain*azfix+azimuth,c="k",linewidth=0.5)
+#             if syn_exist == True: 
+#                 for sytr in syn_plot:
+#                     if sytr.stats.station == tr.stats.sac.kstnm and sytr.stats.sac.kcmpnm == tr.stats.channel and plotsyn == True:
+#                         sytr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+#                         aR.plot(syn_times, sytr.data*sy_gain+dist,c="r",linewidth=0.5)
+#             aR.set_ylabel("Distance from source (km)")    
+#             aR.set_xlabel("Time (s)")
+#             aR.set_ylim(ymin,ymax)
+#             aR.set_xlim(xmin,xmax)
+#             aR.set_title("Data (black) v. Syn (red) for " + event_disp + " - Radial")
+#             azR.set_ylabel("Azimuth from source (degrees)")    
+#             azR.set_xlabel("Time (s)")
+#             azR.set_xlim(xmin,xmax)
+#             azR.set_title("Data (black) v. Syn (red) for " + event_disp + " - Radial")
+#             if dist < ymax: 
+#                 aR.text(xmax-10,dist,tr.stats.sac.kstnm)
+#             azR.text(xmax-10,azimuth,tr.stats.sac.kstnm)
+        
+#         if tr.stats.channel == "BHT":
+#             # countT += 1
+#             # if countT%skip == 0:
+#             aT.plot(times, tr.data*gain+dist,c="k",linewidth=0.5)
+#             if plot_azimuth == True:
+#                 azT.plot(times, tr.data*gain*azfix+azimuth,c="k",linewidth=0.5)
+#             if syn_exist == True: 
+#                 for sytr in syn_plot:
+#                     if sytr.stats.station == tr.stats.sac.kstnm and sytr.stats.sac.kcmpnm == tr.stats.channel and plotsyn == True:
+#                         sytr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+#                         aT.plot(syn_times, sytr.data*sy_gain+dist,c="r",linewidth=0.5)
+#             aT.set_ylabel("Distance from source (km)")    
+#             aT.set_xlabel("Time (s)")
+#             aT.set_ylim(ymin,ymax)
+#             aT.set_xlim(xmin,xmax)
+#             aT.set_title("Data (black) v. Syn (red) for " + event_disp + " - Transverse")
+#             azT.set_ylabel("Azimuth from source (degrees)")    
+#             azT.set_xlabel("Time (s)")
+#             azT.set_xlim(xmin,xmax)
+#             azT.set_title("Data (black) v. Syn (red) for " + event_disp + " - Transverse")
+#             if dist < ymax: 
+#                 aT.text(xmax-10,dist,tr.stats.sac.kstnm)
+#             azT.text(xmax-10,azimuth,tr.stats.sac.kstnm)
+        
+#         if tr.stats.channel == "BHZ":
+#             # countZ += 1
+#             # if countZ%skip == 0:
+#             aZ.plot(times, tr.data*gain+dist,c="k",linewidth=0.5)
+#             if plot_azimuth == True:
+#                 azZ.plot(times, tr.data*gain*azfix+azimuth,c="k",linewidth=0.5)
+#             if syn_exist == True: 
+#                 for sytr in syn_plot:
+#                     if sytr.stats.station == tr.stats.sac.kstnm and sytr.stats.sac.kcmpnm == tr.stats.channel and plotsyn == True:
+#                         sytr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+#                         aZ.plot(syn_times, sytr.data*sy_gain+dist,c="r",linewidth=0.5)
+#             aZ.set_ylabel("Distance from source (km)")    
+#             aZ.set_xlabel("Time (s)")
+#             aZ.set_ylim(ymin,ymax)
+#             aZ.set_xlim(xmin,xmax)
+#             aZ.set_title("Data (black) v. Syn (red) for " + event_disp + " - Vertical")
+#             azZ.set_ylabel("Azimuth from source (degrees)")    
+#             azZ.set_xlabel("Time (s)")
+#             azZ.set_xlim(xmin,xmax)
+#             azZ.set_title("Data (black) v. Syn (red) for " + event_disp + " - Vertical")
+#             if dist < ymax: 
+#                 aZ.text(xmax-10,dist,tr.stats.sac.kstnm)
+#             azZ.text(xmax-10,azimuth,tr.stats.sac.kstnm)
+#     #plt.plot(tr.times(),tr.data,c="k",linewidth=0.5)
+# #    plt.scatter(tr.stats.sac.t3,dist*0.01,marker=" | ",color="r")
+#     #tr.write("decon_bp5-20_" + tr.id + ".MSEED", format="MSEED") 
+#     #tr.write("decon_" + tr.id + ".SAC", format="SAC") 
+
+# # %% plot stations and event on map
+
+# evlat = evla; evlon = evlo
+
+# # plot stations
+# for step in range(round(float(tr.stats.sac.delta*tr.stats.sac.npts))-1)[::10]:
+#     plt.figure(figsize=(10,5))
+#     # setup mercator map projection.
+#     m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269)
+#     #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+#     m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+    
+#     for tr in stream_data:
+#         stlat = tr.stats.sac.stla; stlon = tr.stats.sac.stlo 
+#         xx,yy = m(stlon,stlat)
+#         m.scatter(xx, yy, marker = "." ,s=1000000*(abs(tr.data[step])), c="g" , edgecolors = "k", alpha = 1, label = "Data")
+#         #plt.quiver(stlon, stlat, math.sin(math.radians(tr.stats.az)), math.cos(math.radians(tr.stats.az)))
+        
+#     #Plot the event
+#     x,y = m(evlon,evlat)
+#     m.scatter(x, y, marker = "*" ,s=200, c="r" , edgecolors = "k", alpha = 1)  
+            
+#     plt.title("Wave Animation - " + event_disp)
+#     plt.show()
+
+
+# =============================================================================
+# 
+# ### ANIMATION DRAFT ###
+# 
+# #  # First set up the figure, the axis, and the plot element we want to animate
+# fig = plt.figure()
+# m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269)
+# m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+# # ax = plt.axes()
+# # pts, = m.plot([], [], 'bo', ms=6)
+# 
+# # initialization function: plot the background of each frame
+# # def init():
+#     # pts.set_data([], [])
+#     # return pts
+# 
+# # animation function.  This is called sequentially
+# def animate(i):
+#     stlat = tr.stats.sac.stla; stlon = tr.stats.sac.stlo 
+#     xx,yy = m(stlon,stlat)
+#     var = (xx,yy)
+#     pts = np.array(var)
+#     plt.imshow(pts, cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, 
+#                vmin=None, vmax=None, origin=None, extent=None, filternorm=True, 
+#                filterrad=4.0, resample=None, url=None, data=None)
+#     
+#     #pts.set_data(xx, yy)
+#     fig.quiver(xx,yy,math.sin(math.radians(tr.stats.az)), math.cos(math.radians(tr.stats.az)))
+# 
+#     return fig
+# 
+# # # call the animator.  blit=True means only re-draw the parts that have changed.
+# anim = animation.FuncAnimation(fig, animate, frames=200, interval=20, blit=True)
+# 
+# # # save the animation as an mp4.  This requires ffmpeg or mencoder to be
+# # # installed.  The extra_args ensure that the x264 codec is used, so that
+# # # the video can be embedded in html5.  You may need to adjust this for
+# # # your system: for more information, see
+# # # http://matplotlib.sourceforge.net/api/animation_api.html
+# # #anim.save('basic_animation.mp4', fps=30, extra_args=['-vcodec', 'libx264'])
+# 
+# # plt.show()
+# 
+# # fig = plt.figure()
+# # ax = plt.axes()
+# # m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269)
+# # m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+# 
+# # X, Y = np.mgrid[:2*np.pi:10j,:2*np.pi:5j]
+# # U = np.cos(X)
+# # V = np.sin(Y)
+# # Q = m.quiver(X, Y, U, V, pivot='mid', color='r', units='inches')
+# 
+# # def update_quiver(num, Q, X, Y):
+# #     """updates the horizontal and vertical vector components by a
+# #     fixed increment on each frame
+# #     """
+# 
+# #     U = np.cos(X + num*0.1)
+# #     V = np.sin(Y + num*0.1)
+# 
+# #     Q.set_UVC(U,V)
+# 
+# #     return Q,
+# 
+# # # you need to set blit=False, or the first set of arrows never gets
+# # # cleared on subsequent frames
+# # anim = animation.FuncAnimation(m, update_quiver, fargs=(Q, X, Y)) #, interval=50, blit=False)
+# # #m.tight_layout()
+# # plt.show()
+# 
+# 
+# =============================================================================

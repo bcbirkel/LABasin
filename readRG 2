@@ -1,0 +1,494 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Oct 28 16:41:40 2020
+@author: bcbirkel
+
+Script for reading in Rob Graves' synthetics (FULL GRID)
+Sorts binary file into spatial grid points (binary file is in timeslices),
+saves points nearest existing stations to SAC files
+"""
+
+import struct
+import numpy as np
+import matplotlib.pyplot as plt
+import obspy.io.sac 
+from obspy import Trace
+from obspy import Stream
+from obspy.geodetics.base import gps2dist_azimuth
+import os
+from obspy.core.utcdatetime import UTCDateTime
+import shutil
+from mpl_toolkits.basemap import Basemap
+import time
+from scipy.spatial import distance
+from pykdtree.kdtree import KDTree
+import pickle
+from obspy.io.sac import SACTrace
+
+# %% ##### SET UP PATHS #####
+write_st_syn = True
+beaming = False 
+
+iis = [1,2,3,4]
+iis = [0]
+ms = [0]
+
+for ii in iis:
+    for j in ms:
+        event_no = ii
+        events = ['lahabra', 'beverlyhills', 'chatsworth', 'chinohills', 'inglewood']
+        event = events[event_no]
+        model_no = j
+        models = ['CVM-S4', 'CVM-H']
+        model = models[model_no]
+        
+        if event_no == 0:
+            starttime = UTCDateTime("2014-03-29T04:09:42.994500Z")-0.6 #RG added 0.6 sec padding
+            eventfol = "lahabra_2014/GravesSyn/" + model + "/"    
+            eventlat = 33.9325
+            eventlon = -117.9158
+            if model_no == 0:
+                fileName = "./timeslices/GravesSim_fullgrid_tsfiles/epw_102_m5.09-3.5x3.5-s266318098_cvmsi-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+            if model_no == 1:
+                fileName = "./timeslices/GravesSim_fullgrid_tsfiles/epw_102_m5.09-3.5x3.5-s266318098_cvmh-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+        if event_no == 1:
+            starttime = UTCDateTime("2001-09-09T23:59:17.695")-0.6
+            eventfol = "beverlyhills_2001/GravesSyn/" + model + "/"
+            eventlat = 34.0590
+            eventlon = -118.3885 
+            if model_no == 0:
+                fileName = "./timeslices/GravesSim_fullgrid_tsfiles/e1036_m4.24-1.3x1.3-s1098915986_cvmsi-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+            if model_no == 1:
+                fileName = "./timeslices/GravesSim_fullgrid_tsfiles/e1036_m4.24-1.3x1.3-s1098915986_cvmh-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+        if event_no == 2:
+            starttime = UTCDateTime("2007-08-09T07:58:48.888 ")-0.6
+            eventfol = "chatsworth_2007/GravesSyn/" + model + "/"
+            eventlat = 34.2995 
+            eventlon = -118.6195 
+            if model_no == 0:
+                fileName = "./timeslices/GravesSim_fullgrid_tsfiles/e1019_m4.66-2.1x2.1-s60148050_cvmsi-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+            if model_no == 1:
+                fileName = "./timeslices/GravesSim_fullgrid_tsfiles/e1019_m4.66-2.1x2.1-s60148050_cvmh-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+        if event_no == 3:
+            starttime = UTCDateTime("2008-07-29T18:42:15.960")-0.6
+            eventfol = "chinohills_2008/GravesSyn/" + model + "/"
+            eventlat = 33.9530
+            eventlon = -117.7613 
+            if model_no == 0:
+                fileName = "./timeslices/GravesSim_fullgrid_tsfiles/e1002_m5.39-5.0x5.0-s650146834_cvmsi-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+            if model_no == 1:
+                fileName = "./timeslices/ravesSim_fullgrid_tsfiles/e1002_m5.39-5.0x5.0-s650146834_cvmh-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+        if event_no == 4:
+            starttime = UTCDateTime("2009-05-18T03:39:36.126")-0.6
+            eventfol = "inglewood_2009/GravesSyn/" + model + "/"
+            eventlat = 33.9377
+            eventlon = -118.3357 
+            if model_no == 0:
+                fileName = "./timeslices/GravesSim_fullgrid_tsfiles/e1011_m4.70-2.2x2.2-s1247256210_cvmsi-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+            if model_no == 1:
+                fileName = "./timeslices/GravesSim_fullgrid_tsfiles/e1011_m4.70-2.2x2.2-s1247256210_cvmh-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+        
+        
+        #set corners for map
+        llcrnrlon=-119
+        llcrnrlat=33.25 #- 0.25
+        urcrnrlon=-117
+        urcrnrlat=34.75 #+ 0.25
+        
+        # %% #### GET HEADER INFO #####
+        
+        with open(fileName, mode='rb') as file: # rb-> read binary
+            fileContent = file.read()
+            tshead = struct.unpack("iiiiiiiifffffff", fileContent[:60])
+           
+        # pull out header information    
+        ix0 = tshead[0]            #/* starting x grid location for output */
+        iy0 = tshead[1]            #/* starting y grid location for output */
+        iz0 = tshead[2]            #/* starting z grid location for output */
+        it0 = tshead[3]            #/* starting time step for output */
+        nx = tshead[4]             #/* number of x points                                */
+        ny = tshead[5]             #/* number of y points                                */
+        nz = tshead[6]             #/* number of z points                                */
+        nt = tshead[7]             #/* number of time points                                */
+        dx = tshead[8]             #/* X direction spacing btw adjacent points        */
+        dy = tshead[9]             #/* Y direction spacing btw adjacent points        */
+        dz = tshead[10]            #/* Z direction spacing btw adjacent points        */
+        dt = tshead[11]            #/* time step *
+        modelrot = tshead[12]      #/* rotation of y-axis from south (clockwise positive)   */
+        modellat = tshead[13]      #/* latitude of model origin                             */
+        modellon = tshead[14]      #/* longitude of model origin                            */
+        
+        # %% ##### MORE EFFICIENT UNPACK MOTIONS FROM SIMULATION BINARY FILE (IN TIMESLICES) #####
+        
+        # define variables
+        fsize = nx*ny*3*nt # number of points
+        spapts = nx*ny*3
+        fpts = nx*ny # number of grid points
+        
+        t0 = time.time()
+        ts_array = np.zeros((spapts,nt), dtype=float)
+        count = 0
+        
+        def read_file_in_chunks(file_object, chunk_size=int(fsize/nt)):
+            while True:
+                data = []
+                # Just read chunk_size size data.
+                f = file_object.read(chunk_size*4)
+                
+                if not f:
+                    # Break the loop.
+                    break
+                
+                data = struct.unpack("f"*chunk_size, f[0:chunk_size*4])
+
+                yield data
+                
+        # Open the big data file.
+        with open(fileName, mode='rb+') as f:
+            # Invoke the above lazy file read data function.
+            header = f.read(60)
+            tshead = struct.unpack("iiiiiiiifffffff", fileContent[:60])
+            print("Header: " + str(tshead))
+            for tslice in read_file_in_chunks(f):
+                # Process the piece of data
+                ts_array[:, count] = tslice
+                count += 1
+                if count % 1000 == 0:
+                    t1 = time.time()
+                    print("Elapsed time on data read: " + str(t1-t0) + " seconds. " + str(count) + " of 8000 timeslices done.")
+                
+        # %% #### OPEN LATLON TO MODEL COORD SORTED FILE ####
+ 
+        with open("RG_latlon", "rb") as f:   # Unpickling
+            xymod_sorted = pickle.load(f)
+        
+        # %% ##### PUT DATA IN TRACES W/ HEADER INFO #### 
+        
+        st = Stream()
+        stN = Stream() 
+        stE = Stream() 
+        stZ = Stream() 
+        
+        dist_list = []
+        # start = 15              # was 61 ?
+        for i in range(3*fpts):
+            # data_tr = data[start+i::3*fpts] # pull out data by spatial point (stored as timeslice in binary file)
+            data_tr = ts_array[i,:]
+            tr = Trace()
+            if i < fpts:
+                cmp = 'BHN'
+                head = xymod_sorted[i]
+                tr.stats.xcoord = head[0]
+                tr.stats.ycoord = head[1]
+                tr.stats.lat = head[2]
+                lon = head[3]
+                if lon > 0:
+                    lon = -lon
+                tr.stats.lon = lon
+                
+            if i >= fpts and i < 2*fpts:
+                cmp = 'BHE'
+                head = xymod_sorted[i-fpts]
+                tr.stats.xcoord = head[0]
+                tr.stats.ycoord = head[1]
+                tr.stats.lat = head[2]
+                lon = head[3]
+                if lon > 0:
+                    lon = -lon
+                tr.stats.lon = lon
+                
+            if i >= 2*fpts and i < 3*fpts:
+                cmp = 'BHZ'
+                head = xymod_sorted[i-2*fpts]
+                tr.stats.xcoord = head[0]
+                tr.stats.ycoord = head[1]
+                tr.stats.lat = head[2]
+                lon = head[3]
+                if lon > 0:
+                    lon = -lon
+                tr.stats.lon = lon
+                
+            [dist_m,az,baz] = gps2dist_azimuth(eventlat,eventlon,tr.stats.lat,tr.stats.lon)
+            dist = dist_m/1000
+            tr.stats.distance = dist
+            tr.stats.az = az
+            tr.stats.baz = baz
+            dist_list.append(dist)
+            tr.stats.channel = cmp
+            tr.stats.dt = 0.05
+            # tr.stats.delta = 0.05
+            tr.stats.starttime = starttime
+            tr.data = np.asarray(data_tr) 
+            # st.append(tr)
+            if cmp == 'BHN':
+                stN.append(tr)
+            if cmp == 'BHE':
+                stE.append(tr)
+            if cmp == 'BHZ':
+                stZ.append(tr)
+        print("data sorted into traces, added to stream")
+            
+        st = stN + stE + stZ
+        
+        # %% #####FIND LAT/LON EXTENT OF SIMULATION #####
+        
+        lats=[]; lons=[]
+        for pt in xymod_sorted:
+            lats.append(pt[2])
+            lons.append(pt[3])
+        maxlat = max(lats)
+        minlat = min(lats)
+        maxlon = max(lons)
+        minlon = min(lons)
+        
+        # %% PLOT CHECK 
+        
+        fig = plt.figure(0, figsize=[8,5])
+        a = fig.add_subplot(1, 1, 1)
+                
+        count = 0
+        for tr in stN:
+            if tr.stats.distance < 100:
+                a.plot(tr.times(),tr.data+tr.stats.distance,color='k',lw=0.005)
+                # print(tr.stats.station + " " + str(tr.stats.dist))
+            count = count+1
+        plt.xlim(0,60)
+        # plt.ylim(0,80)
+        plt.show()
+        
+        print("check plots")
+        
+        
+        
+        # %% ##### FIND SIMULATION POINTS CLOSEST TO ACTUAL STATIONS #####
+        
+        # read in station file
+        stationFile = "./all_stationmaster.txt"
+        stations = []
+        savedpts = []
+        
+        t0 = time.time()
+        count = 0
+        
+        # strip station file
+        staCoord = open(stationFile, 'r')
+        lines = staCoord.readlines()
+        for line in lines:
+            if not line.startswith("#"): # ignore first line
+                split_line = line.split()
+                net = split_line[0]
+                code = split_line[1]
+                lat = float(split_line[2])
+                lon = float(split_line[3])
+                if lon > 0:
+                    lon=-lon
+                if minlat < lat < maxlat and minlon < lon < maxlon:
+                    stations.append([net,code,lat,lon])
+        
+        # for sta in stations: # all stations
+        #     leng = []
+        #     for pt in xymod_sorted:    
+        #         dis = distance.euclidean((pt[2], pt[3]), (sta[2], sta[3]))
+        #         leng.append(dis)
+                
+        #     ind_min = np.argmin(leng)
+        #     savedpts.append([xymod_sorted[ind_min],sta])
+        #     count = count + 1
+        
+        #     if count % 30 == 0:
+        #         t1 = time.time()
+        #         print("Elapsed time finding closest points: " + str(t1-t0) + " seconds. Station: " + str(sta))
+        
+        # %%## test
+        t0 = time.time()
+        
+        
+        savedpts = []
+        XX = []  
+        YY = []
+        
+        for sta in stations: # all stations
+            XX.append([sta[2], sta[3]])
+        for pt in xymod_sorted:  
+            YY.append([pt[2], pt[3]])
+
+        X = np.array(XX)
+        Y = np.array(YY)
+        
+        tree = KDTree(Y)
+        neighbor_dists, neighbor_indices = tree.query(X)
+        
+        for i in range(len(neighbor_indices)):
+            savedpts.append([xymod_sorted[neighbor_indices[i]],stations[i]])
+        t1 = time.time()
+        print("Elapsed time finding closest points: " + str(t1-t0) + " seconds. Station: " + str(sta))
+        
+        # %% #####  PLOT STATIONS AND SAVED POINTS FROM GRID ####
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        
+        for i in range(len(stations)):
+            ax.scatter(stations[i][2],stations[i][3],color='k')
+        for j in range(len(savedpts)):
+            ax.scatter(savedpts[j][0][2],savedpts[j][0][3],color='r')    
+        
+        # %% #### TURN TO SAC TRACES FOR HEADER INFO####
+        st_sac = Stream()
+        
+        for tr in st:
+            tr2 = SACTrace.from_obspy_trace(tr)
+            sactr = tr2.to_obspy_trace()
+            sactr.stats.sac.stla = tr.stats.lat
+            sactr.stats.sac.stlo = tr.stats.lon
+            sactr.stats.sac.dist = tr.stats.distance
+            sactr.stats.sac.evla = eventlat
+            sactr.stats.sac.evlo = eventlon
+            sactr.stats.sac.az = tr.stats.az
+            sactr.stats.sac.baz = tr.stats.baz
+            
+            st_sac.append(sactr)
+            
+        # %% ##### WRITE EXTRACTED DATA CLOSEST TO STATION AS SAC FILE TO COMPARE TO OTHER STATION SYNTHETICS #####
+        
+        # for all lat/lon in station file, search through latlon variable,
+        # find (x,y) point with min dist using gps2dist_azimuth, return index and assign
+        # that seismogram to that station. save.
+        checklist = []
+        
+        os.chdir('/Users/bcbirkel/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/LABasin/')
+        
+        outpath = ('./CompiledEvents/' + eventfol)
+        if os.path.exists(outpath):
+            shutil.rmtree(outpath)
+        os.mkdir(outpath)
+        os.chdir(outpath)
+        
+        for i in range(len(savedpts)):
+            for tr in st:
+                if tr.stats.xcoord == savedpts[i][0][0] and tr.stats.ycoord == savedpts[i][0][1]:
+                    tr.stats.network = savedpts[i][1][0]
+                    tr.stats.station = savedpts[i][1][1]
+                    
+                    tr2 = SACTrace.from_obspy_trace(tr)
+                    sactr = tr2.to_obspy_trace()
+                    sactr.stats.sac.stla = tr.stats.lat
+                    sactr.stats.sac.stlo = tr.stats.lon
+                    sactr.stats.sac.dist = tr.stats.distance
+                    sactr.stats.sac.evla = eventlat
+                    sactr.stats.sac.evlo = eventlon
+                    sactr.stats.sac.az = tr.stats.az
+                    sactr.stats.sac.baz = tr.stats.baz
+                    
+                    sactr.stats.network = savedpts[i][1][0]
+                    sactr.stats.station = savedpts[i][1][1]
+                    
+                    sactr.stats.starttime = starttime-4.4
+                    np.pad(sactr.data,(int(20*4.4),0),'constant',constant_values=(0))
+                    
+                    if sactr.stats.channel == 'BHN':
+                        checklist.append([tr.stats.network, tr.stats.station, tr.stats.distance])
+                    
+                    # print(dist)
+                    if write_st_syn == True:
+                        sactr.write('Extracted_RGsyn_' + event + "_" + model + "_" + sactr.stats.network + '_' + sactr.stats.station + '_' + sactr.stats.channel + '.SAC',format='SAC')
+        checklist.sort(key = lambda x: x[2])
+        print(checklist)
+        
+        # %% ##### PULL OUT BEAMFORMING SQUARE(S) ##### 
+        # if beaming == True:
+        #     beamfol = './CompiledEvents/' + eventfol + 'beamforming/'
+            
+        #     if os.path.exists(beamfol):
+        #         shutil.rmtree(beamfol)
+        #     os.mkdir(beamfol)
+                    
+        #     for tr in st:
+        #         if not tr.stats.station == "":
+        #             # print(tr.stats.station)
+        #             if tr.stats.station == "WTT2" or tr.stats.station == "WTT":
+        #                 x_orig = tr.stats.xcoord - 100
+        #                 y_orig = tr.stats.ycoord - 100
+        #                 print("WTT2 station location: " + str(tr.stats.xcoord) + ", " + str(tr.stats.ycoord))
+            
+                    
+        #     square = []
+        #     for i in range(20):
+        #         for j in range(20):
+        #             square.append([x_orig+j*10,y_orig+i*10])
+                
+        #     beamst = st.copy()
+            
+        #     fig = plt.figure()
+        #     ax = fig.add_subplot(111)
+        #     fig2 = plt.figure()
+        #     ax2 = fig2.add_subplot(111)
+        #     m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+        #     m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+            
+        #     for pt in square:
+        #         for tr in beamst:
+        #             if tr.stats.xcoord == pt[0] and tr.stats.ycoord == pt[1]:
+        #                 [dist,az,baz] = gps2dist_azimuth(eventlat, eventlon, tr.stats.lat, tr.stats.lon)
+        #                 tr.stats.dist = dist/1000
+        #                 tr.stats.network = 'BEA'
+        #                 tr.stats.station = str(pt[0]-x_orig) + str(pt[1]-y_orig)
+        #                 tr.stats.sac = obspy.core.util.attribdict.AttribDict()
+        #                 tr.stats.sac.dist = dist/1000
+        #                 tr.stats.sac.az = az
+        #                 tr.stats.sac.baz = baz
+        #                 tr.stats.sac.stla = tr.stats.lat
+        #                 tr.stats.sac.stlo = tr.stats.lon
+        #                 tr.stats.sac.evla = eventlat
+        #                 tr.stats.sac.evlo = eventlon
+        #                 tr.stats.sac.user0 = tr.stats.xcoord
+        #                 tr.stats.sac.user1 = tr.stats.ycoord
+        #                 tr.stats.sac.user2 = tr.stats.xcoord-x_orig
+        #                 tr.stats.sac.user3 = tr.stats.ycoord-y_orig
+        #                 # print("BEA trace stat check: " + tr.stats)
+        #                 ax.plot(tr.times(),tr.data*10+tr.stats.dist,color='k',lw=0.2) 
+        #                 ax.set_xlim(0,60)
+        #                 xx,yy = m(tr.stats.lon,tr.stats.lat)
+        #                 m.scatter(xx,yy, marker = "o" ,s=0.5, color='k', alpha = 1)
+        #                 tr.stats.starttime = starttime
+        #                 # np.pad(tr.data,(int(20*4.4),0),'constant',constant_values=(0)) ## PADDING OCCURS DURING ROTATION, NOT HERE.
+        #                 tr.write('Beam_Grid_' + event + "_" + model + "_" + str(pt[0]-x_orig) + "," + str(pt[1]-y_orig) + '_' + tr.stats.cmp + '.SAC',format='SAC')
+                        
+        #     xx,yy = m(eventlon,eventlat)
+        #     m.scatter(xx,yy, marker = "*" ,s=100, color='m', edgecolors = "k", alpha = 1)
+        #     plt.title(event + ' Beamforming Grid')
+        #     plt.show()
+               
+        #     # for tr in st:
+        #     #     if xymod_sorted[i][0] == x_orig and savedpts[i][1] == y_orig:
+        #     #         tr.stats.channel = tr.stats.cmp
+        #     #         [dist,az,baz] = gps2dist_azimuth(eventlat, eventlon, tr.stats.lat, tr.stats.lon)
+        #     #         tr.stats.dist = dist/1000
+        #     #         tr.stats.starttime = tr.stats.starttime-0.6
+            
+                    
+        #     #         # print(dist)
+        #     #         tr.write('Extracted_RGsyn_' + event + "_" + model + "_" + tr.stats.network + '_' + tr.stats.station + '_' + tr.stats.cmp + '.SAC',format='SAC')
+        #     # checklist.sort(key = lambda x: x[2])
+        #     # print(checklist)
+        
+        
+        # %% PLOT CHECK
+        fig = plt.figure()
+        a = fig.add_subplot(111)
+        for i in range(len(savedpts)):
+            for tr in st:
+                if tr.stats.xcoord == savedpts[i][0][0] and tr.stats.ycoord == savedpts[i][0][1] and tr.stats.channel == 'N':
+                    if tr.stats.dist < 50:
+                        a.text(55,tr.stats.dist,tr.stats.station)
+                        a.plot(tr.times(reftime=starttime+0.6),tr.data+tr.stats.dist,color='k',lw=0.2)    
+        plt.xlim(0,60)
+        plt.ylim(0,50)
+        plt.title(event + " synthetics")
+        plt.show()
+            
+            
+            
+            
+            
+            

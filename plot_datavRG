@@ -1,0 +1,763 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Dec 13 19:58:58 2020
+
+@author: bcbirkel
+
+Script plots Rob Graves' grid by distance 
+To plot against synthetics from Jon Stewart, change "plotJSsyn" to True (should match)
+To plot against data, change plotdata to True
+
+"""
+# %% IMPORT STATEMENTS
+from obspy import read, UTCDateTime
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.geodetics import gps2dist_azimuth
+import os
+from obspy.core import Trace, Stream, AttribDict
+import obspy.signal.filter as flt
+import math
+import struct
+from timeit import default_timer as timer 
+from obspy.geodetics.base import gps2dist_azimuth
+import scipy.io
+from mpl_toolkits.basemap import Basemap
+
+#Ignore warnings due to pythondw2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+
+
+# %% ##### VARIABLE DEFINITION #####
+replot_only = False #only True if just plotting again with different plotting params
+writenew = False  
+rewriteTS = False #always False unless need to write over timeslice files, if files don't exist, toggles later
+alldata = False
+plotdata = True
+plotJSsyn = False
+compareNN = True
+plotDifference = False
+grid_only = False
+plotmap = True
+
+filt = True
+zerophase = False
+lowpass = 2 #seconds
+highpass = 3 #seconds
+
+time_start = 0
+time_end = 60 # seconds
+time_pts = int(time_end / 0.05) # number of slices (based on time step of dt = 0.05 s)
+maxdist = 0.3 # maxiumum possible distance between two corresponding points
+max2event = 30 # max distance from the event to plot (in km)
+JStimeshift = 0.6
+padding = 0.6 #seconds added to pad binary file
+
+event_no = 0
+
+# plotting params
+ymin = 0
+ymax = 42
+xmin = 0
+xmax = 80
+
+#set corners for map
+llcrnrlon=-119
+llcrnrlat=33.25
+urcrnrlon=-117
+urcrnrlat=34.75
+
+# choose model for comparison ('si' = CVM-S4.26, 'h' = CVM-H)
+mod = "si" 
+#mod = 'h'
+
+events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009', 'elmonte_2020']
+event = events[event_no] 
+
+#sta_ignore = ['23525','14241','24157','638']
+sta_ignore = []
+
+# %% ##### SET EVENT PARAMS #####
+if event_no == 0:
+    event_title = 'lahabra'
+    event_disp = 'La Habra 2014'
+    eventFol = "epw_102_m5.09-3.5x3.5-s266318098_cvm" + mod + "-vs500_sc01-h0.100"
+    event_time = "2014-03-29T04:09:42"
+    event_lat = 33.9325
+    event_lon = -117.9158
+    gain = lowpass/2+max2event/20
+    maxdist = 0.2
+elif event_no == 1:
+    event_title = 'beverlyhills'
+    event_disp = 'Beverly Hills 2001'
+    eventFol = "e1036_m4.24-1.3x1.3-s1098915986_cvm" + mod + "-vs500_sc01-h0.100"
+    event_time = "2001-09-09T23:59:17"
+    event_lat = 34.0541
+    event_lon = -118.3929
+    gain = lowpass*30+max2event
+elif event_no == 2:
+    event_title = 'chatsworth'
+    event_disp = 'Chatsworth 2007'
+    eventFol = "e1019_m4.66-2.1x2.1-s60148050_cvm" + mod + "-vs500_sc01-h0.100"
+    event_time = "2007-08-09T07:58:49"
+    event_lat = 34.2983
+    event_lon = -118.6255
+    gain = lowpass/2+max2event/2
+    maxdist = 0.8
+elif event_no == 3:
+    event_title = 'chinohills'
+    event_disp = 'Chino Hills 2008'
+    eventFol = "e1002_m5.39-5.0x5.0-s650146834_cvm" + mod + "-vs500_sc01-h0.100"
+    event_time = "2008-07-29T18:42:15"
+    event_lat = 33.9465
+    event_lon = -117.7667
+    gain = lowpass/2+max2event/20
+    if lowpass == 5:
+        gain = lowpass/2+max2event/2
+    maxdist = 0.2
+elif event_no == 4:
+    event_title = 'inglewood'
+    event_disp = 'Inglewood 2009'
+    eventFol = "e1011_m4.70-2.2x2.2-s1247256210_cvm" + mod + "-vs500_sc01-h0.100"
+    event_time = "2009-05-18T03:39:36"
+    event_lat = 33.9377
+    event_lon = -118.3357
+    gain = lowpass/2+max2event/2
+    maxdist = 0.2
+elif event_no == 5:
+    event_title = 'elmonte'
+    event_disp = 'El Monte 2020'
+    event_lat = 34.0385
+    event_lon = -118.0803
+    gain_data = 5
+    sy_gain = 20
+    gain = 20
+else: 
+    print("pick appropriate event number")
+    
+    print("looking at " + event_disp)
+    
+fileName = "/Users/bcbirkel/Documents/GitHub/LABasin/GravesSim_fullgrid_tsfiles/" + eventFol + "/OutBin/sc01_xyts.e3d"
+
+
+# %% #### GET HEADER INFO #####
+
+if not "header_read" in locals():
+    with open(fileName, mode='rb') as file: # rb-> read binary
+        fileContent = file.read()
+        tshead = struct.unpack("iiiiiiiifffffff", fileContent[:60])
+       
+    # pull out header information    
+    ix0 = tshead[0]            #/* starting x grid location for output */
+    iy0 = tshead[1]            #/* starting y grid location for output */
+    iz0 = tshead[2]            #/* starting z grid location for output */
+    it0 = tshead[3]            #/* starting time step for output */
+    nx = tshead[4]             #/* number of x points                                */
+    ny = tshead[5]             #/* number of y points                                */
+    nz = tshead[6]             #/* number of z points                                */
+    nt = tshead[7]             #/* number of time points                                */
+    dx = tshead[8]             #/* X direction spacing btw adjacent points        */
+    dy = tshead[9]             #/* Y direction spacing btw adjacent points        */
+    dz = tshead[10]            #/* Z direction spacing btw adjacent points        */
+    dt = tshead[11]            #/* time step *
+    modelrot = tshead[12]      #/* rotation of y-axis from south (clockwise positive)   */
+    modellat = tshead[13]      #/* latitude of model origin                             */
+    modellon = tshead[14]      #/* longitude of model origin                            */
+    header_read = True
+    
+    print("header information read in")
+
+# define variables
+fsize = nx*ny*3*nt # number of points
+fpts = nx*ny # number of grid points
+    # %% ##### UNPACK MOTIONS FROM SIMULATION (IN TIMESLICES) #####
+
+if replot_only == False:   
+    # automatically create new timeslice files is folder doesn't exist
+    if os.path.isdir("/Users/bcbirkel/Documents/GitHub/LABasin/" + event_title + "_RG_timeslices") == False:
+        writenew = True 
+        alldata = True
+        os.mkdir("/Users/bcbirkel/Documents/GitHub/LABasin/" + event_title + "_RG_timeslices")
+        print("timeslice folder doesn't exist yet, creating new timeslice files")
+    
+    # can also set manually to read all data from binary file
+    if alldata == True:
+        # define variables
+        fsize = nx*ny*3*nt # number of points
+        fpts = nx*ny # number of grid points
+        
+        #fsize = 100 #smaller for testing
+        
+        # unpack binary file
+        with open(fileName, mode='rb+') as f: # rb-> read binary
+            fileContent = f.read()
+            data = struct.unpack("f"*fsize, fileContent[60:fsize*4+60])
+        print("data read in")
+        
+        #data = data_all[61::]
+        pts = int(fsize/8000)
+        #pts should be the same as nx*ny*3
+        
+        # %% ##### WRITE OUT TIMESLICES #####
+        # will do automatically if folder doesn't exist; otherwise, can manually rewrite (or add to) timeslice files
+        # by toggling initial variable "rewriteTS"
+        if writenew == True:
+            os.chdir("/Users/bcbirkel/Documents/GitHub/LABasin/" + event_title + "_RG_timeslices")
+            for i in range(8000):
+                path = "/Users/bcbirkel/Documents/GitHub/LABasin/" + event_title + "_RG_timeslices/time_" + str(i)
+                if os.path.isfile(path) == False:
+                    f = open(path, "w")
+                    tslice = data[i*pts:(i+1)*pts]
+                    f.write(str(tslice))
+                    f.close()
+                    print("timeslice " + str(i) + " written")
+                if os.path.isfile(path) == True and rewriteTS == True:
+                    f = open(path, "w")
+                    tslice = data[i*pts:(i+1)*pts]
+                    f.write(str(tslice))
+                    f.close()
+                    print("timeslice " + str(i) + " written")
+            data = []
+            dataN = []
+            dataE = []
+            dataZ = []
+            os.chdir("/Users/bcbirkel/Documents/GitHub/LABasin/" + event_title + "_RG_timeslices/")
+            for i in range(time_pts):
+                with open("time_" + str(i), "r") as f:
+                    for fline in f: 
+                        fline = fline.strip("()")
+                        fline = fline.split(', ')
+                        floatlineN = []
+                        floatlineE = []
+                        floatlineZ = []
+                        for j in range(len(fline)):
+                            floatlineN.append(float(fline[j]))
+                            floatlineE.append(float(fline[j+fpts]))
+                            floatlineZ.append(float(fline[j+2*fpts]))
+                        #print("tslice = " + str(i))
+                        dataN.append(floatlineN)
+                        dataE.append(floatlineE)
+                        dataZ.append(floatlineZ)
+                        data.append(dataN,dataE,dataZ)
+                        #print(data)
+            print(str(time_end) + " seconds of data read in")
+            
+    # %% ##### SHORTER/ALT DATA READ IN #####
+    elif alldata == False and not "data" in locals():
+        data = []
+        os.chdir("/Users/bcbirkel/Documents/GitHub/LABasin/" + event_title + "_RG_timeslices/")
+        for i in range(time_pts):
+            with open("time_" + str(i), "r") as f:
+                for fline in f: 
+                    fline = fline.strip("()")
+                    fline = fline.split(', ')
+                    floatline = []
+                    for j in range(len(fline)):
+                        floatline.append(float(fline[j]))
+                    #print("tslice = " + str(i))
+                    data.append(floatline)
+
+        print(str(time_end) + " seconds of data read in")
+    
+
+# # %% ##### READ IN HERCULES SIMULATION #####
+# hercPath = ("/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/" + event + "/Hercules/")
+# hercData = []            
+
+# for file in os.listdir(hercPath):
+#     if "displacements.1" in file: # motions at nodes (vel if specificed in hercules input file)
+#         with open(file, mode='r+') as d:
+#             hData = d.read()
+#         hercData += hData
+
+# %% ##### OPEN STATION MASTER FILE FOR TRANSFORMATION #####
+file = open("/Users/bcbirkel/Documents/GitHub/LABasin/station_master.txt", "r")
+if not "transf" in locals():
+    transf = file.readlines()
+    transf = transf[2::] # strip header
+    
+    # initialize vars
+    net = ()
+    code = ()
+    stlat = ()
+    stlon = ()
+    simx = ()
+    simy = ()
+    simlat = ()
+    simlon = ()
+    ind = ()
+    ind2 = ()
+    ind3 = ()
+    ind4 = ()
+    dist = ()
+    dist2 = ()
+    dist3 = ()
+    dist4 = ()
+    ev_dist = ()
+    ev_az = ()
+    
+    # split lines into information, store in vars
+    for line in transf:
+        a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p = line.split()
+        net = net + (a,)
+        code = code + (b,)
+        stlat = stlat + (float(c),)
+        stlon = stlon + (float(d),)
+        simx = simx + (int(e),)
+        simy = simy + (int(f),)
+        simlat = simlat + (float(g),)
+        simlon = simlon + (float(h),)
+        ind = ind + (int(i),)
+        ind2 = ind2 + (int(j),)
+        ind3 = ind3 + (int(k),)
+        ind4 = ind4 + (int(l),)
+        dist = dist + (float(m),)
+        dist2 = dist + (float(n),)
+        dist3 = dist + (float(o),)
+        dist4 = dist + (float(p),)
+        evd = gps2dist_azimuth(event_lat,event_lon,float(g),float(h))
+        ev_dist = ev_dist + (evd[0]/1000,)
+        ev_az = ev_az + (evd[1],)
+
+# %% ##### OPEN STATION MASTER FILE FOR TRANSFORMATION #####
+file = open("/Users/bcbirkel/Documents/GitHub/LABasin/all_stationmaster.txt", "r")
+if not "transf" in locals():
+    transf = file.readlines()
+    transf = transf[2::] # strip header
+    
+    # initialize vars
+    net = ()
+    code = ()
+    stlat = ()
+    stlon = ()
+    simx = ()
+    simy = ()
+    simlat = ()
+    simlon = ()
+    ind = ()
+    ind2 = ()
+    ind3 = ()
+    ind4 = ()
+    dist = ()
+    dist2 = ()
+    dist3 = ()
+    dist4 = ()
+    ev_dist = ()
+    ev_az = ()
+    
+    # split lines into information, store in vars
+    for line in transf:
+        a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p = line.split()
+        net = net + (a,)
+        code = code + (b,)
+        stlat = stlat + (float(c),)
+        stlon = stlon + (float(d),)
+        simx = simx + (int(e),)
+        simy = simy + (int(f),)
+        simlat = simlat + (float(g),)
+        simlon = simlon + (float(h),)
+        ind = ind + (int(i),)
+        ind2 = ind2 + (int(j),)
+        ind3 = ind3 + (int(k),)
+        ind4 = ind4 + (int(l),)
+        dist = dist + (float(m),)
+        dist2 = dist + (float(n),)
+        dist3 = dist + (float(o),)
+        dist4 = dist + (float(p),)
+        evd = gps2dist_azimuth(event_lat,event_lon,float(g),float(h))
+        ev_dist = ev_dist + (evd[0]/1000,)
+        ev_az = ev_az + (evd[1],)
+           
+
+# %% PLOT DATA VS SYNTHETICS
+#set directories
+path_dir_data = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/'
+path_dir_syn = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/'
+
+stream_dataN = read(path_dir_data + "*BHN*.SAC") # + read(path_dir_data + "*N.SAC")
+stream_synN = read(path_dir_syn + "Syn*N.SAC")
+
+stream_dataE = read(path_dir_data + "*BHE*.SAC") # + read(path_dir_data + "*N.SAC")
+stream_synE = read(path_dir_syn + "Syn*E.SAC")
+
+stream_dataZ = read(path_dir_data + "*BHZ*.SAC") # + read(path_dir_data + "*N.SAC")
+stream_synZ = read(path_dir_syn + "Syn*Z.SAC")
+
+if plotJSsyn == True: 
+    print("plotting synthetic comparison - should match")
+    for tr in stream_synN:
+        cmp = "N"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+    for tr in stream_synE:
+        cmp = "E"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+    for tr in stream_synZ:
+        cmp = "Z"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+
+        
+    fig = plt.figure(figsize=(15,10))
+    ax = fig.add_subplot(111)
+    #time = np.linspace(0,time_end,time_pts)
+    time = np.arange(0,time_end,dt)
+    time = time[0:time_pts]
+    for ii in range(len(ind)):
+        sim = []
+        for tr in stream_synN:
+            if tr.stats.station == code[ii] and dist[ii] < maxdist and ev_dist[ii] < max2event and tr.stats.station not in sta_ignore:
+                print(tr.stats.station)
+                print("JS sta name: " + tr.stats.station + ", lat: " + str(tr.stats.sac.stla) + ", lon: " +  str(tr.stats.sac.stlo))
+                print("RG sta name: " + code[ii] + ", lat: " + str(stlat[ii]) + ", lon: " +  str(stlon[ii]))
+                for i in range(time_pts):
+                    sim.append(data[i][ind[ii]])  
+                tpts_data = int(time_end/tr.stats.delta)
+                time_data = np.linspace(0+JStimeshift,time_end+JStimeshift,tpts_data)
+                
+                ax.set_ylabel("Distance from Event (km)")
+                ax.set_xlabel("Time (s)")
+                ax.text(time_end-2,ev_dist[ii],code[ii])
+
+                # plot JS syn
+                ax.plot(time_data, tr.data[0:tpts_data]*gain+ev_dist[ii],color='r',lw=1)
+                sim_adj = np.array(sim)
+                
+                if filt == False:
+                    ax.set_title("RG Full Grid (black) v. JS Synthetics (red) - " + event_disp + " - timeshift = 0.6s, no filter")
+                elif filt == True:
+                    if zerophase == True:
+                        ax.set_title("RG Full Grid (black) v. JS Synthetics (red) - " + event_disp + " - timeshift = 0.6s, acausal lp 2Hz")
+                        sim_adj = flt.lowpass(sim_adj,freq=2,df=1/dt,corners=4,zerophase=True)
+                    if zerophase == False:
+                        ax.set_atitle("RG Full Grid (black) v. JS Synthetics (red) - " + event_disp + " - timeshift = 0.6s, causal lp 2Hz")
+                        sim_adj = flt.lowpass(sim_adj,freq=2,df=1/dt,corners=4,zerophase=False)
+                sim_adj = [element*gain + ev_dist[ii] for element in sim_adj]
+                ax.plot(time,sim_adj,color='k',lw=1)
+
+        sim = []
+
+if compareNN == True: 
+    print("plotting synthetic comparison - should match")
+    for tr in stream_synN:
+        cmp = "N"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        
+    fig = plt.figure(figsize=(15,10))
+    ax = fig.add_subplot(111)
+    ax.spines['top'].set_color('none')
+    ax.spines['bottom'].set_color('none')
+    ax.spines['left'].set_color('none')
+    ax.spines['right'].set_color('none')
+    ax.tick_params(labelcolor='w', top=False, bottom=False, left=False, right=False)
+
+    ax1 = fig.add_subplot(221)
+    ax2 = fig.add_subplot(222)
+    ax3 = fig.add_subplot(223)
+    ax4 = fig.add_subplot(224)
+    #time = np.linspace(0,time_end,time_pts)
+    time = np.arange(0,time_end,dt)
+    time = time[0:time_pts]
+    for ii in range(len(ind)):
+        sim = []
+        sim2 = []
+        sim3 = []
+        sim4 = []
+        for tr in stream_synN:
+            if tr.stats.station == code[ii] and dist[ii] < maxdist and ev_dist[ii] < max2event and tr.stats.station not in sta_ignore:
+                print(tr.stats.station)
+                print("JS sta name: " + tr.stats.station + ", lat: " + str(tr.stats.sac.stla) + ", lon: " +  str(tr.stats.sac.stlo))
+                print("RG sta name: " + code[ii] + ", lat: " + str(stlat[ii]) + ", lon: " +  str(stlon[ii]))
+                for i in range(time_pts):
+                    sim.append(data[i][ind[ii]])  
+                    sim2.append(data[i][ind2[ii]])
+                    sim3.append(data[i][ind3[ii]])
+                    sim4.append(data[i][ind4[ii]])
+                tpts_data = int(time_end/tr.stats.delta)
+                time_data = np.linspace(0+JStimeshift,time_end+JStimeshift,tpts_data)
+                
+                ax.set_ylabel("Distance from Event (km)")
+                ax.set_xlabel("Time (s)")
+                ax1.text(time_end-2,ev_dist[ii],code[ii])
+                ax2.text(time_end-2,ev_dist[ii],code[ii])
+                ax3.text(time_end-2,ev_dist[ii],code[ii])
+                ax4.text(time_end-2,ev_dist[ii],code[ii])
+                # plot JS syn
+                ax1.plot(time_data, tr.data[0:tpts_data]*gain+ev_dist[ii],color='r',lw=1)
+                ax2.plot(time_data, tr.data[0:tpts_data]*gain+ev_dist[ii],color='r',lw=1)
+                ax3.plot(time_data, tr.data[0:tpts_data]*gain+ev_dist[ii],color='r',lw=1)
+                ax4.plot(time_data, tr.data[0:tpts_data]*gain+ev_dist[ii],color='r',lw=1)
+                
+                sim_adj = np.array(sim)
+                sim_adj2 = np.array(sim2)
+                sim_adj3 = np.array(sim3)
+                sim_adj4 = np.array(sim4)
+                if filt == False:
+                    ax.set_title("RG Full Grid (black) v. JS Synthetics (red) - " + event_disp + " - timeshift = 0.6s, no filter")
+                elif filt == True:
+                    if zerophase == True:
+                        ax.set_title("RG Full Grid (black) v. JS Synthetics (red) - " + event_disp + " - timeshift = 0.6s, acausal lp 2Hz")
+                        sim_adj = flt.lowpass(sim_adj,freq=2,df=1/dt,corners=4,zerophase=True)
+                        sim_adj2 = flt.lowpass(sim_adj2,freq=2,df=1/dt,corners=4,zerophase=True)
+                        sim_adj3 = flt.lowpass(sim_adj3,freq=2,df=1/dt,corners=4,zerophase=True)
+                        sim_adj4 = flt.lowpass(sim_adj4,freq=2,df=1/dt,corners=4,zerophase=True)
+                    if zerophase == False:
+                        ax.set_atitle("RG Full Grid (black) v. JS Synthetics (red) - " + event_disp + " - timeshift = 0.6s, causal lp 2Hz")
+                        sim_adj = flt.lowpass(sim_adj,freq=2,df=1/dt,corners=4,zerophase=False)
+                        sim_adj2 = flt.lowpass(sim_adj2,freq=2,df=1/dt,corners=4,zerophase=False)
+                        sim_adj3 = flt.lowpass(sim_adj3,freq=2,df=1/dt,corners=4,zerophase=False)
+                        sim_adj4 = flt.lowpass(sim_adj4,freq=2,df=1/dt,corners=4,zerophase=False)
+                sim_adj = [element*gain + ev_dist[ii] for element in sim_adj]
+                sim_adj2 = [element*gain + ev_dist[ii] for element in sim_adj2]
+                sim_adj3 = [element*gain + ev_dist[ii] for element in sim_adj3]
+                sim_adj4 = [element*gain + ev_dist[ii] for element in sim_adj4]
+                ax1.plot(time,sim_adj,color='k',lw=1)
+                ax2.plot(time,sim_adj2,color='b',lw=1)
+                ax3.plot(time,sim_adj3,color='y',lw=1)
+                ax4.plot(time,sim_adj4,color='c',lw=1)
+        sim = []
+
+if plotDifference == True: 
+    print("plotting difference between JS and RG")
+    for tr in stream_synN:
+        cmp = "N"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        
+    fig = plt.figure(figsize=(15,10))
+    ax = fig.add_subplot(111)
+
+    for ii in range(len(ind)):
+        sim = []
+        for tr in stream_synN:
+            if tr.stats.station == code[ii] and dist[ii] < maxdist and ev_dist[ii] < max2event and tr.stats.station not in sta_ignore:
+                print(tr.stats.station)
+                for i in range(time_pts):
+                    sim.append(data[i][ind[ii]])  
+                tpts_data = int(time_end/tr.stats.delta)
+                time_data = np.linspace(0+JStimeshift,time_end+JStimeshift,tpts_data)
+                plt.title("RG Full Grid (black) minus JS Synthetics (blue); diff is red - " + event_disp)
+                plt.ylabel("Distance from Event (km)")
+                plt.xlabel("Time (s)")
+                plt.text(time_end-2,ev_dist[ii],code[ii])
+                sim_gained = [element*gain for element in sim]
+                sim_adj = [element*gain + ev_dist[ii] for element in sim]
+                for i in range(12):
+                    sim_adj.append(ev_dist[ii])
+                    sim_gained.append(0)
+                #ax.plot(time_data, sim_adj[12:tpts_data+12],color='k',lw=1)
+                #ax.plot(time_data, (tr.data[0:tpts_data]*gain)+ev_dist[ii],color='b',lw=1)
+                ax.plot(time_data, (sim_gained[12:tpts_data+12]-tr.data[0:tpts_data]*gain)+ev_dist[ii],color='r',lw=1)
+        sim = []
+
+if plotdata == True: 
+    print("plotting data vs. full grid")
+    for tr in stream_dataN:
+        cmp = "N"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        if tr.stats.sac.stlo > 0:
+            tr.stats.sac.stlo = -tr.stats.sac.stlo
+    for tr in stream_dataE:
+        cmp = "E"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        if tr.stats.sac.stlo > 0:
+            tr.stats.sac.stlo = -tr.stats.sac.stlo
+    for tr in stream_dataZ:
+        cmp = "Z"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = event_lon
+        tr.stats.sac.evla = event_lat
+        if tr.stats.sac.stlo > 0:
+            tr.stats.sac.stlo = -tr.stats.sac.stlo
+    
+    #stream_data = [stream_dataN, stream_dataE, stream_dataZ]
+    fig = plt.figure(figsize=(30,10))
+    axN = fig.add_subplot(131)
+    axE = fig.add_subplot(132)
+    axZ = fig.add_subplot(133)
+    time = np.arange(0+padding,time_end+padding,dt)
+    time = time[0:time_pts]
+    for ii in range(len(ind)):
+        sim = []
+        simN = []
+        simE = []
+        simZ = []
+        for tr in stream_dataN:
+            simN = []
+            if tr.stats.station == code[ii] and dist[ii] < maxdist and ev_dist[ii] < max2event:
+                print("data sta name: " + tr.stats.station + ", lat: " + str(tr.stats.sac.stla) + ", lon: " +  str(tr.stats.sac.stlo))
+                print("RG sta name: " + code[ii] + ", lat: " + str(stlat[ii]) + ", lon: " +  str(stlon[ii]))
+                for i in range(time_pts):
+                    simN.append(data[i][ind[ii]])
+                sim_adj_nogN = np.array(simN)
+                
+                if filt == False:
+                    fig.suptitle("Data (black) vs. RG Full Grid (red) - " + event_disp + ", no filter")
+                elif filt == True:
+                    if zerophase == True:
+                        # fig.suptitle("Data (black) vs. RG Full Grid (red) - North - " + event_disp + ", acausal bandpass from " + str(lowpass) + " to " + str(highpass) + " seconds")
+                        sim_adj_nogN = flt.bandpass(sim_adj_nogN,freqmin=1/highpass,freqmax=1/lowpass,df=1/dt,corners=4,zerophase=True)
+                        tr.filter("bandpass", freqmin=1/highpass, freqmax=1/lowpass)
+                    if zerophase == False:
+                        # fig.suptitle("Data (black) vs. RG Full Grid (red) - North - " + event_disp + ", causal lowpass at " + str(lowpass) + "seconds")
+                        sim_adj_nogN = flt.bandpass(sim_adj_nogN,freqmin=1/highpass,freqmax=1/lowpass,df=1/dt,corners=4,zerophase=False)
+                        tr.filter("bandpass", freqmin=1/highpass, freqmax=1/lowpass)
+                
+                sim_adjN = [element*gain + ev_dist[ii] for element in sim_adj_nogN]
+                # plot data
+                axN.plot(tr.times(reftime=UTCDateTime(event_time)), tr.data*gain/tr.stats.calib+ev_dist[ii],color='k',lw=1)
+                # plot sim
+                axN.plot(time,sim_adjN,color='r',lw=1)
+                
+                # plot labels
+                axN.set_title("North")
+                axN.set_ylabel("Distance from Event (km)")
+                axN.set_xlabel("Time (s)")
+                axN.text(time_end-2,ev_dist[ii],code[ii])
+                axN.set_xlim([time_start,time_end])
+                
+        for tr in stream_dataE:
+            if tr.stats.station == code[ii] and dist[ii] < maxdist and ev_dist[ii] < max2event:
+                print("data sta name: " + tr.stats.station + ", lat: " + str(tr.stats.sac.stla) + ", lon: " +  str(tr.stats.sac.stlo))
+                print("RG sta name: " + code[ii] + ", lat: " + str(stlat[ii]) + ", lon: " +  str(stlon[ii]))
+                for i in range(time_pts):
+                    simE.append(data[i][ind[ii]+fpts])  
+                sim_adj_nogE = np.array(simE)
+                
+                if filt == False:
+                    fig.suptitle("Data (black) vs. RG Full Grid (red) - " + event_disp + ", no filter")
+                elif filt == True:
+                    if zerophase == True:
+                        # fig.suptitle("Data (black) vs. RG Full Grid (red) - East - " + event_disp + ", acausal bandpass from " + str(lowpass) + " to " + str(highpass) + " seconds")
+                        sim_adj_nogE = flt.bandpass(sim_adj_nogE,freqmin=1/highpass,freqmax=1/lowpass,df=1/dt,corners=4,zerophase=True)
+                        tr.filter("bandpass", freqmin=1/highpass, freqmax=1/lowpass)
+                    if zerophase == False:
+                        # fig.suptitle("Data (black) vs. RG Full Grid (red) - East " + event_disp + ", causal lp 2Hz")
+                        sim_adj_nogE = flt.bandpass(sim_adj_nogE,freqmin=1/highpass,freqmax=1/lowpass,df=1/dt,corners=4,zerophase=False)
+                        tr.filter("bandpass", freqmin=1/highpass, freqmax=1/lowpass)
+                
+                sim_adjE = [element*gain + ev_dist[ii] for element in sim_adj_nogE]
+                # plot data
+                axE.plot(tr.times(reftime=UTCDateTime(event_time)), tr.data*gain/tr.stats.calib+ev_dist[ii],color='k',lw=1)
+                # plot sim
+                axE.plot(time,sim_adjE,color='r',lw=1)
+                
+                # plot labels
+                axE.set_title("East")
+                axE.set_ylabel("Distance from Event (km)")
+                axE.set_xlabel("Time (s)")
+                axE.text(time_end-2,ev_dist[ii],code[ii])
+                axE.set_xlim([time_start,time_end])
+                
+        for tr in stream_dataZ:
+            if tr.stats.station == code[ii] and dist[ii] < maxdist and ev_dist[ii] < max2event:
+                print("data sta name: " + tr.stats.station + ", lat: " + str(tr.stats.sac.stla) + ", lon: " +  str(tr.stats.sac.stlo))
+                print("RG sta name: " + code[ii] + ", lat: " + str(stlat[ii]) + ", lon: " +  str(stlon[ii]))
+                for i in range(time_pts):
+                    simZ.append(data[i][ind[ii]+2*fpts])  
+                sim_adj_nogZ = np.array(simZ)
+                
+                if filt == False:
+                    fig.suptitle("Data (black) vs. RG Full Grid (red) - " + event_disp + " - no filter")
+                elif filt == True:
+                    if zerophase == True:
+                        fig.suptitle("Data (black) vs. RG Full Grid (red) - " + event_disp + " - acausal bandpass from " + str(lowpass) + " to " + str(highpass) + " seconds")
+                        sim_adj_nogZ = flt.bandpass(sim_adj_nogZ,freqmin=1/highpass,freqmax=1/lowpass,df=1/dt,corners=4,zerophase=True)
+                        tr.filter("bandpass", freqmin=1/highpass, freqmax=1/lowpass)
+                    if zerophase == False:
+                        fig.suptitle("Data (black) vs. RG Full Grid (red) - " + event_disp + " - causal bandpass from " + str(lowpass) + " to " + str(highpass) + " seconds", fontsize=20)
+                        sim_adj_nogZ = flt.bandpass(sim_adj_nogZ,freqmin=1/highpass,freqmax=1/lowpass,df=1/dt,corners=4,zerophase=False)
+                        tr.filter("bandpass", freqmin=1/highpass, freqmax=1/lowpass)
+                
+                sim_adjZ = [element*gain + ev_dist[ii] for element in sim_adj_nogZ]
+                # plot data
+                axZ.plot(tr.times(reftime=UTCDateTime(event_time)), tr.data*gain/tr.stats.calib+ev_dist[ii],color='k',lw=1)
+                # plot sim
+                axZ.plot(time,sim_adjZ,color='r',lw=1)
+                
+                # plot labels
+                axZ.set_title("Vertical")
+                axZ.set_ylabel("Distance from Event (km)")
+                axZ.set_xlabel("Time (s)")
+                axZ.text(time_end-2,ev_dist[ii],code[ii])
+                axZ.set_xlim([time_start,time_end])
+        sim = []
+   
+if grid_only == True:
+    print("plotting motions from grid only")
+    time = np.linspace(0,time_end,time_pts,endpoint=False)
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    for ii in range(len(ind)):
+        sim = []
+        if dist[ii] < maxdist and ev_dist[ii] < max2event:
+            print(str(code[ii]) + ", dist from event: " + str(ev_dist[ii]))
+            for i in range(time_pts):
+                sim.append(data[i][ind[ii]]) ## CHECK IF DATA VAR INCLUDES HEADER OR NOT!!!! 
+            sim_adj = [element*gain + ev_dist[ii] for element in sim]
+            plt.title("RG full grid for " + event_disp)
+            plt.ylim(0,max2event)
+            plt.text(time_end-2,ev_dist[ii],code[ii])
+            ax.plot(time,sim_adj, color='k')
+    time = np.linspace(0,time_end,time_pts)
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    for tr in stream_synN:
+        for i in range(len(code)):
+            if tr.stats.station == code[i] and ev_dist[i] < max2event:
+                print(tr.stats.station + " , distance: " + str(ev_dist[i]) )
+                tpts_data = int(time_end/tr.stats.delta)
+                time_data = np.linspace(0,time_end,tpts_data)
+                plt.ylim(0,max2event)
+                plt.title("Stewart synthetics for " + event_disp)
+                plt.text(time_end-2,ev_dist[i],code[i])
+                ax.plot(time_data, tr.data[0:tpts_data]*gain + ev_dist[i])
+
+if plotmap == True:
+    
+    # setup mercator map projection.
+    m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+    m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+    basin_st = []
+    
+    # plot stations
+    for i in range(len(stlat)):
+        xx,yy = m(stlon[i],stlat[i])
+        m.scatter(xx, yy, marker = "^" ,s=50, c="g" , edgecolors = "k", alpha = 1, label = "Data")
+        #plt.text(xx+.025,yy-0.01, code[i], fontsize=8)
+                    
+    #Plot the event
+    xx,yy = m(event_lon,event_lat)
+    m.scatter(xx, yy, marker = "*" ,s=300, c="r" , edgecolors = "k", alpha = 1)    
+    plt.show()
+
+
+
+os.system('say "done"')
+
+
+
+
+

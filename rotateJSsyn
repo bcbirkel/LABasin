@@ -1,0 +1,242 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Apr 26 19:47:20 2021
+
+@author: bcbirkel
+"""
+
+from obspy import read, read_inventory
+import obspy.signal.filter as flt
+import pandas as pd
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.signal.invsim import simulate_seismometer, corn_freq_2_paz
+from obspy.geodetics import gps2dist_azimuth
+from obspy.io.sac import sacpz
+from obspy.io.sac import attach_paz
+from obspy.io.gse2.paz import read_paz
+import os
+from obspy.core import Trace, Stream, AttribDict
+from obspy.signal.rotate import rotate_ne_rt
+import math
+import obspy.realtime.signal as signal
+from obspy.core.utcdatetime import UTCDateTime
+import shutil
+import matplotlib.cm as cm
+import matplotlib
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+gain = 1
+
+#set corners for map
+llcrnrlon=-119
+llcrnrlat=33.25 #- 0.25
+urcrnrlon=-117
+urcrnrlat=34.75 #+ 0.25
+
+# %% Set parameters
+#set event
+for i in range(1):
+    event_no = 0
+    events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+    event = events[event_no]
+
+    # %% Set paths
+    
+    synPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/JSsyn/'
+    
+    path_dir_CESMD = synPath
+    
+    if event_no == 0:
+        event_title = 'lahabra'
+        event_name = 'La Habra'
+        event_lat = 33.9325
+        event_lon = -117.9158
+        start=UTCDateTime("2014-03-29T04:09:42.994500Z")
+        
+    elif event_no == 1:
+        event_title = 'beverlyhills'
+        event_name = 'Beverly Hill'
+        event_lat = 34.0541
+        event_lon = -118.3929
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC") + read(path_dir_CESMD + "*N.*.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")+ read(path_dir_CESMD + "*E.*.SAC")
+        stream_cesmdZ = read(path_dir_CESMD + "*Z_vel.SAC")+ read(path_dir_CESMD + "*Z.*.SAC")
+        start = UTCDateTime("2001-09-09T23:59:17.695Z")
+        synStart = UTCDateTime("2001-09-09T23:59:00Z")
+        gain = 50
+        
+    elif event_no == 2:
+        event_title = 'chatsworth'
+        event_name = 'Chatsworth 2007'
+        event_lat = 34.2983
+        event_lon = -118.6255
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC") + read(path_dir_CESMD + "*N.*.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")+ read(path_dir_CESMD + "*E.*.SAC")
+        stream_cesmdZ = read(path_dir_CESMD + "*Z_vel.SAC")+ read(path_dir_CESMD + "*Z.*.SAC")
+        gain = 10
+        start=UTCDateTime("2007/08/09T07:58:48.888")
+        synStart = start
+        
+    elif event_no == 3:
+        event_title = 'chinohills'
+        event_name = 'Chino Hills'
+        event_lat = 33.9465
+        event_lon = -117.7667
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC") + read(path_dir_CESMD + "*N.*.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")+ read(path_dir_CESMD + "*E.*.SAC")
+        stream_cesmdZ = read(path_dir_CESMD + "*Z_vel.SAC")+ read(path_dir_CESMD + "*Z.*.SAC")
+        gain = 1
+        start=UTCDateTime("2008/07/29T18:42:15.960")
+
+    elif event_no == 4:
+        event_title = 'inglewood'
+        event_name = 'Inglewood 2009'
+        event_lat = 33.9377
+        event_lon = -118.3357
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC") + read(path_dir_CESMD + "*N.*.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")+ read(path_dir_CESMD + "*E.*.SAC")
+        stream_cesmdZ = read(path_dir_CESMD + "*Z_vel.SAC")+ read(path_dir_CESMD + "*Z.*.SAC")
+        gain = 100
+        start=UTCDateTime("2009/05/18T03:39:36.126")
+    else: 
+        print('unknown event file')
+        
+    stream_cesmdN = read(path_dir_CESMD + "*N.SAC")
+    for tr in stream_cesmdN:
+        tr.stats.channel = 'BHN'
+    stream_cesmdE = read(path_dir_CESMD + "*E.SAC")
+    for tr in stream_cesmdE:
+        tr.stats.channel = 'BHE'
+    stream_cesmdZ = read(path_dir_CESMD + "*Z.SAC")
+    for tr in stream_cesmdZ:
+        tr.stats.channel = 'BHZ'
+
+    stream_cesmd = stream_cesmdN + stream_cesmdE + stream_cesmdZ
+
+    
+    # %% STATIONS
+    stationFile = "/Users/bcbirkel/Documents/GitHub/LABasin/all_stationmaster.txt"
+    
+    # Load station coords into arrays, many more stations than used
+    st_netw  = []
+    st_name  = []
+    st_dist  = []
+    st_az    = []
+    st_baz   = []
+    st_lat   = []
+    st_lon   = []
+    
+    # strip station file
+    staCoord = open(stationFile, 'r')
+    lines = staCoord.readlines()
+    for line in lines:
+        split_line = line.split()
+        st_netw.append(split_line[0])
+        st_name.append(split_line[1])
+        st_lat.append(float(split_line[2]))
+        st_lon.append(float(split_line[3]))
+        distance = gps2dist_azimuth(event_lat, event_lon, float(split_line[2]), float(split_line[3])) # Get traveltime and azimuth
+        print(distance[0]/1000.)
+        st_dist.append(distance[0]/1000.) # distance
+        st_az.append(distance[1]) # azimuth
+        st_baz.append(distance[2]) # back-azimuth
+      
+            
+        # %% COMBINE STREAMS
+
+    os.chdir(synPath)
+    for i in range(len(st_name)):
+        tnT = False
+        teT = False
+        tzT = False
+        tn = Trace()
+        te = Trace()
+        tz = Trace()
+        trad = Trace()
+        ttrans = Trace()
+        
+        for tr in stream_cesmd:
+            if st_name[i] == tr.stats.station:
+                dist = st_dist[i]
+                az = st_az[i]
+                baz = st_baz[i]
+                
+                if tr.stats.channel == "BHN":
+                    tr.stats.dist = dist
+                    tr.stats.sac.dist = dist
+                    tr.stats.sac.az = az
+                    tr.stats.sac.baz = baz
+                    
+                    tn.data = tr.data
+                    tn.stats = tr.stats
+                    trad.data = tr.data
+                    trad.stats = tr.stats
+                    
+                    tnT = True
+                
+                if tr.stats.channel == "BHE":
+                    tr.stats.dist = dist
+                    tr.stats.sac.dist = dist
+                    tr.stats.sac.az = az
+                    tr.stats.sac.baz = baz
+                    
+                    te.data = tr.data
+                    te.stats = tr.stats
+                    ttrans.data = tr.data
+                    ttrans.stats = tr.stats
+
+                    teT = True 
+                    
+                if tr.stats.channel == "BHZ":
+                    tr.stats.dist = dist
+                    tr.stats.sac.dist = dist
+                    tr.stats.sac.az = az
+                    tr.stats.sac.baz = baz
+                    
+                    tz.data = tr.data
+                    tz.stats = tr.stats
+                    
+                    tzT = True
+                        
+                if tnT == True and teT == True and tzT == True:
+                    if not len(tn) == len(te):
+                        start = max(tn.stats.starttime,te.stats.starttime)
+                        end = min(tn.stats.endtime,te.stats.endtime)
+                        sr = min(tn.stats.sampling_rate, te.stats.sampling_rate)
+                        tn.resample(sr)
+                        te.resample(sr)
+                        tn = tn.slice(start,end,nearest_sample = False)
+                        te = te.slice(start,end,nearest_sample = False)
+                        if not len(tn) == len(te):
+                            m = min(len(te), len(tn))
+                            te.data = te.data[0:m]
+                            tn.data = tn.data[0:m]
+                    
+                    trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+
+                    tn.stats.channel = "BHN"
+                    tn.write("Syn_" + event_title + "_" + tr.stats.station + "_" + tn.stats.channel + "_vel.SAC", format="SAC")
+                    
+                    te.stats.channel = "BHE"
+                    te.write("Syn_" + event_title  + "_" + tr.stats.station + "_" + te.stats.channel + "_vel.SAC", format="SAC")
+                    
+                    tz.stats.channel = "BHZ"
+                    tz.write("Syn_" + event_title + "_" + tr.stats.station + "_" + tz.stats.channel + "_vel.SAC", format="SAC")
+                    
+                    trad.stats.channel = "BHR"
+                    trad.stats.sac.kcmpnm = "BHR"
+                    trad.write("Syn_" + event_title + "_" + tr.stats.station + "_" + trad.stats.channel + "_vel.SAC", format="SAC")
+                    
+                    ttrans.stats.channel = "BHT"
+                    ttrans.stats.sac.kcmpnm = "BHT"
+                    ttrans.write("Syn_" + event_title + "_" + tr.stats.station + "_" + ttrans.stats.channel + "_vel.SAC", format="SAC")  # print("rotated synS!")  
+                        
+                    print("rotated JS!")
+    
+ 

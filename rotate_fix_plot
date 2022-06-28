@@ -1,0 +1,1383 @@
+#!/usr/bin/env work
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Sep 11 15:47:58 2020
+
+@author: bcbirkel
+"""
+
+from obspy import read
+import obspy.signal.filter as flt
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.geodetics import gps2dist_azimuth
+import os
+from obspy.core import Trace, Stream
+from obspy.signal.rotate import rotate_ne_rt
+import math
+import obspy.realtime.signal as signal
+from obspy.core.utcdatetime import UTCDateTime
+import shutil
+import matplotlib.cm as cm
+import matplotlib
+from obspy.io.sac import SACTrace
+# from osgeo import gdal
+from numpy import linspace
+from numpy import meshgrid
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+syn = True
+plotonly = True
+bpass = True
+maps = True
+plotcheck = True
+low_freq = 1/2
+high_freq = 1/1
+xmin = 0
+xmax = 60
+ymin = 0
+ymax = 60
+
+models = ["CVM-S4", "CVM-H"]
+events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+    
+#set corners for map
+llcrnrlon=-119
+llcrnrlat=33.25 #- 0.25
+urcrnrlon=-117
+urcrnrlat=34.75 #+ 0.25
+
+padding = 10 
+
+iis = [0,1,2,3,4]
+ms = [0,1]
+
+iis =[0]
+ms=[0]
+
+
+all_stats_data = []
+all_stats_syn = []
+all_stats_rms = []
+count_ii = 0
+
+
+# %% Set parameters
+#set event
+for ii in iis:
+    for j in ms:
+        event_no = ii
+        event = events[event_no]
+        mod = models[j]
+        
+        dataPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/' #'fixed/' 
+        ogDataPath = dataPath
+        synPath = path_dir_syn = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/' + mod + '/'
+        newSynPathFol = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/synthetics_stations/'
+        newSynPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/synthetics_stations/' + mod + '/'
+                
+        
+        if event_no == 0:
+            event_title = 'lahabra'
+            event_name = 'La Habra'
+            event_lat = 33.9325
+            event_lon = -117.9158
+            # stream_dataN = read(dataPath + "*N_vel.SAC") + read(dataPath + "*BHN.*.SAC")
+            # stream_dataE = read(dataPath + "*E_vel.SAC")+ read(dataPath + "*BHE.*.SAC")
+            # stream_dataZ = read(dataPath + "*Z_vel.SAC")+ read(dataPath + "*BHZ.*.SAC")
+            start=UTCDateTime("2014-03-29T04:09:42.994500Z")
+            synStart = start
+            gain = 1
+            
+        elif event_no == 1:
+            event_title = 'beverlyhills'
+            event_name = 'Beverly Hills'
+            event_lat = 34.0541
+            event_lon = -118.3929
+            # stream_dataN = read(dataPath + "*N_vel.SAC") + read(dataPath + "*BHN.*.SAC")
+            # stream_dataE = read(dataPath + "*E_vel.SAC")+ read(dataPath + "*BHE.*.SAC")
+            # stream_dataZ = read(dataPath + "*Z_vel.SAC")+ read(dataPath + "*BHZ.*.SAC")
+            start = UTCDateTime("2001-09-09T23:59:17.695Z")
+            # synStart = UTCDateTime("2001-09-09T23:59:00Z")
+            gain = 1
+            
+        elif event_no == 2:
+            event_title = 'chatsworth'
+            event_name = 'Chatsworth'
+            event_lat = 34.2995
+            event_lon = -118.6195
+            # stream_dataN = read(dataPath + "*N_vel.SAC") + read(dataPath + "*BHN.*.SAC")
+            # stream_dataE = read(dataPath + "*E_vel.SAC")+ read(dataPath + "*BHE.*.SAC")
+            # stream_dataZ = read(dataPath + "*Z_vel.SAC")+ read(dataPath + "*BHZ.*.SAC")
+            gain = 1
+            start=UTCDateTime("2007-08-09T07:58:48.888")
+            synStart = start
+            
+        elif event_no == 3:
+            event_title = 'chinohills'
+            event_name = 'Chino Hills'
+            event_lat = 33.9465
+            event_lon = -117.7667
+            # stream_dataN = read(dataPath + "*N_vel.SAC") + read(dataPath + "*BHN.*.SAC")
+            # stream_dataE = read(dataPath + "*E_vel.SAC")+ read(dataPath + "*BHE.*.SAC")
+            # stream_dataZ = read(dataPath + "*Z_vel.SAC")+ read(dataPath + "*BHZ.*.SAC")
+            gain = 1
+            start=UTCDateTime("2008-07-29T18:42:15.960")
+    
+        elif event_no == 4:
+            event_title = 'inglewood'
+            event_name = 'Inglewood'
+            event_lat = 33.9377
+            event_lon = -118.3357
+            # stream_dataN = read(dataPath + "*N_vel.SAC") + read(dataPath + "*BHN.*.SAC")
+            # stream_dataE = read(dataPath + "*E_vel.SAC")+ read(dataPath + "*BHE.*.SAC")
+            # stream_dataZ = read(dataPath + "*Z_vel.SAC")+ read(dataPath + "*BHZ.*.SAC")
+            gain = 1
+            start=UTCDateTime("2009-05-18T03:39:36.126")
+        else: 
+            print('unknown event file')
+            
+        stream_dataN = read(dataPath + "*BHN_vel.SAC") + read(dataPath + "*BHN.*.SAC")
+        stream_dataE = read(dataPath + "*BHE_vel.SAC") + read(dataPath + "*BHE.*.SAC")
+        stream_dataZ = read(dataPath + "*BHZ_vel.SAC") + read(dataPath + "*BHZ.*.SAC")
+    
+        if syn == True:
+            stream_synSN = read(path_dir_syn + "*N.SAC")
+            for tr in stream_synSN:
+                tr.stats.channel = 'BHN'
+            stream_synSE = read(path_dir_syn + "*E.SAC") 
+            for tr in stream_synSE:
+                tr.stats.channel = 'BHE'
+            stream_synSZ = read(path_dir_syn + "*Z.SAC") 
+            for tr in stream_synSZ:
+                tr.stats.channel = 'BHZ'
+    
+        stream_data = stream_dataN + stream_dataE + stream_dataZ
+        if syn == True:
+            stream_synS = stream_synSN + stream_synSE + stream_synSZ
+            # stream_synH = stream_synHN + stream_synHE
+        
+        # %% STATIONS
+        stationFile = "/Users/bcbirkel/Documents/GitHub/LABasin/all_stationmaster.txt"
+        
+        # Load station coords into arrays, many more stations than used
+        st_netw  = []
+        st_name  = []
+        st_dist  = []
+        st_az    = []
+        st_baz   = []
+        st_lat   = []
+        st_lon   = []
+        
+        # strip station file
+        staCoord = open(stationFile, 'r')
+        lines = staCoord.readlines()
+        for line in lines:
+            split_line = line.split()
+            st_netw.append(split_line[0])
+            st_name.append(split_line[1])
+            st_lat.append(float(split_line[2]))
+            st_lon.append(float(split_line[3]))
+            distance = gps2dist_azimuth(event_lat, event_lon, float(split_line[2]), float(split_line[3])) # Get traveltime and azimuth
+            # print(distance[0]/1000.)
+            st_dist.append(distance[0]/1000.) # distance
+            st_az.append(distance[1]) # azimuth
+            st_baz.append(distance[2]) # back-azimuth
+          
+    # %% COMBINE STREAMS         
+    
+        count = 0
+        st_N = Stream()
+        st_E = Stream()
+        st_Z = Stream()
+        st_R = Stream()
+        st_T = Stream()
+       
+        if plotonly == False:
+                
+            dataPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/fixed/'   
+            if os.path.exists(dataPath):
+                shutil.rmtree(dataPath)
+            os.mkdir(dataPath)
+            os.chdir(dataPath)
+            for i in range(len(st_name)):
+                tnT = False
+                teT = False
+                tzT = False
+                tn = Trace()
+                te = Trace()
+                tz = Trace()
+                trad = Trace()
+                ttrans = Trace()
+                
+                for tr in stream_data:
+                    if st_name[i] == tr.stats.station:
+                        dist = st_dist[i]
+                        az = st_az[i]
+                        baz = st_baz[i]
+                        print("before: " + str(tr.stats.starttime))
+                        # tr.stats.starttime = start
+                        tr.trim(starttime=start)
+                        print("after: " + str(tr.stats.starttime))
+                        tr.trim(starttime=start-padding,pad=True,fill_value=0)
+                        print("after: " + str(tr.stats.starttime))
+                        # tr.plot()
+                        if len(tr) != 0: 
+                        
+                            # # tr.stats.sac['b'] = -padding
+                            # tr.stats.starttime = start
+                            # # tr.stats.sac['b'] = -padding
+                            # sac = SACTrace.from_obspy_trace(tr)
+                            # sac.b = -padding
+                            # sac.reftime = start
+                            # tr = sac.to_obspy_trace()
+                                
+                            # if tr.data[padding*20-1] != 0:
+                            #     tr.data = np.pad(tr.data,(int(20*padding),0),'constant',constant_values=(0))
+                            
+                            if count == 0:
+                                print(tr.stats)
+                                count = 1
+                                
+                            if tr.stats.channel == "BHN":
+                                tr.stats.dist = dist
+                                tr.stats.sac.dist = dist
+                                tr.stats.sac.az = az
+                                tr.stats.sac.baz = baz
+                                
+                                tn.data = tr.data
+                                tn.stats = tr.stats
+                                trad.data = tr.data
+                                trad.stats = tr.stats
+                                
+                                tnT = True
+                            
+                            if tr.stats.channel == "BHE":
+                                tr.stats.dist = dist
+                                tr.stats.sac.dist = dist
+                                tr.stats.sac.az = az
+                                tr.stats.sac.baz = baz
+                                
+                                te.data = tr.data
+                                te.stats = tr.stats
+                                ttrans.data = tr.data
+                                ttrans.stats = tr.stats
+            
+                                teT = True 
+                                
+                            if tr.stats.channel == "BHZ":
+                                tr.stats.dist = dist
+                                tr.stats.sac.dist = dist
+                                tr.stats.sac.az = az
+                                tr.stats.sac.baz = baz
+                                
+                                tz.data = tr.data
+                                tz.stats = tr.stats
+                                
+                                tzT = True
+                                    
+                            if tnT == True and teT == True and tzT == True:
+                                if not len(tn) == len(te):
+                                    start_ii = max(tn.stats.starttime,te.stats.starttime)
+                                    end = min(tn.stats.endtime,te.stats.endtime)
+                                    sr = min(tn.stats.sampling_rate, te.stats.sampling_rate)
+                                    tn.resample(sr)
+                                    te.resample(sr)
+                                    tn = tn.slice(start_ii,end,nearest_sample = False)
+                                    te = te.slice(start_ii,end,nearest_sample = False)
+                                    if not len(tn) == len(te):
+                                        m = min(len(te), len(tn))
+                                        te.data = te.data[0:m]
+                                        tn.data = tn.data[0:m]
+                                
+                                trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+            
+                                tn.stats.channel = "BHN"
+                                tn.write(tr.stats.network + "_" + tr.stats.station + "_" + tn.stats.channel + "_vel.SAC", format="SAC")
+                                
+                                te.stats.channel = "BHE"
+                                st_E.append(te)
+                                te.write(tr.stats.network + "_" + tr.stats.station + "_" + te.stats.channel + "_vel.SAC", format="SAC")
+                                
+                                tz.stats.channel = "BHZ"
+                                st_Z.append(tz)
+                                tz.write(tr.stats.network + "_" + tr.stats.station + "_" + tz.stats.channel + "_vel.SAC", format="SAC")
+                                
+                                trad.stats.channel = "BHR"
+                                trad.stats.sac.kcmpnm = "BHR"
+                                st_R.append(trad)
+                                trad.write(tr.stats.network + "_" + tr.stats.station + "_" + trad.stats.channel + "_vel.SAC", format="SAC")
+                                
+                                ttrans.stats.channel = "BHT"
+                                ttrans.stats.sac.kcmpnm = "BHT"
+                                st_T.append(ttrans)
+                                ttrans.write(tr.stats.network + "_" + tr.stats.station + "_" + ttrans.stats.channel + "_vel.SAC", format="SAC")  # print("rotated synS!")  
+                                    
+                                # print("rotated data!")              
+        
+            if syn == True:
+                if not os.path.exists(newSynPathFol):
+                    os.mkdir(newSynPathFol)
+                if os.path.exists(newSynPath):
+                    shutil.rmtree(newSynPath)
+                os.mkdir(newSynPath)
+                os.chdir(newSynPath)
+                            
+                for i in range(len(st_name)):
+                    tnT = False
+                    teT = False
+                    tzT = False
+                    tn = Trace()
+                    te = Trace()
+                    tz = Trace()
+                    trad = Trace()
+                    ttrans = Trace()
+                    
+                    for tr in stream_synS:
+                        if st_name[i] == tr.stats.station:
+                            dist = st_dist[i]
+                            az = st_az[i]
+                            baz = st_baz[i]
+                            tr.trim(starttime=start)
+                            tr.trim(starttime=start-padding,pad=True,fill_value=0)
+                            # tr.stats.starttime = start-padding
+                            # sac = SACTrace.from_obspy_trace(tr)
+                            # # sac.b = -padding
+                            # sac.reftime = start
+                            
+                            # # sac.iftype = ITIME
+                            # sac.iztype = 'ib'
+                            # # print(sac)
+                            # tr = sac.to_obspy_trace()
+                            
+                            # if tr.data[padding*20-1] != 0:
+                            #     tr.data = np.pad(tr.data,(int(20*padding),0),'constant',constant_values=(0))
+                            
+                            if tr.stats.channel == "BHN":
+                                tr.stats.dist = dist
+                                tr.stats.sac.dist = dist
+                                tr.stats.sac.az = az
+                                tr.stats.sac.baz = baz
+                                
+                                tn.data = tr.data
+                                tn.stats = tr.stats
+                                trad.data = tr.data
+                                trad.stats = tr.stats
+                                
+                                tnT = True
+                            
+                            if tr.stats.channel == "BHE":
+                                tr.stats.dist = dist
+                                tr.stats.sac.dist = dist
+                                tr.stats.sac.az = az
+                                tr.stats.sac.baz = baz
+                                
+                                te.data = tr.data
+                                te.stats = tr.stats
+                                ttrans.data = tr.data
+                                ttrans.stats = tr.stats
+            
+                                teT = True
+                                
+                            if tr.stats.channel == "BHZ":
+                                tr.stats.dist = dist
+                                tr.stats.sac.dist = dist
+                                tr.stats.sac.az = az
+                                tr.stats.sac.baz = baz
+                                
+                                tz.data = tr.data
+                                tz.stats = tr.stats
+                                
+                                tzT = True
+                                
+                            if tnT == True and teT == True and tzT == True:
+                                
+                                trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+        
+                                tn.stats.channel = "BHN"
+                                tn.write("Syn_" + mod + "_" + tr.stats.network + "_" + tr.stats.station + "_" + tn.stats.channel + "_vel.SAC", format="SAC")
+                                
+                                te.stats.channel = "BHE"
+                                te.write("Syn_" + mod + "_" + tr.stats.network + "_" + tr.stats.station + "_" + te.stats.channel + "_vel.SAC", format="SAC")
+                                
+                                tz.stats.channel = "BHZ"
+                                tz.write("Syn_" + mod + "_" + tr.stats.network + "_" + tr.stats.station + "_" + tz.stats.channel + "_vel.SAC", format="SAC")
+                                
+                                trad.stats.channel = "BHR"
+                                trad.stats.sac.kcmpnm = "BHR"
+                                trad.write("Syn_" + mod + "_" + tr.stats.network + "_" + tr.stats.station + "_" + trad.stats.channel + "_vel.SAC", format="SAC")
+                                
+                                ttrans.stats.channel = "BHT"
+                                ttrans.stats.sac.kcmpnm = "BHT"
+                                ttrans.write("Syn_" + mod + "_" + tr.stats.network + "_" + tr.stats.station + "_" + ttrans.stats.channel + "_vel.SAC", format="SAC")  # print("rotated synS!")  
+                            
+                                # print("synthetics rotated!")
+            # %% FIX ROGUE STATIONS
+            
+            stream_data = read(dataPath + "*_vel.SAC")
+            
+            for tr in stream_data:
+                #print(tr.stats.network + ", " + tr.stats.station + ", " + tr.stats.channel + ", " + str(tr.max()))
+                if abs(tr.max()) > 10 and hasattr(tr.stats.sac, 'scale') == True: # and not tr.stats.network == "CE":
+                    signal.scale(tr, 100/tr.stats.sac.scale)
+                    print(tr.stats.station + ", " + tr.stats.channel + ", " + str(tr.max()) + ", " + str(tr.stats.sac.scale))
+                    tr.write(dataPath + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + "_vel.SAC", format="SAC")
+                elif abs(tr.max()) < 10:
+                    tr.write(dataPath + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + "_vel.SAC", format="SAC")
+                elif abs(tr.max()) > 10 and hasattr(tr.stats.sac, 'scale') == False:
+                    print(tr.stats.station)
+                    tr.write(dataPath + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + "_vel_NOTSCALED.SAC", format="SAC")
+                 # if tr.stats.network == "CE":    
+                #     signal.scale(tr,0.1)
+                
+                
+            # # %% MSEED
+            
+            # st_N = read(dataPath + "*BHN_vel.SAC")
+            # st_E = read(dataPath + "*BHE_vel.SAC") 
+            # st_Z = read(dataPath + "*BHZ_vel.SAC")
+            # st_R = read(dataPath + "*BHR_vel.SAC")
+            # st_T = read(dataPath + "*BHT_vel.SAC")
+            
+            # # save to mseed
+            # streams = [st_N,st_E,st_Z,st_R,st_T]
+            # channels = ['BHN','BHE','BHZ','BHR','BHT']
+            # for st in streams:
+            #     for tr in st:
+            #         # tr.stats.starttime = start-padding
+            #         tr.stats.distance = tr.stats.sac.dist*1000
+            #         if tr.data[0] != 0:
+            #         # if tr.data[int(tr.stats.sampling_rate*padding)-1] != 0: 
+            #             # tr.data = np.pad(tr.data,(int(tr.stats.sampling_rate*padding),0),'constant',constant_values=(0))                        
+            #             print(tr.stats.network + tr.stats.station + "nonzero start: " + str(tr.data[0]))
+            #             tr.data[0:int(tr.stats.sampling_rate*padding)-1] = 0
+            #             print(tr.stats.network + tr.stats.station + "zero start: " + str(tr.data[0]))
+                        
+            # count = 0
+            # # print(st_N)
+            # for st in streams:
+            #     cha = channels[count]
+            #     # tr.stats.starttime = start-padding
+            #     st.plot(type='section', starttime=start-padding, endtime=start+90)
+            #     st.write("Data_" + event_title + '_' + cha + '.mseed', format='MSEED') 
+            #     count = count + 1
+            
+            # # %% MSEED SYN
+            
+            # if syn == True:
+            #     # synPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/' + mod + '/rotated/'
+            #     synPath = newSynPath
+            #     MSsynPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/synthetics_stations/mseed/'
+               
+            #     if os.path.exists(MSsynPath) == False:
+            #         os.mkdir(MSsynPath)
+                    
+            #     synN = read(synPath + "*N_vel.SAC")
+            #     for tr in synN:
+            #         tr.stats.channel = 'BHN'
+            #     synE = read(synPath + "*E_vel.SAC") 
+            #     for tr in synE:
+            #         tr.stats.channel = 'BHE'
+            #     synZ = read(synPath + "*Z_vel.SAC") 
+            #     for tr in synZ:
+            #         tr.stats.channel = 'BHZ'
+            #     synR = read(synPath + "*R_vel.SAC") 
+            #     for tr in synR:
+            #         tr.stats.channel = 'BHR'
+            #     synT = read(synPath + "*T_vel.SAC") 
+            #     for tr in synT:
+            #         tr.stats.channel = 'BHT'
+                
+            #     # save to mseed
+            #     streams = [synN,synE,synZ,synR,synT]
+            #     channels = ['BHN','BHE','BHZ','BHR','BHT']
+            #     for st in streams:
+            #         for tr in st:
+            #             # tr.stats.starttime = start-padding
+            #             tr.stats.distance = tr.stats.sac.dist*1000
+            #             if len(tr.data) != 0:
+            #                 if tr.data[int(tr.stats.sampling_rate*padding)-1] != 0: 
+            #                     tr.data = np.pad(tr.data,(int(tr.stats.sampling_rate*padding),0),'constant',constant_values=(0))                        
+            #                     # tr.data[0:int(tr.stats.sampling_rate*padding)-1] = 0
+            #                     print(tr.stats.network + tr.stats.station + " nonzero start: " + str(tr.data[int(tr.stats.sampling_rate*padding)-1]))
+                            
+            #     count = 0
+            #     print(st_N)
+            #     for st in streams:
+            #         cha = channels[count]
+            #         st.plot(type='section', starttime=start-padding, endtime=start+60)
+            #         st.write(MSsynPath + "Syn_" + event_title + '_' + mod + '_' + cha + '.mseed', format='MSEED') 
+            #         count = count + 1
+
+        # %%    START TIME CHECK
+        
+        print("data start: " + str(stream_data[0].stats.starttime))
+        if syn == True:
+            print("syn start: " + str(stream_synS[0].stats.starttime))
+        
+        # %%  PLOTTING
+        if plotcheck == True:
+            synPath = newSynPath
+            stream_synS = Stream()
+            dataPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/fixed/'   
+            
+            stream_dataN = read(dataPath + "*BHN_vel.SAC")
+            stream_dataE = read(dataPath + "*BHE_vel.SAC") 
+            stream_dataZ = read(dataPath + "*BHZ_vel.SAC")
+            stream_dataR = read(dataPath + "*BHR_vel.SAC")
+            stream_dataT = read(dataPath + "*BHT_vel.SAC")
+            
+            stream_data = stream_dataN + stream_dataE + stream_dataZ + stream_dataR + stream_dataT
+            
+            if syn == True:
+                # synPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/' + mod + '/rotated/'
+                stream_synSN = read(synPath + "*N_vel.SAC")
+                for tr in stream_synSN:
+                    tr.stats.channel = 'BHN'
+                stream_synSE = read(synPath + "*E_vel.SAC") 
+                for tr in stream_synSE:
+                    tr.stats.channel = 'BHE'
+                stream_synSZ = read(synPath + "*Z_vel.SAC") 
+                for tr in stream_synSZ:
+                    tr.stats.channel = 'BHZ'
+                stream_synSR = read(synPath + "*R_vel.SAC") 
+                for tr in stream_synSR:
+                    tr.stats.channel = 'BHR'
+                stream_synST = read(synPath + "*T_vel.SAC") 
+                for tr in stream_synST:
+                    tr.stats.channel = 'BHT'
+                stream_syn = stream_synSN + stream_synSE + stream_synSZ + stream_synSR + stream_synST
+                for tr in stream_syn:
+                    if len(tr.data) > 200: #buffer length
+                        stream_synS.append(tr)
+                        
+            
+            data_stns = []
+            syn_stns = [] 
+            
+            for i in range(len(st_name)):
+                for tr in stream_data:
+                    if st_name[i] == tr.stats.station:
+                        dist = st_dist[i]
+                        az = st_az[i]
+                        baz = st_baz[i]
+                        tr.stats.dist = dist
+                        tr.stats.sac.dist = dist
+                        data_stns.append(tr.stats.station)
+                
+                if syn == True:
+                    for tr in stream_synS:
+                        if st_name[i] == tr.stats.station:
+                            dist = st_dist[i]
+                            az = st_az[i]
+                            baz = st_baz[i]
+                            tr.stats.dist = dist
+                            tr.stats.sac.dist = dist
+                            syn_stns.append(tr.stats.station)
+    
+            if syn == True:        
+                overlapping = [stn for stn in data_stns if stn in syn_stns]
+                stn_overlap = set(overlapping)
+            if syn == False:
+                stn_overlap = [stn for stn in data_stns]
+            
+            if syn == True: 
+                syn_plot = Stream()
+                for sytr in stream_synS:
+                    if sytr.stats.station in stn_overlap:
+                        sytr.stats.dist = tr.stats.sac.dist
+                        sytr.stats.delta = 0.05
+                        syn_plot.append(sytr)
+            
+            data_plot = Stream()
+            for tr in stream_data: 
+                if tr.stats.station in stn_overlap:
+                    data_plot.append(tr)
+                
+            # passband
+            
+            # for tr in data_plot:
+            #     tr.data = flt.bandpass(tr.data,freqmin=1/5, freqmax=1/2, df=1/tr.stats.delta,corners=4,zerophase=False)
+            # for tr in syn_plot:
+            #     tr.data = flt.bandpass(tr.data,freqmin=1/5, freqmax=1/2, df=1/tr.stats.delta,corners=4,zerophase=False)
+                
+            if maps == False:     #was false
+                
+                 # figures for distance plots
+                figN = plt.figure(0, figsize=[8,5])
+                aN = figN.add_subplot(1, 1, 1)
+                figE = plt.figure(1, figsize=[8,5])
+                aE = figE.add_subplot(1, 1, 1)
+                figR = plt.figure(2, figsize=[8,5])
+                aR = figR.add_subplot(1, 1, 1)
+                figT = plt.figure(3, figsize=[8,5])
+                aT = figT.add_subplot(1, 1, 1)
+                figZ = plt.figure(4, figsize=[8,5])
+                aZ = figZ.add_subplot(1, 1, 1)
+                # set up vars to loop through
+                figs = [figN,figE,figR,figT,figZ]
+                axes = [aN,aE,aR,aT,aZ]
+                channels = ["BHN","BHE","BHR","BHT","BHZ"]
+                
+                # loop through each component
+                for i in range(len(axes)):
+                    fig = figs[i]
+                    a = axes[i]
+                    cha = channels[i]
+                    
+                    a.set_ylabel("Distance from source (km)")    
+                    a.set_xlabel("Time (s)")
+                    a.set_title("Data (black) v. Syn (blue) for " + event +  " - " + cha)
+                    
+                    for tr in data_plot:
+                        if tr.stats.channel == cha and tr.stats.station in stn_overlap:
+                            dist = tr.stats.dist; df = tr.stats.sampling_rate
+                            #gain = 20*math.sqrt(dist); sy_gain = gain
+                            if bpass == True:
+                                tr.data = flt.bandpass(tr.data,freqmin=low_freq, freqmax=high_freq, df=1/tr.stats.delta,corners=4,zerophase=False)
+                                # tr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+                            
+                            if tr.stats.network == "CI":
+                                a.plot(tr.times(), tr.data*gain+dist,c="k",linewidth=0.5)
+                            elif tr.stats.network == "CE":
+                                a.plot(tr.times(), tr.data*gain+dist,c="k",linewidth=0.5)
+                            # else:
+                            # a.plot(tr.times(), tr.data+dist,c="k",linewidth=0.5)      
+                            if dist < ymax: 
+                                a.text(xmax+10,dist,tr.stats.sac.kstnm)
+                        
+                    if syn == True: 
+                        for sytr in syn_plot:
+                            if sytr.stats.channel == cha and sytr.stats.station in stn_overlap:
+                                # set up times for x-axis
+                                #syn_times = np.linspace(0,sytr.stats.npts*0.05,sytr.stats.npts)
+                                dist = sytr.stats.sac.dist
+                                if bpass == True:
+                                    sytr.data = flt.bandpass(sytr.data,freqmin=low_freq, freqmax=high_freq, df=1/sytr.stats.delta,corners=4,zerophase=False)
+                                    # sytr.filter("bandpass", freqmin=low_freq, freqmax=high_freq)
+                            
+                                # plot synthetics on top of data
+                                # print("syn start: " + str(sytr.stats.starttime))
+                                a.plot(sytr.times(), sytr.data+dist,c="b",linewidth=0.5)
+                                # if dist < ymax: 
+                                #     a.text(xmax+10,dist,(sytr.stats.network + "-" + sytr.stats.sac.kstnm))
+                                
+                    a.set_ylim(ymin,ymax)
+                    a.set_xlim(xmin-5,xmax)                
+                plt.show()
+            
+            
+    # %% PLOT STATIONS AND EVENT ON MAP
+    if maps == True:
+        
+        # if syn == True:        
+        #     stn_overlap = [stn for stn in data_stns if stn in syn_stns]
+        # if syn == False:
+        #     stn_overlap = [stn for stn in data_stns]
+                
+                
+        stns = set(stn_overlap)
+        stns = list(stns)
+        ratios = []
+        rmsrat = []
+        alllogrms = []
+        data_rms = []
+        syn_rms = []
+        d_max = []
+        s_max = []
+        r_max = []
+        N_boo = False
+        E_boo = False
+        
+        # calculate RMS
+            
+        for stn in stns:
+            for tr in data_plot:
+                if tr.stats.station == stn:
+                    for sytr in syn_plot:
+                        if tr.stats.station == sytr.stats.station:
+                            if sytr.stats.channel == 'BHN' and tr.stats.channel == 'BHN':
+                                if bpass == True:
+                                    tr.data = flt.bandpass(tr.data,freqmin=low_freq, freqmax=high_freq, df=1/tr.stats.delta,corners=4,zerophase=False)
+                                    sytr.data = flt.bandpass(sytr.data,freqmin=low_freq, freqmax=high_freq, df=1/sytr.stats.delta,corners=4,zerophase=False)
+                                data_N = tr.data[0:5000] #.max()
+                                syn_N = sytr.data[0:7500] #.max()
+                                N_boo = True
+                    for sytrE in syn_plot:
+                        if tr.stats.station == sytrE.stats.station:
+                            if sytrE.stats.channel == 'BHE' and tr.stats.channel == 'BHE':
+                                if bpass == True:
+                                    tr.data = flt.bandpass(tr.data,freqmin=low_freq, freqmax=high_freq, df=1/tr.stats.delta,corners=4,zerophase=False)
+                                    sytr.data = flt.bandpass(sytr.data,freqmin=low_freq, freqmax=high_freq, df=1/sytr.stats.delta,corners=4,zerophase=False)
+                                data_E = tr.data[0:5000] #.max()
+                                syn_E = sytr.data[0:7500] #.max()
+                                E_boo = True
+                                
+                    if N_boo == True and E_boo == True:
+                        d_rms = np.sqrt(max(np.square(data_N) + np.square(data_E)))
+                        d_rms = d_rms*(tr.stats.dist) #norm by dist
+                        s_rms = np.sqrt(max(np.square(syn_N) + np.square(syn_E)))
+                        s_rms = s_rms*(tr.stats.dist) #norm by dist
+                        d_max.append(d_rms)
+                        s_max.append(s_rms)
+                        r_max.append(d_rms/s_rms)
+                        data_rms.append([tr.stats.station, d_rms, tr.stats.network, tr.stats.sac.stla, tr.stats.sac.stlo])
+                        syn_rms.append([tr.stats.station, s_rms, tr.stats.network, tr.stats.sac.stla, tr.stats.sac.stlo])
+                        rmsrat.append([tr.stats.station, d_rms/s_rms, tr.stats.network, tr.stats.sac.stla, tr.stats.sac.stlo])
+                        N_boo = False
+                        E_boo = False
+           
+        maxes = [d_max,s_max,r_max]
+        for m in maxes:
+            m.sort()
+                        
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        # setup mercator map projection.
+        m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+        m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+        
+        # rmsd_ext = []
+        # for j in range(len(data_rms)):
+        #     rmsd_ext.append(data_rms[j][1])
+        
+        # plot stations
+        for i in range(len(stns)):
+            for j in range(len(data_rms)):
+                    if data_rms[j][0] == stns[i]:
+                        rmsd = data_rms[j][1]
+                        rmsd_norm = (rmsd/d_max[-10])
+                        norm = matplotlib.colors.Normalize(vmin=0, vmax=d_max[-10])
+                        cmap = cm.get_cmap('rainbow')
+                        rgb = cmap(norm(abs(rmsd)))[:3]
+                        color = matplotlib.colors.rgb2hex(rgb)
+                        if data_rms[j][4] > 0:
+                            data_rms[j][4] = -data_rms[j][4]
+                        xx,yy = m(data_rms[j][4],data_rms[j][3]) #lon, lat
+                        # print(xx,yy)
+                        m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                        all_stats_data.append([ii,stns[i],xx,yy,rmsd_norm])
+                        
+        #Plot the event
+        xx,yy = m(event_lon,event_lat)
+        m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+        cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="Peak horizontal velocity (cm/s) * dist from event")
+        plt.title(event_name + " Data - Peak RMS Horizontal Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+        # plt.title(event_name + " Data")
+        plt.show()
+        
+        
+        
+        ##  syn plot
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        # setup mercator map projection.
+        m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+        m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+        # plot stations
+        for i in range(len(stns)):
+            for j in range(len(syn_rms)):
+                    if syn_rms[j][0] == stns[i]:
+                        #print(st_name[i])
+                        rmss = syn_rms[j][1]
+                        rmss_norm = (rmss/s_max[-10])
+                        norm = matplotlib.colors.Normalize(vmin=0, vmax=s_max[-10])
+                        cmap = cm.get_cmap('rainbow')
+                        rgb = cmap(norm(abs(rmss)))[:3]
+                        color = matplotlib.colors.rgb2hex(rgb)
+                        if syn_rms[j][4] > 0:
+                            syn_rms[j][4] = -syn_rms[j][4]
+                        xx,yy = m(syn_rms[j][4],syn_rms[j][3]) #lon,lat
+                        m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                        all_stats_syn.append([ii, stns[i], xx,yy,rmss_norm])
+        
+        #Plot the event
+        xx,yy = m(event_lon,event_lat)
+        m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+        cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="Peak horizontal velocity (cm/s) * dist from event")
+        plt.title(event_name + " Synthetic - Peak RMS Horizontal Velocity - " + str(1/high_freq) + "-" + str(1/low_freq) + " sec")
+        # plt.title(event_name + " Synthetics")
+        plt.show()
+        
+        
+        # #%% ##### AVG ALL PLOT #####
+        count_ii += 1
+        # totsd = []
+        # totss = []
+        # total = 0
+        # count = 0
+        # if count_ii == 4:
+        #     for i in range(len(stns)):
+        #         for k in range(len(all_stats_data)):
+        #             if stns[i] == all_stats_data[k][1]:
+        #                 count += 1
+        #                 total += all_stats_data[k][4]
+        #             if count == 4:
+        #                 totsd.append([stns[i],total/count,all_stats_data[k][2],all_stats_data[k][3]])
+        #         total = 0
+        #         count = 0
+                
+        #     for i in range(len(stns)):
+        #         for k in range(len(all_stats_syn)):
+        #             if stns[i] == all_stats_syn[k][1]:
+        #                 count = count + 1
+        #                 total = total+all_stats_syn[k][4]
+        #             if count == 4:
+        #                 totss.append([stns[i],total/count,all_stats_syn[k][2],all_stats_syn[k][3]])
+        #         total = 0
+        #         count = 0
+            
+        #     fig = plt.figure()
+        #     ax = fig.add_subplot(111)
+        #     # setup mercator map projection.
+        #     m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+        #     m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+            
+        #     # plot stations
+        #     for i in range(len(stns)):
+        #         for j in range(len(totsd)):
+        #                 if totsd[j][0] == stns[i]:
+        #                     rmsd = totsd[j][1]
+        #                     norm = matplotlib.colors.Normalize(vmin=0, vmax=1)
+        #                     cmap = cm.get_cmap('rainbow')
+        #                     rgb = cmap(norm(abs(rmsd)))[:3]
+        #                     color = matplotlib.colors.rgb2hex(rgb)
+        #                     if totsd[j][2] > 0:
+        #                         totsd[j][2] = -totsd[j][2]
+        #                     xx,yy = m(totsd[j][2],totsd[j][3]) #lon, lat
+        #                     print(xx,yy)
+        #                     m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                            
+        #     #Plot the event
+        #     xx,yy = m(event_lon,event_lat)
+        #     m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+        #     cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="Peak horizontal velocity (cm/s) * dist from event")
+        #     plt.title("All Data - AVG Peak RMS Horizontal Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+        #     plt.show()
+            
+            
+            
+        #     ##  syn plot
+        #     fig = plt.figure()
+        #     ax = fig.add_subplot(111)
+        #     # setup mercator map projection.
+        #     m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+        #     m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+        #     # plot stations
+        #     for i in range(len(stns)):
+        #         for j in range(len(totss)):
+        #                 if totss[j][0] == stns[i]:
+        #                     rmsd = totss[j][1]
+        #                     norm = matplotlib.colors.Normalize(vmin=0, vmax=1)
+        #                     cmap = cm.get_cmap('rainbow')
+        #                     rgb = cmap(norm(abs(rmsd)))[:3]
+        #                     color = matplotlib.colors.rgb2hex(rgb)
+        #                     if totss[j][2] > 0:
+        #                         totss[j][2] = -totss[j][2]
+        #                     xx,yy = m(totss[j][2],totss[j][3]) #lon, lat
+        #                     print(xx,yy)
+        #                     m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                            
+        #     #Plot the event
+        #     xx,yy = m(event_lon,event_lat)
+        #     m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+        #     cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="Peak horizontal velocity (cm/s) * dist from event")
+        #     plt.title("All Synthetics - AVG Peak RMS Horizontal Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+        #     plt.show()
+                
+        
+        
+        # %% ##### RADIAL AND TRANSVERSE MAPS #####
+        
+        drad = []
+        dtrans = []
+        srad = []
+        strans = []
+        dr_max = []
+        dt_max = []
+        sr_max = []
+        st_max = []
+        rat_rad = []
+        rrad = []
+        rat_trans = []
+        rtrans = []
+        
+        for stn in stns:
+            for tr in data_plot:
+                if tr.stats.station == stn:
+                    for sytr in syn_plot:
+                        if tr.stats.station == sytr.stats.station:
+
+                            if sytr.stats.channel == 'BHR' and tr.stats.channel == 'BHR':
+                                if bpass == True:
+                                    tr.data = flt.bandpass(tr.data,freqmin=low_freq, freqmax=high_freq, df=1/tr.stats.delta,corners=4,zerophase=False)
+                                    sytr.data = flt.bandpass(sytr.data,freqmin=low_freq, freqmax=high_freq, df=1/sytr.stats.delta,corners=4,zerophase=False)
+                                                                
+                                data_R = tr.data[0:6000] #.max()
+                                d_rad = max(data_R)
+                                dr_max.append(d_rad)
+                                drad.append([tr.stats.station, d_rad, tr.stats.network, tr.stats.sac.stla, tr.stats.sac.stlo])
+                                
+                                syn_R = sytr.data[0:8000] #.max()
+                                s_rad = max(syn_R)
+                                sr_max.append(s_rad)
+                                srad.append([tr.stats.station, s_rad, tr.stats.network, tr.stats.sac.stla, tr.stats.sac.stlo])
+                                
+                                rat_rad.append(d_rad/s_rad)
+                                rrad.append([tr.stats.station, d_rad/s_rad, tr.stats.network, tr.stats.sac.stla, tr.stats.sac.stlo])
+                                
+                            if sytr.stats.channel == 'BHT' and tr.stats.channel == 'BHT':
+                                if bpass == True:
+                                    tr.data = flt.bandpass(tr.data,freqmin=low_freq, freqmax=high_freq, df=1/tr.stats.delta,corners=4,zerophase=False)
+                                    sytr.data = flt.bandpass(sytr.data,freqmin=low_freq, freqmax=high_freq, df=1/sytr.stats.delta,corners=4,zerophase=False)
+
+                                data_T = tr.data[0:6000] #.max()
+                                d_trans = max(data_T)
+                                dt_max.append(d_trans)
+                                dtrans.append([tr.stats.station, d_trans, tr.stats.network, tr.stats.sac.stla, tr.stats.sac.stlo])
+                                
+                                syn_T = sytr.data[0:8000] #.max()
+                                s_trans = max(syn_T)
+                                st_max.append(s_trans)
+                                strans.append([tr.stats.station, s_trans, tr.stats.network, tr.stats.sac.stla, tr.stats.sac.stlo])
+                                
+                                rat_trans.append(d_trans/s_trans)
+                                rtrans.append([tr.stats.station, d_trans/s_trans, tr.stats.network, tr.stats.sac.stla, tr.stats.sac.stlo])
+
+        
+        plots = [drad,srad,dtrans,strans]
+        maxes = [dr_max,sr_max,dt_max,st_max]
+        for m in maxes:
+            m.sort()
+
+        for ii in range(len(plots)):
+            plist = plots[ii]
+            maxvar = maxes[ii]
+            
+            fig = plt.figure()
+            ax = fig.add_subplot(111)
+            # setup mercator map projection.
+            m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+            m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+            
+            # plot stations
+            for i in range(len(stns)):
+                for j in range(len(plist)):
+                        if plist[j][0] == stns[i]:
+                            nor = plist[j][1]
+                            stla = plist[j][3]
+                            stlo = plist[j][4]
+                            norm = matplotlib.colors.Normalize(vmin=0, vmax=maxvar[-10]) #fifth largest velocity in list
+                            cmap = cm.get_cmap('rainbow')
+                            rgb = cmap(norm(abs(nor)))[:3]
+                            color = matplotlib.colors.rgb2hex(rgb)
+                            if stlo > 0:
+                                stlo = -stlo
+                            xx,yy = m(stlo,stla) #lon, lat
+                            # print(xx,yy)
+                            m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                                    
+            #Plot the event
+            xx,yy = m(event_lon,event_lat)
+            m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+            cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="Peak velocity (cm/s) * dist from event")
+            if ii == 0:
+                plt.title(event_name + " Data - Peak Radial Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+            if ii == 1:
+                plt.title(event_name + " Synthetic - Peak Radial Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+            if ii == 2:
+                plt.title(event_name + " Data - Peak Transverse Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+            if ii == 3:
+                plt.title(event_name + " Synthetic - Peak Transverse Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+            plt.show()
+        
+        
+       # %% ##### RATIO PLOTS #####
+        ## ratio plot
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        # setup mercator map projection.
+        m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+        m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+        
+        # plot stations
+        for i in range(len(stns)):
+                for j in range(len(rmsrat)):
+                        if rmsrat[j][0] == stns[i]:
+                            #print(st_name[i])
+                            rmsr = rmsrat[j][1]
+                            logrms = np.log10(abs(rmsr))
+                            alllogrms.append(logrms)
+                            norm = matplotlib.colors.Normalize(vmin=-0.2,vmax=1.5)
+                            cmap = cm.get_cmap('rainbow')
+                            rgb = cmap(norm(abs(logrms)))[:3]
+                            color = matplotlib.colors.rgb2hex(rgb)
+                            if rmsrat[j][4] > 0:
+                                rmsrat[j][4] = -rmsrat[j][4]
+                            xx,yy = m(rmsrat[j][4],rmsrat[j][3]) #lon, lat
+                            m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                            all_stats_rms.append([ii,stns[i],xx,yy,rmsr])
+                           
+        
+        #Plot the event
+        xx,yy = m(event_lon,event_lat)
+        m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+        cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="log(data/synthetic peak velocity)")
+        plt.title(event_name + " Horiz RMS Data/Synthetic Vel Ratio - " + str(1/high_freq) + "-" + str(1/low_freq) + " sec")
+        #plt.title("Peak Horizontal Velocity Ratio - " + event_name)
+        plt.show()
+        
+        
+       ## ratio plot - RADIAL
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        # setup mercator map projection.
+        m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+        m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+        
+        # plot stations
+        for i in range(len(stns)):
+                for j in range(len(rrad)):
+                        if rrad[j][0] == stns[i]:
+                            #print(st_name[i])
+                            rmsr = rrad[j][1]
+                            logrms = np.log10(abs(rmsr))
+                            alllogrms.append(logrms)
+                            norm = matplotlib.colors.Normalize(vmin=-0.2,vmax=1.5)
+                            cmap = cm.get_cmap('rainbow')
+                            rgb = cmap(norm(abs(logrms)))[:3]
+                            color = matplotlib.colors.rgb2hex(rgb)
+                            if rrad[j][4] > 0:
+                                rrad[j][4] = -rrad[j][4]
+                            xx,yy = m(rrad[j][4],rrad[j][3]) #lon, lat
+                            m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                           
+        
+        #Plot the event
+        xx,yy = m(event_lon,event_lat)
+        m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+        cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="log(data/synthetic peak velocity)")
+        plt.title(event_name + " Radial Data/Synthetic Vel Ratio - " + str(1/high_freq) + "-" + str(1/low_freq) + " sec")
+        #plt.title("Peak Horizontal Velocity Ratio - " + event_name)
+        plt.show()
+        
+        
+        
+        ## ratio plot - TRANSVERSE
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        # setup mercator map projection.
+        m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+        m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+        
+        # plot stations
+        for i in range(len(stns)):
+                for j in range(len(rtrans)):
+                        if rtrans[j][0] == stns[i]:
+                            #print(st_name[i])
+                            rmsr = rtrans[j][1]
+                            logrms = np.log10(abs(rmsr))
+                            alllogrms.append(logrms)
+                            norm = matplotlib.colors.Normalize(vmin=-0.2,vmax=1.5)
+                            cmap = cm.get_cmap('rainbow')
+                            rgb = cmap(norm(abs(logrms)))[:3]
+                            color = matplotlib.colors.rgb2hex(rgb)
+                            if rtrans[j][4] > 0:
+                                rtrans[j][4] = -rtrans[j][4]
+                            xx,yy = m(rtrans[j][4],rtrans[j][3]) #lon, lat
+                            m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                           
+        
+        #Plot the event
+        xx,yy = m(event_lon,event_lat)
+        m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+        cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="log(data/synthetic peak velocity)")
+        plt.title(event_name + " Transverse Data/Synthetic Vel Ratio - " + str(1/high_freq) + "-" + str(1/low_freq) + " sec")
+        #plt.title("Peak Horizontal Velocity Ratio - " + event_name)
+        plt.show()
+
+# #%% ##### AVG ALL PLOT #####
+#         count_ii += 1
+#         totsd = []
+#         totss = []
+#         totsr = []
+#         total = 0
+#         count = 0
+#         if count_ii == 4:
+#             for i in range(len(stns)):
+#                 for k in range(len(all_stats_data)):
+#                     if stns[i] == all_stats_data[k][1]:
+#                         count += 1
+#                         total += all_stats_data[k][4]
+#                     if count == 4:
+#                         totsd.append([stns[i],total/count,all_stats_data[k][2],all_stats_data[k][3]])
+#                 total = 0
+#                 count = 0
+                
+#             for i in range(len(stns)):
+#                 for k in range(len(all_stats_syn)):
+#                     if stns[i] == all_stats_syn[k][1]:
+#                         count = count + 1
+#                         total = total+all_stats_syn[k][4]
+#                     if count == 4:
+#                         totss.append([stns[i],total/count,all_stats_syn[k][2],all_stats_syn[k][3]])
+#                 total = 0
+#                 count = 0
+                
+#             for i in range(len(stns)):
+#                 for k in range(len(all_stats_rms)):
+#                     if stns[i] == all_stats_rms[k][1]:
+#                         count = count + 1
+#                         total = total+all_stats_rms[k][4]
+#                     if count == 4:
+#                         totsr.append([stns[i],total/count,all_stats_rms[k][2],all_stats_rms[k][3]])
+#                 total = 0
+#                 count = 0
+            
+#             fig = plt.figure()
+#             ax = fig.add_subplot(111)
+#             # setup mercator map projection.
+#             m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+#             m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+            
+#             # plot stations
+#             for i in range(len(stns)):
+#                 for j in range(len(totsd)):
+#                         if totsd[j][0] == stns[i]:
+#                             rmsd = totsd[j][1]
+#                             norm = matplotlib.colors.Normalize(vmin=0, vmax=1)
+#                             cmap = cm.get_cmap('rainbow')
+#                             rgb = cmap(norm(abs(rmsd)))[:3]
+#                             color = matplotlib.colors.rgb2hex(rgb)
+#                             if totsd[j][2] > 0:
+#                                 totsd[j][2] = -totsd[j][2]
+#                             xx,yy = m(totsd[j][2],totsd[j][3]) #lon, lat
+#                             # print(xx,yy)
+#                             m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                            
+#             #Plot the event
+#             xx,yy = m(event_lon,event_lat)
+#             m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+#             cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="Peak horizontal velocity (cm/s) * dist from event")
+#             plt.title("All Data - AVG Peak RMS Horizontal Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+#             plt.show()
+            
+            
+            
+#             ##  syn plot
+#             fig = plt.figure()
+#             ax = fig.add_subplot(111)
+#             # setup mercator map projection.
+#             m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+#             m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+#             # plot stations
+#             for i in range(len(stns)):
+#                 for j in range(len(totss)):
+#                         if totss[j][0] == stns[i]:
+#                             rmsd = totss[j][1]
+#                             norm = matplotlib.colors.Normalize(vmin=0, vmax=1)
+#                             cmap = cm.get_cmap('rainbow')
+#                             rgb = cmap(norm(abs(rmsd)))[:3]
+#                             color = matplotlib.colors.rgb2hex(rgb)
+#                             if totss[j][2] > 0:
+#                                 totss[j][2] = -totss[j][2]
+#                             xx,yy = m(totss[j][2],totss[j][3]) #lon, lat
+#                             # print(xx,yy)
+#                             m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                            
+#             #Plot the event
+#             xx,yy = m(event_lon,event_lat)
+#             m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+#             cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="Peak horizontal velocity (cm/s) * dist from event")
+#             plt.title("All Synthetics - AVG Peak RMS Horizontal Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+#             plt.show()        
+            
+#             ## RMS plot
+            
+#             fig = plt.figure()
+#             ax = fig.add_subplot(111)
+#             # setup mercator map projection.
+#             m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+#             m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+            
+#             # plot stations
+#             for i in range(len(stns)):
+#                 for j in range(len(totsr)):
+#                         if totsr[j][0] == stns[i]:
+#                             rmsr = totsr[j][1]
+#                             norm = matplotlib.colors.Normalize(vmin=0, vmax=1)
+#                             cmap = cm.get_cmap('rainbow')
+#                             rgb = cmap(norm(abs(rmsr)))[:3]
+#                             color = matplotlib.colors.rgb2hex(rgb)
+#                             if totsr[j][2] > 0:
+#                                 totsr[j][2] = -totsr[j][2]
+#                             xx,yy = m(totsr[j][2],totsr[j][3]) #lon, lat
+#                             # print(xx,yy)
+#                             m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                            
+#             #Plot the event
+#             xx,yy = m(event_lon,event_lat)
+#             m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+#             cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="log(Data/Syn RMS Averaged)")
+#             plt.title("AVG Horiz RMS Data/Synthetic Vel Ratio - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+#             plt.show()
+
+#%% ##### AVG RATIO PLOTS #####
+        totsd = []
+        totss = []
+        totsr = []
+        total = 0
+        count = 0
+        if count_ii == 5:
+            for i in range(len(stns)):
+                for k in range(len(all_stats_data)):
+                    if stns[i] == all_stats_data[k][1]:
+                        count = count + 1
+                        total = total+all_stats_data[k][4]
+                        totsd.append([stns[i],total/count,all_stats_data[k][2],all_stats_data[k][3]])
+                total = 0
+                count = 0
+                
+            for i in range(len(stns)):
+                for k in range(len(all_stats_syn)):
+                    if stns[i] == all_stats_syn[k][1]:
+                        count = count + 1
+                        total = total+all_stats_syn[k][4]
+                        totss.append([stns[i],total/count,all_stats_syn[k][2],all_stats_syn[k][3]])
+                total = 0
+                count = 0
+                
+            for i in range(len(stns)):
+                for k in range(len(all_stats_rms)):
+                    if stns[i] == all_stats_rms[k][1]:
+                        count = count + 1
+                        total = total+(all_stats_rms[k][4])
+                        totsr.append([stns[i],math.log10(total/count),all_stats_rms[k][2],all_stats_rms[k][3]])
+                total = 0
+                count = 0
+            
+            ## data plot
+            fig = plt.figure()
+            ax = fig.add_subplot(111)
+            # setup mercator map projection.
+            m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+            m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+            
+            # plot stations
+            for i in range(len(stns)):
+                for j in range(len(totsd)):
+                        if totsd[j][0] == stns[i]:
+                            rmsd = totsd[j][1]
+                            norm = matplotlib.colors.Normalize(vmin=0, vmax=1)
+                            cmap = cm.get_cmap('rainbow')
+                            rgb = cmap(norm(abs(rmsd)))[:3]
+                            color = matplotlib.colors.rgb2hex(rgb)
+                            if totsd[j][2] > 0:
+                                totsd[j][2] = -totsd[j][2]
+                            xx,yy = m(totsd[j][2],totsd[j][3]) #lon, lat
+                            # print(xx,yy)
+                            m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                            
+            #Plot the event
+            xx,yy = m(event_lon,event_lat)
+            m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+            cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="Peak horizontal velocity (cm/s) * dist from event")
+            plt.title("All Data - AVG Peak RMS Horizontal Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+            plt.show()
+            
+            
+            
+            ##  syn plot
+            fig = plt.figure()
+            ax = fig.add_subplot(111)
+            # setup mercator map projection.
+            m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+            m.arcgisimage(service='ESRI_Imagery_World_2D', sxpixels = 2000, verbose= True)
+            # plot stations
+            for i in range(len(stns)):
+                for j in range(len(totss)):
+                        if totss[j][0] == stns[i]:
+                            rmsd = totss[j][1]
+                            norm = matplotlib.colors.Normalize(vmin=0, vmax=1)
+                            cmap = cm.get_cmap('rainbow')
+                            rgb = cmap(norm(abs(rmsd)))[:3]
+                            color = matplotlib.colors.rgb2hex(rgb)
+                            if totss[j][2] > 0:
+                                totss[j][2] = -totss[j][2]
+                            xx,yy = m(totss[j][2],totss[j][3]) #lon, lat
+                            # print(xx,yy)
+                            m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                            
+            #Plot the event
+            xx,yy = m(event_lon,event_lat)
+            m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+            cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="Peak horizontal velocity (cm/s) * dist from event")
+            plt.title("All Synthetics - AVG Peak RMS Horizontal Velocity - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+            plt.show()
+            
+            
+            ## RMS plot
+            
+            fig = plt.figure()
+            ax = fig.add_subplot(111)
+            # setup mercator map projection.
+            m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+            m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+            
+            # plot stations
+            for i in range(len(stns)):
+                for j in range(len(totsr)):
+                        if totsr[j][0] == stns[i]:
+                            rmsr = totsr[j][1]
+                            norm = matplotlib.colors.Normalize(vmin=-0.25, vmax=1)
+                            cmap = cm.get_cmap('rainbow')
+                            rgb = cmap(norm(abs(rmsr)))[:3]
+                            color = matplotlib.colors.rgb2hex(rgb)
+                            if totsr[j][2] > 0:
+                                totsr[j][2] = -totsr[j][2]
+                            xx,yy = m(totsr[j][2],totsr[j][3]) #lon, lat
+                            # print(xx,yy)
+                            m.scatter(xx, yy, marker = "^" ,s=30, c=color, edgecolors = "k", alpha = 1) #, extend='both')
+                            
+            #Plot the event
+            xx,yy = m(event_lon,event_lat)
+            m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+            cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="log(Data/Syn RMS Averaged)")
+            plt.title("AVG Horiz RMS Data/Synthetic Vel Ratio - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+            plt.show()
+                
+        
+        
+        # %% ####
+        
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        # setup mercator map projection.
+        m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+        m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+        
+        # plot stations
+        for i in range(len(stns)):
+            for j in range(len(totsr)):
+                    if totsr[j][0] == stns[i]:
+                        rmsr = totsr[j][1]
+                        norm = matplotlib.colors.Normalize(vmin=-0.25, vmax=1)
+                        cmap = cm.get_cmap('rainbow')
+                        rgb = cmap(norm(abs(rmsr)))[:3]
+                        color = matplotlib.colors.rgb2hex(rgb)
+                        if totsr[j][2] > 0:
+                            totsr[j][2] = -totsr[j][2]
+                        xx,yy = meshgrid(totsr[j][2],totsr[j][3]) #lon, lat
+                        # print(xx,yy)
+                        m.contourf(xx, yy, rmsr) #, extend='both')
+                        
+        #Plot the event
+        xx,yy = m(event_lon,event_lat)
+        m.scatter(xx, yy, marker = "*" ,s=200, c="m" , edgecolors = "k", alpha = 1) 
+        cbar = m.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),label="log(Data/Syn RMS Averaged)")
+        plt.title("AVG Horiz RMS Data/Synthetic Vel Ratio - " + str(1/high_freq) + "-" + str(1/low_freq)  + " sec")
+        plt.show()

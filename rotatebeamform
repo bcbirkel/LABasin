@@ -1,0 +1,355 @@
+
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Apr 26 19:47:20 2021
+
+@author: bcbirkel
+"""
+
+from obspy import read, read_inventory
+import obspy.signal.filter as flt
+import pandas as pd
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.signal.invsim import simulate_seismometer, corn_freq_2_paz
+from obspy.geodetics import gps2dist_azimuth
+from obspy.io.sac import sacpz
+from obspy.io.sac import attach_paz
+from obspy.io.gse2.paz import read_paz
+import os
+from obspy.core import Trace, Stream, AttribDict
+from obspy.signal.rotate import rotate_ne_rt
+import math
+import obspy.realtime.signal as signal
+from obspy.core.utcdatetime import UTCDateTime
+import shutil
+import matplotlib.cm as cm
+import matplotlib
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+#set corners for map
+llcrnrlon=-119
+llcrnrlat=33.25 #- 0.25
+urcrnrlon=-117
+urcrnrlat=34.75 #+ 0.25
+
+rotate = False
+padding = 10 #sec
+
+# filetitle = "Beam_Grid_lahabra_CVM-S4_"
+events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+ev_name = ['lahabra', 'beverlyhills', 'chatsworth', 'chinohills', 'inglewood']
+models = ["CVM-S4","CVM-H"]
+
+ks = [0,1,2,3,4]
+ms = [0,1]
+
+# ks = [0]
+# ms=[0]
+
+# fig = plt.figure()
+# ax = fig.add_subplot(111)
+# fig2 = plt.figure()
+# ax2 = fig2.add_subplot(111)
+m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+# m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 5000, dpi=500, verbose= True)
+    
+
+# %% Set parameters
+#set event
+for event_no in ks:
+    for j in ms:
+        event = events[event_no]
+        name = ev_name[event_no]
+        mod = models[j]
+        
+        filetitle = "Beam_Grid_" + name + "_" + mod + "_"
+        # %% Set paths
+        
+        synPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/' + mod + '/beamforming/'
+        newSynPathFol = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/synthetics_beamforming/' 
+        newSynPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/synthetics_beamforming/' + mod + '/'
+        
+        if event_no == 0:
+            event_title = 'lahabra'
+            event_name = 'La Habra'
+            event_lat = 33.9325
+            event_lon = -117.9158
+            start=UTCDateTime("2014-03-29T04:09:42.994500Z")
+            
+        elif event_no == 1:
+            event_title = 'beverlyhills'
+            event_name = 'Beverly Hill'
+            event_lat = 34.0541
+            event_lon = -118.3929
+            stream_cesmdN = read(synPath + "*N.SAC") #+ read(synPath + "*N.*.SAC")
+            stream_cesmdE = read(synPath + "*E.SAC")#+ read(synPath + "*E.*.SAC")
+            stream_cesmdZ = read(synPath + "*Z.SAC")#+ read(synPath + "*Z.*.SAC")
+            start = UTCDateTime("2001-09-09T23:59:17.695Z")
+            # synStart = UTCDateTime("2001-09-09T23:59:00Z")
+            gain = 50
+            
+        elif event_no == 2:
+            event_title = 'chatsworth'
+            event_name = 'Chatsworth 2007'
+            event_lat = 34.2983
+            event_lon = -118.6255
+            stream_cesmdN = read(synPath + "*N.SAC")
+            stream_cesmdE = read(synPath + "*E.SAC")
+            stream_cesmdZ = read(synPath + "*Z.SAC")
+            gain = 10
+            start=UTCDateTime("2007/08/09T07:58:48.888")
+            synStart = start
+            
+        elif event_no == 3:
+            event_title = 'chinohills'
+            event_name = 'Chino Hills'
+            event_lat = 33.9465
+            event_lon = -117.7667
+            stream_cesmdN = read(synPath + "*N.SAC")  
+            stream_cesmdE = read(synPath + "*E.SAC") 
+            stream_cesmdZ = read(synPath + "*Z.SAC")
+            gain = 1
+            start=UTCDateTime("2008/07/29T18:42:15.960")
+    
+        elif event_no == 4:
+            event_title = 'inglewood'
+            event_name = 'Inglewood 2009'
+            event_lat = 33.9377
+            event_lon = -118.3357
+            stream_cesmdN = read(synPath + "*N.SAC") 
+            stream_cesmdE = read(synPath + "*E.SAC") 
+            stream_cesmdZ = read(synPath + "*Z.SAC") 
+            gain = 100
+            start=UTCDateTime("2009/05/18T03:39:36.126")
+        else: 
+            print('unknown event file')
+            
+        stream_cesmdN = read(synPath + "*N.SAC")
+        for tr in stream_cesmdN:
+            tr.stats.channel = 'BHN'
+        stream_cesmdE = read(synPath + "*E.SAC")
+        for tr in stream_cesmdE:
+            tr.stats.channel = 'BHE'
+        stream_cesmdZ = read(synPath + "*Z.SAC")
+        for tr in stream_cesmdZ:
+            tr.stats.channel = 'BHZ'
+    
+        stream = stream_cesmdN + stream_cesmdE + stream_cesmdZ
+    
+                
+        # %% COMBINE STREAMS   
+        
+        if rotate == True:
+            square = []
+            for i in range(20):
+                for j in range(20):
+                    square.append([j*10,i*10])
+                
+            tnT = False
+            teT = False
+                
+            os.chdir(synPath)
+            for pt in square:
+                tn = Trace()
+                te = Trace()
+                trad = Trace()
+                ttrans = Trace()
+                for tr in stream:
+                    if tr.stats.sac.user2 == pt[0] and tr.stats.sac.user3 == pt[1]:
+                        
+                        if tr.stats.channel == "BHN":
+                            tn.data = tr.data
+                            tn.stats = tr.stats
+                            trad.data = tr.data
+                            trad.stats = tr.stats                    
+                            tnT = True
+                            print(tn)
+                        
+                        if tr.stats.channel == "BHE":
+                            te.data = tr.data
+                            te.stats = tr.stats
+                            ttrans.data = tr.data
+                            ttrans.stats = tr.stats
+                            teT = True 
+                            print(te)
+                
+                                
+                        if tnT == True and teT == True:          
+                            trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,tr.stats.sac.baz)
+                
+                            trad.stats.channel = "BHR"
+                            trad.stats.sac.kcmpnm = "BHR"
+                            trad.write(filetitle + str(int(tr.stats.sac.user2)) + "," + str(int(tr.stats.sac.user3)) + "_R.SAC", format="SAC")
+                            
+                            ttrans.stats.channel = "BHT"
+                            ttrans.stats.sac.kcmpnm = "BHT"
+                            ttrans.write(filetitle + str(int(tr.stats.sac.user2)) + "," + str(int(tr.stats.sac.user3)) + "_T.SAC", format="SAC")
+                            
+                            tnT = False
+                            teT = False
+                            
+                            print("rotated beam grid!")
+                            
+        # %% ADJUST STATION NAMING
+        
+        if not os.path.exists(newSynPathFol):
+            os.mkdir(newSynPathFol)
+        
+        if os.path.exists(newSynPath):
+            shutil.rmtree(newSynPath)
+        os.mkdir(newSynPath)
+        # os.chdir(newSynPath)
+        
+        stream = read(synPath + "*N.SAC")
+        
+        for tr in stream:
+            tr.stats.channel = 'BHN'
+            x_no = tr.stats.sac.user2
+            y_no = tr.stats.sac.user3
+            # print(int(x_no), int(y_no))
+            if x_no < 100:
+                x_coord = '0' + str(int(x_no/10))
+            elif x_no > 99:
+                x_coord = str(int(x_no/10))
+            if y_no < 100:
+                y_coord = '0' + str(int(y_no/10))
+            elif y_no > 99:
+                y_coord = str(int(y_no/10))
+            sta_na = x_coord + "x" + y_coord
+            # print(sta_na)
+            tr.stats.station = sta_na
+            tr.stats.starttime = start-padding
+            if tr.data[padding*20-1] != 0:
+                tr.data = np.pad(tr.data,(int(20*padding),0),'constant',constant_values=(0))
+            tr.write(newSynPath + filetitle + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + ".SAC")
+            
+        stream = read(synPath + "*E.SAC")
+        # os.remove(synPath + "*E.SAC")
+        for tr in stream:
+            tr.stats.channel = 'BHE'
+            x_no = tr.stats.sac.user2
+            y_no = tr.stats.sac.user3
+            # print(int(x_no), int(y_no))
+            if x_no < 100:
+                x_coord = '0' + str(int(x_no/10))
+            elif x_no > 99:
+                x_coord = str(int(x_no/10))
+            if y_no < 100:
+                y_coord = '0' + str(int(y_no/10))
+            elif y_no > 99:
+                y_coord = str(int(y_no/10))
+            sta_na = x_coord + "x" + y_coord
+            # print(sta_na)
+            tr.stats.station = sta_na
+            tr.stats.starttime = start-padding
+            if tr.data[padding*20-1] != 0:
+                tr.data = np.pad(tr.data,(int(20*padding),0),'constant',constant_values=(0))
+            tr.write(newSynPath + filetitle + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + ".SAC")
+        
+        stream = read(synPath + "*Z.SAC")
+        # os.remove(synPath + "*Z.SAC")
+        for tr in stream:
+            tr.stats.channel = 'BHZ'
+            x_no = tr.stats.sac.user2
+            y_no = tr.stats.sac.user3
+            # print(int(x_no), int(y_no))
+            if x_no < 100:
+                x_coord = '0' + str(int(x_no/10))
+            elif x_no > 99:
+                x_coord = str(int(x_no/10))
+            if y_no < 100:
+                y_coord = '0' + str(int(y_no/10))
+            elif y_no > 99:
+                y_coord = str(int(y_no/10))
+            sta_na = x_coord + "x" + y_coord
+            # print(sta_na)
+            tr.stats.station = sta_na
+            tr.stats.starttime = start-padding
+            if tr.data[padding*20-1] != 0:
+                tr.data = np.pad(tr.data,(int(20*padding),0),'constant',constant_values=(0))
+            tr.write(newSynPath + filetitle + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + ".SAC")
+        
+        stream = read(synPath + "*R.SAC")
+        # os.remove(synPath + "*R.SAC")
+        for tr in stream:
+            tr.stats.channel = 'BHR'
+            x_no = tr.stats.sac.user2
+            y_no = tr.stats.sac.user3
+            # print(int(x_no), int(y_no))
+            if x_no < 100:
+                x_coord = '0' + str(int(x_no/10))
+            elif x_no > 99:
+                x_coord = str(int(x_no/10))
+            if y_no < 100:
+                y_coord = '0' + str(int(y_no/10))
+            elif y_no > 99:
+                y_coord = str(int(y_no/10))
+            sta_na = x_coord + "x" + y_coord
+            # print(sta_na)
+            tr.stats.station = sta_na
+            tr.stats.starttime = start-padding
+            if tr.data[padding*20-1] != 0:
+                tr.data = np.pad(tr.data,(int(20*padding),0),'constant',constant_values=(0))
+            tr.write(newSynPath + filetitle + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + ".SAC")
+            
+        stream = read(synPath + "*T.SAC")
+        # os.remove(synPath + "*T.SAC")
+        for tr in stream:
+            tr.stats.channel = 'BHT'
+            x_no = tr.stats.sac.user2
+            y_no = tr.stats.sac.user3
+            # print(int(x_no), int(y_no))
+            if x_no < 100:
+                x_coord = '0' + str(int(x_no/10))
+            elif x_no > 99:
+                x_coord = str(int(x_no/10))
+            if y_no < 100:
+                y_coord = '0' + str(int(y_no/10))
+            elif y_no > 99:
+                y_coord = str(int(y_no/10))
+            sta_na = x_coord + "x" + y_coord
+            # print(sta_na)
+            tr.stats.station = sta_na
+            tr.stats.starttime = start-padding
+            if tr.data[padding*20-1] != 0:
+                tr.data = np.pad(tr.data,(int(20*padding),0),'constant',constant_values=(0))
+            tr.write(newSynPath + filetitle + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + ".SAC")
+        
+        
+    # %% BEAMFORMING MAP
+    for tr in stream:
+        # ax.plot(tr.times(),tr.data+tr.stats.sac.dist,color='k',lw=0.2) 
+        # ax.set_xlim(0,60)
+        xx,yy = m(tr.stats.sac.stlo,tr.stats.sac.stla)
+        m.scatter(xx,yy, marker = "o" ,s=0.1, color='b', alpha = 1)
+            
+    xx,yy = m(event_lon,event_lat)
+    m.scatter(xx,yy, marker = "*" ,s=100, color='m', edgecolors = "k", alpha = 1)
+    plt.text(event_lon+0.03, event_lat-0.07, name)
+    
+plt.title('Beamforming Grid')
+plt.show()
+     
+# %% BEAMFORMING STATION LIST
+stalist = []
+for tr in stream:
+    stalist.append([tr.stats.network, tr.stats.station, tr.stats.sac.stla, tr.stats.sac.stlo])
+    
+file = "/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/beamforming_stations.txt"
+if os.path.isfile(file) == True:
+    os.remove(file)
+stafile = open(file, 'w')
+for line in stalist:
+    for element in line:
+        stafile.write(str(element) + "\t")
+    stafile.write("\n")
+stafile.close()
+
+

@@ -1,0 +1,124 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 11 16:39:53 2022
+
+@author: bcbirkel
+"""
+
+
+
+from obspy import read, read_inventory
+from obspy.signal.filter import bandpass
+# import pandas as pd
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.signal.invsim import simulate_seismometer, corn_freq_2_paz
+from obspy.geodetics import gps2dist_azimuth
+from obspy.io.sac import sacpz
+from obspy.io.sac import attach_paz
+from obspy.io.gse2.paz import read_paz
+import os
+from obspy.core import Trace, Stream, AttribDict
+from obspy.signal.rotate import rotate_ne_rt 
+import math
+import obspy.realtime.signal as signal
+from mpl_toolkits.basemap import Basemap
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+# %% Events
+
+# original (2001-2014)
+old_ev = [[33.9325, -117.9158],
+[34.0590, -118.3885],
+[34.2995, -118.6195],
+[33.9530, -117.7613],
+[33.9377, -118.3357]]
+
+
+# potential (2014-2021)
+
+new_ev = [[ 33.831333, -118.263667], 
+[33.9405, -118.333333], 
+[34.038, -118.08],
+[34.301667, -118.438333],
+[34.136333, -117.774667],
+[34.191, -117.413167],
+[33.5762, -118.2761],
+[34.0874, -118.5024]]
+
+
+[34.2749, -117.0105]
+[34.608, -118.6246],
+  # %% Stations
+stationFile = "./station_master.txt"
+# stationFile = "./stationLists/stationsByEvent/lahabra_stations.txt"
+
+# Load station coords into arrays, many more stations than used
+net = []
+code = []
+lat   = []
+lon   = []
+text = []
+
+
+# strip station file
+staCoord = open(stationFile, 'r')
+lines = staCoord.readlines()
+for line in lines:
+    split_line = line.split()
+    net.append(split_line[0])
+    code.append(split_line[1])
+    lat.append(float(split_line[2]))
+    lon.append(float(split_line[3]))
+
+#%% MAP    
+  
+#set corners for map
+llcrnrlon=-119
+llcrnrlat=33.25
+urcrnrlon=-117
+urcrnrlat=34.75
+
+m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269, resolution='l') #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+
+m.scatter(lon, lat, c='b', marker = "^" , edgecolors = "k", alpha = 1, s=5)
+
+for i in range(len(new_ev)):
+    m.scatter(new_ev[i][1],new_ev[i][0],c='m', marker = "*" , edgecolors = "k", alpha = 1, s=100)
+
+
+for i in range(len(old_ev)):
+    m.scatter(old_ev[i][1],old_ev[i][0],c='r', marker = "*" , edgecolors = "k", alpha = 1, s=100)
+
+
+#%% SAVE
+for i in range(len(code)):        
+    text.append(net[i] + " " + str(code[i]) + " " + str(lat[i]) + " " + str(lon[i]))
+text = set(text)
+text = list(text)
+text.sort()
+
+# write_text = []
+# for i in range(len(text)):
+#     write_text.append(str(text[i]) + "\n")
+    
+file = open("/Users/bcbirkel/Documents/GitHub/LABasin/SoCal_allstations.txt", "w")
+for i in range(len(text)):
+    print(str(text[i]) + "\n")
+    file.write(str(text[i]) + "\n")
+        
+file.close()
+
+plt.savefig('SoCal_allevents.png', format='png', dpi=1200)
+
+
+
+        
+        
+        

@@ -1,0 +1,192 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Dec 13 17:39:21 2020
+
+@author: bcbirkel
+
+Create master station list between data and RG syn
+
+Currently using La Habra simulation for sim basis, but coordinates should be the same for all simulations done in 2019
+"""
+
+
+import struct
+import numpy as np
+import matplotlib.pyplot as plt
+import obspy.io.sac 
+from obspy import Trace
+from obspy import Stream
+from obspy.geodetics.base import gps2dist_azimuth
+import os
+
+
+# read in binary file
+fileName = "/Users/bcbirkel/Documents/GitHub/LABasin/GravesSim_fullgrid_tsfiles/epw_102_m5.09-3.5x3.5-s266318098_cvmsi-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+fileName = "/Users/bcbirkel/Documents/GitHub/LABasin/GravesSim_fullgrid_tsfiles/e1036_m4.24-1.3x1.3-s1098915986_cvmsi-vs500_sc01-h0.100/OutBin/sc01_xyts.e3d"
+
+
+# %% #### GET HEADER INFO #####
+
+with open(fileName, mode='rb') as file: # rb-> read binary
+    fileContent = file.read()
+    tshead = struct.unpack("iiiiiiiifffffff", fileContent[:60])
+   
+# pull out header information    
+ix0 = tshead[0]            #/* starting x grid location for output */
+iy0 = tshead[1]            #/* starting y grid location for output */
+iz0 = tshead[2]            #/* starting z grid location for output */
+it0 = tshead[3]            #/* starting time step for output */
+nx = tshead[4]             #/* number of x points                                */
+ny = tshead[5]             #/* number of y points                                */
+nz = tshead[6]             #/* number of z points                                */
+nt = tshead[7]             #/* number of time points                                */
+dx = tshead[8]             #/* X direction spacing btw adjacent points        */
+dy = tshead[9]             #/* Y direction spacing btw adjacent points        */
+dz = tshead[10]            #/* Z direction spacing btw adjacent points        */
+dt = tshead[11]            #/* time step *
+modelrot = tshead[12]      #/* rotation of y-axis from south (clockwise positive)   */
+modellat = tshead[13]      #/* latitude of model origin                             */
+modellon = tshead[14]      #/* longitude of model origin                            */
+
+# %% ##### BUILD ORDERED COORDINATED FILE BASED ON RG SYN #####
+# define variables
+fsize = nx*ny*3*nt # number of poimts
+fpts = nx*ny # number of grid points
+
+##### SET UP GRID POINTS #####
+# initialize variables
+x = []
+y = []
+xy = []
+
+# create array for grid points in x and y
+a = np.linspace(0,nx*10,num=nx*10, endpoint=False)
+b = np.linspace(0,ny*10,num=ny*10, endpoint=False)
+
+for y in b:
+    for x in a:
+        pt = [int(x),int(y)]
+        xy.append(pt)
+
+# %% ##### PULL IN TRANSFORMATION FROM X,Y TO LAT,LON #####
+    
+latlonmod = []
+xymod = []
+model_trans = []
+count = 0
+
+# pull in latlon to xy coordinate transformation info
+modelcoord = '/Users/bcbirkel/Documents/GitHub/LABasin/model_coords_sc01-h0.100'
+coord = open(modelcoord, 'r')
+pairs = coord.readlines()
+for line in pairs:
+    split_line = line.split()
+    lon = float(split_line[0])
+    lat = float(split_line[1])
+    xmod = int(split_line[2])
+    ymod = int(split_line[3])
+    if ymod%10 == 0 and xmod%10 == 0 and ymod < ny*10 and xmod < nx*10:
+        latlonmod.append([lat,lon])
+        xymod.append([xmod,ymod])
+        model_trans.append([xmod,ymod,lat,lon,count])
+        count = count + 1
+    
+print("coordinates stripped from synthetic coord transformation file") #check
+
+# %% ##### ADD SORTED INDEX TO MODEL_TRANS ##### don't strictly need this but it's a good check
+
+f = open('/Users/bcbirkel/Documents/GitHub/LABasin/sorted_model_coords','w')
+
+for i in range(len(model_trans)):
+    f.write(str(model_trans[i][0]) + ' ' + str(model_trans[i][1]) + ' ' + str(model_trans[i][2]) + ' ' + str(model_trans[i][3]) + ' ' + str(model_trans[i][4]) +'\n')
+            
+print("added simulation index point to coordinate file")
+# model_trans var now has format (x,y,lat,lon,index of line in binary file corresponding to that point)
+
+f.close()
+
+# %% ##### STRIP ACTUAL PHYSICAL STATION FILE #####
+
+# read in station file
+stationFile = "/Users/bcbirkel/Documents/GitHub/LABasin/VidaleCodes/stations.txt"
+stations = []
+
+# strip station file
+staCoord = open(stationFile, 'r')
+lines = staCoord.readlines()
+for line in lines:
+    if not line.startswith("Num"): # ignore first line
+        split_line = line.split()
+        net = split_line[2]
+        code = split_line[3]
+        lat = float(split_line[4])
+        lon = float(split_line[5])
+        stations.append([net,code,lat,lon])
+        
+print("stripped Vidale station file")
+
+
+# %% ##### FIND SIMULATION POINTS CLOSEST TO ACTUAL STATIONS #####
+ind_dist = []
+for sta in stations: # John's stations
+    leng = []
+    for i in range(len(model_trans)): #coords from transform file
+        pt = model_trans[i] # point from simulation
+        [dist,az,baz] = gps2dist_azimuth(pt[2], pt[3], sta[2], sta[3]) # distance between each station and model pt
+        leng.append(dist/1000) # just save length in km
+    sort_leng = sorted(set(leng))
+    min1 = sort_leng[0] # get index of model point closest to each station
+    min2 = sort_leng[1]
+    min3 = sort_leng[2]
+    min4 = sort_leng[3]
+    ind_min = leng.index(min1)
+    ind_min2 = leng.index(min2)
+    ind_min3 = leng.index(min3)
+    ind_min4 = leng.index(min4)
+ #   ind_dist.append([model_trans[ind_min][4],leng[ind_min],sta,ind_min]) #save simulation index of closest pt, dist and station for each station
+    #ind_dist.append([ind_min,leng[ind_min],sta]) #save simulation index of closest pt, dist and station for each station
+    ind_dist.append([ind_min,ind_min2,ind_min3,ind_min4,sta,min1,min2,min3,min4])
+print(("added station to line with nearest synthetic points"))
+# format of master --> [index of sim coord, distance between sim pt and station,[sta net, sta code, sta lat, sta lon]]]
+
+# %% ##### SAVE STATION MASTER TRANSFORMATION TO TEXT FILE #####
+
+file = open("/Users/bcbirkel/Documents/GitHub/LABasin/station_master.txt", "w")
+file.write("## Format: [[sta net, sta code, sta lat, sta lon], [sim x, sim y, sim lat, sim lon], index of sim coord, distance b/t sim pt and station in km]" + "\n")
+
+for pt in ind_dist:
+    net = pt[4][0]
+    code = pt[4][1]
+    stlat = str(pt[4][2])
+    stlon = str(pt[4][3])
+    simx = str(model_trans[pt[0]][0])
+    simy = str(model_trans[pt[0]][1])
+    simlat = str(model_trans[pt[0]][2])
+    simlon = str(model_trans[pt[0]][3])
+    ind = str(model_trans[pt[0]][4])
+    ind2 = str(model_trans[pt[1]][4])
+    ind3 = str(model_trans[pt[2]][4])
+    ind4 = str(model_trans[pt[3]][4])
+    print("ind_min = " + str(ind_dist[0]) + ", model_trans index = " + str(ind))
+    print("ind_min = " + str(ind_dist[1]) + ", model_trans index = " + str(ind2))
+    print("ind_min = " + str(ind_dist[2]) + ", model_trans index = " + str(ind3))
+    print("ind_min = " + str(ind_dist[3]) + ", model_trans index = " + str(ind4))
+    dist = str(pt[5])
+    dist2 = str(pt[6])
+    dist3 = str(pt[7])
+    dist4 = str(pt[8])
+    
+    file.write(net + " " + code + " " + stlat + " " + stlon + " " + simx + " " + simy + " " + simlat + " " + simlon + " " + ind + " " + ind2 + " " + ind3 + " " + ind4 + " " + dist + " " + dist2 + " " + dist3 + " " + dist4 + "\n")
+
+file.close()
+
+# format of sta_master --> 
+# [[sta net, sta code, sta lat, sta lon],[sim x, sim y, sim lat, sim lon],index of sim coord,distance b/t sim pt and station in km]
+
+
+
+
+
+
+

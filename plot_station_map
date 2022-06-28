@@ -1,0 +1,419 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Nov 18 21:37:58 2020
+
+@author: bcbirkel
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Sep 13 20:12:24 2020
+
+@author: bcbirkel
+"""
+
+## Cleaner plotting script
+
+# %% IMPORT STATEMENTS
+from obspy import read, read_inventory
+from obspy.signal.filter import bandpass
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.signal.invsim import simulate_seismometer, corn_freq_2_paz
+from obspy.geodetics import gps2dist_azimuth
+from obspy.io.sac import sacpz
+from obspy.io.sac import attach_paz
+from obspy.io.gse2.paz import read_paz
+import os
+from obspy.core import Trace, Stream, AttribDict
+import math
+from matplotlib import animation
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+# %% SET TOGGLE PARAMETERS
+syn_exist = True
+plotsyn = True
+plot_azimuth = False
+bpass = True
+plot_spec_st = True
+select_stns = False
+skip_stns = True; skip = 4
+snr = 40
+
+# plotting params
+ymin = 0
+ymax = 60
+xmin = 0
+xmax = 90
+
+#set corners for map
+llcrnrlon=-119
+llcrnrlat=33.25
+urcrnrlon=-117
+urcrnrlat=34.75
+
+#set bandpass frequencies
+high_freq = 1/2
+low_freq = 1/10 
+
+# %% STATIONS PARAMETERS
+stn_ignore =['24109', '24260','WTT2', 'LTP', '24944', '24587']
+stn_include = ['USC']
+stn_select = ['13160','BHP', '13878', '14028','FUL','STS','13877','14007','23138']
+
+# %% EVENT PARAMETERS AND METADATA
+#set event
+event_no = 0
+
+events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009', 'elmonte_2020']
+event = events[event_no]
+    
+if event_no == 0:
+    event_title = 'lahabra'
+    event_disp = 'La Habra 2014'
+    event_lat = 33.9325
+    event_lon = -117.9158
+    gain = 100/2
+    sy_gain = 100/2
+elif event_no == 3:
+    event_title = 'chinohills'
+    event_disp = 'Chino Hills 2008'
+    event_lat = 33.9465
+    event_lon = -117.7667
+elif event_no == 4:
+    event_title = 'inglewood'
+    event_disp = 'Inglewood 2009'
+    event_lat = 33.9377
+    event_lon = -118.3357
+    gain = 200
+    sy_gain = 200
+    vert_gain = 300
+elif event_no == 2:
+    event_title = 'chatsworth'
+    event_disp = 'Chatsworth 2007'
+    event_lat = 34.2983
+    event_lon = -118.6255
+    gain = 20
+    sy_gain = 20
+elif event_no == 1:
+    event_title = 'beverlyhills'
+    event_disp = 'Beverly Hills 2001'
+    event_lat = 34.0541
+    event_lon = -118.3929
+    gain = 20
+    sy_gain = 20
+elif event_no == 5:
+    event_title = 'elmonte'
+    event_disp = 'El Monte 2020'
+    event_lat = 34.0385
+    event_lon = -118.0803
+    gain_data = 5
+    sy_gain = 20
+else: 
+    print('unknown event file')
+
+gain = 100
+sy_gain = gain
+gain_data = gain
+# quick fix to avoid renaming params later    
+evla = event_lat; evlo = event_lon
+evlat = evla; evlon = evlo
+
+# %% READ IN DATA AND SYNTHETICS 
+#set directories
+path_dir_data = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/'
+if syn_exist == True:
+    path_dir_syn = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/'
+
+# read in data files
+if event_no == 5:
+    stream_dataN = read(path_dir_data + "*N_vel.SAC") 
+    stream_dataE = read(path_dir_data + "*E_vel.SAC")
+    stream_dataZ = read(path_dir_data + "*Z_vel.SAC") 
+    stream_dataR = read(path_dir_data + "*R_vel.SAC")  
+    stream_dataT = read(path_dir_data + "*T_vel.SAC")
+else:
+    stream_dataN = read(path_dir_data + "*N_vel.SAC") + read(path_dir_data + "*N.SAC")
+    stream_dataE = read(path_dir_data + "*E_vel.SAC") + read(path_dir_data + "*E.SAC") 
+    stream_dataZ = read(path_dir_data + "*Z_vel.SAC") + read(path_dir_data + "*Z.SAC") 
+    stream_dataR = read(path_dir_data + "*R_vel.SAC") + read(path_dir_data + "*R.SAC") 
+    stream_dataT = read(path_dir_data + "*T_vel.SAC") + read(path_dir_data + "*T.SAC") 
+
+for tr in stream_dataN:
+    cmp = "N"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+for tr in stream_dataE:
+    cmp = "E"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+for tr in stream_dataZ:
+    cmp = "Z"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+for tr in stream_dataR:
+    cmp = "R"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+for tr in stream_dataT:
+    cmp = "T"
+    tr.stats.channel = "BH" + cmp
+    tr.stats.sac.kcmpnm = "BH" + cmp
+    tr.stats.sac.evlo = evlo
+    tr.stats.sac.evla = evla
+
+# read in synthetics files
+if syn_exist == True:
+    # set syn files path
+    stream_synN = read(path_dir_syn + "Syn*N.SAC")
+    stream_synE = read(path_dir_syn + "Syn*E.SAC")
+    stream_synZ = read(path_dir_syn + "Syn*Z.SAC")
+    stream_synR = read(path_dir_syn + "Syn*R.SAC")
+    stream_synT = read(path_dir_syn + "Syn*T.SAC")
+    
+    for tr in stream_synN:
+        cmp = "N"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    for tr in stream_synE:
+        cmp = "E"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    for tr in stream_synZ:
+        cmp = "Z"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    for tr in stream_synR:
+        cmp = "R"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    for tr in stream_synT:
+        cmp = "T"
+        tr.stats.channel = "BH" + cmp
+        tr.stats.sac.kcmpnm = "BH" + cmp
+        tr.stats.sac.evlo = evlo
+        tr.stats.sac.evla = evla
+    
+# %% BUILD STREAMS FOR DATA AND SYNTHETICS 
+stream_data = stream_dataN + stream_dataE + stream_dataZ + stream_dataR + stream_dataT
+if syn_exist == True:
+    stream_syn = stream_synN + stream_synE + stream_synZ + stream_synR + stream_synT
+
+# %% FIND STATIONS FOR COMPARISON
+
+# initialize stn list
+data_stns = []
+syn_stns = []
+
+# data stations
+for tr in stream_data:
+    data_stns.append(tr.stats.sac.kstnm)
+    
+# synthetic stations
+if syn_exist == True:
+    for tr in stream_syn:
+        syn_stns.append(tr.stats.station)
+    
+# find unique stations
+data_st = set(data_stns)
+if syn_exist == True:
+    syn_st = set(syn_stns)
+
+# build list with intersectioning stations:
+if syn_exist == True:
+    stn_list = data_st.intersection(syn_st) 
+if syn_exist == False:
+    stn_list = data_st
+print(stn_list)
+
+# %% GET DISTANCES FROM SOURCE TO STATIONS
+
+for tr in stream_data:
+    if tr.stats.sac.stlo > 0:
+        tr.stats.sac.stlo = -tr.stats.sac.stlo # fix longitude sign problem because map can't handle negatives
+    distance = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo) # Get traveltime and azimuth
+    tr.stats.dist = distance[0]/1000. #m to km
+    tr.stats.az = distance[1]
+    tr.stats.baz = distance[2]
+    print(tr.stats.station + ": (" + str(tr.stats.sac.stla) + ", " + str(tr.stats.sac.stlo) + "), dist: " + str(tr.stats.dist)) 
+
+if syn_exist == True:
+    for tr in stream_syn:
+        distance = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo) # Get traveltime and azimuth
+        tr.stats.dist = distance[0]/1000. #m to km
+        tr.stats.az = distance[1]
+        tr.stats.baz = distance[2]
+    
+
+# %% PLOT STATIONS AND EVENT ON MAP
+
+f = plt.figure(figsize=(10,5))
+# setup mercator map projection.
+m = Basemap(projection='merc',llcrnrlon=llcrnrlon, llcrnrlat=llcrnrlat, urcrnrlon=urcrnrlon, urcrnrlat=urcrnrlat,epsg=4269) #http://server.arcgisonline.com/arcgis/rest/services; EPSG Number of America is 4269
+m.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True)
+basin_st = []
+
+# plot stations
+for tr in stream_data:
+    stlat = tr.stats.sac.stla; stlon = tr.stats.sac.stlo 
+    xx,yy = m(stlon,stlat)
+    m.scatter(xx, yy, marker = "^" ,s=100, c="g" , edgecolors = "k", alpha = 1, label = "Data")
+    
+# additional events:
+lat = [33.723167,
+34.038,
+33.865667,
+34.293667,
+34.301667,
+33.989,
+33.891333,
+33.546333,
+33.594,
+33.866,
+34.001333,
+34.002,
+34.136333,
+34.010833,
+33.652833,
+33.741,
+34.086667,
+34.038833,
+34.0075,
+34.171667,
+34.187667,
+34.191,
+34.0804,
+33.9948,
+33.5762,
+34.2749,
+34.3008,
+34.0874,
+33.5697,
+33.9421,
+33.8837,
+33.9117,
+33.9307]
+
+lon = [-117.604,
+-118.08,
+-117.833667,
+-118.4355,
+-118.438333,
+-118.3495,
+-118.2185,
+-118.171667,
+-117.27,
+-117.727667,
+-117.017333,
+-117.017833,
+-117.774667,
+-117.584667,
+-117.341833,
+-117.491167,
+-118.475667,
+-117.238667,
+-117.252167,
+-117.631167,
+-117.408,
+-117.413167,
+-117.448,
+-118.3451,
+-118.2761,
+-117.0105,
+-117.4961,
+-118.5024,
+-118.37,
+-117.8903,
+-117.9665,
+-117.8912,
+-117.9456]
+
+for i in range(len(lat)):
+    xx,yy = m(lon[i],lat[i])
+    m.scatter(xx, yy, marker = "*" ,s=250, c="y" , edgecolors = "k", alpha = 1) 
+
+# plot events
+for i in range(5):
+    event_no = i
+    if event_no == 0:
+        event_title = 'lahabra'
+        event_disp = 'La Habra 2014'
+        event_lat = 33.9325
+        event_lon = -117.9158
+        gain = 100/2
+        sy_gain = 100/2
+    elif event_no == 3:
+        event_title = 'chinohills'
+        event_disp = 'Chino Hills 2008'
+        event_lat = 33.9465
+        event_lon = -117.7667
+    elif event_no == 4:
+        event_title = 'inglewood'
+        event_disp = 'Inglewood 2009'
+        event_lat = 33.9377
+        event_lon = -118.3357
+        gain = 200
+        sy_gain = 200
+        vert_gain = 300
+    elif event_no == 2:
+        event_title = 'chatsworth'
+        event_disp = 'Chatsworth 2007'
+        event_lat = 34.2983
+        event_lon = -118.6255
+        gain = 20
+        sy_gain = 20
+    elif event_no == 1:
+        event_title = 'beverlyhills'
+        event_disp = 'Beverly Hills 2001'
+        event_lat = 34.0541
+        event_lon = -118.3929
+        gain = 20
+        sy_gain = 20
+
+                
+    # quick fix to avoid renaming params later    
+    evla = event_lat; evlo = event_lon
+    evlat = evla; evlon = evlo
+    if i == 0:
+        xx,yy = m(evlon,evlat)
+        m.scatter(xx, yy, marker = "*" ,s=250, c="y" , edgecolors = "k", alpha = 1) 
+    elif i == 4:
+        xx,yy = m(evlon,evlat)
+        m.scatter(xx, yy, marker = "*" ,s=250, c="y" , edgecolors = "k", alpha = 1) 
+    elif i == 1 or i == 2 or i == 3:
+        xx,yy = m(evlon,evlat)
+        m.scatter(xx, yy, marker = "*" ,s=250, c="y" , edgecolors = "k", alpha = 1) 
+        
+        
+
+if syn_exist == True:
+    plt.title("Events and Stations used for Data v. Synthetic Comparison")
+if syn_exist == False:
+    plt.title("All available data stations - " + event_disp)
+plt.show()
+
+fig_path = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/Figures/'
+f.savefig(fig_path + "Station map - " + event)
+

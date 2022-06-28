@@ -1,0 +1,484 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Sep 11 15:47:58 2020
+
+@author: bcbirkel
+"""
+
+from obspy import read, read_inventory
+from obspy.signal.filter import bandpass
+import pandas as pd
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+from obspy.signal.invsim import simulate_seismometer, corn_freq_2_paz
+from obspy.geodetics import gps2dist_azimuth
+from obspy.io.sac import sacpz
+from obspy.io.sac import attach_paz
+from obspy.io.gse2.paz import read_paz
+import os
+from obspy.core import Trace, Stream, AttribDict
+from obspy.signal.rotate import rotate_ne_rt
+import math
+import obspy.realtime.signal as signal
+from obspy.core.utcdatetime import UTCDateTime
+import shutil
+
+#Ignore warnings due to python 2 and 3 conflict
+import warnings
+warnings.filterwarnings("ignore")
+
+syn = False
+
+# %% Set parameters
+#set event
+for i in range(5):
+    event_no = i
+    events = ['lahabra_2014', 'beverlyhills_2001', 'chatsworth_2007', 'chinohills_2008', 'inglewood_2009']
+    event = events[event_no]
+    
+    
+    os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/')
+    if syn == True:
+        os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/')
+    # %% Set paths
+    
+    path_dir_CESMD = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/'
+    if syn == True:
+        path_dir_syn = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/'
+    
+    
+    if event_no == 0:
+        event_title = 'lahabra'
+        event_lat = 33.9325
+        event_lon = -117.9158
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC") + read(path_dir_CESMD + "*N.*.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")+ read(path_dir_CESMD + "*E.*.SAC")
+    elif event_no == 3:
+        event_title = 'chinohills'
+        event_lat = 33.9465
+        event_lon = -117.7667
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC") + read(path_dir_CESMD + "*N.*.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")+ read(path_dir_CESMD + "*E.*.SAC")
+
+    elif event_no == 4:
+        event_title = 'inglewood'
+        event_lat = 33.9377
+        event_lon = -118.3357
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")
+    elif event_no == 2:
+        event_title = 'chatsworth'
+        event_lat = 34.2983
+        event_lon = -118.6255
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC") + read(path_dir_CESMD + "*N.*.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")+ read(path_dir_CESMD + "*E.*.SAC")
+    elif event_no == 1:
+        event_title = 'beverlyhills'
+        event_lat = 34.0541
+        event_lon = -118.3929
+        stream_cesmdN = read(path_dir_CESMD + "*N_vel.SAC") + read(path_dir_CESMD + "*N.*.SAC")
+        stream_cesmdE = read(path_dir_CESMD + "*E_vel.SAC")+ read(path_dir_CESMD + "*E.*.SAC")
+    else: 
+        print('unknown event file')
+        
+    stream_cesmdN = read(path_dir_CESMD + "*BHN_vel.SAC") + read(path_dir_CESMD + "*BHN.*.SAC")
+    stream_cesmdE = read(path_dir_CESMD + "*BHE_vel.SAC") + read(path_dir_CESMD + "*BHE.*.SAC")
+
+    if syn == True:
+        stream_synSN = read(path_dir_syn + "CVM-S4/*N.SAC")
+        stream_synSE = read(path_dir_syn + "CVM-S4/*E.SAC")    
+        # stream_synHN = read(path_dir_syn + "CVM-H/*N.SAC")
+        # stream_synHE = read(path_dir_syn + "CVM-H/*E.SAC")
+    
+    # # initialize stn list
+    # cesmd_stnsN = []
+    # cesmd_stnsE = []
+    # synSN_stns = []
+    # synSE_stns = []
+    # synHN_stns = []
+    # synHE_stns = []
+    
+    # # populate lists
+    # for tr in stream_cesmdN:
+    #     cesmd_stnsN.append(tr.stats.sac.kstnm)
+    #     tr.stats.sac.evlo = event_lon
+    #     tr.stats.sac.evla = event_lat
+    #     tr.stats.channel = "BHN"
+        
+    # for tr in stream_cesmdE:
+    #     cesmd_stnsE.append(tr.stats.sac.kstnm)
+    #     tr.stats.sac.evlo = event_lon
+    #     tr.stats.sac.evla = event_lat
+    #     tr.stats.channel = "BHE"
+    
+    # if syn == True:    
+    #     for tr in stream_synSN:
+    #         synSN_stns.append(tr.stats.station)
+    #         tr.stats.sac.evlo = event_lon
+    #         tr.stats.sac.evla = event_lat
+    #         tr.stats.channel = "BHN"
+            
+    #     for tr in stream_synSE:
+    #         synSE_stns.append(tr.stats.station)
+    #         tr.stats.sac.evlo = event_lon
+    #         tr.stats.sac.evla = event_lat
+    #         tr.stats.channel = "BHE"
+    
+        # for tr in stream_synHN:
+        #     synHN_stns.append(tr.stats.station)
+        #     tr.stats.sac.evlo = event_lon
+        #     tr.stats.sac.evla = event_lat
+        #     tr.stats.channel = "N"
+            
+        # for tr in stream_synHE:
+        #     synHE_stns.append(tr.stats.station)
+        #     tr.stats.sac.evlo = event_lon
+        #     tr.stats.sac.evla = event_lat
+        #     tr.stats.channel = "E"
+        
+        
+    # # intersection of stations
+    
+    # #cesmd_stns = cesmd_stnsE.intersection(cesmd_stnsN)
+    # cesmd_st = set(cesmd_stnsN)
+
+    # if syn == True:    
+    #     synSN_st = synSN_stns
+    #     synSE_st = synSE_stns
+    #     synS_st = synSE_st + synSE_st
+    #     synS_st = set(synS_st)
+        
+    #     # synH_stns = synHE_stns + synHN_stns
+    #     # synH_st = set(synH_stns) 
+    
+    # %% STATIONS
+    stationFile = "/Users/bcbirkel/Documents/GitHub/LABasin/all_stationmaster.txt"
+    # Load station coords into arrays, many more stations than used
+    st_netw  = []
+    st_name  = []
+    st_dist  = []
+    st_az    = []
+    st_baz   = []
+    st_lat   = []
+    st_lon   = []
+    
+    # strip station file
+    staCoord = open(stationFile, 'r')
+    lines = staCoord.readlines()
+    for line in lines:
+        split_line = line.split()
+        st_netw.append(split_line[0])
+        st_name.append(split_line[1])
+        st_lat.append(float(split_line[2]))
+        st_lon.append(float(split_line[3]))
+        distance = gps2dist_azimuth(event_lat, event_lon, float(split_line[2]), float(split_line[3])) # Get traveltime and azimuth
+        print(distance[0]/1000.)
+        st_dist.append(distance[0]/1000.) # distance
+        st_az.append(distance[1]) # azimuth
+        st_baz.append(distance[2]) # back-azimuth
+      
+            
+    # %% COMBINE STREAMS
+    stream_cesmd = stream_cesmdN + stream_cesmdE
+    if syn == True:
+        stream_synS = stream_synSN + stream_synSE
+        # stream_synH = stream_synHN + stream_synHE
+        
+    dataPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/allData/fixed/'   
+    if os.path.exists(dataPath):
+        shutil.rmtree(dataPath)
+    os.mkdir(dataPath)
+    os.chdir(dataPath)
+    for i in range(len(st_name)):
+        tnT = False
+        teT = False
+        tn = Trace()
+        te = Trace()
+        trad = Trace()
+        ttrans = Trace()
+        
+        for tr in stream_cesmd:
+            if st_name[i] == tr.stats.station:
+                # dist_az = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo)
+                # dist = dist_az[0]/1000.
+                # az = dist_az[1]
+                # baz = dist_az[2]
+                dist = st_dist[i]
+                az = st_az[i]
+                baz = st_baz[i]
+                
+                if tr.stats.channel == "BHN":
+                    tr.stats.dist = dist
+                    tr.stats.sac.dist = dist
+                    tr.stats.sac.az = az
+                    tr.stats.sac.baz = baz
+                    
+                    tn.data = tr.data
+                    tn.stats = tr.stats
+                    
+                    trad.data = tr.data
+                    trad.stats = tr.stats
+                    
+                    tnT = True
+                
+                if tr.stats.channel == "BHE":
+                    tr.stats.dist = dist
+                    tr.stats.sac.dist = dist
+                    tr.stats.sac.az = az
+                    tr.stats.sac.baz = baz
+                    
+                    te.data = tr.data
+                    te.stats = tr.stats
+                    
+                    ttrans.data = tr.data
+                    ttrans.stats = tr.stats
+                    
+                    teT = True 
+               
+                if tnT == True and teT == True:
+                    if not len(tn) == len(te):
+                        start = max(tn.stats.starttime,te.stats.starttime)
+                        end = min(tn.stats.endtime,te.stats.endtime)
+                        sr = min(tn.stats.sampling_rate, te.stats.sampling_rate)
+                        tn.resample(sr)
+                        te.resample(sr)
+                        tn = tn.slice(start,end,nearest_sample = False)
+                        te = te.slice(start,end,nearest_sample = False)
+                        if not len(tn) == len(te):
+                            m = min(len(te), len(tn))
+                            te.data = te.data[0:m]
+                            tn.data = tn.data[0:m]
+                            
+                    trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+                    
+                    # trad.stats = tn.stats
+                    # ttrans.stats = tn.stats
+                    
+                    # traces = [tn,te,trad,ttrans]
+                    # for t in traces:
+                    #     t.stats.dist = dist
+                    #     t.stats.sac.dist = dist
+                    #     t.stats.sac.az = az
+                    #     t.stats.sac.baz = baz
+
+                    tn.stats.channel = "BHN"
+                    tn.write(tr.stats.network + "_" + tr.stats.station + "_" + tn.stats.channel + "_vel.SAC", format="SAC")
+                    
+                    te.stats.channel = "BHE"
+                    te.write(tr.stats.network + "_" + tr.stats.station + "_" + te.stats.channel + "_vel.SAC", format="SAC")
+                    
+                    trad.stats.channel = "BHR"
+                    trad.stats.sac.kcmpnm = "BHR"
+                    trad.write(tr.stats.network + "_" + tr.stats.station + "_" + trad.stats.channel + "_vel.SAC", format="SAC")
+                    
+                    ttrans.stats.channel = "BHT"
+                    ttrans.stats.sac.kcmpnm = "BHT"
+                    ttrans.write(tr.stats.network + "_" + tr.stats.station + "_" + ttrans.stats.channel + "_vel.SAC", format="SAC")  # print("rotated synS!")  
+                        
+                    #print("rotated cesmd!")
+    
+
+    if syn == True:
+        synPath = '/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-S4/'
+        # if os.path.isdir(synPath) == False:
+        #     os.mkdir(synPath)    
+        os.chdir(synPath)
+        for tr in stream_synS:
+            for trD in stream_cesmd:
+                if tr.stats.station == trD.stats.station:
+                    tr.stats.starttime = trD.stats.starttime 
+                    
+        for i in range(len(st_name)):
+            tnT = False
+            teT = False
+            for tr in stream_synS:                  
+                if st_name[i] == tr.stats.station:
+                    dist_az = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, st_lat[i], st_lon[i])
+                    dist = dist_az[0]/1000.
+                    print(dist)
+                    az = dist_az[1]
+                    baz = dist_az[2]
+                    # print("check")
+                    if tr.stats.channel == "BHN":
+                        tn = tr
+                        tnT = True
+                    if tr.stats.channel == "BHE":
+                        te = tr
+                        teT = True
+                    if tnT == True and teT == True:
+                        trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+                        
+                        trad.stats = tn.stats                                                
+                        ttrans.stats = tn.stats
+                        
+                        traces = [tn,te,trad,ttrans]
+                        for t in traces:
+                            t.stats.dist = dist
+                            t.stats.sac.dist = dist
+                            t.stats.sac.az = az
+                            t.stats.sac.baz = baz
+    
+                        tn.stats.channel = "BHN"
+                        tn.write(tr.stats.network + "_" + tr.stats.station + "_" + tn.stats.channel + "_vel.SAC", format="SAC")
+                        
+                        te.stats.channel = "BHE"
+                        te.write(tr.stats.network + "_" + tr.stats.station + "_" + te.stats.channel + "_vel.SAC", format="SAC")
+                        
+                        trad.stats.channel = "BHR"
+                        trad.stats.sac.kcmpnm = "BHR"
+                        trad.write(tr.stats.network + "_" + tr.stats.station + "_" + trad.stats.channel + "_vel.SAC", format="SAC")
+                        
+                        ttrans.stats.channel = "BHT"
+                        ttrans.stats.sac.kcmpnm = "BHT"
+                        ttrans.write(tr.stats.network + "_" + tr.stats.station + "_" + ttrans.stats.channel + "_vel.SAC", format="SAC")  # print("rotated synS!")  
+                        
+
+    # %% FIX ROGUE STATIONS
+    
+    stream_data = read(dataPath + "*_vel.SAC") + read(path_dir_CESMD + "*BHZ*.SAC")
+    # cut out stations past ymax and with low signal-to-noise
+    for tr in stream_data:
+        print(tr.stats.network + ", " + tr.stats.station + ", " + tr.stats.channel + ", " + str(tr.max()))
+        #print(tr.max())
+        if abs(tr.max()) > 10000 and not tr.stats.network == "CE":
+            signal.scale(tr, 100/tr.stats.sac.scale)
+            print(tr.stats.station + ", " + tr.stats.channel + ", " + str(tr.max()) + ", " + str(tr.stats.sac.scale))
+    
+        tr.write(dataPath + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + "_vel.SAC", format="SAC")
+    
+            
+    # %% SET UP FIGURES FOR PLOTTING
+    
+    stream_data = read(dataPath + "*_vel.SAC")
+    starts = []
+    for tr in stream_data:
+        starts.append(tr.stats.starttime)
+    start = max(starts)
+    if event_no == 4:
+        start = UTCDateTime("2009-05-18T03:39:37.000000Z")
+    
+    stream_data = read(dataPath + "*_vel.SAC",starttime=start)
+    for tr in stream_data:
+        for i in range(len(st_name)):
+            if st_name[i] == tr.stats.station:
+                tr.stats.dist = st_dist[i]
+                tr.stats.sac.dist = st_dist[i]
+    
+        tr.write(dataPath + tr.stats.network + "_" + tr.stats.station + "_" + tr.stats.channel + "_vel.SAC", format="SAC")
+    
+    stream_data = read(dataPath + "*_vel.SAC")
+    
+    # figures for distance plots
+    figN = plt.figure(0, figsize=[8,5])
+    aN = figN.add_subplot(1, 1, 1)
+    figE = plt.figure(1, figsize=[8,5])
+    aE = figE.add_subplot(1, 1, 1)
+    figR = plt.figure(2, figsize=[8,5])
+    aR = figR.add_subplot(1, 1, 1)
+    figT = plt.figure(3, figsize=[8,5])
+    aT = figT.add_subplot(1, 1, 1)
+    figZ = plt.figure(4, figsize=[8,5])
+    aZ = figZ.add_subplot(1, 1, 1)
+    
+    if syn == True: 
+        syn_times = np.arange(0,len(stream_synS.traces[0])*stream_synS.traces[0].stats.delta,stream_synS.traces[0].stats.delta)
+        
+        for sytr in stream_synS:
+            for tr in stream_cesmd:
+                if tr.stats.station == sytr.stats.station and tr.stats.station in st_name:
+                    sytr.stats.dist = tr.stats.sac.dist
+                
+
+    
+    data_plot = stream_data
+    #syn_plot = stream_synS
+    
+    # set up directory to save figs
+    
+    # set up vars to loop through
+    figs = [figN,figE,figR,figT,figZ]
+    axes = [aN,aE,aR,aT,aZ]
+    channels = ["BHN","BHE","BHR","BHT","BHZ"]
+    
+    # loop through each component
+    for i in range(len(axes)):
+        fig = figs[i]
+        a = axes[i]
+        cha = channels[i]
+        
+        a.set_ylabel("Distance from source (km)")    
+        a.set_xlabel("Time (s)")
+        a.set_title("Data (black) v. Syn (red) for " + event +  " - " + cha)
+        
+        for tr in data_plot:
+            if tr.stats.channel == cha and tr.stats.station in st_name:
+                # set up vars
+                times = np.linspace(0, tr.stats.npts*tr.stats.delta, len(tr))
+                dist = tr.stats.sac.dist; df = tr.stats.sampling_rate
+                #gain = 20*math.sqrt(dist); sy_gain = gain
+                gain = 1
+                a.set_ylim(0,80)
+                a.set_xlim(0,60)
+                
+                # plot data
+                if tr.stats.network == "CI":
+                    a.plot(times, tr.data*gain+dist,c="k",linewidth=0.5)
+                elif tr.stats.network == "CE":
+                    a.plot(times, tr.data*gain+dist,c="b",linewidth=0.5)
+                else:
+                    a.plot(times, tr.data*gain+dist,c="r",linewidth=0.5)
+                if dist < 80: 
+                    a.text(55,dist,tr.stats.sac.kstnm)
+                
+                # # add station names
+                # if dist < ymax: 
+                #     a.text(xmax-10,dist,tr.stats.sac.kstnm)
+    
+        # if syn == True: 
+        #     for sytr in syn_plot:
+        #         if sytr.stats.sac.kcmpnm == cha and tr.stats.station in st_name:
+        #             # set up times for x-axis
+        #             syn_times = np.linspace(0,sytr.stats.npts*sytr.stats.delta,sytr.stats.npts)
+        #             a.set_ylim(0,100)
+        #             a.set_xlim(0,60)
+                    
+        #             # plot synthetics on top of data
+        #             a.plot(syn_times, sytr.data*sy_gain+sytr.stats.sac.dist,c="r",linewidth=0.5)
+                    
+                    
+    plt.show()
+        
+        # os.chdir('/Users/bcbirkel/Documents/GitHub/LABasin/CompiledEvents/' + event + '/GravesSyn/CVM-H/')
+        # for st in synH_st:
+        #     count = 0
+        #     for tr in stream_synH:
+        #         if st == tr.stats.station:
+        #             dist_az = gps2dist_azimuth(tr.stats.sac.evla, tr.stats.sac.evlo, tr.stats.sac.stla, tr.stats.sac.stlo)
+        #             dist = dist_az[0]
+        #             az = dist_az[1]
+        #             baz = dist_az[2]
+        #             print("check")
+        #             if tr.stats.channel == "BHN":
+        #                 tn = tr
+        #                 trad = tn
+        #                 trad.stats.channel = "BHR"
+        #                 trad.stats.sac.kcmpnm = "BHR"
+        #                 count += 1
+        #             if tr.stats.channel == "BHE":
+        #                 te = tr
+        #                 ttrans = te
+        #                 ttrans.stats.channel = "BHT"
+        #                 ttrans.stats.sac.kcmpnm = "BHT"
+        #                 count += 1
+        #             if count == 2:
+        #                 trad.data, ttrans.data = rotate_ne_rt(tn.data,te.data,baz)
+        #                 trad.write("Syn_" + event_title + "_" + tr.stats.station + "_R.SAC", format="SAC")
+        #                 ttrans.write("Syn_" + event_title + "_" + tr.stats.station + "_T.SAC", format="SAC")
+        #                 print("rotated synH!") 
+    
+    # #for tr in stream_synS:
+    #     #print(tr.stats.sac.stla)
+    # #for tr in stream_synH:
+    #     #print(tr.stats.sac.stla)
