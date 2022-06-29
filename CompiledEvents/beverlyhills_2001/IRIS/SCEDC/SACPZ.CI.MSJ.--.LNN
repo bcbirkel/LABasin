@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : MSJ
+* LOCATION    : 
+* CHANNEL     : LNN
+* CREATED     : 2022-06-01T19:42:47.696082Z
+* START       : 2008-05-30T02:03:57.000000Z
+* END         : 2011-02-01T18:00:00.000000Z
+* DESCRIPTION : Mt. San Jacinto Campus
+* LATITUDE    : 33.80801
+* LONGITUDE   : -116.96789
+* ELEVATION   : 466.0
+* DEPTH       : 2.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 14.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0214 (M/S**2)
+* SENSITIVITY : 13.408 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 3.297791e+14
+
+
+

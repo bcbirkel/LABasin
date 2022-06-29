@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : LCG
+* LOCATION    : 
+* CHANNEL     : HLZ
+* CREATED     : 2022-06-01T19:37:22.425275Z
+* START       : 2006-04-27T04:46:52.000000Z
+* END         : 2008-06-13T09:06:42.000000Z
+* DESCRIPTION : La Cienega
+* LATITUDE    : 34.00033
+* LONGITUDE   : -118.37794
+* ELEVATION   : 108.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0209 (M/S**2)
+* SENSITIVITY : 414509.0 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.019514e+19
+
+
+

@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : LDR
+* LOCATION    : 
+* CHANNEL     : HLN
+* CREATED     : 2022-06-01T19:38:02.867669Z
+* START       : 2006-10-20T17:51:00.000000Z
+* END         : 2008-06-11T04:45:25.000000Z
+* DESCRIPTION : Leduc Ranch
+* LATITUDE    : 34.9906
+* LONGITUDE   : -118.34156
+* ELEVATION   : 1121.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0197 (M/S**2)
+* SENSITIVITY : 427694.0 (M/S**2)
+* A0          : 24595600000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.051939e+19
+
+
+

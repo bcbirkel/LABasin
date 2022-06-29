@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24967
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2022-06-01T19:14:33.486769Z
+* START       : 2006-11-28T00:00:00.000000Z
+* END         : 2021-05-04T00:00:00.000000Z
+* DESCRIPTION : Palmdale - 30th St West & Ave P
+* LATITUDE    : 34.6034
+* LONGITUDE   : -118.1821
+* ELEVATION   : 825.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.064 (M/S**2)
+* SENSITIVITY : 214751.0 (M/S**2)
+* A0          : 355540.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.054670e+02 +4.371960e+02
+ -4.054670e+02 -4.371960e+02
+CONSTANT 7.635257e+10
+
+
+

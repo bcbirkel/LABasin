@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13186
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2021,024,15:51:44
+* START             : 2004,280,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Corona - I15/Hwy 91 Geotech Array
+* LATITUDE          : 33.8817
+* LONGITUDE         : -117.5491
+* ELEVATION         : 189
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 180
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137419E+05 (M/S**2)
+* A0                : 3.630684E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.85637E+02    +4.62990E+02
+        -3.85637E+02    -4.62990E+02
+CONSTANT        +7.760292E+10

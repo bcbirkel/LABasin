@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : WGR
+* LOCATION    : 
+* CHANNEL     : LHN
+* CREATED     : 2021-01-25T01:15:14.302171Z
+* START       : 2006-07-08T02:07:07.000000Z
+* END         : 2009-07-23T17:30:00.000000Z
+* DESCRIPTION : Wheeler Gorge Ranger Station
+* LATITUDE    : 34.51085
+* LONGITUDE   : -119.27407
+* ELEVATION   : 554.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1499.91 (M/S)
+* SENSITIVITY : 606293000.0 (M/S)
+* A0          : 48627500.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -3.702370e-02 +3.702440e-02
+ -3.702370e-02 -3.702440e-02
+ -1.187520e+02 +4.234880e+02
+ -1.187520e+02 -4.234880e+02
+ -2.513270e+02 +0.000000e+00
+CONSTANT 2.948251e+16
+
+
+

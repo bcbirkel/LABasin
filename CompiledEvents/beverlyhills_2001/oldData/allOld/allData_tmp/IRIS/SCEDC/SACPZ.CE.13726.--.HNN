@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13726
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2021-01-25T00:03:00.948463Z
+* START       : 1996-02-07T00:00:00.000000Z
+* END         : 2014-01-28T00:00:00.000000Z
+* DESCRIPTION : Corona - Calif. Ave.
+* LATITUDE    : 33.8556
+* LONGITUDE   : -117.5404
+* ELEVATION   : 240.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 180.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1275 (M/S**2)
+* SENSITIVITY : 1671.16 (M/S**2)
+* A0          : 104293.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.066920e+02 +2.481510e+02
+ -2.066920e+02 -2.481510e+02
+CONSTANT 1.742903e+08
+
+
+

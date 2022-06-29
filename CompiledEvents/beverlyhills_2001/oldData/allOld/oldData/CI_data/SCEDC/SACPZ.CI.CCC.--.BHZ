@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : CCC
+* LOCATION    : 
+* CHANNEL     : BHZ
+* CREATED     : 2020-02-18T16:37:37.003498Z
+* START       : 2001-06-22T00:00:00.000000Z
+* END         : 2006-04-23T00:20:38.000000Z
+* DESCRIPTION : Christmas Canyon China Lake
+* LATITUDE    : 35.52495
+* LONGITUDE   : -117.36453
+* ELEVATION   : 670.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 20.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1499.91 (M/S)
+* SENSITIVITY : 786021000.0 (M/S)
+* A0          : 48627500.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -3.702370e-02 +3.702440e-02
+ -3.702370e-02 -3.702440e-02
+ -1.187520e+02 +4.234880e+02
+ -1.187520e+02 -4.234880e+02
+ -2.513270e+02 +0.000000e+00
+CONSTANT 3.822224e+16
+
+
+

@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23774
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:08:30.334299Z
+* START       : 2004-08-05T00:00:00.000000Z
+* END         : 2008-11-20T00:00:00.000000Z
+* DESCRIPTION : West Covina - I10 & Pacific Ave
+* LATITUDE    : 34.073
+* LONGITUDE   : -117.939
+* ELEVATION   : 113.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0637 (M/S**2)
+* SENSITIVITY : 213744.0 (M/S**2)
+* A0          : 378372.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.059820e+02 +4.621210e+02
+ -4.059820e+02 -4.621210e+02
+CONSTANT 8.087474e+10
+
+
+

@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14403
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:10:45.497997Z
+* START       : 1997-07-30T00:00:00.000000Z
+* END         : 2008-12-12T00:00:00.000000Z
+* DESCRIPTION : Los Angeles - 116th St. School
+* LATITUDE    : 33.929
+* LONGITUDE   : -118.26
+* ELEVATION   : 26.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1269 (M/S**2)
+* SENSITIVITY : 103.956 (M/S**2)
+* A0          : 104705.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.232730e+02 +2.342130e+02
+ -2.232730e+02 -2.342130e+02
+CONSTANT 1.088471e+07
+
+
+

@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13122
+* LOCATION    : 
+* CHANNEL     : HN3
+* CREATED     : 2021-01-25T00:03:00.930917Z
+* START       : 2000-01-06T00:00:00.000000Z
+* END         : 2016-08-02T00:00:00.000000Z
+* DESCRIPTION : Featherly Park - Maint. Bldg.
+* LATITUDE    : 33.8688
+* LONGITUDE   : -117.7094
+* ELEVATION   : 116.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 88.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0642 (M/S**2)
+* SENSITIVITY : 215422.0 (M/S**2)
+* A0          : 340709.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.794100e+02 +4.435800e+02
+ -3.794100e+02 -4.435800e+02
+CONSTANT 7.339621e+10
+
+
+

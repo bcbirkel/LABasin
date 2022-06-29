@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : RIO
+* LOCATION    : 
+* CHANNEL     : LNZ
+* CREATED     : 2020-08-26T02:16:09.540121Z
+* START       : 2007-06-13T20:27:00.000000Z
+* END         : 2010-11-03T15:30:00.000000Z
+* DESCRIPTION : Rio Hondo
+* LATITUDE    : 34.10473
+* LONGITUDE   : -117.97956
+* ELEVATION   : 118.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0201 (M/S**2)
+* SENSITIVITY : 404693.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 9.953708e+18
+
+
+

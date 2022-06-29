@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23572
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:07:50.340077Z
+* START       : 1991-05-21T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Mt. Baldy - Elementary School
+* LATITUDE    : 34.2329
+* LONGITUDE   : -117.661
+* ELEVATION   : 1254.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1274 (M/S**2)
+* SENSITIVITY : 104.366 (M/S**2)
+* A0          : 110052.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.123210e+02 +2.549100e+02
+ -2.123210e+02 -2.549100e+02
+CONSTANT 1.148569e+07
+
+
+

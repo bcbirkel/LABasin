@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): GVS1
+* LOCATION   (KHOLE): LI
+* CHANNEL   (KCMPNM): RR0
+* CREATED           : 2021-01-24T23:50:45
+* START             : 2005-06-01T00:00:00
+* END               : 2015-05-20T00:00:00
+* DESCRIPTION       : glendallsmcs2005, CA, USA
+* LATITUDE          : 34.178368
+* LONGITUDE         : -118.220108
+* ELEVATION         : 313.9
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.00333
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : RAIN GAUGE TIPPING-BUCKET
+* INSTGAIN          : 5.203150e-02 (M)
+* COMMENT           : 
+* SENSITIVITY       : 1.588000e-05 (M)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

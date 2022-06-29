@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14403
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2022,152,11:48:35
+* START             : 1997,211,00:00:00
+* END               : 2008,347,00:00:00
+* DESCRIPTION       : Los Angeles - 116th St. School
+* LATITUDE          : 33.929
+* LONGITUDE         : -118.26
+* ELEVATION         : 26
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 1.275000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.044480E+02 (M/S**2)
+* A0                : 1.047005E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -2.10330E+02    +2.45903E+02
+        -2.10330E+02    -2.45903E+02
+CONSTANT        +1.093576E+07

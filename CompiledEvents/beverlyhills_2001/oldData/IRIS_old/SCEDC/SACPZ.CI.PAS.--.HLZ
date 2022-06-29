@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : PAS
+* LOCATION    : 
+* CHANNEL     : HLZ
+* CREATED     : 2021-03-24T22:58:14.628317Z
+* START       : 2001-07-13T23:57:00.000000Z
+* END         : 2003-12-09T00:00:00.000000Z
+* DESCRIPTION : Pasadena
+* LATITUDE    : 34.14844
+* LONGITUDE   : -118.17117
+* ELEVATION   : 314.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 80.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.50974 (M/S**2)
+* SENSITIVITY : 204892.0 (M/S**2)
+* A0          : 161348000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 3
+ -2.099100e+02 +2.520100e+02
+ -2.099100e+02 -2.520100e+02
+ -1.500000e+03 +0.000000e+00
+CONSTANT 3.305891e+13
+
+
+

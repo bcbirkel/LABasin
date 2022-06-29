@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): GVS1
+* LOCATION   (KHOLE): LI
+* CHANNEL   (KCMPNM): LE1
+* CREATED           : 2021-01-24T23:50:44
+* START             : 2005-06-01T00:00:00
+* END               : 2015-05-20T00:00:00
+* DESCRIPTION       : glendallsmcs2005, CA, USA
+* LATITUDE          : 34.178368
+* LONGITUDE         : -118.220108
+* ELEVATION         : 313.9
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : VOLT
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : ZENER DIODE
+* INSTGAIN          : 1.000000e+00 (VOLTS)
+* COMMENT           : 
+* SENSITIVITY       : 3.052000e-04 (VOLTS)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

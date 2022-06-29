@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : DJJ
+* LOCATION    : 
+* CHANNEL     : LNZ
+* CREATED     : 2022-06-01T19:28:45.163352Z
+* START       : 2008-05-08T22:33:56.000000Z
+* END         : 2010-09-22T18:00:00.000000Z
+* DESCRIPTION : Donna Jones Jenkins
+* LATITUDE    : 34.10618
+* LONGITUDE   : -118.45505
+* ELEVATION   : 268.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0201 (M/S**2)
+* SENSITIVITY : 10.9689 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 2.697878e+14
+
+
+

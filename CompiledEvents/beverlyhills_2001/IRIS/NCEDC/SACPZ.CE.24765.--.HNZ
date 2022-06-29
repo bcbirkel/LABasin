@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24765
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2022,152,11:49:47
+* START             : 2005,130,00:00:00
+* END               : 2008,344,00:00:00
+* DESCRIPTION       : Panorama City - Roscoe & Woodman
+* LATITUDE          : 34.219
+* LONGITUDE         : -118.429
+* ELEVATION         : 241
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.269189E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.94521E+02    +4.13852E+02
+        -3.94521E+02    -4.13852E+02
+CONSTANT        +6.998666E+10

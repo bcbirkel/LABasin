@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24851
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2022-06-01T19:18:39.766830Z
+* START       : 2001-08-23T00:00:00.000000Z
+* END         : 2012-05-22T00:00:00.000000Z
+* DESCRIPTION : Los Angeles - 3rd & La Brea LADOT
+* LATITUDE    : 34.0695
+* LONGITUDE   : -118.3464
+* ELEVATION   : 65.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214077.0 (M/S**2)
+* A0          : 369152.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.949300e+02 +4.617240e+02
+ -3.949300e+02 -4.617240e+02
+CONSTANT 7.902695e+10
+
+
+

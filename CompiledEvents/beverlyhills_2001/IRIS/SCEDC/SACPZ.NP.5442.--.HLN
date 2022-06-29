@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : NP
+* STATION     : 5442
+* LOCATION    : 
+* CHANNEL     : HLN
+* CREATED     : 2022-06-01T20:15:35.704507Z
+* START       : 2004-10-13T00:00:00.000000Z
+* END         : 2011-11-01T21:00:00.000000Z
+* DESCRIPTION : Oak Glen, Christian Center (OKGL)
+* LATITUDE    : 34.049049
+* LONGITUDE   : -116.940323
+* ELEVATION   : 1533.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.01846 (M/S**2)
+* SENSITIVITY : 3417370.0 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 8.405261e+19
+
+
+

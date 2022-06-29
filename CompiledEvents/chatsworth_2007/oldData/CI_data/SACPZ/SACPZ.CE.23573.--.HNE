@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23573
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2020-08-26T01:31:30.909946Z
+* START       : 1990-03-13T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Wrightwood - Nielson Ranch
+* LATITUDE    : 34.314
+* LONGITUDE   : -117.545
+* ELEVATION   : 1338.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1273 (M/S**2)
+* SENSITIVITY : 104.284 (M/S**2)
+* A0          : 109224.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.247370e+02 +2.423230e+02
+ -2.247370e+02 -2.423230e+02
+CONSTANT 1.139032e+07
+
+
+

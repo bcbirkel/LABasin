@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B093
+* LOCATION   (KHOLE): T2
+* CHANNEL   (KCMPNM): RCB
+* CREATED           : 2022-06-01T18:46:16
+* START             : 2007-09-20T00:00:00
+* END               : 
+* DESCRIPTION       : trippf093bcs2007, Anza, CA, USA
+* LATITUDE          : 33.593690
+* LONGITUDE         : -116.764100
+* ELEVATION         : 1229.6
+* DEPTH             : 144.8
+* DIP               : 90.0
+* AZIMUTH           : 279.0
+* SAMPLE RATE       : 2.7778E-4
+* INPUT UNIT        : VOLT
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : GLADWIN TENSOR STRAINMETER PBO 05-034
+* INSTGAIN          : 1.000000e-04 (VOLT)
+* COMMENT           : 
+* SENSITIVITY       : 1.000000e-04 (VOLT)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

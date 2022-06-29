@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : GAV
+* LOCATION    : 
+* CHANNEL     : ELE
+* CREATED     : 2021-03-24T22:43:21.705143Z
+* START       : 2000-10-03T12:09:28.000000Z
+* END         : 2007-01-09T18:30:00.000000Z
+* DESCRIPTION : Glen Avon
+* LATITUDE    : 34.02248
+* LONGITUDE   : -117.50492
+* ELEVATION   : 262.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 7139640.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 7.142853e+06
+
+
+

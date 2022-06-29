@@ -1,0 +1,37 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): KNW
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HLE
+* CREATED           : 2022-06-01T18:43:38
+* START             : 2003-09-17T00:00:00
+* END               : 
+* DESCRIPTION       : Keenwild Fire Station, Mountain Center, CA, USA
+* LATITUDE          : 33.714100
+* LONGITUDE         : -116.711899
+* ELEVATION         : 1507.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : -
+* INSTGAIN          : 1.020180e+00 (M/S**2)
+* COMMENT           : 
+* SENSITIVITY       : 5.369350e+05 (M/S**2)
+* A0                : 2.459570e+13
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	4
+	-9.810000e+02	+1.009000e+03	
+	-9.810000e+02	-1.009000e+03	
+	-3.290000e+03	+1.263000e+03	
+	-3.290000e+03	-1.263000e+03	
+CONSTANT	1.320629e+19
+
+
+
+

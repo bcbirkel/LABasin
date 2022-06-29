@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SIO
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2021-03-24T23:09:30.153204Z
+* START       : 2001-05-04T00:00:00.000000Z
+* END         : 2008-06-17T16:23:23.000000Z
+* DESCRIPTION : Saticoy
+* LATITUDE    : 34.293
+* LONGITUDE   : -119.1646
+* ELEVATION   : 78.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 170.734 (M/S)
+* SENSITIVITY : 11457800000.0 (M/S)
+* A0          : 1.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 1.145780e+10
+
+
+

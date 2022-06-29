@@ -1,0 +1,37 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5330
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2021-03-24T22:26:49
+* START             : 1999-11-10T18:00:00
+* END               : 2007-04-05T18:00:00
+* DESCRIPTION       : CA:SBD;FS 09
+* LATITUDE          : 34.103480
+* LONGITUDE         : -117.348950
+* ELEVATION         : 364.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 360.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : 
+* INSTTYPE          : Episensor
+* INSTGAIN          : 1.270000e-01 (M/S**2)
+* COMMENT           : 
+* SENSITIVITY       : 4.261410e+05 (M/S**2)
+* A0                : 2.459570e+13
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	4
+	-9.810020e+02	+1.009000e+03	
+	-9.810020e+02	-1.009000e+03	
+	-3.289990e+03	+1.263020e+03	
+	-3.289990e+03	-1.263020e+03	
+CONSTANT	1.048124e+19
+
+
+
+

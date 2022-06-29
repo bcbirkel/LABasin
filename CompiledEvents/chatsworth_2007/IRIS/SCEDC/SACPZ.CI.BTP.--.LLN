@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : BTP
+* LOCATION    : 
+* CHANNEL     : LLN
+* CREATED     : 2022-06-01T19:26:53.368205Z
+* START       : 2006-04-23T00:15:34.000000Z
+* END         : 2008-05-08T22:06:44.000000Z
+* DESCRIPTION : Burnt Peak
+* LATITUDE    : 34.68224
+* LONGITUDE   : -118.57398
+* ELEVATION   : 1702.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0204 (M/S**2)
+* SENSITIVITY : 428841.0 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.054764e+19
+
+
+

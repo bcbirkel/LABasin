@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 34093
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2021-01-25T00:18:54.517797Z
+* START       : 2007-06-25T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Mojave - Hwys 14 & 58
+* LATITUDE    : 35.0697
+* LONGITUDE   : -118.1759
+* ELEVATION   : 865.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 340707.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.677360e+02 +4.533050e+02
+ -3.677360e+02 -4.533050e+02
+CONSTANT 7.293855e+10
+
+
+

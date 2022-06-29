@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24592
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:12:29.967267Z
+* START       : 1990-09-10T00:00:00.000000Z
+* END         : 2011-03-17T00:00:00.000000Z
+* DESCRIPTION : Los Angeles - City Terrace
+* LATITUDE    : 34.053
+* LONGITUDE   : -118.171
+* ELEVATION   : 184.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.128 (M/S**2)
+* SENSITIVITY : 104.858 (M/S**2)
+* A0          : 102675.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.018790e+02 +2.488540e+02
+ -2.018790e+02 -2.488540e+02
+CONSTANT 1.076630e+07
+
+
+

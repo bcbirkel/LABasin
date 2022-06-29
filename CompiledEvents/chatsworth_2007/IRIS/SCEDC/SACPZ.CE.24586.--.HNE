@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24586
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:17:06.723912Z
+* START       : 1991-02-25T00:00:00.000000Z
+* END         : 2008-11-18T00:00:00.000000Z
+* DESCRIPTION : Neenach - Sacatara Creek
+* LATITUDE    : 34.848
+* LONGITUDE   : -118.536
+* ELEVATION   : 937.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1273 (M/S**2)
+* SENSITIVITY : 104.284 (M/S**2)
+* A0          : 115118.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.375040e+02 +2.423030e+02
+ -2.375040e+02 -2.423030e+02
+CONSTANT 1.200497e+07
+
+
+

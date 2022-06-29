@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : LEV
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2021-03-24T22:47:04.641708Z
+* START       : 1996-06-13T00:00:00.000000Z
+* END         : 2007-01-31T14:30:00.000000Z
+* DESCRIPTION : Leona Valley
+* LATITUDE    : 34.614048
+* LONGITUDE   : -118.289268
+* ELEVATION   : 933.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 170.734 (M/S)
+* SENSITIVITY : 11457800000.0 (M/S)
+* A0          : 1.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 1.145780e+10
+
+
+

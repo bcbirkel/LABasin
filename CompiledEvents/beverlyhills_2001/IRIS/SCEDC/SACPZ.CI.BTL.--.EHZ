@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : BTL
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2022-06-01T19:20:54.112710Z
+* START       : 1992-02-03T00:00:00.000000Z
+* END         : 2017-10-20T00:00:00.000000Z
+* DESCRIPTION : Butler Peak
+* LATITUDE    : 34.25698
+* LONGITUDE   : -117.00521
+* ELEVATION   : 2527.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 225775000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 2.258766e+08
+
+
+

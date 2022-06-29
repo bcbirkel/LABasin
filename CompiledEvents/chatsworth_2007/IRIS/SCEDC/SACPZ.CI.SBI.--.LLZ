@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SBI
+* LOCATION    : 
+* CHANNEL     : LLZ
+* CREATED     : 2022-06-01T20:01:32.739354Z
+* START       : 2003-07-16T00:00:00.000000Z
+* END         : 2008-06-12T04:53:56.000000Z
+* DESCRIPTION : Santa Barbara Island
+* LATITUDE    : 33.48046
+* LONGITUDE   : -119.02986
+* ELEVATION   : 41.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0185 (M/S**2)
+* SENSITIVITY : 427189.0 (M/S**2)
+* A0          : 24595600000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.050697e+19
+
+
+

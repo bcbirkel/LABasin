@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : DLA
+* LOCATION    : 
+* CHANNEL     : LLN
+* CREATED     : 2022-06-01T19:32:47.186493Z
+* START       : 2006-04-24T07:22:25.000000Z
+* END         : 2008-06-13T09:05:31.000000Z
+* DESCRIPTION : Del Amo
+* LATITUDE    : 33.84822
+* LONGITUDE   : -118.09624
+* ELEVATION   : 14.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0185 (M/S**2)
+* SENSITIVITY : 12.9093 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 3.175133e+14
+
+
+

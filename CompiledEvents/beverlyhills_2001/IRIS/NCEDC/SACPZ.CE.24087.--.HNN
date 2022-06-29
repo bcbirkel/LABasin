@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24087
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2022,152,11:49:32
+* START             : 1997,154,00:00:00
+* END               : 2008,350,00:00:00
+* DESCRIPTION       : Arleta - Nordhoff Ave Fire Sta
+* LATITUDE          : 34.236
+* LONGITUDE         : -118.439
+* ELEVATION         : 262
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144151E+05 (M/S**2)
+* A0                : 3.877029E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.98505E+02    +4.78439E+02
+        -3.98505E+02    -4.78439E+02
+CONSTANT        +8.312937E+10

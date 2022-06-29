@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : CJV
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2021-01-25T00:28:03.036426Z
+* START       : 1992-09-15T00:00:00.000000Z
+* END         : 2013-11-06T17:00:00.000000Z
+* DESCRIPTION : Casa Juvan
+* LATITUDE    : 34.52978
+* LONGITUDE   : -118.1445
+* ELEVATION   : 1296.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 113156000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 1.132069e+08
+
+
+

@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : CIS
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2021-03-24T22:37:24.151036Z
+* START       : 1995-09-08T00:00:00.000000Z
+* END         : 2001-11-15T00:00:00.000000Z
+* DESCRIPTION : Santa Catalina Isl
+* LATITUDE    : 33.40671
+* LONGITUDE   : -118.40417
+* ELEVATION   : 436.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 225775000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 2.258766e+08
+
+
+

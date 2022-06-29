@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : OLI
+* LOCATION    : 
+* CHANNEL     : HLE
+* CREATED     : 2021-03-24T22:56:06.437410Z
+* START       : 2001-09-07T00:00:00.000000Z
+* END         : 2006-05-05T22:35:00.000000Z
+* DESCRIPTION : Olinda
+* LATITUDE    : 33.94539
+* LONGITUDE   : -117.92372
+* ELEVATION   : 162.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0198 (M/S**2)
+* SENSITIVITY : 416984.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.025601e+19
+
+
+

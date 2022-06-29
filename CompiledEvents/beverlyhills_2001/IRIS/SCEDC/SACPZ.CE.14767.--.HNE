@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14767
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:03:46.649668Z
+* START       : 2004-03-05T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Los Angeles - Manchester & Osage
+* LATITUDE    : 33.9628
+* LONGITUDE   : -118.3804
+* ELEVATION   : 27.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0641 (M/S**2)
+* SENSITIVITY : 215086.0 (M/S**2)
+* A0          : 334868.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.877170e+02 +4.295910e+02
+ -3.877170e+02 -4.295910e+02
+CONSTANT 7.202542e+10
+
+
+

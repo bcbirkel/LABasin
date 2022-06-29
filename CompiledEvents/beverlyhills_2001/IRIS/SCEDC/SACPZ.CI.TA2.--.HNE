@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : TA2
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T20:09:46.747389Z
+* START       : 2008-06-03T18:53:58.000000Z
+* END         : 2008-10-22T16:50:00.000000Z
+* DESCRIPTION : Table Mountain
+* LATITUDE    : 34.38203
+* LONGITUDE   : -117.67822
+* ELEVATION   : 2249.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0213 (M/S**2)
+* SENSITIVITY : 417395.0 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.026612e+19
+
+
+

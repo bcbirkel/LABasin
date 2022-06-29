@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B081
+* LOCATION   (KHOLE): T0
+* CHANNEL   (KCMPNM): BS4
+* CREATED           : 2022-06-01T18:45:58
+* START             : 2006-06-15T00:00:00
+* END               : 
+* DESCRIPTION       : keenwi081bcs2006, Anza, CA, USA
+* LATITUDE          : 33.711166
+* LONGITUDE         : -116.714165
+* ELEVATION         : 1467.0
+* DEPTH             : 242.9
+* DIP               : 90.0
+* AZIMUTH           : 213.2
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : LINEAR STRESS M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : GLADWIN TENSOR STRAINMETER PBO 05-015
+* INSTGAIN          : 1.000000e-10 (M/M)
+* COMMENT           : 
+* SENSITIVITY       : 1.000000e-10 (M/M)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

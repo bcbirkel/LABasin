@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : RSS
+* LOCATION    : 
+* CHANNEL     : VHN
+* CREATED     : 2021-01-25T00:45:03.192210Z
+* START       : 1999-05-27T00:00:00.000000Z
+* END         : 2006-06-08T23:42:33.000000Z
+* DESCRIPTION : Riverside Surface
+* LATITUDE    : 33.97327
+* LONGITUDE   : -117.32674
+* ELEVATION   : 298.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 0.1
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 816.359 (M/S)
+* SENSITIVITY : 1341890000.0 (M/S)
+* A0          : 567353000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -1.490000e-01 +1.490000e-01
+ -1.490000e-01 -1.490000e-01
+ -1.000000e+03 +0.000000e+00
+ -5.020000e+02 +0.000000e+00
+ -1.130000e+03 +0.000000e+00
+CONSTANT 7.613253e+17
+
+
+

@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 655
+* LOCATION   (KHOLE): 0B
+* CHANNEL   (KCMPNM): HN3
+* CREATED           : 2022-06-01T18:56:33
+* START             : 2000-05-23T18:00:00
+* END               : 
+* DESCRIPTION       : CA:Granada Hills;Jensen Flt Pl
+* LATITUDE          : 34.311550
+* LONGITUDE         : -118.496510
+* ELEVATION         : 394.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 112.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics FBA-23 Accel.
+* INSTGAIN          : 1.280000e-01 (M/S**2)
+* COMMENT           : 
+* SENSITIVITY       : 4.294967e+05 (M/S**2)
+* A0                : 1.479865e+08
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	3
+	-2.221000e+02	+2.221000e+02	
+	-2.221000e+02	-2.221000e+02	
+	-1.500000e+03	+0.000000e+00	
+CONSTANT	6.355973e+13
+
+
+
+

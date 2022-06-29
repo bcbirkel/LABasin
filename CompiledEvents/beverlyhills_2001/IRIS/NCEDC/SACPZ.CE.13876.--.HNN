@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13876
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2022,152,11:48:10
+* START             : 2008,039,00:00:00
+* END               : 2009,008,00:00:00
+* DESCRIPTION       : Newport Beach - Balboa & Medina
+* LATITUDE          : 33.604
+* LONGITUDE         : -117.905
+* ELEVATION         : 2
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 3.473424E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.83086E+02    +4.47877E+02
+        -3.83086E+02    -4.47877E+02
+CONSTANT        +7.424236E+10

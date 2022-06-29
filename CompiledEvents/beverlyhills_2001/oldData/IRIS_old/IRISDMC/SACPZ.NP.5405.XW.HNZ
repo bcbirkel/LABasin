@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5405
+* LOCATION   (KHOLE): XW
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2021-03-24T22:26:54
+* START             : 1997-09-15T18:00:00
+* END               : 2003-11-19T18:00:00
+* DESCRIPTION       : CA:LA;UCLA Factor Bld
+* LATITUDE          : 34.066780
+* LONGITUDE         : -118.441994
+* ELEVATION         : 122.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : FBA-11
+* INSTGAIN          : 2.550000e-01 (M/S**2)
+* COMMENT           : 
+* SENSITIVITY       : 8.557800e+05 (M/S**2)
+* A0                : 1.479870e+08
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	3
+	-2.221000e+02	+2.221000e+02	
+	-2.221000e+02	-2.221000e+02	
+	-1.500000e+03	+0.000000e+00	
+CONSTANT	1.266443e+14
+
+
+
+

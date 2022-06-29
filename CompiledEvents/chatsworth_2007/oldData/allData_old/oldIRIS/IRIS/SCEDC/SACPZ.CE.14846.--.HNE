@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14846
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2021-01-25T00:07:47.698843Z
+* START       : 2000-11-16T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Carson - Main & Sepulveda
+* LATITUDE    : 33.8108
+* LONGITUDE   : -118.2769
+* ELEVATION   : 12.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0639 (M/S**2)
+* SENSITIVITY : 214415.0 (M/S**2)
+* A0          : 348085.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.952940e+02 +4.379860e+02
+ -3.952940e+02 -4.379860e+02
+CONSTANT 7.463465e+10
+
+
+

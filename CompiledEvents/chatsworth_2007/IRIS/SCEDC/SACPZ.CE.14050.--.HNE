@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14050
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:10:04.281773Z
+* START       : 2003-03-20T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Torrance - Carson & Hawthorne
+* LATITUDE    : 33.8337
+* LONGITUDE   : -118.3559
+* ELEVATION   : 22.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 391627.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.130310e+02 +4.701460e+02
+ -4.130310e+02 -4.701460e+02
+CONSTANT 8.383951e+10
+
+
+

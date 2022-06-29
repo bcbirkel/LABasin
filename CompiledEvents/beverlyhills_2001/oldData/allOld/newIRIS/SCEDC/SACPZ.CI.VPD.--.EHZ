@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : VPD
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2021-03-13T08:27:33.001503Z
+* START       : 1971-09-05T00:00:00.000000Z
+* END         : 2001-11-13T20:46:07.000000Z
+* DESCRIPTION : Villa Park Dam
+* LATITUDE    : 33.81596
+* LONGITUDE   : -117.76338
+* ELEVATION   : 147.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 113156000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 1.132069e+08
+
+
+

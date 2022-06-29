@@ -1,0 +1,38 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : OSI
+* LOCATION    : 
+* CHANNEL     : VMN
+* CREATED     : 2021-01-25T00:35:45.320525Z
+* START       : 1995-06-28T00:00:00.000000Z
+* END         : 2002-07-15T23:54:00.000000Z
+* DESCRIPTION : Osito Audit: Castaic Lake
+* LATITUDE    : 34.6145
+* LONGITUDE   : -118.7235
+* ELEVATION   : 718.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 0.1
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 60.0 (M/S**2)
+* SENSITIVITY : 12363.6 (M/S**2)
+* A0          : 24751.0
+* **************************************************
+ZEROS 4
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ +0.000000e+00 +0.000000e+00
+ -1.234120e-02 +1.234150e-02
+ -1.234120e-02 -1.234150e-02
+ -3.917570e+01 +4.912340e+01
+ -3.917570e+01 -4.912340e+01
+CONSTANT 3.060115e+08
+
+
+

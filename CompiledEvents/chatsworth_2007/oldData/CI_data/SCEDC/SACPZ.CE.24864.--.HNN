@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24864
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-26T01:36:35.088221Z
+* START       : 2003-02-27T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Somis - Somis Rd
+* LATITUDE    : 34.2565
+* LONGITUDE   : -118.9958
+* ELEVATION   : 91.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0637 (M/S**2)
+* SENSITIVITY : 213744.0 (M/S**2)
+* A0          : 363070.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.976880e+02 +4.526810e+02
+ -3.976880e+02 -4.526810e+02
+CONSTANT 7.760403e+10
+
+
+

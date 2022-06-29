@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : PASC
+* LOCATION    : 00
+* CHANNEL     : LNE
+* CREATED     : 2022-06-01T19:49:59.276608Z
+* START       : 2007-06-21T22:00:00.000000Z
+* END         : 2007-10-23T16:00:00.000000Z
+* DESCRIPTION : Art Center College of Design (GSN-affiliate)
+* LATITUDE    : 34.17141
+* LONGITUDE   : -118.18523
+* ELEVATION   : 341.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.535325 (M/S**2)
+* SENSITIVITY : 224531.0 (M/S**2)
+* A0          : 15358600000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -7.155900e+02 -1.193660e+03
+ -7.155900e+02 +1.193660e+03
+ +5.614800e+02 -2.759390e+03
+ +5.614800e+02 +2.759390e+03
+CONSTANT 3.448482e+18
+
+
+

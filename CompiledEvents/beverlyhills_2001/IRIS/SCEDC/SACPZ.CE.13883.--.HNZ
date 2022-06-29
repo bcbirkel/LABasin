@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13883
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2022-06-01T19:00:22.970730Z
+* START       : 2003-01-07T00:00:00.000000Z
+* END         : 2009-10-27T00:00:00.000000Z
+* DESCRIPTION : Anaheim - Kraemer & La Palma
+* LATITUDE    : 33.853
+* LONGITUDE   : -117.857
+* ELEVATION   : 67.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0639 (M/S**2)
+* SENSITIVITY : 214415.0 (M/S**2)
+* A0          : 357036.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.824200e+02 +4.591280e+02
+ -3.824200e+02 -4.591280e+02
+CONSTANT 7.655387e+10
+
+
+

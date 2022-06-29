@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : PSR
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2022-06-01T19:54:20.556690Z
+* START       : 2007-06-13T20:58:00.000000Z
+* END         : 2010-11-10T17:20:00.000000Z
+* DESCRIPTION : Puddingstone
+* LATITUDE    : 34.09181
+* LONGITUDE   : -117.80709
+* ELEVATION   : 305.0
+* DEPTH       : 1.5
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 356.8
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0205 (M/S**2)
+* SENSITIVITY : 428027.0 (M/S**2)
+* A0          : 24595600000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.052758e+19
+
+
+

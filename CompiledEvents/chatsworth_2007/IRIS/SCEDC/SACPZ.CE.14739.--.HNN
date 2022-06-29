@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14739
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2022-06-01T19:10:45.514323Z
+* START       : 2002-10-10T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : El Segundo - Sepulveda & Imperial
+* LATITUDE    : 33.927
+* LONGITUDE   : -118.389
+* ELEVATION   : 31.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1277 (M/S**2)
+* SENSITIVITY : 104.612 (M/S**2)
+* A0          : 102676.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.050830e+02 +2.462200e+02
+ -2.050830e+02 -2.462200e+02
+CONSTANT 1.074114e+07
+
+
+

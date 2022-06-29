@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14035
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2020-08-26T01:27:39.113867Z
+* START       : 2003-04-17T00:00:00.000000Z
+* END         : 2014-02-24T00:00:00.000000Z
+* DESCRIPTION : Culver City - Sepulveda & Sawtelle
+* LATITUDE    : 33.9927
+* LONGITUDE   : -118.3963
+* ELEVATION   : 2.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 359294.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.956140e+02 +4.503210e+02
+ -3.956140e+02 -4.503210e+02
+CONSTANT 7.691766e+10
+
+
+

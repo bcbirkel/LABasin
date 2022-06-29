@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): KNW
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): VM2
+* CREATED           : 2022-06-01T18:43:41
+* START             : 2006-10-24T00:00:00
+* END               : 2010-08-08T20:14:59
+* DESCRIPTION       : Keenwild Fire Station, Mountain Center, CA, USA
+* LATITUDE          : 33.714100
+* LONGITUDE         : -116.711900
+* ELEVATION         : 1507.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.1
+* INPUT UNIT        : VOLT
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Below 100 Composite
+* INSTGAIN          : 
+* COMMENT           : 
+* SENSITIVITY       : 1.000000e+01 (V)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

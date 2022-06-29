@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24399
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2022,152,11:49:40
+* START             : 2005,223,00:00:00
+* END               : 2013,232,00:00:00
+* DESCRIPTION       : Mt. Wilson - Caltech Seismic Station
+* LATITUDE          : 34.2236
+* LONGITUDE         : -118.0582
+* ELEVATION         : 1721
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 90
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.385108E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.72367E+02    +4.47058E+02
+        -3.72367E+02    -4.47058E+02
+CONSTANT        +7.246826E+10

@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): BBA
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2021-03-24T22:27:10
+* START             : 2001-01-18T00:00:00
+* END               : 2002-08-05T00:00:00
+* DESCRIPTION       : BBA, Burbank Airport, CA, USA
+* LATITUDE          : 34.195511
+* LONGITUDE         : -118.353401
+* ELEVATION         : 182.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : L4
+* INSTGAIN          : 7.331350e+01 (M/S)
+* COMMENT           : 
+* SENSITIVITY       : 2.459990e+08 (M/S)
+* A0                : 1.367890e+00
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	2
+	-5.026500e+00	+3.769870e+00	
+	-5.026500e+00	-3.769870e+00	
+CONSTANT	3.364996e+08
+
+
+
+

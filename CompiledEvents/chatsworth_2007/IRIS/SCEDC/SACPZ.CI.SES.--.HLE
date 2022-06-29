@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SES
+* LOCATION    : 
+* CHANNEL     : HLE
+* CREATED     : 2022-06-01T20:03:13.231985Z
+* START       : 2006-06-16T21:45:54.000000Z
+* END         : 2008-06-03T00:21:40.000000Z
+* DESCRIPTION : Summit Elementary School
+* LATITUDE    : 34.43692
+* LONGITUDE   : -119.1375
+* ELEVATION   : 480.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0193 (M/S**2)
+* SENSITIVITY : 520018.0 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.279021e+19
+
+
+

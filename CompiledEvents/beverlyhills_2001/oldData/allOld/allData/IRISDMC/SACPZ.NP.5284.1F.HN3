@@ -1,0 +1,33 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5284
+* LOCATION   (KHOLE): 1F
+* CHANNEL   (KCMPNM): HN3
+* CREATED           : 2021-03-13T07:31:48
+* START             : 1991-08-20T18:00:00
+* END               : 2011-03-09T18:00:00
+* DESCRIPTION       : CA:LA;1955 1/2 Purdue Ave
+* LATITUDE          : 34.039980
+* LONGITUDE         : -118.446290
+* ELEVATION         : 62.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 235.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNT
+* INSTTYPE          : SMA
+* INSTGAIN          : 1.840000e+00 (M/S**2)
+* COMMENT           : 
+* SENSITIVITY       : 1.840000e+00 (M/S**2)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	0
+CONSTANT	1.840000e+00
+
+
+
+

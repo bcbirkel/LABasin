@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24088
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2021,024,15:52:35
+* START             : 2004,176,00:00:00
+* END               : 2011,220,00:00:00
+* DESCRIPTION       : Pacoima - Kagel Canyon Fire Sta
+* LATITUDE          : 34.296
+* LONGITUDE         : -118.375
+* ELEVATION         : 451
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.400000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.147507E+05 (M/S**2)
+* A0                : 3.326870E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.69150E+02    +4.43196E+02
+        -3.69150E+02    -4.43196E+02
+CONSTANT        +7.144475E+10

@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24945
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2021,024,15:53:00
+* START             : 1999,334,00:00:00
+* END               : 2015,223,00:00:00
+* DESCRIPTION       : Glendale - Brand Blvd & Stocker
+* LATITUDE          : 34.1632
+* LONGITUDE         : -118.2554
+* ELEVATION         : 174
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.363230E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.82759E+02    +4.35687E+02
+        -3.82759E+02    -4.35687E+02
+CONSTANT        +7.199989E+10

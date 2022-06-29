@@ -1,0 +1,32 @@
+* **********************************
+* NETWORK   (KNETWK): NN
+* STATION    (KSTNM): MNA
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020,049,08:33:16
+* START             : 2001,228,00:00:00
+* END               : 2010,301,20:56:00
+* DESCRIPTION       : Mina Nev.
+* LATITUDE          : 38.432835
+* LONGITUDE         : -118.15667
+* ELEVATION         : 1524
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 50
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : SL210/220
+* INSTGAIN          : 2.700000E+01 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.151591E+08 (M/S)
+* A0                : 9.999531E-01
+* **********************************
+ZEROS   3
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -2.19911E-01    +2.24355E-01
+        -2.19911E-01    -2.24355E-01
+CONSTANT        +2.151490E+08

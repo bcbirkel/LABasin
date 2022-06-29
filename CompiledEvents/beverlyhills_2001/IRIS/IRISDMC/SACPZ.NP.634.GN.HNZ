@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 634
+* LOCATION   (KHOLE): GN
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2022-06-01T18:45:36
+* START             : 1997-10-02T18:00:00
+* END               : 2018-01-01T18:00:00
+* DESCRIPTION       : CA:Norwalk;12400 Imperial Hwy
+* LATITUDE          : 33.916790
+* LONGITUDE         : -118.067560
+* ELEVATION         : 32.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : SMA
+* INSTGAIN          : 
+* COMMENT           : 
+* SENSITIVITY       : 1.750000e+00 (M/S**2)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

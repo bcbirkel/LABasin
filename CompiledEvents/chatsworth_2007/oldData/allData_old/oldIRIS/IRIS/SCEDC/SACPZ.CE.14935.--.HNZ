@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14935
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2021-01-25T00:08:49.476635Z
+* START       : 2002-05-29T00:00:00.000000Z
+* END         : 2018-03-20T00:00:00.000000Z
+* DESCRIPTION : Carson - Victoria & Avalon
+* LATITUDE    : 33.8675
+* LONGITUDE   : -118.2618
+* ELEVATION   : 23.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0639 (M/S**2)
+* SENSITIVITY : 214415.0 (M/S**2)
+* A0          : 407513.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.213250e+02 +4.795870e+02
+ -4.213250e+02 -4.795870e+02
+CONSTANT 8.737690e+10
+
+
+

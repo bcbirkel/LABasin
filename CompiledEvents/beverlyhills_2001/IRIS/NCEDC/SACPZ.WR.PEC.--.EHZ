@@ -1,0 +1,32 @@
+* **********************************
+* NETWORK   (KNETWK): WR
+* STATION    (KSTNM): PEC
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): EHZ
+* CREATED           : 2022,152,11:50:14
+* START             : 1971,334,00:00:00
+* END               : 2009,213,00:00:00
+* DESCRIPTION       : Perris Dam Park & rec
+* LATITUDE          : 33.891956
+* LONGITUDE         : -117.161354
+* ELEVATION         : 603
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 100
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : SS-1
+* INSTGAIN          : 3.400000E+02 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : -2.211268E+09 (M/S)
+* A0                : 9.998500E-01
+* **********************************
+ZEROS   3
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.39823E+00    +4.48709E+00
+        -4.39823E+00    -4.48709E+00
+CONSTANT        -2.210936E+09

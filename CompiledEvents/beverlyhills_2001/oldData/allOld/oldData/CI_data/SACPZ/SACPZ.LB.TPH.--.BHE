@@ -1,0 +1,39 @@
+* **********************************
+* NETWORK   (KNETWK): LB
+* STATION    (KSTNM): TPH
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHE
+* CREATED           : 2020-02-18T16:32:50
+* START             : 1996-12-23T00:00:00
+* END               : 2013-11-21T19:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 38.075001
+* LONGITUDE         : -117.222504
+* ELEVATION         : 1883.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3ESP_60sec/Quanterra 330 Linear Phase Be
+* INSTGAIN          : 2.023080e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 8.485420e+08 (M)
+* A0                : 5.714050e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-7.402000e-02	+7.402000e-02	
+	-7.402000e-02	-7.402000e-02	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	4.848611e+17
+
+
+
+

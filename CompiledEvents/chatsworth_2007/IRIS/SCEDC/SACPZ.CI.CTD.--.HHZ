@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : CTD
+* LOCATION    : 
+* CHANNEL     : HHZ
+* CREATED     : 2022-06-01T19:30:11.465443Z
+* START       : 2007-07-26T19:00:00.000000Z
+* END         : 2011-04-04T15:38:00.000000Z
+* DESCRIPTION : Catalina Thompson
+* LATITUDE    : 33.35486
+* LONGITUDE   : -118.44436
+* ELEVATION   : 190.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 800.0 (M/S)
+* SENSITIVITY : 2684350000.0 (M/S)
+* A0          : 567325000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -1.490000e-01 +1.490000e-01
+ -1.490000e-01 -1.490000e-01
+ -1.000000e+03 +0.000000e+00
+ -5.020000e+02 +0.000000e+00
+ -1.130000e+03 +0.000000e+00
+CONSTANT 1.522899e+18
+
+
+

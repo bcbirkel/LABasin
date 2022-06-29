@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : LUG
+* LOCATION    : 
+* CHANNEL     : LNE
+* CREATED     : 2022-06-01T19:40:14.104375Z
+* START       : 2008-06-13T09:17:25.000000Z
+* END         : 2008-11-06T20:35:00.000000Z
+* DESCRIPTION : Lugo
+* LATITUDE    : 34.3656
+* LONGITUDE   : -117.36683
+* ELEVATION   : 1140.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.50938 (M/S**2)
+* SENSITIVITY : 263285.0 (M/S**2)
+* A0          : 163830000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 3
+ -2.115200e+02 +2.539400e+02
+ -2.115200e+02 -2.539400e+02
+ -1.500000e+03 +0.000000e+00
+CONSTANT 4.313398e+13
+
+
+

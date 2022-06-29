@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24856
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2021-01-25T00:15:33.454205Z
+* START       : 2003-02-27T00:00:00.000000Z
+* END         : 2017-08-21T00:00:00.000000Z
+* DESCRIPTION : Thousand Oaks - Hillcrest & McCloud
+* LATITUDE    : 34.1849
+* LONGITUDE   : -118.8851
+* ELEVATION   : 220.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 389269.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.993090e+02 +4.794050e+02
+ -3.993090e+02 -4.794050e+02
+CONSTANT 8.333471e+10
+
+
+

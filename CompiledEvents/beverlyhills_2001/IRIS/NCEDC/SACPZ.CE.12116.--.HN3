@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 12116
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HN3
+* CREATED           : 2022,152,11:47:49
+* START             : 2002,298,00:00:00
+* END               : 2016,273,00:00:00
+* DESCRIPTION       : Idyllwild - Hwy 243 & Pine Crest
+* LATITUDE          : 33.7471
+* LONGITUDE         : -116.7152
+* ELEVATION         : 1635
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 126
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.390000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.144151E+05 (M/S**2)
+* A0                : 3.451231E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.75986E+02    +4.51403E+02
+        -3.75986E+02    -4.51403E+02
+CONSTANT        +7.399961E+10

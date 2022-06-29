@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5396
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2022-06-01T18:55:48
+* START             : 1996-08-28T18:00:00
+* END               : 2009-08-15T18:00:00
+* DESCRIPTION       : CA:LA;Acosta Res
+* LATITUDE          : 34.072870
+* LONGITUDE         : -118.177410
+* ELEVATION         : 202.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 270.0
+* SAMPLE RATE       : 200.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics FBA-23 Accel.
+* INSTGAIN          : 1.270000e-01 (M/S**2)
+* COMMENT           : 
+* SENSITIVITY       : 4.262120e+05 (M/S**2)
+* A0                : 1.479865e+08
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	3
+	-2.221000e+02	+2.221000e+02	
+	-2.221000e+02	-2.221000e+02	
+	-1.500000e+03	+0.000000e+00	
+CONSTANT	6.307364e+13
+
+
+
+

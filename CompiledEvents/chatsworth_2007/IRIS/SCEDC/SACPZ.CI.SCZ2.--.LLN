@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SCZ2
+* LOCATION    : 
+* CHANNEL     : LLN
+* CREATED     : 2022-06-01T20:02:18.090490Z
+* START       : 2004-06-24T19:02:00.000000Z
+* END         : 2008-04-17T00:00:00.000000Z
+* DESCRIPTION : Santa Cruz Island 2
+* LATITUDE    : 33.99543
+* LONGITUDE   : -119.6351
+* ELEVATION   : 440.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0214 (M/S**2)
+* SENSITIVITY : 428407.0 (M/S**2)
+* A0          : 24595600000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.053693e+19
+
+
+

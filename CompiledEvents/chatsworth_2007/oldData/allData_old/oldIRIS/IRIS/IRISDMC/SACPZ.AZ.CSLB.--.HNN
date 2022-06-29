@@ -1,0 +1,37 @@
+* **********************************
+* NETWORK   (KNETWK): AZ
+* STATION    (KSTNM): CSLB
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2021-01-24T23:49:56
+* START             : 2003-01-01T00:00:00
+* END               : 2010-07-12T23:59:59
+* DESCRIPTION       : Cal State Long Beach, Long Beach, CA, USA
+* LATITUDE          : 33.779300
+* LONGITUDE         : -118.112600
+* ELEVATION         : 17.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Episensor 200 Hz 1.25 Volt per g/Etna Datalogger
+* INSTGAIN          : 1.260220e-01 (M/S**2)
+* COMMENT           : 
+* SENSITIVITY       : 4.228610e+05 (M/S**2)
+* A0                : 2.459560e+13
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	4
+	-9.810000e+02	+1.009000e+03	
+	-9.810000e+02	-1.009000e+03	
+	-3.290000e+03	+1.263000e+03	
+	-3.290000e+03	-1.263000e+03	
+CONSTANT	1.040052e+19
+
+
+
+

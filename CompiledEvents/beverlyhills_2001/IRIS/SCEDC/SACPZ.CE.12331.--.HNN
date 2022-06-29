@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 12331
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2022-06-01T18:58:24.154269Z
+* START       : 1997-09-10T00:00:00.000000Z
+* END         : 2015-12-15T00:00:00.000000Z
+* DESCRIPTION : Hemet - Stetson Ave Fire Station
+* LATITUDE    : 33.7289
+* LONGITUDE   : -116.9797
+* ELEVATION   : 480.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.064 (M/S**2)
+* SENSITIVITY : 214751.0 (M/S**2)
+* A0          : 340708.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.735730e+02 +4.485070e+02
+ -3.735730e+02 -4.485070e+02
+CONSTANT 7.316738e+10
+
+
+

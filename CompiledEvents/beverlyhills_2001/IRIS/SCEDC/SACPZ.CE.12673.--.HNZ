@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 12673
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2022-06-01T18:58:24.167184Z
+* START       : 2002-05-10T00:00:00.000000Z
+* END         : 2009-04-09T00:00:00.000000Z
+* DESCRIPTION : San Jacinto - CDF Fire Station
+* LATITUDE    : 33.787
+* LONGITUDE   : -116.958
+* ELEVATION   : 475.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1281 (M/S**2)
+* SENSITIVITY : 104.94 (M/S**2)
+* A0          : 103889.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.095130e+02 +2.449480e+02
+ -2.095130e+02 -2.449480e+02
+CONSTANT 1.090211e+07
+
+
+

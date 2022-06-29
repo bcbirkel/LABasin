@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 13849
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020,238,18:15:06
+* START             : 2003,008,00:00:00
+* END               : 2014,335,00:00:00
+* DESCRIPTION       : Anaheim - Lakeview & Riverdale
+* LATITUDE          : 33.8534
+* LONGITUDE         : -117.818
+* ELEVATION         : 78
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 90
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 3.436481E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.75182E+02    +4.50438E+02
+        -3.75182E+02    -4.50438E+02
+CONSTANT        +7.345274E+10

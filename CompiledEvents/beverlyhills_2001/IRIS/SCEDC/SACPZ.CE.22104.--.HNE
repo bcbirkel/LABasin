@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 22104
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:06:07.228507Z
+* START       : 1992-07-02T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Heart Bar State Park
+* LATITUDE    : 34.1582
+* LONGITUDE   : -116.7983
+* ELEVATION   : 2035.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1266 (M/S**2)
+* SENSITIVITY : 103.711 (M/S**2)
+* A0          : 107975.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.004520e+02 +2.603910e+02
+ -2.004520e+02 -2.603910e+02
+CONSTANT 1.119820e+07
+
+
+

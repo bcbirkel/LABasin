@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13197
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2021-01-25T00:03:00.939675Z
+* START       : 1997-09-16T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Huntington Beach - Lake St Fire Station
+* LATITUDE    : 33.6623
+* LONGITUDE   : -117.9974
+* ELEVATION   : 11.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0636 (M/S**2)
+* SENSITIVITY : 213408.0 (M/S**2)
+* A0          : 347343.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.889790e+02 +4.427680e+02
+ -3.889790e+02 -4.427680e+02
+CONSTANT 7.412577e+10
+
+
+

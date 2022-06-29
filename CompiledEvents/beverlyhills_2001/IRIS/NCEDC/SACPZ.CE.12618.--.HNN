@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 12618
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2022,152,11:47:52
+* START             : 1995,073,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : San Jacinto - Soboba A
+* LATITUDE          : 33.801
+* LONGITUDE         : -116.877
+* ELEVATION         : 650
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 180
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 1.280000E-01 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 1.048576E+02 (M/S**2)
+* A0                : 1.006748E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -2.09419E+02    +2.38377E+02
+        -2.09419E+02    -2.38377E+02
+CONSTANT        +1.055651E+07

@@ -1,0 +1,37 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5403
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2022-06-01T18:55:49
+* START             : 2006-03-27T18:00:00
+* END               : 2014-03-25T18:00:00
+* DESCRIPTION       : CA:Ventura;Oakview PacBell Fac
+* LATITUDE          : 34.396970
+* LONGITUDE         : -119.298740
+* ELEVATION         : 158.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : K2 Episensor
+* INSTGAIN          : 1.270000e-01 (M/S**2)
+* COMMENT           : 
+* SENSITIVITY       : 4.262120e+05 (M/S**2)
+* A0                : 2.459569e+13
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	4
+	-9.810020e+02	+1.008998e+03	
+	-9.810020e+02	-1.008998e+03	
+	-3.289993e+03	+1.263020e+03	
+	-3.289993e+03	-1.263020e+03	
+CONSTANT	1.048298e+19
+
+
+
+

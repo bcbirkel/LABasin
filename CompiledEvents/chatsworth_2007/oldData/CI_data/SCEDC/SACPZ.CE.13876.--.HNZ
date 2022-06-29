@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13876
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2020-08-26T01:26:24.414440Z
+* START       : 2003-01-09T00:00:00.000000Z
+* END         : 2008-02-08T00:00:00.000000Z
+* DESCRIPTION : Newport Beach - Balboa & Medina
+* LATITUDE    : 33.604
+* LONGITUDE   : -117.905
+* ELEVATION   : 2.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0641 (M/S**2)
+* SENSITIVITY : 215086.0 (M/S**2)
+* A0          : 371447.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.022500e+02 +4.578730e+02
+ -4.022500e+02 -4.578730e+02
+CONSTANT 7.989305e+10
+
+
+

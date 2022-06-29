@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : LGU
+* LOCATION    : 
+* CHANNEL     : HLZ
+* CREATED     : 2021-03-24T22:49:08.215228Z
+* START       : 1999-06-13T00:00:00.000000Z
+* END         : 2004-04-22T02:07:00.000000Z
+* DESCRIPTION : Laguna Peak
+* LATITUDE    : 34.10819
+* LONGITUDE   : -119.06587
+* ELEVATION   : 416.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0211 (M/S**2)
+* SENSITIVITY : 435476.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.071084e+19
+
+
+

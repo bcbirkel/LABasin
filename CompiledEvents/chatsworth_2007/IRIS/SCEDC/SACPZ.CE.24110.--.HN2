@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24110
+* LOCATION    : 
+* CHANNEL     : HN2
+* CREATED     : 2022-06-01T19:15:42.857959Z
+* START       : 2002-02-08T00:00:00.000000Z
+* END         : 2015-08-11T00:00:00.000000Z
+* DESCRIPTION : Temple City - Las Tunas & Kauffman
+* LATITUDE    : 34.1086
+* LONGITUDE   : -118.0578
+* ELEVATION   : 123.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 352.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0637 (M/S**2)
+* SENSITIVITY : 213744.0 (M/S**2)
+* A0          : 342181.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.977760e+02 +4.289030e+02
+ -3.977760e+02 -4.289030e+02
+CONSTANT 7.313914e+10
+
+
+

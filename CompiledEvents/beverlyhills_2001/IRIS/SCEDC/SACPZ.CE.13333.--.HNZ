@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13333
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2022-06-01T19:00:22.924276Z
+* START       : 1998-10-20T00:00:00.000000Z
+* END         : 2021-10-12T00:00:00.000000Z
+* DESCRIPTION : Oceanside B - Fire Station
+* LATITUDE    : 33.201
+* LONGITUDE   : -117.331
+* ELEVATION   : 29.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.1277 (M/S**2)
+* SENSITIVITY : 104.612 (M/S**2)
+* A0          : 106743.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -2.091040e+02 +2.510480e+02
+ -2.091040e+02 -2.510480e+02
+CONSTANT 1.116660e+07
+
+
+

@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14176
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2022-06-01T19:03:46.613491Z
+* START       : 2005-10-18T00:00:00.000000Z
+* END         : 2017-08-18T00:00:00.000000Z
+* DESCRIPTION : Southgate - Atlantic & Southern
+* LATITUDE    : 33.948
+* LONGITUDE   : -118.1837
+* ELEVATION   : 25.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214077.0 (M/S**2)
+* A0          : 377600.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.055670e+02 +4.616490e+02
+ -4.055670e+02 -4.616490e+02
+CONSTANT 8.083548e+10
+
+
+

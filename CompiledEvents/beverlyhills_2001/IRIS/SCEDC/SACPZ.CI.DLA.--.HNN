@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : DLA
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2022-06-01T19:29:40.853368Z
+* START       : 2008-06-13T09:05:31.000000Z
+* END         : 2011-01-13T20:00:00.000000Z
+* DESCRIPTION : Del Amo
+* LATITUDE    : 33.84822
+* LONGITUDE   : -118.09624
+* ELEVATION   : 14.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0185 (M/S**2)
+* SENSITIVITY : 513320.0 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.262546e+19
+
+
+

@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13877
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:07:53.733607Z
+* START       : 2003-01-29T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Newport Beach - Balboa Island
+* LATITUDE    : 33.6054
+* LONGITUDE   : -117.8896
+* ELEVATION   : 1.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0639 (M/S**2)
+* SENSITIVITY : 214415.0 (M/S**2)
+* A0          : 349569.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.902240e+02 +4.441840e+02
+ -3.902240e+02 -4.441840e+02
+CONSTANT 7.495284e+10
+
+
+

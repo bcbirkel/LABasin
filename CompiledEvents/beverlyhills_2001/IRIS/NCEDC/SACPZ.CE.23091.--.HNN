@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23091
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2022,152,11:48:58
+* START             : 2004,222,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Mira Loma - Mission & San Sevaine
+* LATITUDE          : 34.0135
+* LONGITUDE         : -117.5106
+* ELEVATION         : 235
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.400000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.147507E+05 (M/S**2)
+* A0                : 3.495688E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.90224E+02    +4.44184E+02
+        -3.90224E+02    -4.44184E+02
+CONSTANT        +7.507014E+10

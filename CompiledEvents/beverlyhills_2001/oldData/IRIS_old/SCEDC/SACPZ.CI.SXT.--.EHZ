@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SXT
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2021-03-24T23:15:26.096358Z
+* START       : 1994-02-02T00:00:00.000000Z
+* END         : 2001-11-15T00:00:00.000000Z
+* DESCRIPTION : Sexton Canyon
+* LATITUDE    : 34.3379
+* LONGITUDE   : -119.2148
+* ELEVATION   : 488.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 113156000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 1.132069e+08
+
+
+

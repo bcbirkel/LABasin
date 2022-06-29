@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : LEO
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2020-08-26T01:57:52.159314Z
+* START       : 2000-10-03T12:09:28.000000Z
+* END         : 2012-10-17T19:24:50.000000Z
+* DESCRIPTION : Leona Valley
+* LATITUDE    : 34.63064
+* LONGITUDE   : -118.30505
+* ELEVATION   : 1025.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 225775000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 2.258766e+08
+
+
+

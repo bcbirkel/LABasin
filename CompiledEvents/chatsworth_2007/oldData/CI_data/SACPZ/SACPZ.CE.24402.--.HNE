@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 24402
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2020,238,18:16:02
+* START             : 2001,130,00:00:00
+* END               : 3000,001,00:00:00
+* DESCRIPTION       : Altadena - Eaton Canyon Park
+* LATITUDE          : 34.1769
+* LONGITUDE         : -118.0972
+* ELEVATION         : 295
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 90
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.350000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.130729E+05 (M/S**2)
+* A0                : 3.691533E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.01005E+02    +4.56457E+02
+        -4.01005E+02    -4.56457E+02
+CONSTANT        +7.865657E+10

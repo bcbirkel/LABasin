@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23138
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:07:50.309017Z
+* START       : 2005-06-21T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Fontana - Citrus & Baseline
+* LATITUDE    : 34.1247
+* LONGITUDE   : -117.454
+* ELEVATION   : 433.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0637 (M/S**2)
+* SENSITIVITY : 213744.0 (M/S**2)
+* A0          : 385361.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.097140e+02 +4.663700e+02
+ -4.097140e+02 -4.663700e+02
+CONSTANT 8.236860e+10
+
+
+

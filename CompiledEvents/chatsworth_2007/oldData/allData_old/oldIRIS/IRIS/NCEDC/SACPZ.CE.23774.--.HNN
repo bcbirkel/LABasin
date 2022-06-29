@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 23774
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNN
+* CREATED           : 2021,024,15:52:22
+* START             : 2004,218,00:00:00
+* END               : 2008,325,00:00:00
+* DESCRIPTION       : West Covina - I10 & Pacific Ave
+* LATITUDE          : 34.073
+* LONGITUDE         : -117.939
+* ELEVATION         : 113
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 360
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.370000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.137440E+05 (M/S**2)
+* A0                : 3.783723E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.05982E+02    +4.62121E+02
+        -4.05982E+02    -4.62121E+02
+CONSTANT        +8.087481E+10

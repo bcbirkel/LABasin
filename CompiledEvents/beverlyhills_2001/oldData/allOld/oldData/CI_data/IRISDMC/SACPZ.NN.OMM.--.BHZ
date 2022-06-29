@@ -1,0 +1,150 @@
+* **********************************
+* NETWORK   (KNETWK): NN
+* STATION    (KSTNM): OMM
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:51
+* START             : 2005-08-19T23:01:00
+* END               : 2006-03-01T23:16:00
+* DESCRIPTION       : 
+* LATITUDE          : 37.612301
+* LONGITUDE         : -119.000397
+* ELEVATION         : 2750.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3ESP_30sec/Reftek 72A-08 Datalogger
+* INSTGAIN          : 2.023030e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 1.064750e+09 (M)
+* A0                : 5.714210e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.486000e-01	+1.486000e-01	
+	-1.486000e-01	-1.486000e-01	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	6.084205e+17
+
+
+* **********************************
+* NETWORK   (KNETWK): NN
+* STATION    (KSTNM): OMM
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:51
+* START             : 2000-09-30T00:00:00
+* END               : 2005-08-19T23:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 37.612301
+* LONGITUDE         : -119.000397
+* ELEVATION         : 2750.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3ESP_30sec/Reftek 72A-08 Datalogger
+* INSTGAIN          : 2.022940e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 1.064700e+09 (M)
+* A0                : 5.714460e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.486000e-01	+1.486000e-01	
+	-1.486000e-01	-1.486000e-01	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	6.084186e+17
+
+
+* **********************************
+* NETWORK   (KNETWK): NN
+* STATION    (KSTNM): OMM
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:51
+* START             : 2000-07-31T22:01:00
+* END               : 2000-09-29T23:59:00
+* DESCRIPTION       : 
+* LATITUDE          : 37.612301
+* LONGITUDE         : -119.000397
+* ELEVATION         : 2750.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3ESP_30sec/Reftek 72A-08 Datalogger
+* INSTGAIN          : 2.022940e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 1.064700e+09 (M)
+* A0                : 5.714460e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.486000e-01	+1.486000e-01	
+	-1.486000e-01	-1.486000e-01	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	6.084186e+17
+
+
+* **********************************
+* NETWORK   (KNETWK): NN
+* STATION    (KSTNM): OMM
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020-02-18T16:32:51
+* START             : 2000-07-12T00:00:00
+* END               : 2000-07-31T22:00:00
+* DESCRIPTION       : 
+* LATITUDE          : 37.612301
+* LONGITUDE         : -119.000397
+* ELEVATION         : 2750.0
+* DEPTH             : 0.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG3ESP_30sec/Reftek 72A-08 Datalogger
+* INSTGAIN          : 2.022940e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 3.407050e+10 (M)
+* A0                : 5.714460e+08
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-1.486000e-01	+1.486000e-01	
+	-1.486000e-01	-1.486000e-01	
+	-5.027000e+02	+0.000000e+00	
+	-1.005000e+03	+0.000000e+00	
+	-1.131000e+03	+0.000000e+00	
+CONSTANT	1.946945e+19
+
+
+
+

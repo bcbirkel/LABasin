@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SJU
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2021-03-13T08:18:24.629257Z
+* START       : 1996-05-18T00:00:00.000000Z
+* END         : 2001-12-01T00:00:00.000000Z
+* DESCRIPTION : San Juan Capistrano
+* LATITUDE    : 33.48725
+* LONGITUDE   : -117.68114
+* ELEVATION   : -3.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 170.734 (M/S)
+* SENSITIVITY : 11457800000.0 (M/S)
+* A0          : 1.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 1.145780e+10
+
+
+

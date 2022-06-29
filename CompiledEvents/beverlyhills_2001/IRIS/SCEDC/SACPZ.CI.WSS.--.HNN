@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : WSS
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2022-06-01T20:14:44.446197Z
+* START       : 2008-06-03T18:55:26.000000Z
+* END         : 2009-05-06T17:30:00.000000Z
+* DESCRIPTION : West Side
+* LATITUDE    : 34.1717
+* LONGITUDE   : -118.64971
+* ELEVATION   : 316.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0202 (M/S**2)
+* SENSITIVITY : 538045.0 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.323359e+19
+
+
+

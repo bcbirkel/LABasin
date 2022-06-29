@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B093
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): QRT
+* CREATED           : 2022-06-01T18:46:11
+* START             : 2007-09-21T00:00:00
+* END               : 
+* DESCRIPTION       : trippf093bcs2007, Anza, CA, USA
+* LATITUDE          : 33.593690
+* LONGITUDE         : -116.764100
+* ELEVATION         : 1229.6
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 0.05
+* INPUT UNIT        : SECOND
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Quanterra 330 Linear Phase Composite
+* INSTGAIN          : 
+* COMMENT           : 
+* SENSITIVITY       : 1.000000e+00 (S)
+* A0                : 0.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

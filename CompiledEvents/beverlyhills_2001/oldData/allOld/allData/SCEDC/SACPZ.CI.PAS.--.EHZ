@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : PAS
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2021-03-13T08:05:52.965406Z
+* START       : 2001-01-01T00:00:00.000000Z
+* END         : 2006-10-30T22:18:00.000000Z
+* DESCRIPTION : Pasadena
+* LATITUDE    : 34.14844
+* LONGITUDE   : -118.17117
+* ELEVATION   : 257.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 113156000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 1.132069e+08
+
+
+

@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : GVR
+* LOCATION    : 
+* CHANNEL     : ELN
+* CREATED     : 2022-06-01T19:32:53.447486Z
+* START       : 2000-10-03T12:09:28.000000Z
+* END         : 2011-12-06T22:00:00.000000Z
+* DESCRIPTION : Garvey
+* LATITUDE    : 34.04972
+* LONGITUDE   : -118.11995
+* ELEVATION   : 141.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 3578290.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 3.579900e+06
+
+
+

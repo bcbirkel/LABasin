@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13849
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2021-01-25T00:02:21.945379Z
+* START       : 2003-01-08T00:00:00.000000Z
+* END         : 2014-12-01T00:00:00.000000Z
+* DESCRIPTION : Anaheim - Lakeview & Riverdale
+* LATITUDE    : 33.8534
+* LONGITUDE   : -117.818
+* ELEVATION   : 78.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0636 (M/S**2)
+* SENSITIVITY : 213408.0 (M/S**2)
+* A0          : 342179.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.919260e+02 +4.342550e+02
+ -3.919260e+02 -4.342550e+02
+CONSTANT 7.302374e+10
+
+
+

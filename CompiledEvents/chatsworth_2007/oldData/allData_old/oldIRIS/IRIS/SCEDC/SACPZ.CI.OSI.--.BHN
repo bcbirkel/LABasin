@@ -1,0 +1,36 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : OSI
+* LOCATION    : 
+* CHANNEL     : BHN
+* CREATED     : 2021-01-25T00:49:41.934784Z
+* START       : 2004-04-22T02:14:00.000000Z
+* END         : 2010-03-30T19:20:00.000000Z
+* DESCRIPTION : Osito Audit: Castaic Lake
+* LATITUDE    : 34.6145
+* LONGITUDE   : -118.7235
+* ELEVATION   : 718.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 2298.14 (M/S)
+* SENSITIVITY : 942087000.0 (M/S)
+* A0          : 3935.58
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -1.234120e-02 +1.234150e-02
+ -1.234120e-02 -1.234150e-02
+ -3.917570e+01 +4.912340e+01
+ -3.917570e+01 -4.912340e+01
+CONSTANT 3.707659e+12
+
+
+

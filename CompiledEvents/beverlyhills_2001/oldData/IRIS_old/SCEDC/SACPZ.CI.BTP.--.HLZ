@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : BTP
+* LOCATION    : 
+* CHANNEL     : HLZ
+* CREATED     : 2021-03-24T22:34:51.970680Z
+* START       : 1997-12-03T00:00:00.000000Z
+* END         : 2002-10-02T00:00:00.000000Z
+* DESCRIPTION : Burnt Peak
+* LATITUDE    : 34.68224
+* LONGITUDE   : -118.57398
+* ELEVATION   : 1702.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.51015 (M/S**2)
+* SENSITIVITY : 206052.0 (M/S**2)
+* A0          : 148032000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 3
+ -2.010600e+02 +2.413900e+02
+ -2.010600e+02 -2.413900e+02
+ -1.500000e+03 +0.000000e+00
+CONSTANT 3.050229e+13
+
+
+

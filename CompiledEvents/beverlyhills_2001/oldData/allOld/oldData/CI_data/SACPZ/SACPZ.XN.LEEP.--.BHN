@@ -1,0 +1,39 @@
+* **********************************
+* NETWORK   (KNETWK): XN
+* STATION    (KSTNM): LEEP
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): BHN
+* CREATED           : 2020-02-18T16:32:55
+* START             : 2001-06-24T00:00:00
+* END               : 2002-10-13T23:59:59
+* DESCRIPTION       : 
+* LATITUDE          : 35.992901
+* LONGITUDE         : -120.506599
+* ELEVATION         : 1022.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 40.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : sts2_vel:RT72A-08:b
+* INSTGAIN          : 1.500270e+03 (M)
+* COMMENT           : 
+* SENSITIVITY       : 7.896160e+08 (M)
+* A0                : 5.918920e+07
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	5
+	-3.701000e-02	+3.701000e-02	
+	-3.701000e-02	-3.701000e-02	
+	-2.513000e+02	+0.000000e+00	
+	-1.310000e+02	+4.673000e+02	
+	-1.310000e+02	-4.673000e+02	
+CONSTANT	4.673674e+16
+
+
+
+

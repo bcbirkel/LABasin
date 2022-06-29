@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13921
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:01:40.198265Z
+* START       : 2002-12-02T00:00:00.000000Z
+* END         : 2016-08-03T00:00:00.000000Z
+* DESCRIPTION : Riverside - Limonite & Downey
+* LATITUDE    : 33.9753
+* LONGITUDE   : -117.4865
+* ELEVATION   : 213.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0637 (M/S**2)
+* SENSITIVITY : 213744.0 (M/S**2)
+* A0          : 400324.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.112660e+02 +4.808230e+02
+ -4.112660e+02 -4.808230e+02
+CONSTANT 8.556685e+10
+
+
+

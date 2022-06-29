@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13068
+* LOCATION    : 
+* CHANNEL     : HNZ
+* CREATED     : 2021-01-25T00:01:20.614912Z
+* START       : 2002-10-23T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Anaheim - Hwy 91 & Weir Cyn Rd
+* LATITUDE    : 33.8633
+* LONGITUDE   : -117.7421
+* ELEVATION   : 162.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0639 (M/S**2)
+* SENSITIVITY : 214415.0 (M/S**2)
+* A0          : 336326.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.001570e+02 +4.197650e+02
+ -4.001570e+02 -4.197650e+02
+CONSTANT 7.211334e+10
+
+
+

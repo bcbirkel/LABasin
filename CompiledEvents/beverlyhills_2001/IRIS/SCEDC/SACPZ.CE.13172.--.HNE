@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 13172
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T18:59:46.402871Z
+* START       : 2002-01-15T00:00:00.000000Z
+* END         : 2009-08-11T00:00:00.000000Z
+* DESCRIPTION : Temecula - 6th & Mercedes
+* LATITUDE    : 33.496
+* LONGITUDE   : -117.149
+* ELEVATION   : 310.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 339244.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.844180e+02 +4.375760e+02
+ -3.844180e+02 -4.375760e+02
+CONSTANT 7.262536e+10
+
+
+

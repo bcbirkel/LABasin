@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23077
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2021-01-25T00:08:49.501395Z
+* START       : 2006-10-31T00:00:00.000000Z
+* END         : 2015-09-17T00:00:00.000000Z
+* DESCRIPTION : Montclair - Mission & Monte Vista
+* LATITUDE    : 34.0574
+* LONGITUDE   : -117.6976
+* ELEVATION   : 281.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 348085.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.952940e+02 +4.379860e+02
+ -3.952940e+02 -4.379860e+02
+CONSTANT 7.451804e+10
+
+
+

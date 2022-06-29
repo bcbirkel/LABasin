@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14831
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNZ
+* CREATED           : 2022,152,11:58:30
+* START             : 2005,244,00:00:00
+* END               : 2016,209,00:00:00
+* DESCRIPTION       : Lomita - Narbonne & Pacific Coast Hwy
+* LATITUDE          : 33.7918
+* LONGITUDE         : -118.3203
+* ELEVATION         : 32
+* DEPTH             : 0
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 3.645864E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.98517E+02    +4.53625E+02
+        -3.98517E+02    -4.53625E+02
+CONSTANT        +7.805050E+10

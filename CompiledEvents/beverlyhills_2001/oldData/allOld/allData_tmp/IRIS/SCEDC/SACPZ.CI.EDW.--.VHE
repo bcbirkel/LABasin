@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : EDW
+* LOCATION    : 
+* CHANNEL     : VHE
+* CREATED     : 2021-01-25T00:19:02.640348Z
+* START       : 1997-02-06T00:00:00.000000Z
+* END         : 2002-10-07T17:30:00.000000Z
+* DESCRIPTION : Edwards Air Force Base
+* LATITUDE    : 34.88303
+* LONGITUDE   : -117.99106
+* ELEVATION   : 789.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 0.1
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 812.16 (M/S)
+* SENSITIVITY : 1318940000.0 (M/S)
+* A0          : 567353000.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -1.490000e-01 +1.490000e-01
+ -1.490000e-01 -1.490000e-01
+ -1.000000e+03 +0.000000e+00
+ -5.020000e+02 +0.000000e+00
+ -1.130000e+03 +0.000000e+00
+CONSTANT 7.483046e+17
+
+
+

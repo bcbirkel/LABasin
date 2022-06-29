@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : QUG
+* LOCATION    : 
+* CHANNEL     : LNZ
+* CREATED     : 2022-06-01T19:55:08.272614Z
+* START       : 2008-05-30T20:21:14.000000Z
+* END         : 2010-08-04T17:00:00.000000Z
+* DESCRIPTION : Quigley Station
+* LATITUDE    : 34.39558
+* LONGITUDE   : -118.49837
+* ELEVATION   : 515.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0202 (M/S**2)
+* SENSITIVITY : 9.84161 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 2.420613e+14
+
+
+

@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 14820
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNE
+* CREATED           : 2022,152,11:58:26
+* START             : 2003,107,00:00:00
+* END               : 2012,311,00:00:00
+* DESCRIPTION       : Los Angeles - 54th & Crenshaw
+* LATITUDE          : 33.9934
+* LONGITUDE         : -118.3425
+* ELEVATION         : 85
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 90
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.380000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.140796E+05 (M/S**2)
+* A0                : 4.319346E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.33766E+02    +4.93748E+02
+        -4.33766E+02    -4.93748E+02
+CONSTANT        +9.246838E+10

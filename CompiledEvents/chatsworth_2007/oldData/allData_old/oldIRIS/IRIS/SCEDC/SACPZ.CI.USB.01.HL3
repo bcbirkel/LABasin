@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : USB
+* LOCATION    : 01
+* CHANNEL     : HL3
+* CREATED     : 2021-01-25T01:12:33.407813Z
+* START       : 2001-12-18T00:00:00.000000Z
+* END         : 2008-06-17T16:23:23.000000Z
+* DESCRIPTION : UC Santa Barbara
+* LATITUDE    : 34.413
+* LONGITUDE   : -119.8427
+* ELEVATION   : 14.0
+* DEPTH       : 75.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 84.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.25492 (M/S**2)
+* SENSITIVITY : 855369.0 (M/S**2)
+* A0          : 162593000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 3
+ -2.140100e+02 +2.502000e+02
+ -2.140100e+02 -2.502000e+02
+ -1.500000e+03 +0.000000e+00
+CONSTANT 1.390770e+14
+
+
+

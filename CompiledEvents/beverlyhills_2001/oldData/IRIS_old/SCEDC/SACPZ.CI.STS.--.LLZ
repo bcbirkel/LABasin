@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : STS
+* LOCATION    : 
+* CHANNEL     : LLZ
+* CREATED     : 2021-03-24T23:15:26.046389Z
+* START       : 1999-05-20T00:00:00.000000Z
+* END         : 2006-06-16T21:51:41.000000Z
+* DESCRIPTION : State Street
+* LATITUDE    : 33.79033
+* LONGITUDE   : -118.19878
+* ELEVATION   : 4.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0204 (M/S**2)
+* SENSITIVITY : 424019.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.042904e+19
+
+
+

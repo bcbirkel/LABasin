@@ -1,0 +1,37 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : SBB2
+* LOCATION    : 
+* CHANNEL     : BHE
+* CREATED     : 2022-06-01T19:59:55.341021Z
+* START       : 2006-08-16T06:38:40.000000Z
+* END         : 2010-09-02T17:30:00.000000Z
+* DESCRIPTION : Saddleback Butte State Park
+* LATITUDE    : 34.68844
+* LONGITUDE   : -117.82424
+* ELEVATION   : 825.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 40.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1500.0 (M/S)
+* SENSITIVITY : 796140000.0 (M/S)
+* A0          : 48627500.0
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 5
+ -3.702370e-02 +3.702440e-02
+ -3.702370e-02 -3.702440e-02
+ -1.187520e+02 +4.234880e+02
+ -1.187520e+02 -4.234880e+02
+ -2.513270e+02 +0.000000e+00
+CONSTANT 3.871430e+16
+
+
+

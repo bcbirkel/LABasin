@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : LTP
+* LOCATION    : 
+* CHANNEL     : LLZ
+* CREATED     : 2021-03-24T22:51:22.467063Z
+* START       : 2000-07-25T00:00:00.000000Z
+* END         : 2004-01-28T00:00:00.000000Z
+* DESCRIPTION : Lighthipe
+* LATITUDE    : 33.8811
+* LONGITUDE   : -118.17568
+* ELEVATION   : 20.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0201 (M/S**2)
+* SENSITIVITY : 536672.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.319982e+19
+
+
+

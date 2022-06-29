@@ -1,0 +1,32 @@
+* **********************************
+* NETWORK   (KNETWK): BK
+* STATION    (KSTNM): BRIB
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2020,049,08:33:10
+* START             : 2000,355,00:01:00
+* END               : 2003,070,21:57:00
+* DESCRIPTION       : Briones Reserve, Orinda, CA, USA
+* LATITUDE          : 37.91881
+* LONGITUDE         : -122.15176
+* ELEVATION         : 218.9
+* DEPTH             : 3.3
+* DIP               : 0
+* AZIMUTH           : 0
+* SAMPLE RATE       : 20
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Guralp CMG-3 Broad Band Seismometer
+* INSTGAIN          : 5.802000E+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.343271E+09 (M/S)
+* A0                : 1.000000E+00
+* **********************************
+ZEROS   3
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -4.44284E-02    +4.44293E-02
+        -4.44284E-02    -4.44293E-02
+CONSTANT        +2.343271E+09

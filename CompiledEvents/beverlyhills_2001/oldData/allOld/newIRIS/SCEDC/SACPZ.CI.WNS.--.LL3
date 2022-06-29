@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : WNS
+* LOCATION    : 
+* CHANNEL     : LL3
+* CREATED     : 2021-03-13T08:30:06.462496Z
+* START       : 2000-12-12T00:00:00.000000Z
+* END         : 2003-11-06T18:23:00.000000Z
+* DESCRIPTION : Wonderland Avenue School
+* LATITUDE    : 34.115
+* LONGITUDE   : -118.38
+* ELEVATION   : 306.1
+* DEPTH       : 60.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0181 (M/S**2)
+* SENSITIVITY : 419958.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.032916e+19
+
+
+

@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24039
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2021-01-25T00:11:31.216997Z
+* START       : 2003-04-09T00:00:00.000000Z
+* END         : 2019-09-19T00:00:00.000000Z
+* DESCRIPTION : Los Angeles - Vernon & Hoover
+* LATITUDE    : 34.004
+* LONGITUDE   : -118.287
+* ELEVATION   : 49.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0641 (M/S**2)
+* SENSITIVITY : 215086.0 (M/S**2)
+* A0          : 367629.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.062390e+02 +4.501140e+02
+ -4.062390e+02 -4.501140e+02
+CONSTANT 7.907185e+10
+
+
+

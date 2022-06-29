@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : WR
+* STATION     : CSP
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2022-06-01T20:15:35.707794Z
+* START       : 1970-01-30T00:00:00.000000Z
+* END         : 2011-11-17T19:00:00.000000Z
+* DESCRIPTION : Cedar Springs Dam
+* LATITUDE    : 34.297974
+* LONGITUDE   : -117.35833
+* ELEVATION   : 1282.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 340.0 (M/S)
+* SENSITIVITY : -2211270000.0 (M/S)
+* A0          : 0.99985
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.398230e+00 +4.487090e+00
+ -4.398230e+00 -4.487090e+00
+CONSTANT -2.210938e+09
+
+
+

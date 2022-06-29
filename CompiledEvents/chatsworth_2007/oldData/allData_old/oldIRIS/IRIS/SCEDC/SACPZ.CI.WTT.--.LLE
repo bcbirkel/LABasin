@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : WTT
+* LOCATION    : 
+* CHANNEL     : LLE
+* CREATED     : 2021-01-25T01:18:11.611380Z
+* START       : 2006-07-08T02:07:19.000000Z
+* END         : 2008-06-03T18:55:34.000000Z
+* DESCRIPTION : Watts
+* LATITUDE    : 33.94869
+* LONGITUDE   : -118.25547
+* ELEVATION   : 37.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.0216 (M/S**2)
+* SENSITIVITY : 440614.0 (M/S**2)
+* A0          : 2.45957e+13
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 1.083721e+19
+
+
+

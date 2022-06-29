@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24401
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2021-01-25T00:05:27.566288Z
+* START       : 1997-10-27T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : San Marino - Southwestern Academy
+* LATITUDE    : 34.1152
+* LONGITUDE   : -118.1314
+* ELEVATION   : 171.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 357790.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.007670e+02 +4.440500e+02
+ -4.007670e+02 -4.440500e+02
+CONSTANT 7.659568e+10
+
+
+

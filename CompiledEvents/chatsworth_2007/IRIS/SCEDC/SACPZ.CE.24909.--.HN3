@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24909
+* LOCATION    : 
+* CHANNEL     : HN3
+* CREATED     : 2022-06-01T19:19:27.464109Z
+* START       : 2002-05-08T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Los Angeles - I10/405 Interchange Grnds
+* LATITUDE    : 34.0294
+* LONGITUDE   : -118.4353
+* ELEVATION   : 42.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 59.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 383801.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.026890e+02 +4.707960e+02
+ -4.026890e+02 -4.707960e+02
+CONSTANT 8.216412e+10
+
+
+

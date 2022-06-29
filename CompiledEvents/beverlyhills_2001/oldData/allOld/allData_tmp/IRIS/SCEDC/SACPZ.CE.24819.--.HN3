@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24819
+* LOCATION    : 
+* CHANNEL     : HN3
+* CREATED     : 2021-01-25T00:07:08.600372Z
+* START       : 2001-01-31T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Los Angeles - Veteran & Wilshire
+* LATITUDE    : 34.0598
+* LONGITUDE   : -118.4491
+* ELEVATION   : 98.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 57.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0637 (M/S**2)
+* SENSITIVITY : 213744.0 (M/S**2)
+* A0          : 366865.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.937040e+02 +4.602910e+02
+ -3.937040e+02 -4.602910e+02
+CONSTANT 7.841519e+10
+
+
+

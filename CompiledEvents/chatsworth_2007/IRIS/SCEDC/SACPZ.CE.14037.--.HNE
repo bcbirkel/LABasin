@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14037
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:10:04.262518Z
+* START       : 2003-03-20T00:00:00.000000Z
+* END         : 3000-01-01T00:00:00.000000Z
+* DESCRIPTION : Torrance - Pac. Coast Hwy & Robinson
+* LATITUDE    : 33.7967
+* LONGITUDE   : -118.338
+* ELEVATION   : 36.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 376057.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.047380e+02 +4.607050e+02
+ -4.047380e+02 -4.607050e+02
+CONSTANT 8.050628e+10
+
+
+

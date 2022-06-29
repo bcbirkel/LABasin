@@ -1,0 +1,31 @@
+* **********************************
+* NETWORK   (KNETWK): CE
+* STATION    (KSTNM): 25340
+* LOCATION   (KHOLE):   
+* CHANNEL   (KCMPNM): HNU
+* CREATED           : 2021,024,15:53:07
+* START             : 2001,180,00:00:00
+* END               : 2018,310,00:00:00
+* DESCRIPTION       : Ventura - Harbor & California
+* LATITUDE          : 34.2764
+* LONGITUDE         : -119.2944
+* ELEVATION         : 16
+* DEPTH             : 0
+* DIP               : 90
+* AZIMUTH           : 0
+* SAMPLE RATE       : 200
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Kinemetrics_FBA-11
+* INSTGAIN          : 6.360000E-02 (M/S**2)
+* COMMENT           : N/A
+* SENSITIVITY       : 2.134085E+05 (M/S**2)
+* A0                : 3.623136E+05
+* **********************************
+ZEROS   2
+        +0.00000E+00    +0.00000E+00
+        +0.00000E+00    +0.00000E+00
+POLES   2
+        -3.97273E+02    +4.52209E+02
+        -3.97273E+02    -4.52209E+02
+CONSTANT        +7.732080E+10

@@ -1,0 +1,30 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B093
+* LOCATION   (KHOLE): T0
+* CHANNEL   (KCMPNM): LS1
+* CREATED           : 2022-06-01T18:46:13
+* START             : 2007-09-20T00:00:00
+* END               : 
+* DESCRIPTION       : trippf093bcs2007, Anza, CA, USA
+* LATITUDE          : 33.593690
+* LONGITUDE         : -116.764100
+* ELEVATION         : 1229.6
+* DEPTH             : 144.8
+* DIP               : 90.0
+* AZIMUTH           : 339.0
+* SAMPLE RATE       : 1.0
+* INPUT UNIT        : LINEAR STRESS M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : GLADWIN TENSOR STRAINMETER PBO 05-034
+* INSTGAIN          : 5.000000e-11 (M/M)
+* COMMENT           : 
+* SENSITIVITY       : 5.000000e-11 (M/M)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	0
+POLES	0
+
+
+
+

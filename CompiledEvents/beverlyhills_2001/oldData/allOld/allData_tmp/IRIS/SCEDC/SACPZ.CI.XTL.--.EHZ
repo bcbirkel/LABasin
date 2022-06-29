@@ -1,0 +1,34 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : XTL
+* LOCATION    : 
+* CHANNEL     : EHZ
+* CREATED     : 2021-01-25T01:03:39.742262Z
+* START       : 1989-02-21T00:00:00.000000Z
+* END         : 2014-12-03T18:00:00.000000Z
+* DESCRIPTION : Crystal Lake
+* LATITUDE    : 34.29597
+* LONGITUDE   : -117.86223
+* ELEVATION   : 1643.0
+* DEPTH       : 0.0
+* DIP (SEED)  : -90.0
+* AZIMUTH     : 0.0
+* SAMPLE RATE : 100.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 100.24 (M/S)
+* SENSITIVITY : 511910000.0 (M/S)
+* A0          : 1.00045
+* **************************************************
+ZEROS 3
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -5.026500e+00 +3.769870e+00
+ -5.026500e+00 -3.769870e+00
+CONSTANT 5.121404e+08
+
+
+

@@ -1,0 +1,35 @@
+* **************************************************
+* NETWORK     : CI
+* STATION     : MUR
+* LOCATION    : 
+* CHANNEL     : LNE
+* CREATED     : 2022-06-01T19:43:43.921160Z
+* START       : 2008-05-30T02:28:17.000000Z
+* END         : 2009-05-13T18:45:00.000000Z
+* DESCRIPTION : Murrieta
+* LATITUDE    : 33.59999
+* LONGITUDE   : -117.19543
+* ELEVATION   : 562.0
+* DEPTH       : 3.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 1.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 1.019 (M/S**2)
+* SENSITIVITY : 13.0555 (M/S**2)
+* A0          : 24595700000000.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 4
+ -9.810000e+02 +1.009000e+03
+ -9.810000e+02 -1.009000e+03
+ -3.290000e+03 +1.263000e+03
+ -3.290000e+03 -1.263000e+03
+CONSTANT 3.211092e+14
+
+
+

@@ -1,0 +1,32 @@
+* **********************************
+* NETWORK   (KNETWK): PB
+* STATION    (KSTNM): B093
+* LOCATION   (KHOLE): TS
+* CHANNEL   (KCMPNM): RRO
+* CREATED           : 2022-06-01T18:46:19
+* START             : 2007-09-20T00:00:00
+* END               : 
+* DESCRIPTION       : trippf093bcs2007, Anza, CA, USA
+* LATITUDE          : 33.593690
+* LONGITUDE         : -116.764100
+* ELEVATION         : 1229.6
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 5.556E-4
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : TEXAS TE525
+* INSTGAIN          : 2.520000e-01 (MM/HOUR)
+* COMMENT           : 
+* SENSITIVITY       : 2.520000e-01 (MM/HOUR)
+* A0                : 1.000000e+00
+* **********************************
+ZEROS	1
+	+0.000000e+00	+0.000000e+00	
+POLES	0
+CONSTANT	7.000000e-14
+
+
+
+

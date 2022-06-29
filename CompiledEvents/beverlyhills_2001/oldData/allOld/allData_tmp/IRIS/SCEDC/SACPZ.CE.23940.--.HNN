@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 23940
+* LOCATION    : 
+* CHANNEL     : HNN
+* CREATED     : 2021-01-25T00:05:27.531237Z
+* START       : 2001-03-08T00:00:00.000000Z
+* END         : 2016-05-05T00:00:00.000000Z
+* DESCRIPTION : Pomona - Garey & Bonita
+* LATITUDE    : 34.0957
+* LONGITUDE   : -117.7452
+* ELEVATION   : 332.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 360.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0638 (M/S**2)
+* SENSITIVITY : 214080.0 (M/S**2)
+* A0          : 379920.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -4.068110e+02 +4.630650e+02
+ -4.068110e+02 -4.630650e+02
+CONSTANT 8.133327e+10
+
+
+

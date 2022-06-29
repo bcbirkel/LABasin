@@ -1,0 +1,36 @@
+* **********************************
+* NETWORK   (KNETWK): NP
+* STATION    (KSTNM): 5402
+* LOCATION   (KHOLE): 
+* CHANNEL   (KCMPNM): HLE
+* CREATED           : 2022-06-01T18:55:48
+* START             : 2004-07-15T00:00:00
+* END               : 2011-11-01T20:17:00
+* DESCRIPTION       : CA:Beverly Hills;PacBell Facil
+* LATITUDE          : 34.076180
+* LONGITUDE         : -118.395900
+* ELEVATION         : 39.0
+* DEPTH             : 0.0
+* DIP               : 90.0
+* AZIMUTH           : 90.0
+* SAMPLE RATE       : 100.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : 
+* INSTGAIN          : 1.250000e-01 (M/S**2)
+* COMMENT           : 
+* SENSITIVITY       : 4.194300e+05 (M/S**2)
+* A0                : 1.625927e+08
+* **********************************
+ZEROS	2
+	+0.000000e+00	+0.000000e+00	
+	+0.000000e+00	+0.000000e+00	
+POLES	3
+	-2.140100e+02	+2.502000e+02	
+	-2.140100e+02	-2.502000e+02	
+	-1.500000e+03	+0.000000e+00	
+CONSTANT	6.819627e+13
+
+
+
+

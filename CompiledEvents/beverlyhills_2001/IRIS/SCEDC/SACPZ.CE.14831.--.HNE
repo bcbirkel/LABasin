@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 14831
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2022-06-01T19:05:28.256712Z
+* START       : 2005-09-01T00:00:00.000000Z
+* END         : 2016-07-27T00:00:00.000000Z
+* DESCRIPTION : Lomita - Narbonne & Pacific Coast Hwy
+* LATITUDE    : 33.7918
+* LONGITUDE   : -118.3203
+* ELEVATION   : 32.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.0639 (M/S**2)
+* SENSITIVITY : 214415.0 (M/S**2)
+* A0          : 337782.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.835880e+02 +4.366320e+02
+ -3.835880e+02 -4.366320e+02
+CONSTANT 7.242553e+10
+
+
+

@@ -1,0 +1,33 @@
+* **************************************************
+* NETWORK     : CE
+* STATION     : 24691
+* LOCATION    : 
+* CHANNEL     : HNE
+* CREATED     : 2021-01-25T00:13:53.757790Z
+* START       : 2005-09-22T00:00:00.000000Z
+* END         : 2016-04-07T00:00:00.000000Z
+* DESCRIPTION : Pasadena - Fair Oaks & Walnut
+* LATITUDE    : 34.1491
+* LONGITUDE   : -118.1509
+* ELEVATION   : 260.0
+* DEPTH       : 0.0
+* DIP (SEED)  : 0.0
+* AZIMUTH     : 90.0
+* SAMPLE RATE : 200.0
+* INPUT UNIT  : M
+* OUTPUT UNIT : COUNTS
+* INSTTYPE    : None
+* INSTGAIN    : 0.064 (M/S**2)
+* SENSITIVITY : 214751.0 (M/S**2)
+* A0          : 350312.0
+* **************************************************
+ZEROS 2
+ +0.000000e+00 +0.000000e+00
+ +0.000000e+00 +0.000000e+00
+POLES 2
+ -3.906380e+02 +4.446560e+02
+ -3.906380e+02 -4.446560e+02
+CONSTANT 7.522985e+10
+
+
+
